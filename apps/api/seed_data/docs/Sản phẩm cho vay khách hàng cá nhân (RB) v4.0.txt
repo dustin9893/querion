@@ -1,0 +1,68 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG CÁ NHÂN
+CẨM NANG SẢN PHẨM CHO VAY KHÁCH HÀNG CÁ NHÂN (RB)
+Số hiệu: SP.RB.05 — Phiên bản: 4.0 — Hiệu lực từ: 01/06/2026
+Đơn vị ban hành: Khối Khách hàng Cá nhân — Phòng Phát triển sản phẩm tín dụng
+Phân loại: Tài liệu công khai — dùng cho tư vấn khách hàng
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB. Lãi suất, phí và điều kiện trong tài liệu là số liệu giả định. ***
+
+Điều 1. Danh mục sản phẩm
+1. Vay mua nhà, đất ở và xây sửa nhà (M-Home).
+2. Vay mua ô tô (M-Car).
+3. Vay sản xuất kinh doanh hộ gia đình, cá nhân (M-Business).
+4. Thấu chi tài khoản thanh toán (M-Overdraft).
+5. Vay tiêu dùng không tài sản bảo đảm (M-Cash).
+6. Vay cầm cố sổ tiết kiệm, chứng chỉ tiền gửi tại MSB (M-Deposit Loan).
+
+Điều 2. Vay mua nhà, đất ở và xây sửa nhà (M-Home)
+1. Mục đích: mua nhà ở, căn hộ chung cư, đất ở; xây mới, sửa chữa nhà ở; nhận chuyển nhượng dự án nhà ở hình thành trong tương lai do MSB liên kết.
+2. Mức cho vay: tối đa 80% giá trị tài sản bảo đảm theo định giá của MSB, và không vượt quá 80% giá trị hợp đồng mua bán.
+3. Thời hạn vay: tối đa 35 năm; tổng tuổi khách hàng cộng thời hạn vay không vượt 70.
+4. Lãi suất tham khảo: cố định 6,9%/năm trong 12 tháng đầu, 7,5%/năm trong 24 tháng đầu hoặc 8,2%/năm trong 36 tháng đầu; sau thời gian ưu đãi áp dụng lãi suất thả nổi bằng lãi suất cơ sở kỳ hạn 12 tháng cộng biên độ 3,5%/năm, điều chỉnh 3 tháng một lần.
+5. Phương thức trả nợ: gốc trả đều hàng tháng hoặc trả gốc tăng dần (annuity); lãi tính trên dư nợ giảm dần; ân hạn gốc tối đa 12 tháng đối với nhà hình thành trong tương lai.
+6. Hồ sơ: căn cước công dân, giấy xác nhận cư trú; chứng minh thu nhập (hợp đồng lao động và sao kê lương 3 tháng, hoặc hồ sơ kinh doanh); hồ sơ tài sản bảo đảm (giấy chứng nhận quyền sử dụng đất, hợp đồng mua bán); hồ sơ mục đích vay.
+
+Điều 3. Vay mua ô tô (M-Car)
+1. Mức cho vay: tối đa 75% giá trị xe mới; tối đa 70% giá trị định giá xe đã qua sử dụng không quá 5 năm.
+2. Thời hạn vay: tối đa 8 năm đối với xe mới, 5 năm đối với xe đã qua sử dụng.
+3. Lãi suất tham khảo: 7,2%/năm cố định 6 tháng đầu hoặc 8,0%/năm cố định 12 tháng đầu; sau đó lãi suất cơ sở cộng biên độ 3,8%/năm.
+4. Tài sản bảo đảm là chính chiếc xe mua; bắt buộc mua bảo hiểm vật chất xe toàn bộ thời hạn vay với người thụ hưởng là MSB.
+5. Thời gian phê duyệt mục tiêu: 8 giờ làm việc kể từ khi nhận đủ hồ sơ đối với xe mới mua tại đại lý liên kết.
+
+Điều 4. Vay sản xuất kinh doanh (M-Business)
+1. Đối tượng: cá nhân, chủ hộ kinh doanh có đăng ký kinh doanh hoặc hoạt động kinh doanh thực tế tối thiểu 12 tháng.
+2. Mức cho vay: theo nhu cầu vốn của phương án kinh doanh, tối đa 5 tỷ đồng, không vượt 70% giá trị tài sản bảo đảm.
+3. Thời hạn: vay từng lần tối đa 12 tháng đối với vốn lưu động; tối đa 5 năm đối với đầu tư tài sản cố định; hạn mức tín dụng cấp theo năm và tái cấp hàng năm.
+4. Lãi suất tham khảo: từ 8,5%/năm, xác định theo xếp hạng tín dụng nội bộ và loại tài sản bảo đảm.
+5. Hồ sơ: hồ sơ pháp lý cá nhân; giấy đăng ký kinh doanh hoặc chứng từ chứng minh hoạt động kinh doanh (sổ sách bán hàng, hoá đơn đầu vào, hợp đồng thuê mặt bằng); phương án vay vốn; hồ sơ tài sản bảo đảm.
+
+Điều 5. Thấu chi tài khoản thanh toán (M-Overdraft)
+1. Đối tượng: khách hàng nhận lương qua tài khoản MSB tối thiểu 3 tháng liên tiếp hoặc có tiền gửi tại MSB.
+2. Hạn mức thấu chi: tối đa 5 lần thu nhập bình quân tháng chuyển qua MSB, không vượt 200 triệu đồng đối với thấu chi không tài sản bảo đảm; tối đa 90% giá trị sổ tiết kiệm đối với thấu chi có bảo đảm bằng tiền gửi.
+3. Thời hạn hạn mức: 12 tháng, tự động xem xét gia hạn nếu khách hàng duy trì điều kiện.
+4. Lãi suất tham khảo: 16%/năm tính trên số tiền và số ngày thực tế sử dụng; không tính lãi khi không sử dụng hạn mức.
+5. Không thu phí duy trì hạn mức; không phạt trả nợ trước hạn.
+
+Điều 6. Vay tiêu dùng không tài sản bảo đảm (M-Cash)
+1. Đối tượng: cá nhân từ 22 đến 60 tuổi, thu nhập chuyển khoản tối thiểu 8 triệu đồng/tháng, có hợp đồng lao động không xác định thời hạn hoặc từ 12 tháng trở lên.
+2. Mức cho vay: tối đa 12 lần thu nhập tháng, không vượt 500 triệu đồng.
+3. Thời hạn: từ 6 đến 60 tháng, trả gốc và lãi đều hàng tháng.
+4. Lãi suất tham khảo: từ 16%/năm đến 22%/năm tuỳ nhóm khách hàng; khách hàng nhận lương qua MSB được giảm 2%/năm.
+5. Thời gian phê duyệt mục tiêu: 24 giờ làm việc với hồ sơ nộp online đầy đủ qua ứng dụng MSB mBank.
+
+Điều 7. Điều kiện chung
+1. Khách hàng là công dân Việt Nam từ 20 tuổi trở lên tại thời điểm vay và không quá 65 tuổi tại thời điểm kết thúc khoản vay (trừ M-Home áp dụng đến 70 tuổi).
+2. Không có nợ nhóm 2 trở lên tại bất kỳ tổ chức tín dụng nào theo tra cứu CIC trong 12 tháng gần nhất; không quá 3 lần chậm trả trong 12 tháng đối với thẻ tín dụng.
+3. Tổng nghĩa vụ trả nợ hàng tháng (bao gồm khoản vay đề nghị) không vượt 70% thu nhập ròng đã chứng minh.
+4. Mọi khoản vay đều phải qua thẩm định của MSB; việc đáp ứng điều kiện trong cẩm nang không đồng nghĩa với việc khoản vay chắc chắn được phê duyệt.
+
+Điều 8. Phí liên quan
+1. Phí trả nợ trước hạn: 2% số tiền trả trước trong 2 năm đầu; 1% trong năm thứ 3; miễn phí từ năm thứ 4 trở đi. Thấu chi và M-Deposit Loan không thu phí trả trước.
+2. Phí thẩm định tài sản bảo đảm: theo biểu phí của đơn vị định giá, tối thiểu 1.000.000 đồng đối với bất động sản; miễn phí định giá xe mua tại đại lý liên kết.
+3. Phí công chứng, đăng ký giao dịch bảo đảm: khách hàng chịu theo biểu phí của cơ quan có thẩm quyền.
+4. Phí phạt chậm trả: 150% lãi suất trong hạn tính trên số tiền và số ngày chậm trả theo quy định pháp luật.
+
+Điều 9. Lưu ý khi tư vấn khách hàng
+1. Mức lãi suất trong cẩm nang là lãi suất tham khảo tại thời điểm ban hành; lãi suất áp dụng thực tế theo thông báo lãi suất hiệu lực tại thời điểm giải ngân.
+2. Không cam kết kết quả phê duyệt, mức vay hoặc thời gian giải ngân cụ thể trước khi có quyết định của cấp phê duyệt.
+3. Khách hàng có thể đăng ký vay online trên ứng dụng MSB mBank hoặc tại chi nhánh; hồ sơ tài sản bảo đảm nộp bản chính tại chi nhánh.

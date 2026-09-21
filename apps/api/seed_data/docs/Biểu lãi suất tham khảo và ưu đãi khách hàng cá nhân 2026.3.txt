@@ -1,0 +1,67 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG CÁ NHÂN
+BIỂU LÃI SUẤT THAM KHẢO VÀ ƯU ĐÃI KHÁCH HÀNG CÁ NHÂN
+Số hiệu: LS.RB.2026.3 — Phiên bản: 2026.3 — Hiệu lực từ: 01/09/2026
+Đơn vị ban hành: Khối Khách hàng Cá nhân — Phòng Phát triển sản phẩm huy động và tín dụng
+Phân loại: Tài liệu công khai — dùng cho tư vấn và tự tra cứu của khách hàng
+Văn bản liên quan: SP.RB.05 (Cẩm nang sản phẩm cho vay KHCN), CN.SP.RB.02 (Cẩm nang tiết kiệm và thẻ)
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB. Lãi suất, phí và điều kiện trong tài liệu là số liệu giả định, chỉ mang tính minh hoạ. ***
+
+Điều 1. Bảng lãi suất tiết kiệm M-Saving (lãi cuối kỳ)
+1. Lãi suất niêm yết tại quầy, áp dụng cho tiền gửi bằng đồng Việt Nam, nhận lãi một lần khi đáo hạn:
+a) Kỳ hạn 1 tháng: 3,1%/năm; kỳ hạn 3 tháng: 3,4%/năm;
+b) Kỳ hạn 6 tháng: 4,6%/năm; kỳ hạn 9 tháng: 4,8%/năm;
+c) Kỳ hạn 12 tháng: 5,3%/năm; kỳ hạn 18 tháng: 5,5%/năm;
+d) Kỳ hạn 24 tháng: 5,7%/năm; kỳ hạn 36 tháng: 5,9%/năm.
+2. Gửi tiết kiệm online trên ứng dụng MSB mBank: cộng thêm 0,2%/năm so với lãi suất tại quầy cùng kỳ hạn nêu tại khoản 1, áp dụng cho mọi kỳ hạn.
+3. Tiết kiệm M-Flex (rút gốc linh hoạt): lãi suất kỳ hạn thấp hơn 0,3%/năm so với lãi suất M-Saving tại quầy cùng kỳ hạn nêu tại khoản 1; phần gốc rút trước hưởng lãi suất không kỳ hạn.
+4. Tiền gửi không kỳ hạn: 0,2%/năm, áp dụng cho số dư tài khoản thanh toán và phần gốc tất toán trước hạn của mọi sản phẩm tiết kiệm.
+
+Điều 2. Các gói vay mua nhà M-Home
+1. Lãi suất cố định ưu đãi ban đầu, khách hàng lựa chọn một trong ba mốc:
+a) Cố định 12 tháng đầu: 6,9%/năm;
+b) Cố định 24 tháng đầu: 7,5%/năm;
+c) Cố định 36 tháng đầu: 8,2%/năm.
+2. Sau thời gian ưu đãi, lãi suất thả nổi = lãi suất cơ sở (Điều 4) + biên độ 3,5%/năm, điều chỉnh 3 tháng một lần theo lãi suất cơ sở công bố tại thời điểm điều chỉnh.
+3. Thời hạn vay tối đa 35 năm; tổng tuổi khách hàng cộng thời hạn vay không vượt 70.
+4. Mức cho vay tối đa 80% giá trị tài sản bảo đảm hoặc giá trị hợp đồng mua bán, tùy giá trị nào thấp hơn.
+
+Điều 3. Gói vay mua ô tô M-Car
+1. Lãi suất cố định ưu đãi ban đầu: 6 tháng đầu 7,2%/năm; 12 tháng đầu 8,0%/năm.
+2. Sau thời gian ưu đãi, lãi suất thả nổi = lãi suất cơ sở (Điều 4) + biên độ 3,8%/năm.
+3. Thời hạn vay tối đa 8 năm đối với xe mới, 5 năm đối với xe đã qua sử dụng.
+
+Điều 4. Vay tiêu dùng tín chấp M-Cash và thấu chi tài khoản lương
+1. M-Cash (vay tiêu dùng không tài sản bảo đảm): lãi suất tham khảo từ 14,5%/năm đến 19,5%/năm tùy nhóm khách hàng, xác định theo điểm chấm tín dụng Scorecard RB và quan hệ giao dịch với MSB; thời hạn vay tối đa 5 năm.
+2. Thấu chi tài khoản thanh toán nhận lương qua MSB: lãi suất tham khảo 16,0%/năm, tính trên số tiền và số ngày thực tế sử dụng; hạn mức thấu chi tối đa 5 lần thu nhập bình quân tháng chuyển qua MSB, không vượt quá 200.000.000 đồng.
+3. Lãi suất cụ thể áp dụng cho từng khách hàng được xác định tại thời điểm phê duyệt, căn cứ xếp hạng tín dụng và lịch sử quan hệ với MSB, có thể khác với mức tham khảo tại khoản 1, khoản 2.
+
+Điều 5. Lãi suất cơ sở
+1. Lãi suất cơ sở là mức lãi suất tham chiếu do MSB công bố vào đầu mỗi quý, dùng làm căn cứ tính lãi suất thả nổi cho các sản phẩm vay sau thời gian ưu đãi.
+2. Lãi suất cơ sở hiện hành (công bố đầu quý III/2026): 4,2%/năm. Mức này được xem xét điều chỉnh vào đầu mỗi quý căn cứ diễn biến thị trường lãi suất huy động và chỉ đạo của Ngân hàng Nhà nước từng thời kỳ.
+3. Khách hàng có thể tra cứu lãi suất cơ sở hiện hành tại quầy giao dịch, trên ứng dụng MSB mBank hoặc hỏi trợ lý ảo MSB.
+
+Điều 6. Điều kiện ưu đãi thêm cho khách hàng cá nhân
+1. Khách hàng chuyển lương qua tài khoản MSB tối thiểu 3 tháng liên tục: được áp dụng mức lãi suất tham khảo thấp nhất trong khung tại Điều 4 khoản 1 (M-Cash) và giảm 2%/năm so với mức khung khi đủ điều kiện theo SP.RB.05.
+2. Khách hàng mua kèm bảo hiểm nhân thọ hoặc bảo hiểm sức khỏe qua MSB tại thời điểm vay: được xem xét giảm thêm tối đa 0,2%/năm trên lãi suất ưu đãi ban đầu của M-Home hoặc M-Car, áp dụng theo chương trình khuyến mãi từng thời kỳ.
+3. Khách hàng ưu tiên M-Priority (khách hàng có số dư tiền gửi bình quân hoặc tổng tài sản tại MSB đạt ngưỡng theo tiêu chí phân hạng khách hàng ưu tiên hiện hành): được giảm 0,3%/năm trên lãi suất vay ưu đãi ban đầu của M-Home, M-Car và cộng thêm 0,1%/năm lãi suất tiết kiệm M-Saving tại quầy so với biểu lãi suất tại Điều 1.
+4. Các ưu đãi tại khoản 1, 2, 3 không cộng dồn vượt quá 0,5%/năm tổng mức giảm so với lãi suất niêm yết chuẩn cho cùng sản phẩm và kỳ hạn.
+
+Điều 7. Phí trả nợ trước hạn
+1. Phí trả nợ trước hạn đối với M-Home, M-Car và M-Business áp dụng theo Cẩm nang SP.RB.05: 2% số tiền trả trước trong 2 năm đầu kể từ ngày giải ngân; 1% trong năm thứ 3; miễn phí từ năm thứ 4 trở đi.
+2. Thấu chi tài khoản lương và vay cầm cố sổ tiết kiệm (M-Deposit Loan) không thu phí trả nợ trước hạn.
+
+Điều 8. Ví dụ minh hoạ cách tính lãi tiền gửi
+1. Khách hàng gửi 100.000.000 đồng, kỳ hạn 12 tháng, lãi cuối kỳ, lãi suất tại quầy 5,3%/năm: tiền lãi nhận khi đáo hạn = 100.000.000 × 5,3% × (365/365) = 5.300.000 đồng.
+2. Nếu gửi online cùng kỳ hạn, lãi suất áp dụng là 5,5%/năm (5,3% + 0,2%): tiền lãi khi đáo hạn = 100.000.000 × 5,5% = 5.500.000 đồng.
+3. Nếu khách hàng rút toàn bộ trước hạn ở tháng thứ 10, toàn bộ số tiền gửi được tính lại theo lãi suất không kỳ hạn 0,2%/năm cho thời gian thực gửi, không hưởng lãi suất 12 tháng đã cam kết.
+
+Điều 9. Câu hỏi thường gặp
+1. Lãi suất trong biểu này có phải là lãi suất cố định áp dụng suốt thời gian gửi/vay không? Chỉ lãi suất tiết kiệm M-Saving và lãi suất ưu đãi ban đầu của M-Home, M-Car là cố định trong kỳ hạn hoặc thời gian ưu đãi đã công bố; sau đó áp dụng lãi suất thả nổi theo lãi suất cơ sở từng thời kỳ.
+2. Lãi suất cơ sở thay đổi có ảnh hưởng đến khoản vay đang trong thời gian ưu đãi cố định không? Không, lãi suất cơ sở chỉ áp dụng để tính lãi suất thả nổi sau khi hết thời gian ưu đãi cố định đã chọn.
+3. Có thể kết hợp ưu đãi chuyển lương và ưu đãi M-Priority cùng lúc không? Có thể, nhưng tổng mức giảm không vượt quá 0,5%/năm theo Điều 6 khoản 4.
+
+Điều 10. Hiệu lực và lưu ý
+1. Biểu lãi suất có hiệu lực từ ngày 01/09/2026, thay thế phiên bản 2026.2.
+2. Thay đổi chính so với phiên bản 2026.2: điều chỉnh tăng lãi suất tiết kiệm M-Saving các kỳ hạn (1 tháng từ 2,9% lên 3,1%, 12 tháng từ 5,1% lên 5,3%, 36 tháng từ 5,7% lên 5,9%); cập nhật lãi suất cơ sở công bố đầu quý III/2026 lên 4,2%/năm; bổ sung Điều 6 khoản 3 về ưu đãi khách hàng M-Priority.
+3. Lãi suất tại tài liệu này chỉ mang tính tham khảo tại thời điểm ban hành; mức lãi suất áp dụng thực tế theo thông báo lãi suất hiệu lực từng thời kỳ được niêm yết tại quầy giao dịch và trên ứng dụng MSB mBank. Khách hàng vui lòng tra cứu bản cập nhật hoặc hỏi trợ lý ảo MSB trước khi quyết định gửi tiền hoặc vay vốn.

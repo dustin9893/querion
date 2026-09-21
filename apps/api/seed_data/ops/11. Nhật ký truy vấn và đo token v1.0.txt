@@ -1,0 +1,308 @@
+CẨM NANG VẬN HÀNH — NHẬT KÝ TRUY VẤN VÀ ĐO TOKEN
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Nhật ký truy vấn ghi lại điều gì
+
+Nhật ký truy vấn là sổ kiểm soát tuân thủ của hệ thống. Mọi câu hỏi gửi tới bất kỳ trợ lý nào, trên bất kỳ kênh nào, đều để lại một dòng ở đây. Đây là nơi trả lời được ba câu hỏi mà bộ phận kiểm soát luôn hỏi: ai đã hỏi gì, trợ lý trả lời dựa trên văn bản nào, và câu trả lời đó có vấn đề gì không.
+
+Màn hình nằm ở mục Nhật ký truy vấn trong nhóm Quản trị.
+
+1.1 Một dòng nhật ký là một lượt trả lời
+
+Một dòng tương ứng với một lần hệ thống cố gắng trả lời, không phải một hội thoại. Một hội thoại mười câu hỏi sinh ra mười dòng.
+
+Dòng được tạo ngay khi hệ thống bắt đầu xử lý, trước khi gọi mô hình. Nhờ vậy một lượt hỏi thất bại giữa chừng vẫn để lại dấu vết, thay vì biến mất. Đây là lựa chọn có chủ ý: nhật ký tuân thủ phải ghi cả những lần hỏng, nếu không thì nó chỉ là thống kê thành công.
+
+Một báo cáo chạy nền cũng tạo một dòng ngay lúc xếp hàng đợi, cho nên nếu tiến trình nền không chạy thì bạn vẫn thấy lượt đó nằm chờ trong nhật ký.
+
+1.2 Những gì được lưu trong mỗi dòng
+
+- Thời điểm bắt đầu và độ trễ tính bằng mili giây.
+- Trạng thái của lượt hỏi.
+- Kênh, tức là bề mặt mà câu hỏi đi vào.
+- Đơn vị sở hữu trợ lý, và trợ lý nào đã trả lời.
+- Luồng xử lý, nếu lượt đó chạy qua một luồng.
+- Hội thoại, để nối các lượt hỏi liên tiếp của cùng một người.
+- Người hỏi, là cán bộ hoặc là tài khoản quản trị. Câu hỏi từ trang khách hàng không gắn với ai.
+- Một đoạn trích của câu hỏi và một đoạn trích của câu trả lời, phục vụ tìm kiếm nhanh.
+- Lỗi, nếu có.
+- Địa chỉ trang đã mở trợ lý, khi câu hỏi đến từ một website nhúng hoặc từ bong bóng trên trình duyệt.
+- Tổng số token mô hình đã tiêu cho lượt đó.
+
+Ngoài dòng chính, hệ thống còn ghi các bước xử lý của lượt hỏi và danh sách đoạn văn bản đã trích dẫn.
+
+1.3 Những gì không được lưu
+
+Nhật ký không lưu khoá bí mật của công cụ, không lưu nội dung cấu hình nhạy cảm, và không lưu nguyên văn dữ liệu cá nhân mà người dùng gõ vào. Phần dữ liệu cá nhân được xử lý ở mục 8.
+
+1.4 Nhật ký truy vấn khác gì với lịch sử hội thoại
+
+Cán bộ nhìn thấy lịch sử hội thoại của chính họ trong cổng nội bộ. Đó là bản ghi phục vụ công việc, xoá được, và chỉ thuộc về người đó.
+
+Nhật ký truy vấn là bản ghi phục vụ kiểm soát. Nó không nằm dưới quyền người hỏi, không bị xoá khi người hỏi xoá hội thoại, và ghi cả những lượt không sinh ra tin nhắn nào như báo cáo hay biểu mẫu.
+
+Hai bản ghi này nối với nhau qua mã lượt hỏi, nên từ một câu trả lời trong hội thoại luôn tra ngược được về dòng nhật ký tương ứng.
+
+2. Tám kênh và nguồn gốc của chúng
+
+Kênh cho biết câu hỏi đi vào hệ thống từ đâu. Đây là bộ lọc hữu ích nhất trên màn hình nhật ký, vì mỗi kênh có rủi ro và kỳ vọng khác nhau.
+
+2.1 Danh sách kênh
+
+- Cán bộ: câu hỏi từ cổng nội bộ, người hỏi đã đăng nhập và gắn với một đơn vị.
+- Khách hàng: câu hỏi từ trang công khai của một trợ lý đối tượng khách hàng. Không có danh tính người hỏi.
+- Admin thử nghiệm: câu hỏi từ màn hình Thử nghiệm hỏi đáp của quản trị viên. Dùng để thử trước khi công bố.
+- Website nhúng: câu hỏi từ bong bóng chat đặt trên một website đã được cho phép.
+- Browser extension: câu hỏi từ bong bóng của tiện ích trình duyệt mà cán bộ cài trên máy.
+- Báo cáo chạy nền: một luồng báo cáo được xếp hàng đợi và chạy bằng tiến trình nền.
+- Báo cáo theo lịch: một luồng báo cáo do bộ lập lịch tự kích hoạt.
+- Biểu mẫu: một cán bộ lập biểu mẫu nghiệp vụ và xuất tệp.
+
+2.2 Tên kênh khác nhau giữa các màn hình
+
+Cần biết trước để khỏi hoang mang: cùng một kênh có thể hiển thị bằng ba cách viết khác nhau tuỳ màn hình.
+
+- Thẻ kênh trên bảng nhật ký viết ngắn, thí dụ Admin thử, Báo cáo, Theo lịch.
+- Danh sách lựa chọn trong bộ lọc của chính màn hình đó viết dài hơn, thí dụ Admin thử nghiệm, Báo cáo chạy nền, Báo cáo theo lịch.
+- Màn hình Token sử dụng lại dùng một bộ từ khác, thí dụ Cổng cán bộ và Trang khách hàng.
+
+Ngoài ra bảng nhật ký hiện chưa có nhãn tiếng Việt cho kênh tiện ích trình duyệt, nên các dòng đó hiển thị nguyên chuỗi kỹ thuật extension. Đây là thiếu sót về hiển thị, không phải lỗi dữ liệu.
+
+Khi trao đổi với đồng nghiệp, hãy trích đúng chữ đang hiện trên màn hình trước mặt, đừng quy đổi sang cách viết của màn hình khác.
+
+2.3 Màn hình Token sử dụng có thêm ba kênh kỹ thuật
+
+Bảng đo token ghi cả những hoạt động không phải hội thoại, nên ở đó bạn còn thấy Lập chỉ mục, Thử tra cứu và Sửa đoạn văn bản. Ba giá trị này không xuất hiện trong nhật ký truy vấn vì chúng không phải là một lượt hỏi.
+
+3. Sáu trạng thái của một lượt hỏi
+
+3.1 Thành công và Lỗi
+
+Thành công nghĩa là hệ thống đã sinh ra một câu trả lời và lưu lại. Lỗi nghĩa là lượt hỏi kết thúc mà không có câu trả lời, và cột lỗi sẽ nói lý do.
+
+Nguyên nhân Lỗi hay gặp nhất theo thứ tự: chưa có nhà cung cấp mô hình nào đang bật, luồng xử lý gặp lỗi, công cụ báo cáo chạy xong nhưng không tạo được tệp, hoặc hàng đợi việc nền không sẵn sàng.
+
+3.2 Đang chạy và Đang chờ chạy
+
+Đang chạy nghĩa là lượt hỏi còn đang xử lý. Nếu một dòng nằm ở trạng thái này rất lâu, thường là tiến trình xử lý đã dừng giữa chừng.
+
+Đang chờ chạy chỉ xuất hiện với báo cáo. Nó nghĩa là công việc đã được xếp vào hàng đợi nhưng chưa có tiến trình nền nào nhận. Nếu tất cả báo cáo đều nằm ở trạng thái này thì tiến trình nền chưa được bật, không phải báo cáo viết sai.
+
+3.3 Bị chặn
+
+Bị chặn nghĩa là bộ lọc đầu ra đã dừng câu trả lời lại trước khi nó đến tay người dùng, vì nội dung có dấu hiệu lộ bộ nguyên tắc hệ thống.
+
+Cơ chế hoạt động như sau. Hệ thống giữ lại phần đầu của câu trả lời, so nó với một danh sách dấu hiệu nhận biết, và nếu trúng thì cắt luồng, trả về một thông báo lỗi chung, đánh dấu lượt hỏi là Bị chặn. Người dùng không nhìn thấy nội dung bị chặn.
+
+Vì sao cần lớp này: dặn dò trong prompt chỉ là lời khuyên, mô hình vẫn có thể bị dụ. Một lớp kiểm tra bằng mã nguồn không phụ thuộc vào việc mô hình có nghe lời hay không.
+
+Một vài dòng Bị chặn là bình thường, thường do có người thử dò. Nhiều dòng Bị chặn trên cùng một trợ lý công khai là tín hiệu nên xem lại ai đang dùng trợ lý đó.
+
+3.4 Chờ duyệt
+
+Chờ duyệt nghĩa là trợ lý đang định chạy một công cụ có đánh dấu cần duyệt, và câu trả lời bị tạm dừng chờ cán bộ bấm xác nhận. Trạng thái này chuyển tiếp thành Thành công hoặc Lỗi sau khi có quyết định.
+
+Một dòng nằm mãi ở Chờ duyệt nghĩa là cán bộ đã bỏ qua thẻ xác nhận. Đây không phải sự cố kỹ thuật.
+
+4. Màn hình chi tiết một lượt hỏi
+
+Bấm vào một dòng để mở ngăn chi tiết.
+
+4.1 Các phần trong ngăn chi tiết
+
+- Người hỏi, kèm mã cán bộ, chức danh và chi nhánh khi có.
+- Câu hỏi đầy đủ.
+- Câu trả lời đầy đủ.
+- Nguồn trích dẫn, tức các đoạn văn bản mà hệ thống đã đưa vào ngữ cảnh.
+- Token sử dụng, tách theo thành phần.
+- Đánh giá của người dùng, nếu có.
+- Các bước xử lý, theo đúng thứ tự đã chạy, kèm thời lượng từng bước.
+
+4.2 Vì sao phần các bước xử lý quan trọng
+
+Phần này là nơi duy nhất cho biết hệ thống đã thật sự làm gì. Với một trợ lý gắn kho tri thức, nó cho biết đã tra bao nhiêu đoạn. Với một luồng xử lý, nó cho biết node nào đã chạy, tức là nhánh nào đã được chọn.
+
+Khi trợ lý trả lời sai mà không ai hiểu vì sao, quy trình dò lỗi luôn bắt đầu ở đây. Nếu bước tra cứu trả về không đoạn nào thì vấn đề nằm ở kho tri thức, không nằm ở mô hình. Nếu bước tra cứu trả về đủ đoạn nhưng đoạn không liên quan thì vấn đề nằm ở cách chia văn bản hoặc ở câu hỏi. Nếu đoạn đúng mà câu trả lời sai thì mới đến lượt xem prompt và mô hình.
+
+Tên các bước được dịch sang tiếng Việt trên màn hình, thí dụ Tra cứu kho tri thức, Sinh câu trả lời, Trích xuất hoặc phân loại, Rẽ nhánh, Gọi công cụ, Xuất tài liệu.
+
+4.3 Nguồn trích dẫn trong ngăn chi tiết
+
+Phần nguồn trích dẫn liệt kê chính xác các đoạn văn bản đã được đưa vào ngữ cảnh của lượt hỏi đó, kèm tên văn bản, ngày hiệu lực và vị trí điều khoản.
+
+Giá trị kiểm soát của phần này rất lớn. Khi có tranh luận về việc trợ lý đã nói gì theo căn cứ nào, đây là bằng chứng: không phải mô hình nhớ ra, mà đúng những đoạn này đã được đưa vào.
+
+Nếu một đoạn trích thuộc văn bản đã hết hiệu lực, hãy kiểm tra cờ dùng cho AI của văn bản đó. Nhật ký giữ nguyên hiện trạng tại thời điểm trả lời, nên việc tắt văn bản hôm nay không làm thay đổi các dòng nhật ký cũ.
+
+5. Ai xem được gì
+
+Quyền xem nhật ký không theo đơn vị đang chọn ở thanh trên, mà theo vai trò thật của tài khoản.
+
+- Quản trị hệ thống thấy toàn bộ mọi đơn vị.
+- Quản trị đơn vị chỉ thấy các đơn vị mà mình là chủ đơn vị.
+- Quản trị đơn vị không làm chủ đơn vị nào sẽ thấy danh sách rỗng, kể cả khi họ có quyền biên tập ở một đơn vị.
+
+Màn hình Token sử dụng áp dụng đúng quy tắc này. Đây là lựa chọn có chủ ý: nhật ký chứa nguyên văn câu hỏi và câu trả lời của người khác, nên nó là quyền của người chịu trách nhiệm về đơn vị, không phải quyền của người biên tập nội dung.
+
+Trong thanh bên, hai mục Nhật ký truy vấn và Token sử dụng có hiện với chủ đơn vị. Các mục Người dùng quản trị, Đơn vị, Cài đặt AI và Trợ lý Vận hành chỉ hiện với quản trị hệ thống.
+
+6. Bộ lọc và cách dùng cho việc thật
+
+6.1 Các bộ lọc có sẵn
+
+- Đơn vị.
+- Trợ lý.
+- Kênh.
+- Đánh giá, gồm mọi đánh giá, chưa hài lòng, hài lòng, và chưa đánh giá.
+- Trạng thái.
+- Ô tìm kiếm tự do, tìm trong đoạn trích câu hỏi và đoạn trích câu trả lời.
+- Khoảng thời gian tính theo số ngày gần nhất, mặc định là 30 ngày.
+
+Danh sách trả về các lượt hỏi gần nhất trong khoảng đã chọn, có giới hạn số dòng. Khi cần soát kỹ một giai đoạn dài, hãy thu hẹp bằng đơn vị và trợ lý thay vì kéo dài số ngày.
+
+6.2 Ba câu hỏi thực tế và cách lọc
+
+Câu hỏi thứ nhất: tuần qua trợ lý nào bị phàn nàn nhiều nhất. Chọn khoảng thời gian bảy ngày, đặt bộ lọc đánh giá là chưa hài lòng, rồi nhìn cột trợ lý.
+
+Câu hỏi thứ hai: có ai đang thử dò hệ thống không. Đặt bộ lọc trạng thái là bị chặn, rồi xem kênh và địa chỉ trang trong ngăn chi tiết.
+
+Câu hỏi thứ ba: vì sao cán bộ nói trợ lý không trả lời được. Đặt bộ lọc trợ lý và trạng thái lỗi, mở một dòng, đọc cột lỗi và các bước xử lý.
+
+6.3 Bảng tổng hợp phía trên
+
+Phía trên bảng có các ô tổng hợp cho khoảng thời gian đang chọn: tổng lượt hỏi, số lượt từ cán bộ, số lượt từ khách hàng, độ trễ trung bình, số lượt lỗi, và số lượt được đánh giá tốt hoặc chưa tốt kèm tỷ lệ có đánh giá.
+
+Kèm theo là dải văn bản được trích dẫn nhiều nhất. Dải này rất hữu ích: nếu một văn bản chiếm phần lớn trích dẫn thì kho tri thức đang lệch, hoặc các văn bản khác chưa được lập chỉ mục.
+
+7. Đánh giá tốt và chưa tốt
+
+7.1 Cách người dùng đánh giá
+
+Mỗi câu trả lời của trợ lý có thể nhận một lượt đánh giá tốt hoặc chưa tốt, kèm một lý do tuỳ chọn. Mỗi tin nhắn chỉ ghi nhận một đánh giá, lần sau sẽ ghi đè chứ không cộng dồn.
+
+Đánh giá có mặt ở cổng cán bộ, trang khách hàng, bong bóng nhúng và màn hình thử nghiệm của quản trị viên.
+
+7.2 Cách quản trị viên dùng đánh giá
+
+Đừng đọc đánh giá như điểm số. Hãy đọc nó như một danh sách việc cần làm.
+
+Khi lọc theo chưa hài lòng và mở vài dòng, bạn sẽ thấy nguyên nhân rơi vào ba nhóm. Nhóm một là văn bản đã cũ, tức trợ lý trích đúng nhưng nội dung không còn hiệu lực. Nhóm hai là văn bản chưa có trong kho. Nhóm ba là câu hỏi ngoài phạm vi trợ lý.
+
+Kinh nghiệm thực tế: một văn bản liên tục bị đánh giá chưa tốt thường là văn bản lỗi thời, chứ không phải lỗi tra cứu. Cách xử lý là tắt cờ dùng cho AI của bản cũ và tải bản mới lên, không phải chỉnh prompt.
+
+8. Che dữ liệu cá nhân và ảnh hưởng tới nhật ký
+
+Hệ thống che dữ liệu cá nhân trong mọi tin nhắn của người dùng, trên mọi kênh, trước khi gửi cho mô hình, trước khi lưu vào cơ sở dữ liệu, và trước khi ghi đoạn trích vào nhật ký. Đoạn trích còn được che thêm một lần nữa.
+
+Các loại dữ liệu được nhận diện gồm thư điện tử, số thẻ, số điện thoại, mã một lần, số giấy tờ tuỳ thân, số tài khoản và mã khách hàng. Khi có nội dung bị che, giao diện hiện một chỉ báo nhỏ cho người hỏi biết.
+
+Hệ quả cần nhớ khi dùng nhật ký: bạn sẽ không tìm thấy số căn cước hay số tài khoản của khách hàng trong nhật ký, kể cả khi người hỏi đã gõ vào. Đây là hành vi đúng, không phải mất dữ liệu. Nếu công việc kiểm soát cần đối chiếu một hồ sơ cụ thể, hãy dùng mã hồ sơ, vì mã nghiệp vụ không bị che.
+
+Đây cũng là lý do biểu mẫu nghiệp vụ tồn tại như một biểu mẫu chứ không phải một cuộc hội thoại: tài liệu cần đúng những giá trị mà việc che sẽ xoá mất.
+
+9. Đo token
+
+9.1 Mỗi lượt gọi mô hình là một dòng
+
+Mỗi lần hệ thống gọi mô hình ngôn ngữ hoặc mô hình nhúng, nó ghi một dòng vào bảng đo token. Dòng đó ghi rõ thành phần nào tiêu tốn, trên kênh nào, cho trợ lý và đơn vị nào, với nhà cung cấp và model nào, số token vào, số token ra, số lượt gọi, và token là số đếm thật hay số ước tính.
+
+Việc ghi được thực hiện trong một phiên làm việc riêng với cơ sở dữ liệu và không bao giờ làm hỏng câu trả lời. Nếu ghi thất bại, hệ thống chỉ ghi cảnh báo vào log máy chủ. Đo đếm không được phép làm gãy nghiệp vụ.
+
+9.2 Tám thành phần tiêu tốn token
+
+- Trả lời: câu trả lời thông thường, có hoặc không có kho tri thức, kể cả hội thoại thử trên kho.
+- Agent gọi công cụ: mỗi vòng suy nghĩ của trợ lý khi nó dùng công cụ là một dòng riêng.
+- Luồng xử lý sinh trả lời: node sinh câu trả lời trong một luồng.
+- Luồng xử lý phân loại: node trích tham số trong một luồng.
+- Gợi ý nội dung biểu mẫu: khi cán bộ nhờ soạn phần tự luận trong biểu mẫu.
+- Đặt tiêu đề hội thoại: một lượt gọi nhỏ ở lần trao đổi đầu tiên.
+- Nhúng câu hỏi: biến câu hỏi thành vector để tra cứu.
+- Lập chỉ mục văn bản: nhúng các đoạn của văn bản khi lập chỉ mục.
+
+Sáu thành phần đầu dùng mô hình ngôn ngữ, hai thành phần cuối dùng mô hình nhúng. Màn hình tách riêng hai nhóm này.
+
+9.3 Số đếm chính xác và số ước tính
+
+Khi nhà cung cấp báo lại số token thật, hệ thống ghi đúng con số đó. Cả GreenNode MaaS và OpenRouter đều báo chính xác.
+
+Khi nhà cung cấp không báo, thí dụ một cổng trung gian bỏ qua phần thống kê khi truyền theo luồng, hệ thống ước tính theo tỷ lệ khoảng ba ký tự một token và đánh dấu dòng đó là ước tính. Màn hình đếm riêng số lượt ước tính, nên bạn luôn biết con số tổng đáng tin đến đâu.
+
+Ước tính ba ký tự một token là con số thô cho tiếng Việt. Dùng để so sánh tương đối giữa các trợ lý thì được, dùng để đối chiếu hoá đơn nhà cung cấp thì không nên.
+
+Một chi tiết nhỏ nhưng hay gây thắc mắc: nếu cả token vào và token ra đều bằng không thì hệ thống không ghi dòng nào cả. Vì vậy một lượt hỏi thất bại trước khi kịp gọi mô hình sẽ hiện tổng token bằng không.
+
+9.4 Vì sao lịch sử chi phí không bị xoá theo trợ lý
+
+Bảng đo token và bảng tệp kết quả cố ý không đặt khoá ngoại tới trợ lý, kho tri thức hay đơn vị. Đây là quyết định thiết kế, không phải sơ suất.
+
+Lý do: lịch sử chi phí là dữ liệu kế toán. Nó phải sống lâu hơn đối tượng sinh ra nó. Nếu đặt khoá ngoại, xoá một trợ lý sẽ kéo theo toàn bộ chi phí của trợ lý đó, và báo cáo chi phí tháng trước sẽ tự thay đổi sau khi ai đó dọn dẹp.
+
+Hệ quả thực tế cần biết: một trợ lý đã xoá vẫn xuất hiện trong chi phí quá khứ, nhưng phần tên hiển thị rơi về nhãn dự phòng vì không còn bản ghi để tra tên. Và việc xoá trợ lý không làm giảm chi phí đã phát sinh.
+
+10. Màn hình Token sử dụng
+
+10.1 Kỳ xem và bộ lọc
+
+Kỳ xem chọn nhanh theo hôm nay, bảy ngày, ba mươi ngày hoặc chín mươi ngày. Mặc định là ba mươi ngày.
+
+Bộ lọc gồm đơn vị, trợ lý, kênh và thành phần. Bốn bộ lọc này kết hợp được với nhau, nên trả lời được câu hỏi kiểu tháng này trợ lý khách hàng tiêu bao nhiêu token trên kênh website nhúng.
+
+10.2 Các ô tổng hợp
+
+Sáu ô ở đầu trang cho biết tổng token, token đầu vào, token đầu ra, số lượt gọi mô hình, tỷ trọng giữa mô hình ngôn ngữ và mô hình nhúng, và số lượt phải ước tính.
+
+Ô cuối cùng đáng chú ý nhất. Nếu số lượt ước tính cao, mọi con số còn lại chỉ nên dùng để so sánh tương đối.
+
+10.3 Biểu đồ theo ngày và năm bảng phân tích
+
+Biểu đồ cột theo ngày chia nhóm theo múi giờ Việt Nam chứ không theo giờ quốc tế, nên một ngày trên biểu đồ trùng với một ngày làm việc thật. Mọi ngày trong kỳ đều có cột, kể cả ngày không phát sinh, để không bị hiểu nhầm là thiếu dữ liệu.
+
+Năm bảng phân tích lần lượt là theo thành phần, theo kênh, theo trợ lý, theo đơn vị và theo mô hình. Mỗi dòng cho biết token vào, token ra và số lượt gọi.
+
+Các nhãn dự phòng hay gặp: Không gắn trợ lý dùng cho các hoạt động không thuộc trợ lý nào như lập chỉ mục, thử tra cứu và sửa đoạn văn bản; Không xác định dùng khi không tra được tên; Khác gom các mục nhỏ.
+
+11. Đọc chi phí và hành động
+
+Vài quy luật quan sát được, dùng để đọc số nhanh.
+
+- Lập chỉ mục là chi phí một lần cho mỗi văn bản, hiện trên kênh lập chỉ mục. Nếu chi phí lập chỉ mục tăng bất thường, ai đó đang lập chỉ mục lại hàng loạt.
+- Nhúng câu hỏi là khoản nhỏ và gần như cố định theo số lượt hỏi. Nó hiếm khi là vấn đề.
+- Trả lời chiếm phần lớn chi phí. Muốn giảm, hãy giảm số đoạn tra về hoặc rút gọn prompt, chứ không phải đổi model rẻ hơn rồi chịu chất lượng kém.
+- Trợ lý bật agent tốn một dòng cho mỗi vòng suy nghĩ. Một trợ lý gọi công cụ nhiều vòng có thể tốn gấp vài lần một trợ lý trả lời thẳng. Khi chi phí một trợ lý cao bất thường, kiểm tra xem nó có bật agent không và mô tả công cụ có rõ ràng không, vì mô tả mơ hồ khiến mô hình gọi thử nhiều lần.
+- Luồng xử lý có bước phân loại trả tiền cho hai lượt gọi mô hình mỗi câu hỏi. Đó là cái giá của việc định tuyến, và nó chỉ đáng khi hai kho thật sự khác nhau về nghiệp vụ.
+- Báo cáo theo lịch tốn đều đặn mỗi lần chạy. Một lịch chạy hằng ngày mà không ai mở tệp là khoản lãng phí dễ thấy nhất, đối chiếu với mục báo cáo của cán bộ để biết.
+
+11.1 Ba việc nên làm định kỳ hằng tháng
+
+Việc thứ nhất là mở nhật ký, lọc theo đánh giá chưa hài lòng trong ba mươi ngày, đọc khoảng mười dòng và phân loại nguyên nhân. Kết quả thường là một danh sách ngắn các văn bản cần cập nhật.
+
+Việc thứ hai là mở dải văn bản được trích dẫn nhiều nhất. Nếu một văn bản chiếm phần áp đảo, kho tri thức đang lệch và nên bổ sung tài liệu cho các chủ đề còn thiếu.
+
+Việc thứ ba là mở màn hình token, xem bảng theo trợ lý và bảng theo thành phần. So với tháng trước, khoản nào tăng bất thường thì tìm nguyên nhân ngay, vì chi phí mô hình tăng gần như luôn có nguyên nhân cấu hình chứ không phải do người dùng hỏi nhiều hơn.
+
+12. Câu hỏi thường gặp
+
+Hỏi: Vì sao một lượt hỏi hiện tổng token bằng không?
+Đáp: Lượt đó kết thúc trước khi gọi mô hình, thí dụ chưa có nhà cung cấp mô hình đang bật hoặc luồng xử lý lỗi ngay bước đầu. Hệ thống không ghi dòng đo khi cả token vào và ra đều bằng không.
+
+Hỏi: Một câu trả lời bị đánh dấu Bị chặn nghĩa là gì?
+Đáp: Bộ lọc đầu ra thấy câu trả lời có dấu hiệu lộ bộ nguyên tắc hệ thống nên đã cắt và trả về lỗi chung cho người dùng. Vài dòng lẻ tẻ là bình thường; nhiều dòng trên một trợ lý công khai thì nên xem lại.
+
+Hỏi: Tôi là quản trị viên nhưng không thấy dòng nào trong nhật ký?
+Đáp: Bạn chưa là chủ đơn vị của đơn vị nào. Quyền biên tập không đủ để xem nhật ký. Nhờ quản trị hệ thống gán vai trò chủ đơn vị cho đơn vị bạn phụ trách.
+
+Hỏi: Câu hỏi của khách hàng có truy được về từng người không?
+Đáp: Không. Trang khách hàng không có đăng nhập nên nhật ký chỉ ghi là khách hàng ẩn danh. Với kênh website nhúng, hệ thống ghi thêm địa chỉ trang đã đặt bong bóng, nhưng đó là trang chứ không phải người.
+
+Hỏi: Nhật ký giữ được bao lâu?
+Đáp: Nhật ký truy vấn và bảng đo token không bị hệ thống tự xoá. Chỉ tệp báo cáo mới có hạn lưu giữ và bị dọn theo hạn đó. Khi cần rà soát lâu dài, hãy lọc theo đơn vị và trợ lý thay vì kéo dài khoảng ngày.
+
+Hỏi: Tôi xoá một trợ lý thì chi phí của nó có mất khỏi báo cáo không?
+Đáp: Không. Dòng chi phí được giữ lại có chủ ý, chỉ phần tên trợ lý rơi về nhãn dự phòng. Báo cáo chi phí quá khứ vì thế không thay đổi khi ai đó dọn dẹp.
+
+Hỏi: Vì sao cùng một kênh lại có tên khác nhau ở hai màn hình?
+Đáp: Ba bộ nhãn được viết ở ba nơi khác nhau trong giao diện và chưa được gộp. Dữ liệu vẫn là một. Khi trao đổi, hãy trích đúng chữ trên màn hình bạn đang mở.
+
+Hỏi: Làm sao biết một trợ lý đang tiêu tiền vô ích?
+Đáp: Lọc màn hình token theo trợ lý đó, xem thành phần nào chiếm phần lớn, rồi đối chiếu với số lượt hỏi trong nhật ký cùng kỳ. Nhiều token mà ít lượt hỏi thường là báo cáo theo lịch hoặc agent gọi công cụ lặp lại.

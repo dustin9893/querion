@@ -1,0 +1,330 @@
+CẨM NANG VẬN HÀNH — BIỂU MẪU NGHIỆP VỤ
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Biểu mẫu nghiệp vụ là gì
+
+Biểu mẫu là một bộ gồm hai phần: danh sách trường dữ liệu, và một tệp Word làm khuôn. Cán bộ mở biểu mẫu trong cổng nội bộ, điền các trường, rồi hệ thống đổ dữ liệu vào khuôn và trả về một tệp Word hoàn chỉnh.
+
+Biểu mẫu thuộc về một đơn vị. Chỉ đơn vị sở hữu mới sửa được, kể cả khi biểu mẫu đã mở cho toàn ngân hàng.
+
+Một biểu mẫu khai tối đa bốn mươi trường. Con số này đủ rộng cho tờ trình và đề xuất thông thường, đồng thời ngăn việc biến biểu mẫu thành một bản khai dài không ai điền hết.
+
+1.1 Vì sao là biểu mẫu chứ không phải hội thoại
+
+Đây là lý do tồn tại của cả tính năng, nên cần hiểu đúng.
+
+Hệ thống chạy bộ che dữ liệu cá nhân trên mọi tin nhắn của người dùng, ở mọi kênh, trước khi tin nhắn đến tay mô hình và trước khi nó được lưu vào lịch sử hội thoại hay nhật ký. Bộ này che số căn cước, số tài khoản, số thẻ, số điện thoại, mã khách hàng và mã xác thực.
+
+Một tờ trình tín dụng thì lại cần đúng những giá trị đó, viết đầy đủ, không được che. Nếu cán bộ đọc thông tin khách hàng vào ô chat, hệ thống sẽ che chính các giá trị mà tài liệu cần in ra.
+
+Biểu mẫu giải bài toán này bằng cách đi đường khác. Nó là một giao diện nhập liệu có cấu trúc, không phải hội thoại. Giá trị cán bộ gõ đi thẳng từ ô nhập vào tài liệu, không qua mô hình, nên không có gì để che.
+
+Mô hình chỉ tham gia ở một chỗ duy nhất, là soạn giúp các đoạn văn tự luận, và ở chỗ đó nó chỉ nhìn thấy phần dữ liệu không nhạy cảm.
+
+2. Ba nguồn dữ liệu của một trường
+
+Mỗi trường khai một nguồn. Nguồn quyết định trường đó được điền bằng cách nào lúc cán bộ dùng.
+
+2.1 Cán bộ nhập
+
+Cán bộ tự gõ. Đây là mặc định và phù hợp với mọi thứ không có sẵn trong hệ thống nào, ví dụ ý kiến đề xuất, ghi chú họp, số liệu lấy từ hồ sơ giấy.
+
+2.2 Điền sẵn từ hệ thống
+
+Giá trị lấy từ một công cụ tra cứu. Cán bộ gõ một mã nghiệp vụ, bấm điền sẵn, hệ thống gọi công cụ và đổ kết quả vào các trường đã ánh xạ.
+
+Trường loại này vẫn sửa được sau khi điền sẵn. Điền sẵn là để tiết kiệm thao tác và tránh gõ nhầm, không phải để khoá dữ liệu.
+
+2.3 AI gợi ý
+
+Cán bộ bấm một nút, mô hình soạn một đoạn văn ngắn cho trường đó. Bạn khai thêm một câu yêu cầu riêng cho từng trường, ví dụ soạn phần nhận xét về khả năng trả nợ dựa trên dữ liệu đã có.
+
+Mô hình được ràng buộc sẵn: viết tiếng Việt, văn phong hành chính, từ hai đến năm câu, chỉ dùng dữ liệu được cung cấp, không bịa số liệu, không nêu tên khách hàng hay số căn cước hay số tài khoản, không kết luận thay cấp phê duyệt, và chỉ trả về nội dung chứ không thêm lời dẫn.
+
+Nội dung gợi ý luôn hiện ra để cán bộ sửa trước khi nộp. Nó là bản nháp, không phải kết quả cuối.
+
+3. Khai báo trường
+
+3.1 Tên biến
+
+Mỗi trường có một tên biến. Tên phải là một định danh hợp lệ, nghĩa là chỉ gồm chữ không dấu, số và gạch dưới, không bắt đầu bằng số. Tên không được trùng nhau trong cùng một biểu mẫu.
+
+Hệ thống từ chối tên sai với thông báo nói rõ tên trường không hợp lệ và nêu quy tắc, hoặc thông báo trường bị trùng.
+
+Tên biến quan trọng vì nó là chỗ chèn dùng trong tệp Word. Đặt tên có dấu hoặc có khoảng trắng sẽ làm mẫu không bao giờ khớp.
+
+3.2 Nhãn, kiểu và các thuộc tính
+
+Ngoài tên biến, mỗi trường còn có:
+
+- Nhãn hiển thị, là thứ cán bộ đọc thấy. Để trống thì hệ thống dùng luôn tên biến.
+- Kiểu dữ liệu, chọn trong sáu giá trị với nhãn tiếng Việt là Chữ, Đoạn văn, Số, Ngày, Chọn và Có hoặc Không.
+- Cờ bắt buộc.
+- Cờ nhạy cảm.
+- Giá trị mặc định.
+- Danh sách lựa chọn, chỉ dùng cho kiểu Chọn.
+- Mô tả ngắn.
+- Câu yêu cầu cho mô hình, chỉ dùng cho trường nguồn AI gợi ý.
+
+Kiểu dữ liệu không chỉ đổi giao diện mà còn đổi cách kiểm tra lúc nộp, mô tả ở mục 8.3.
+
+3.3 Trường đầu tiên khi tạo mới
+
+Biểu mẫu tạo mới có sẵn một trường mẫu tên mã hồ sơ. Đây chỉ là gợi ý để bạn thấy hình dạng, sửa hoặc xoá thoải mái.
+
+4. Cờ nhạy cảm
+
+4.1 Điều gì thực sự xảy ra khi bật cờ
+
+Cờ nhạy cảm chỉ có một tác dụng, nhưng là tác dụng quan trọng nhất của cả tính năng: khi mô hình được nhờ soạn một đoạn văn, hệ thống lọc bỏ mọi trường đã đánh dấu nhạy cảm ra khỏi dữ liệu gửi đi.
+
+Mô hình nhìn thấy phần còn lại, ví dụ số tiền, kỳ hạn, ngành nghề, bước hồ sơ. Nó không nhìn thấy tên khách hàng, số căn cước, số tài khoản nếu các trường đó được đánh dấu.
+
+Cờ này không ảnh hưởng gì tới việc điền và in. Giá trị nhạy cảm vẫn được in đầy đủ vào tệp Word, vì tệp Word là tài liệu nghiệp vụ chứ không phải câu trả lời của mô hình.
+
+Trên giao diện cán bộ, trường nhạy cảm có ghi chú cho biết dữ liệu này không gửi cho AI, nên người điền hiểu ngay ranh giới.
+
+4.2 Vì sao nên đánh dấu rộng tay
+
+Bật cờ nhạy cảm không tốn gì. Không thêm thao tác cho cán bộ, không làm chậm gì, không hạn chế việc in.
+
+Cái giá duy nhất là đoạn văn do mô hình soạn sẽ không nhắc tới giá trị đó. Trong hầu hết trường hợp, đó chính là điều bạn muốn, vì một đoạn nhận xét nghiệp vụ không cần nhắc lại số căn cước.
+
+Vì vậy nguyên tắc thực dụng: cứ nghi ngờ thì bật. Danh sách tối thiểu nên bật gồm họ tên khách hàng, số căn cước hoặc hộ chiếu, số tài khoản, mã khách hàng, số điện thoại và địa chỉ.
+
+5. Cấu hình điền sẵn
+
+5.1 Ba mảnh ghép
+
+Điền sẵn cần ba thứ khai cùng nhau:
+
+- Một công cụ trong sổ đăng ký của đơn vị, đóng vai trò nguồn tra cứu.
+- Tên một tham số của công cụ đó, đóng vai trò khoá tra cứu. Cán bộ sẽ gõ giá trị cho tham số này.
+- Bảng ánh xạ, gán mỗi trường của biểu mẫu với một đường dẫn trong kết quả trả về của công cụ.
+
+Đường dẫn viết theo dạng có dấu chấm, ví dụ một trường lồng bên trong một trường khác. Nếu kết quả trả về không có đường dẫn đó, trường đơn giản là không được điền, không báo lỗi.
+
+Trường nào không có trong bảng ánh xạ thì bị bỏ qua, và một tên trường không tồn tại trong biểu mẫu cũng bị bỏ qua thay vì gây lỗi.
+
+5.2 Chính sách áp cho công cụ điền sẵn
+
+Công cụ điền sẵn chạy theo đúng chính sách như mọi nơi khác trong hệ thống. Nó phải thuộc đơn vị hoặc đã được chia sẻ toàn ngân hàng. Tham số được kiểm tra theo lược đồ của công cụ. Khoá bí mật do máy chủ tự chèn.
+
+Công cụ đánh dấu cần duyệt không dùng được cho điền sẵn, vì không có ai đứng ra bấm duyệt trong luồng này. Hệ thống trả về thông báo nói rõ công cụ cần người duyệt nên không chạy tự động được.
+
+Khi biểu mẫu chưa khai đủ công cụ và tham số khoá, chức năng điền sẵn trả về thông báo biểu mẫu này chưa cấu hình điền sẵn.
+
+5.3 Ý đồ thiết kế
+
+Một mã nghiệp vụ vào, nhiều trường ra. Đó là toàn bộ ý đồ.
+
+Cán bộ gõ một mã hồ sơ thay vì gõ tay bảy tám ô, nên nhanh hơn và không sai chính tả tên khách hàng. Dữ liệu cũng nhất quán với hệ thống nguồn, vì nó đến thẳng từ đó.
+
+Lưu ý một ràng buộc quan trọng: khoá tra cứu nên là một mã nghiệp vụ, không nên là một số định danh cá nhân. Lý do ở tài liệu về công cụ, nhưng tóm tắt là dữ liệu cá nhân bị che trước khi đến công cụ ở các luồng khác, nên hệ thống được thiết kế xoay quanh mã nghiệp vụ.
+
+6. Mẫu Word
+
+6.1 Điều kiện của tệp mẫu
+
+Chỉ nhận đuôi docx. Tối đa năm megabyte. Tệp sai đuôi hoặc quá nặng bị từ chối ngay khi tải lên với thông báo tiếng Việt.
+
+Trong tệp, bạn đặt chỗ chèn theo cú pháp hai dấu ngoặc nhọn bao quanh tên biến. Với danh sách, có cú pháp lặp theo hàng bảng.
+
+6.2 Kiểm tra biến khi tải mẫu
+
+Khi bạn tải mẫu lên, hệ thống đọc tệp và lấy ra danh sách mọi chỗ chèn mà mẫu đang cần. Nếu có chỗ chèn nào không khớp trường nào đã khai và cũng không thuộc nhóm biến dùng thêm, việc tải lên bị từ chối, và thông báo liệt kê đúng các tên bị thừa.
+
+Vì sao có bước kiểm tra này. Một chỗ chèn viết sai tên không gây lỗi lúc in. Nó chỉ đơn giản in ra một khoảng trắng. Kết quả là một tờ trình có ô số tiền để trống mà không ai biết, cho tới khi nó tới bàn phê duyệt. Từ chối ngay lúc tải mẫu là cách rẻ nhất để chặn việc đó.
+
+Hệ quả khi vận hành: nếu bạn đổi tên một trường sau khi đã tải mẫu, mẫu cũ vẫn nằm đó và vẫn in, nhưng chỗ chèn tương ứng sẽ trống. Hãy sửa mẫu và tải lại mỗi khi đổi tên biến.
+
+6.3 Các biến dùng thêm ngoài trường đã khai
+
+Ngoài các trường bạn khai, mẫu được phép dùng năm biến có sẵn:
+
+- Ngày lập, theo định dạng ngày tháng năm.
+- Giờ lập, theo định dạng giờ phút.
+- Thời điểm hiện tại, dùng khi cần tự định dạng.
+- Tên cán bộ lập.
+- Đơn vị.
+
+Các biến này luôn có, không cần khai gì thêm.
+
+6.4 Ba bộ lọc định dạng
+
+Trong mẫu có ba bộ lọc dùng được để định dạng giá trị:
+
+- Bộ lọc số, in số theo cách viết Việt Nam với dấu chấm phân nhóm nghìn.
+- Bộ lọc tiền, làm như trên rồi thêm ký hiệu đồng.
+- Bộ lọc ngày, đổi chuỗi ngày sang dạng ngày tháng năm.
+
+Nên dùng bộ lọc tiền cho mọi ô số tiền. Không dùng thì số in ra thành một dãy chữ số liền, rất dễ đọc nhầm khi số lớn.
+
+Mẫu được dựng trong môi trường hạn chế, không đọc được tệp trên máy chủ và không chạm được vào nội bộ chương trình.
+
+7. Công bố biểu mẫu
+
+7.1 Điều kiện bắt buộc
+
+Không công bố được một biểu mẫu chưa có mẫu Word. Hệ thống từ chối với thông báo yêu cầu tải mẫu lên trước khi công bố.
+
+Điều này hợp lý vì biểu mẫu không có mẫu thì cán bộ điền xong cũng không nhận được tệp nào.
+
+7.2 Phạm vi hiển thị
+
+Biểu mẫu có phạm vi đơn vị hoặc toàn ngân hàng. Mặc định là đơn vị.
+
+Biểu mẫu đã công bố hiện với cán bộ của đơn vị sở hữu. Biểu mẫu mở cho toàn ngân hàng hiện với cán bộ mọi đơn vị, nhưng vẫn chỉ đơn vị sở hữu sửa được. Đơn vị khác nhìn thấy ghi chú cho biết đây là biểu mẫu dùng chung, chỉ xem.
+
+Mở cho toàn ngân hàng là quyết định vượt ra ngoài đơn vị, nên chỉ chủ đơn vị làm được. Người khác nhận lỗi từ chối kèm thông báo tương ứng.
+
+Cán bộ chưa được gán đơn vị không mở được biểu mẫu nào, kể cả biểu mẫu toàn ngân hàng, vì tệp sinh ra phải thuộc về một đơn vị.
+
+7.3 Xuất bản thử trước khi công bố
+
+Có chức năng xuất bản thử với dữ liệu giả để kiểm tra bố cục mẫu. Nó chạy đúng đường in như khi cán bộ nộp thật.
+
+Khác biệt duy nhất là tệp thử được đánh dấu thuộc phía quản trị, không gửi cho cán bộ nào, và tên người lập ghi rõ đây là bản thử của quản trị.
+
+Hãy dùng chức năng này ít nhất một lần trước mỗi lần công bố. Nó bắt được các lỗi mà bước kiểm tra biến không bắt được, ví dụ bảng bị vỡ cột, số tiền quên bộ lọc, hoặc một đoạn văn dài tràn sang trang.
+
+8. Luồng cán bộ điền và xuất tệp
+
+8.1 Các bước
+
+Cán bộ vào mục biểu mẫu trong cổng nội bộ và thấy danh sách các biểu mẫu đã công bố dành cho đơn vị mình, cộng các biểu mẫu toàn ngân hàng.
+
+Chọn một biểu mẫu. Nếu biểu mẫu có cấu hình điền sẵn, phía trên có ô nhập mã nghiệp vụ và nút điền sẵn. Gõ mã, bấm, các trường đã ánh xạ được đổ dữ liệu.
+
+Điền nốt các trường còn lại. Với trường nguồn AI gợi ý, bấm nút gợi ý để mô hình soạn bản nháp, rồi sửa lại theo ý mình.
+
+Bấm xuất tệp. Hệ thống kiểm tra dữ liệu, dựng tệp Word và trả về liên kết tải về ngay tại chỗ.
+
+8.2 Tệp đi đâu sau khi xuất
+
+Tệp vừa lập cũng nằm trong mục báo cáo của chính cán bộ đó, nên họ tải lại được sau này mà không phải điền lại.
+
+Tệp không tự động đến tay ai khác. Không có cơ chế gửi biểu mẫu cho đồng nghiệp từ trong hệ thống.
+
+Mỗi lần nộp được ghi vào nhật ký truy vấn dưới kênh biểu mẫu. Nhật ký ghi ai lập, lúc nào, cho biểu mẫu nào. Nó không lưu lại nội dung các trường nhạy cảm.
+
+Tệp có thời hạn lưu giữ như mọi tệp khác trong hệ thống, mặc định ba mươi ngày. Cán bộ cần giữ lâu thì phải tải về máy.
+
+8.3 Các thông báo lỗi khi điền
+
+Ba thông báo cán bộ có thể gặp và ý nghĩa của chúng:
+
+- Thiếu thông tin bắt buộc kèm tên nhãn. Một trường bắt buộc còn trống. Trường không bắt buộc bỏ trống thì được in thành chuỗi rỗng.
+- Một trường phải là số. Trường kiểu Số nhận giá trị không đổi được sang số. Dấu phẩy được hiểu là dấu thập phân, nên hãy nhập số thuần, đừng nhập dấu phân nhóm nghìn.
+- Một trường phải là một trong các giá trị đã khai. Trường kiểu Chọn nhận giá trị ngoài danh sách. Thường gặp khi bảng ánh xạ điền sẵn đổ vào một giá trị mà danh sách lựa chọn chưa có.
+
+Với trường kiểu Có hoặc Không, hệ thống chấp nhận nhiều cách viết, trong đó có chữ có.
+
+Lỗi mẫu cũng có thể xảy ra lúc nộp, ví dụ mẫu tham chiếu một biến không còn tồn tại. Khi đó cán bộ nhận thông báo lỗi mẫu Word và cần báo lại cho quản trị, vì đây là lỗi cấu hình chứ không phải lỗi nhập liệu.
+
+9. Đo token cho phần gợi ý
+
+Mỗi lần mô hình soạn giúp một trường, hệ thống ghi một dòng đo token với thành phần riêng dành cho gợi ý biểu mẫu.
+
+Nhờ vậy màn hình token sử dụng tách được chi phí của biểu mẫu khỏi chi phí hỏi đáp và chi phí báo cáo. Nếu một biểu mẫu bị lạm dụng, bạn nhìn thấy ngay ở đó.
+
+Các bước khác của biểu mẫu không tốn token, vì điền sẵn chỉ gọi công cụ và việc in tệp không dùng mô hình.
+
+10. Khuyến nghị vận hành
+
+Giữ biểu mẫu ngắn. Mỗi trường thêm vào là một ô cán bộ phải điền mỗi lần. Nếu một thông tin đã nằm trong hệ thống, hãy lấy bằng điền sẵn thay vì bắt gõ.
+
+Đánh dấu nhạy cảm rộng tay. Chi phí bằng không, lợi ích là dữ liệu khách hàng không bao giờ rời khỏi hệ thống.
+
+Đặt mô tả cho từng trường. Cán bộ ở chi nhánh không đọc được ý định của người thiết kế biểu mẫu, mô tả là chỗ duy nhất để nói.
+
+Viết câu yêu cầu cho trường AI gợi ý thật cụ thể, nêu rõ cần nói về cái gì và dài bao nhiêu. Yêu cầu chung chung cho ra văn bản chung chung.
+
+Luôn nhắc cán bộ đọc lại phần AI soạn trước khi nộp. Mô hình chỉ nhìn thấy phần dữ liệu không nhạy cảm, nên nó không biết hết bối cảnh, và nó không được phép kết luận thay cấp phê duyệt.
+
+Sau mỗi lần sửa danh sách trường, chạy lại xuất bản thử. Đây là thói quen rẻ nhất để không phát hành một mẫu hỏng.
+
+11. Sửa và xoá một biểu mẫu đang dùng
+
+11.1 Sửa danh sách trường khi biểu mẫu đã công bố
+
+Sửa được bất cứ lúc nào, không cần gỡ công bố. Thay đổi có hiệu lực ngay với lần điền tiếp theo.
+
+Ba thay đổi cần cẩn thận:
+
+- Đổi tên biến làm mẫu Word mất chỗ chèn tương ứng. Phải sửa mẫu và tải lại.
+- Thêm một trường bắt buộc làm những cán bộ đang quen điền nhanh bị chặn ở bước nộp. Nên báo trước.
+- Xoá một trường đang được mẫu Word tham chiếu sẽ gây lỗi mẫu lúc in, chứ không âm thầm bỏ qua.
+
+Cách an toàn là sửa trường, tải lại mẫu, rồi chạy xuất bản thử, theo đúng thứ tự đó.
+
+11.2 Gỡ công bố
+
+Gỡ công bố làm biểu mẫu biến mất khỏi cổng cán bộ ngay lập tức. Định nghĩa, mẫu Word và các tệp đã lập đều được giữ nguyên.
+
+Đây là cách đúng để tạm dừng một biểu mẫu đang có vấn đề, thay vì xoá nó.
+
+11.3 Xoá biểu mẫu
+
+Xoá biểu mẫu chỉ xoá định nghĩa và mẫu. Các tệp cán bộ đã lập từ biểu mẫu đó vẫn được giữ và vẫn tải về được cho tới khi hết hạn lưu giữ.
+
+Lý do: bản ghi tệp cố ý không ràng buộc khoá ngoại với biểu mẫu. Một tờ trình đã phát hành là bằng chứng nghiệp vụ, nó phải sống lâu hơn cái khuôn tạo ra nó.
+
+11.4 Biểu mẫu của đơn vị khác
+
+Biểu mẫu mở toàn ngân hàng hiện trong danh sách của mọi đơn vị, kèm ghi chú cho biết chỉ xem. Mọi thao tác sửa, tải mẫu, công bố hay xoá đều bị từ chối với lỗi không tìm thấy trong đơn vị này.
+
+Muốn có bản riêng cho đơn vị mình, hãy tạo một biểu mẫu mới và dựng lại, không có chức năng sao chép.
+
+12. Xử lý sự cố
+
+12.1 Cán bộ không thấy biểu mẫu trong cổng nội bộ
+
+Kiểm tra lần lượt: biểu mẫu đã công bố chưa, biểu mẫu thuộc đúng đơn vị của cán bộ hay đã mở toàn ngân hàng chưa, và cán bộ đã được gán đơn vị chưa. Nguyên nhân hay gặp nhất là cán bộ chưa có đơn vị.
+
+12.2 Nút điền sẵn không xuất hiện
+
+Biểu mẫu chưa khai đủ công cụ và tham số khoá. Cả hai phải cùng có thì chức năng mới bật.
+
+12.3 Điền sẵn chạy nhưng không trường nào được điền
+
+Bảng ánh xạ trỏ sai đường dẫn, hoặc kết quả trả về có hình dạng khác với lúc bạn cấu hình. Chạy thử công cụ đó trong màn hình công cụ, nhìn kết quả thật, rồi sửa lại đường dẫn cho khớp.
+
+12.4 Nút gợi ý báo chưa cấu hình mô hình ngôn ngữ
+
+Không có nhà cung cấp mô hình nào đang bật ở cấu hình AI. Đây là lỗi cấp hệ thống, không phải lỗi của biểu mẫu.
+
+12.5 Tệp in ra có ô trống
+
+Mẫu Word dùng một chỗ chèn không khớp tên trường nào. Bước kiểm tra lúc tải mẫu bắt được trường hợp này, nên ô trống thường có nghĩa là tên biến đã bị đổi sau khi mẫu được tải lên.
+
+12.6 Số tiền in ra khó đọc
+
+Ô đó chưa dùng bộ lọc tiền trong mẫu. Thêm bộ lọc rồi tải mẫu lại.
+
+13. Câu hỏi thường gặp
+
+Hỏi: Vì sao đoạn văn AI soạn không nhắc tên khách hàng dù tôi đã điền?
+Đáp: Vì trường đó được đánh dấu nhạy cảm, nên nó bị lọc ra trước khi gửi cho mô hình. Đây là hành vi đúng. Tên khách hàng vẫn được in đầy đủ vào tệp Word.
+
+Hỏi: Tôi không công bố được biểu mẫu, hệ thống báo phải tải mẫu lên trước?
+Đáp: Biểu mẫu chưa có tệp Word đính kèm. Tải mẫu docx lên rồi công bố lại.
+
+Hỏi: Hệ thống báo mẫu dùng biến chưa khai báo, tôi phải làm gì?
+Đáp: Thông báo liệt kê đúng các tên bị thừa. Hoặc khai thêm trường với đúng tên đó, hoặc sửa tệp Word cho khớp tên trường đã có, rồi tải lại.
+
+Hỏi: Công cụ điền sẵn không phản hồi thì cán bộ có nộp được biểu mẫu không?
+Đáp: Có. Điền sẵn chỉ là tiện ích. Cán bộ gõ tay các trường rồi nộp bình thường. Nếu lỗi lặp lại, hãy chạy thử công cụ đó trong màn hình công cụ để xem hệ thống nguồn hay cấu hình sai.
+
+Hỏi: Đơn vị khác dùng được biểu mẫu của tôi không?
+Đáp: Được, nếu chủ đơn vị mở phạm vi toàn ngân hàng. Họ dùng và lập tệp bình thường, nhưng không sửa được định nghĩa biểu mẫu.
+
+Hỏi: Tệp cán bộ vừa lập nằm ở đâu?
+Đáp: Trong mục báo cáo của chính cán bộ đó, bên cạnh các báo cáo theo lịch gửi cho họ. Nó không đến tay ai khác.
+
+Hỏi: Tôi đổi tên một trường, mẫu cũ có tự cập nhật không?
+Đáp: Không. Tệp Word vẫn dùng tên cũ và sẽ in ra ô trống. Sửa tệp mẫu rồi tải lại, sau đó chạy xuất bản thử để xác nhận.
+
+Hỏi: Có cách nào để cán bộ điền biểu mẫu bằng cách nói chuyện với trợ lý không?
+Đáp: Không, và đó là chủ ý. Bộ che dữ liệu cá nhân sẽ xoá đúng những giá trị mà tài liệu cần. Biểu mẫu tồn tại chính là để tránh việc đó.

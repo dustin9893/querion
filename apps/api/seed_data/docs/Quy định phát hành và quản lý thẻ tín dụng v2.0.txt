@@ -1,0 +1,86 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG CÁ NHÂN
+QUY ĐỊNH PHÁT HÀNH VÀ QUẢN LÝ THẺ TÍN DỤNG
+Số hiệu: QĐ.THE.RB.04 — Phiên bản: 2.0 — Hiệu lực từ: 01/05/2026
+Đơn vị ban hành: Khối Khách hàng Cá nhân, phối hợp Trung tâm Thẻ
+Phân loại: Tài liệu nội bộ — không cung cấp cho khách hàng
+Văn bản liên quan: CN.SP.RB.02 (Cẩm nang tiết kiệm và thẻ), HD.TS.VH.10 (Tra soát và xử lý khiếu nại giao dịch), QĐ.TĐ.RB.03
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Phạm vi áp dụng
+1. Quy định này quy định điều kiện, hồ sơ, quy trình thẩm định, phát hành, quản lý hạn mức, xử lý chậm trả, tranh chấp và bảo mật đối với thẻ tín dụng cá nhân M-Visa Classic và M-Visa Platinum do MSB phát hành.
+2. Áp dụng cho RM, CA, Trung tâm Thẻ và các bộ phận liên quan trong toàn bộ vòng đời thẻ tín dụng, từ phát hành đến hủy thẻ.
+3. Không áp dụng cho thẻ ghi nợ (debit) và thẻ trả trước (prepaid), được quy định tại văn bản riêng của Trung tâm Thẻ.
+
+Điều 2. Điều kiện phát hành thẻ tín dụng
+1. M-Visa Classic: khách hàng từ 20 đến 65 tuổi, có thu nhập chuyển khoản hoặc xác nhận từ 7.000.000 đồng/tháng trở lên, có hợp đồng lao động không xác định thời hạn hoặc từ 12 tháng trở lên, hoặc mở theo hình thức thế chấp sổ tiết kiệm không yêu cầu chứng minh thu nhập.
+2. M-Visa Platinum: khách hàng từ 22 đến 65 tuổi, có thu nhập chuyển khoản hoặc xác nhận từ 25.000.000 đồng/tháng trở lên, hoặc là khách hàng ưu tiên M-Priority theo tiêu chí phân hạng khách hàng hiện hành của MSB.
+3. Không có nợ nhóm 2 trở lên tại bất kỳ tổ chức tín dụng nào theo tra cứu CIC trong 12 tháng gần nhất; khách hàng có quá 3 lần chậm trả thẻ tín dụng tại tổ chức tín dụng khác trong 12 tháng gần nhất bị từ chối phát hành thẻ mới, không phân biệt hạng thẻ.
+
+Điều 3. Hạn mức thẻ theo thu nhập
+1. Hạn mức tín dụng thẻ được xác định trong khoảng từ 3 đến 5 lần thu nhập bình quân tháng đã chứng minh theo Điều 2, tối đa không vượt quá 500.000.000 đồng cho một khách hàng, không phân biệt số lượng thẻ đang sở hữu tại MSB.
+2. M-Visa Classic: hạn mức từ 10.000.000 đến 100.000.000 đồng.
+3. M-Visa Platinum: hạn mức từ 50.000.000 đến 500.000.000 đồng.
+4. Trường hợp phát hành theo hình thức thế chấp sổ tiết kiệm, hạn mức thẻ tối đa 90% giá trị sổ tiết kiệm dùng làm bảo đảm, không áp dụng công thức tại khoản 1.
+5. Hệ số quy đổi thu nhập khi xác định hạn mức áp dụng theo Điều 2 QĐ.TĐ.RB.03.
+
+CHƯƠNG II. HỒ SƠ, THẨM ĐỊNH VÀ PHÁT HÀNH
+
+Điều 4. Hồ sơ phát hành và thẩm định
+1. Hồ sơ gồm: căn cước công dân hoặc giấy tờ tùy thân hợp lệ còn hiệu lực, chứng từ chứng minh thu nhập (hợp đồng lao động và sao kê lương 3 tháng gần nhất, hoặc sổ tiết kiệm nếu mở theo hình thức thế chấp), đơn đề nghị phát hành thẻ theo mẫu.
+2. CA hoặc hệ thống thẩm định tự động (đối với hồ sơ mở online đủ điều kiện) thực hiện tra cứu CIC bắt buộc trước khi ra quyết định, kết quả tra cứu không quá 15 ngày tính đến ngày phê duyệt.
+3. Khách hàng có kết quả chấm điểm Scorecard RB theo QĐ.TĐ.RB.03 thuộc hạng 4, hạng 5: không đủ điều kiện phát hành thẻ tín dụng tín chấp, chỉ được xem xét phát hành theo hình thức thế chấp sổ tiết kiệm.
+4. Thẻ phụ: chủ thẻ chính được đăng ký tối đa 3 thẻ phụ cho người thân (vợ/chồng, con từ 15 tuổi trở lên, cha mẹ), sử dụng chung hạn mức với thẻ chính; chủ thẻ chính chịu trách nhiệm toàn bộ nghĩa vụ thanh toán phát sinh từ thẻ phụ.
+
+Điều 5. Thời gian và quy trình phát hành
+1. Thời gian xử lý từ khi nhận đủ hồ sơ đến khi phát hành thẻ vật lý: tối đa 5 ngày làm việc.
+2. Thẻ được giao cho khách hàng qua chi nhánh nơi đăng ký hoặc dịch vụ chuyển phát đến địa chỉ khách hàng yêu cầu; khách hàng ký nhận thẻ, đối chiếu thông tin trước khi kích hoạt.
+3. Kích hoạt thẻ và cấp mã PIN thực hiện qua ứng dụng MSB mBank hoặc tổng đài, yêu cầu xác thực OTP gửi về số điện thoại đăng ký; không cấp PIN qua kênh không xác thực được danh tính chủ thẻ.
+4. Thẻ chưa kích hoạt sau 90 ngày kể từ ngày phát hành bị tự động khóa; khách hàng có nhu cầu sử dụng phải liên hệ Trung tâm Thẻ làm thủ tục mở lại hoặc phát hành thẻ mới.
+
+Điều 6. Quản lý hạn mức tạm thời
+1. Khách hàng có nhu cầu chi tiêu đột biến (du lịch, mua sắm lớn) có thể đề nghị tăng hạn mức tạm thời tối đa 50% hạn mức hiện hữu, thời gian áp dụng tối đa 30 ngày, phê duyệt qua ứng dụng đối với khách hàng đủ điều kiện tự động hoặc qua Trung tâm Thẻ đối với trường hợp còn lại.
+2. Hết thời gian tạm tăng, hạn mức tự động trở về mức gốc; phần dư nợ phát sinh trong thời gian tăng hạn mức vẫn phải thanh toán đầy đủ theo kỳ sao kê.
+3. Giảm hạn mức thường trực được xem xét khi khách hàng có yêu cầu, hoặc khi Trung tâm Thẻ phát hiện dấu hiệu rủi ro tín dụng gia tăng (chậm trả, nợ xấu tại tổ chức tín dụng khác theo CIC định kỳ).
+
+CHƯƠNG III. XỬ LÝ CHẬM TRẢ VÀ TRANH CHẤP
+
+Điều 7. Xử lý thẻ chậm trả
+1. Ngày 1 sau ngày đến hạn thanh toán ghi trên sao kê mà khách hàng chưa thanh toán đủ số tiền tối thiểu: hệ thống tự động gửi tin nhắn và thông báo nhắc nợ qua ứng dụng.
+2. Từ ngày 1, phí phạt chậm thanh toán và lãi suất trên dư nợ tính theo Điều 6 CN.SP.RB.02 (phí chậm thanh toán 5% số tiền tối thiểu chưa thanh toán, tối thiểu 150.000 đồng); dư nợ không còn hưởng thời gian miễn lãi cho kỳ sao kê đó.
+3. Chậm trả từ 30 ngày trở lên: Trung tâm Thẻ chuyển thông tin cho RM quản lý khách hàng để liên hệ nhắc nợ trực tiếp; khoản nợ thẻ được theo dõi chuyển nhóm nợ theo quy định hiện hành, ảnh hưởng lịch sử tín dụng CIC.
+4. Khóa thẻ do chậm trả: tạm khóa chức năng chi tiêu (giữ chức năng thanh toán dư nợ) khi chậm trả từ 60 ngày kể từ ngày đến hạn; mở lại trong 1 ngày làm việc sau khi thanh toán đủ số tiền tối thiểu và phí phạt phát sinh.
+5. Chậm trả trên 90 ngày: hồ sơ chuyển Trung tâm Xử lý nợ, áp dụng tương tự Hướng dẫn HD.KSS.EB.08 kết hợp quy định thu hồi nợ thẻ tín dụng của Trung tâm Thẻ.
+
+Điều 8. Tranh chấp giao dịch và chargeback
+1. Khách hàng phát hiện giao dịch không nhận diện được hoặc nghi ngờ gian lận thực hiện tra soát theo Hướng dẫn HD.TS.VH.10, gửi yêu cầu trong vòng 60 ngày kể từ ngày giao dịch.
+2. Trung tâm Thẻ phối hợp Trung tâm Dịch vụ khách hàng khởi tạo yêu cầu chargeback với tổ chức thẻ Visa/Mastercard theo bộ quy tắc của tổ chức thẻ; thời gian xử lý và tạm hoàn tiền thực hiện theo Điều 8 CN.SP.RB.02 và HD.TS.VH.10.
+3. Trong thời gian chờ kết quả tra soát, dư nợ tranh chấp không được tính vào số tiền thanh toán tối thiểu bắt buộc của kỳ sao kê hiện tại, tránh ảnh hưởng lịch sử tín dụng của khách hàng khi tranh chấp có căn cứ hợp lý ban đầu.
+
+Điều 9. Gian lận thẻ và khóa khẩn cấp
+1. Khách hàng nghi ngờ mất thẻ, lộ thông tin thẻ hoặc phát hiện giao dịch gian lận có thể tự khóa thẻ tạm thời ngay trên ứng dụng MSB mBank, có hiệu lực tức thời, không mất phí.
+2. Trung tâm Thẻ vận hành hệ thống giám sát gian lận tự động, tạm khóa giao dịch và liên hệ xác minh với khách hàng khi phát hiện mẫu hình giao dịch bất thường (địa điểm không quen thuộc, giá trị giao dịch đột biến, tần suất giao dịch cao trong thời gian ngắn).
+3. Khóa thẻ vĩnh viễn do mất thẻ hoặc gian lận xác nhận: Trung tâm Thẻ hủy số thẻ hiện tại, phát hành thẻ thay thế với số thẻ mới trong 5 đến 7 ngày làm việc; toàn bộ giao dịch gian lận được xử lý theo Điều 8.
+
+CHƯƠNG IV. HỦY THẺ VÀ TRẠNG THÁI
+
+Điều 10. Hủy thẻ
+1. Khách hàng có thể yêu cầu hủy thẻ bất kỳ lúc nào qua ứng dụng hoặc tại chi nhánh, với điều kiện đã thanh toán hết dư nợ và các khoản phí phát sinh.
+2. Thẻ không phát sinh giao dịch trong 24 tháng liên tiếp và không còn dư nợ: Trung tâm Thẻ có thể chủ động đề xuất hủy thẻ sau khi thông báo cho khách hàng tối thiểu 30 ngày.
+3. Thẻ phụ bị hủy khi thẻ chính bị hủy hoặc theo yêu cầu riêng của chủ thẻ chính.
+
+Điều 11. Mã trạng thái thẻ (TH01–TH07)
+1. TH01: Đang xử lý phát hành — hồ sơ đã duyệt, chờ in và giao thẻ.
+2. TH02: Đã phát hành, chưa kích hoạt — thẻ đã giao khách hàng, chưa kích hoạt.
+3. TH03: Đang hoạt động — thẻ đã kích hoạt, sử dụng bình thường.
+4. TH04: Tạm khóa theo yêu cầu khách hàng — khách hàng tự khóa qua ứng dụng.
+5. TH05: Tạm khóa do chậm trả — khóa theo Điều 7 khoản 4.
+6. TH06: Khóa do nghi ngờ gian lận — khóa theo Điều 9, chờ xác minh.
+7. TH07: Đã hủy — thẻ đã hủy vĩnh viễn, không thể mở lại, phải phát hành thẻ mới nếu khách hàng có nhu cầu tiếp tục sử dụng.
+
+Điều 12. Hiệu lực thi hành
+1. Quy định có hiệu lực từ ngày 01/05/2026, thay thế phiên bản 1.4.
+2. Thay đổi chính so với phiên bản 1.4: giảm thời gian khóa thẻ do chậm trả từ 90 xuống 60 ngày tại Điều 7 khoản 4; bổ sung Điều 6 về quản lý hạn mức tạm thời; bổ sung điều kiện phát hành M-Visa Platinum cho khách hàng M-Priority tại Điều 2 khoản 2.
+3. Vướng mắc phản ánh về Trung tâm Thẻ hoặc Phòng Chính sách sản phẩm cá nhân, Khối Khách hàng Cá nhân.

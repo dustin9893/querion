@@ -1,0 +1,404 @@
+CẨM NANG VẬN HÀNH — LUỒNG XỬ LÝ, CÁC LOẠI NODE
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Luồng xử lý là gì
+
+Luồng xử lý là một sơ đồ khối. Mỗi khối gọi là một node. Hệ thống chạy các node lần lượt theo cạnh nối, từ node đầu vào tới node đầu ra. Mỗi node nhận trạng thái hiện tại, làm một việc, rồi ghi kết quả trở lại trạng thái đó.
+
+Luồng xử lý dùng khi câu trả lời cần nhiều bước cố định. Ví dụ phải phân loại câu hỏi trước rồi mới chọn kho tri thức, hoặc phải gọi hệ thống lõi lấy số liệu rồi mới viết nhận định rồi mới xuất tệp. Nếu chỉ cần hỏi đáp trên một kho tri thức thì không cần luồng xử lý, gắn thẳng kho vào trợ lý là đủ và nhanh hơn.
+
+Luồng xử lý thuộc về một đơn vị. Đơn vị lấy từ header chọn đơn vị làm việc lúc tạo. Mọi thao tác sau đó chỉ thấy luồng của đơn vị đang chọn.
+
+1.1 Hai kiểu luồng
+
+Trường kiểu của luồng nhận hai giá trị. Kiểu hội thoại là luồng chạy mỗi khi có người hỏi trợ lý. Kiểu báo cáo là luồng chạy nền để sinh ra tệp.
+
+Khác biệt không nằm ở các node được phép dùng mà nằm ở cách chạy. Luồng hội thoại gắn trực tiếp vào trợ lý và chạy trong lúc người dùng đang chờ. Luồng báo cáo được xếp hàng đợi, chạy bằng tiến trình nền, có thể mất vài phút, và kết thúc bằng một tệp.
+
+Hệ thống chặn việc gắn luồng kiểu báo cáo làm bộ não của trợ lý. Khi bạn cố gắn, API trả lỗi 400 với nội dung nói rằng luồng báo cáo chạy nền và xuất tệp, hãy tạo công cụ loại báo cáo trỏ tới luồng này rồi gắn công cụ cho trợ lý. Lý do rất thực tế: nếu gắn thẳng thì mỗi câu "xin chào" cũng khởi động một báo cáo.
+
+Có một ngoại lệ đã được tính trước. Một trợ lý đã gắn luồng báo cáo từ trước khi có luật này vẫn sửa được. Hệ thống chỉ từ chối khi bạn gắn một luồng báo cáo mới, còn nếu giá trị không đổi thì cho lưu bình thường. Nếu không làm vậy thì mọi lần bấm lưu trợ lý đó đều hỏng và chủ đơn vị không gỡ được liên kết cũ. Khi luồng đang gắn là loại báo cáo, ô chọn luồng hiển thị kèm ghi chú rằng luồng đó không dùng cho hội thoại, để bạn biết mà bỏ chọn. Ngay cả khi liên kết cũ còn đó, lúc chạy hệ thống cũng bỏ qua nó và trả lời như trợ lý bình thường.
+
+1.2 Trạng thái mà các node dùng chung
+
+Trong suốt một lần chạy, các node chia sẻ một túi dữ liệu. Hiểu túi này thì cấu hình node nào cũng dễ.
+
+- query: câu hỏi của người dùng, hoặc tên luồng khi chạy báo cáo.
+- inputs: các tham số mà node đầu vào khai báo và người chạy điền.
+- retrieved_chunks: các đoạn văn bản vừa tra được.
+- citations: cũng là các đoạn đó, dùng để hiển thị trích dẫn.
+- prompt_messages: bộ tin nhắn đã soạn để gửi cho mô hình.
+- answer: câu trả lời hiện tại.
+- extracted_params: các trường mà node trích tham số bóc ra.
+- history: lịch sử hội thoại, chỉ có khi chạy trong hội thoại.
+- tool_results: kết quả của các node gọi công cụ, xếp theo bí danh.
+- artifacts: danh sách tệp đã sinh ra.
+- http_response: kết quả của node gọi HTTP, gồm mã trạng thái và phần thân.
+- code_output: kết quả của node chạy mã.
+
+Nhiều node đọc giá trị theo đường dẫn có dấu chấm. Ví dụ extracted_params.intent là trường intent trong túi extracted_params, tool_results.ho_so.tong_so là trường tong_so trong kết quả của node công cụ có bí danh ho_so.
+
+2. Quy tắc bắt buộc của một luồng hợp lệ
+
+Hệ thống kiểm tra sơ đồ trước khi lưu và trước mỗi lần chạy. Nếu sai, bạn nhận lỗi 400 kèm câu mô tả. Sáu quy tắc dưới đây là toàn bộ nội dung kiểm tra.
+
+2.1 Chỉ dùng các loại node đã biết
+
+Có đúng mười hai loại node. Bất kỳ loại nào khác đều bị từ chối ngay khi lưu. Danh sách đầy đủ nằm ở các mục từ 4 đến 15 của tài liệu này.
+
+2.2 Đúng một node đầu vào và một node đầu ra
+
+Không được có hai node đầu vào, cũng không được không có node nào. Đầu ra cũng vậy. Thông báo lỗi nói rõ tìm thấy bao nhiêu node.
+
+Thêm một điều kiện mà bộ kiểm tra không bắt nhưng lúc chạy sẽ bắt: node đầu vào phải không có cạnh nào trỏ vào nó. Nếu bạn nối ngược một cạnh về node đầu vào thì lúc chạy hệ thống báo không tìm thấy node đầu vào và cả luồng dừng.
+
+2.3 Mỗi node tối đa một cạnh ra
+
+Một node chỉ được nối ra một node kế tiếp. Ngoại lệ duy nhất là node rẽ nhánh, được phép hai cạnh ra. Đây là lý do luồng ở đây là một chuỗi tuần tự chứ không phải sơ đồ song song. Muốn làm ba việc thì xếp ba node nối tiếp nhau, không nối song song.
+
+2.4 Không được có chu trình
+
+Sơ đồ phải là đồ thị có hướng không chu trình. Không có vòng lặp, không có đường quay lại node đã đi qua. Ngay cả khi bộ kiểm tra bị qua mặt, lúc chạy hệ thống vẫn ghi nhớ các node đã đi và dừng khi gặp lại một node cũ, nên vòng lặp không bao giờ chạy vô hạn.
+
+2.5 Phải có đường đi từ đầu vào tới đầu ra
+
+Node đầu ra phải đến được từ node đầu vào. Lỗi hay gặp nhất là quên nối cạnh cuối cùng, hoặc để một nhánh của node rẽ nhánh cụt lủng. Nhánh cụt vẫn chạy được nhưng luồng dừng ở đó, không tới đầu ra, và bộ kiểm tra sẽ từ chối lưu nếu đầu ra không đến được qua bất kỳ đường nào.
+
+2.6 Ở node rẽ nhánh, cạnh thứ nhất là nhánh đúng
+
+Đây là quy tắc dễ sai nhất trong toàn bộ hệ thống, nên đọc kỹ.
+
+Khi node rẽ nhánh có đúng hai cạnh ra, hệ thống lấy cạnh thứ nhất trong danh sách cạnh làm nhánh điều kiện đúng, và cạnh thứ hai làm nhánh điều kiện sai. Nó không nhìn nhãn cạnh, cũng không nhìn tên cổng ra. Thứ tự cạnh trong dữ liệu sơ đồ mới là thứ quyết định.
+
+Hệ quả: nếu bạn xoá một cạnh rồi vẽ lại, cạnh mới có thể nằm cuối danh sách và hai nhánh đổi chỗ cho nhau. Biểu hiện là trợ lý trả lời đúng câu hỏi nhưng tra nhầm kho. Cách kiểm tra chắc chắn nhất là chạy thử một câu chắc chắn thuộc nhánh đúng và xem nhật ký từng bước xem node nào đã chạy.
+
+3. Cách một lần chạy diễn ra
+
+Hệ thống tìm node đầu vào, dựng túi trạng thái, rồi đi theo cạnh. Trước và sau mỗi node, nếu lần chạy này có bản ghi nhật ký thì hệ thống ghi một bước với mã node, loại node, một phần dữ liệu vào và một phần dữ liệu ra. Nhờ vậy khi luồng cho kết quả lạ, bạn mở nhật ký ra là thấy node nào đã chạy và trả về gì.
+
+Node đầu vào có khai báo tham số thì các tham số được kiểm tra một lần duy nhất ngay đầu lần chạy, trước khi bất kỳ node nào chạy. Làm vậy để một lịch chạy tự động báo lỗi rõ ràng thay vì tạo ra một báo cáo rỗng.
+
+4. Node đầu vào
+
+Node đầu vào đánh dấu điểm bắt đầu. Bản thân nó không làm gì với dữ liệu.
+
+Giá trị cấu hình quan trọng là danh sách tham số. Mỗi tham số gồm tên, nhãn hiển thị, kiểu, bắt buộc hay không, giá trị mặc định, danh sách lựa chọn nếu là kiểu chọn, và một dòng mô tả.
+
+Kiểu tham số nhận sáu giá trị: chuỗi ngắn, văn bản dài, số, ngày, chọn từ danh sách, và đúng sai.
+
+Danh sách tham số này được dùng lại ở ba nơi khác nhau, đó là lý do nên khai báo cẩn thận. Thứ nhất, hộp thoại chạy thử dựng biểu mẫu từ nó. Thứ hai, trình soạn lịch chạy dựng biểu mẫu từ nó. Thứ ba, nếu bạn tạo một công cụ loại báo cáo trỏ vào luồng này thì các tham số của công cụ được sinh tự động từ chính danh sách này, nghĩa là mô hình sẽ điền đúng biểu mẫu mà con người vẫn điền.
+
+Kiểm tra và ép kiểu xảy ra ngay đầu lần chạy. Thiếu tham số bắt buộc thì lần chạy dừng với thông báo nêu tên nhãn của tham số. Tham số kiểu số mà nhận chữ thì báo phải là số. Tham số kiểu chọn mà nhận giá trị ngoài danh sách thì báo phải là một trong các giá trị đã khai. Giá trị kiểu đúng sai chấp nhận các cách viết true, 1, yes và có.
+
+Sai lầm thường gặp: đặt tên tham số có dấu hoặc có khoảng trắng. Tên tham số được dùng làm khoá trong biểu thức chèn, nên chỉ nên dùng chữ không dấu, số và gạch dưới.
+
+5. Node tra kho tri thức
+
+Node này nhận câu hỏi trong trạng thái, biến nó thành vector, tìm các đoạn văn bản gần nhất trong một hoặc nhiều kho, rồi ghi kết quả vào retrieved_chunks và citations.
+
+Cấu hình gồm danh sách mã kho tri thức và số đoạn muốn lấy. Số đoạn mặc định là 5.
+
+Nếu danh sách kho để trống, node không làm gì cả và cũng không báo lỗi. Đây là bẫy phổ biến nhất: luồng chạy trơn tru, mô hình vẫn trả lời, nhưng trả lời bằng kiến thức chung chứ không có trích dẫn nào. Khi thấy câu trả lời không kèm nguồn, hãy kiểm tra node này trước tiên.
+
+Node cần một nhà cung cấp embedding đang bật. Nếu không có, hàm tra cứu trả về danh sách rỗng một cách im lặng, biểu hiện y hệt trường hợp quên chọn kho.
+
+Node chỉ lấy đoạn thuộc các văn bản đang bật cho AI. Văn bản bị tắt vẫn còn đoạn trong cơ sở dữ liệu nhưng câu truy vấn loại chúng ra, nên hiệu lực tức thì trên mọi đường trả lời.
+
+Mỗi lần chạy node này tính một lượt nhúng câu hỏi và được ghi vào bảng đo token với thành phần nhúng câu hỏi.
+
+6. Node soạn prompt
+
+Node này ghép một chuỗi mẫu thành bộ tin nhắn gửi cho mô hình. Không gọi mô hình, chỉ chuẩn bị.
+
+Cấu hình chính là chuỗi mẫu. Mặc định là chỉ chèn câu hỏi. Trong chuỗi mẫu bạn dùng các chỗ chèn sau:
+
+- Chỗ chèn câu hỏi được thay bằng nội dung người dùng gõ.
+- Chỗ chèn ngữ cảnh được thay bằng các đoạn vừa tra được, mỗi đoạn có số thứ tự dạng thăng để mô hình trích dẫn lại.
+- Chỗ chèn system_prompt được thay bằng trường system_prompt của chính node.
+- Chỗ chèn tool_results được thay bằng toàn bộ kết quả các node công cụ, mỗi kết quả bọc trong một khối dữ liệu có ghi rõ đây là dữ liệu tra cứu chứ không phải chỉ dẫn.
+- Chỗ chèn answer được thay bằng câu trả lời hiện có, hữu ích khi bạn muốn viết lại hoặc kiểm tra một câu trả lời đã sinh ở node trước.
+- Chỗ chèn dạng inputs chấm tên tham số được thay bằng giá trị tham số tương ứng.
+
+Sau khi thay xong, node dựng bộ tin nhắn theo thứ tự: một tin nhắn hệ thống chứa toàn bộ chuỗi mẫu đã thay, rồi lịch sử hội thoại nếu có, rồi câu hỏi hiện tại với vai người dùng.
+
+Vì sao kết quả công cụ phải bọc trong khối dữ liệu: dữ liệu trả về từ một hệ thống khác có thể chứa câu chữ mang hình dáng mệnh lệnh. Bọc lại và nói rõ trong prompt rằng đây là dữ liệu là cách rẻ nhất để mô hình không làm theo.
+
+Sai lầm thường gặp: viết chuỗi mẫu mà quên chèn ngữ cảnh. Node tra kho chạy đúng, lấy được đoạn, nhưng đoạn không bao giờ đến tay mô hình. Biểu hiện là trợ lý nói rằng tài liệu chưa đề cập, dù bạn biết chắc tài liệu có.
+
+7. Node sinh câu trả lời
+
+Node này gọi mô hình ngôn ngữ đang bật và ghi kết quả vào answer. Gọi một lần, không phát trực tiếp từng chữ. Trong hội thoại, câu trả lời của cả luồng được gửi về giao diện thành một khối duy nhất chứ không chạy chữ như khi trợ lý dùng kho tri thức trực tiếp.
+
+Cấu hình gồm tên model, nhiệt độ và số token tối đa. Tên model để trống thì dùng model của nhà cung cấp đang bật. Nhiệt độ mặc định 0.7. Số token tối đa mặc định 4096.
+
+Với báo cáo và phân loại, nên đặt nhiệt độ thấp, khoảng 0.2 hoặc thấp hơn, để kết quả ổn định giữa các lần chạy. Các luồng mẫu trong hệ thống đều dùng 0.2.
+
+Node lấy bộ tin nhắn từ prompt_messages. Nếu chưa có node soạn prompt nào chạy trước đó, node tự dựng một tin nhắn duy nhất chứa câu hỏi, tức là mất sạch ngữ cảnh và hướng dẫn.
+
+Nếu không có nhà cung cấp mô hình nào đang bật, node ghi vào answer một dòng tiếng Anh báo chưa cấu hình nhà cung cấp và luồng vẫn chạy tiếp tới node sau. Tức là bạn sẽ nhận được một báo cáo có phần nhận định là câu báo lỗi. Đây là dấu hiệu nhận biết rất rõ, gặp thì đi kiểm tra cấu hình nhà cung cấp AI.
+
+Mỗi lần chạy node ghi một dòng đo token với thành phần workflow_llm.
+
+8. Node trích tham số
+
+Node này dùng mô hình để bóc dữ liệu có cấu trúc ra khỏi câu chữ tự do, rồi ghi vào extracted_params.
+
+Cấu hình là một bảng gồm tên trường và mô tả trường. Mô tả chính là chỉ dẫn gửi cho mô hình, nên viết càng rõ càng tốt, kể cả liệt kê đủ các giá trị được phép.
+
+Node chạy ở nhiệt độ 0 và giới hạn 1024 token, dựng ngữ cảnh từ lịch sử hội thoại cộng câu hỏi hiện tại, và yêu cầu mô hình chỉ trả về JSON.
+
+Nếu bảng khai báo để trống, node không làm gì. Nếu không có nhà cung cấp mô hình nào bật, node cũng không làm gì và extracted_params vẫn rỗng.
+
+Nếu mô hình trả về thứ không phải JSON hợp lệ, hệ thống cắt bỏ các dấu rào mã rồi thử lại một lần. Vẫn không được thì nó ghi nguyên văn vào một trường có tên bắt đầu bằng gạch dưới thay vì làm hỏng lần chạy. Biểu hiện khi gặp lỗi này là node rẽ nhánh ngay sau đó luôn chọn nhánh sai, vì trường mà nó so sánh không tồn tại.
+
+Mỗi lần chạy node ghi một dòng đo token với thành phần workflow_extract.
+
+Mẹo thực dụng: chỉ bóc một trường mỗi lần và ràng buộc nó vào một tập giá trị đóng. Luồng định tuyến mẫu chỉ bóc đúng một trường ý định với hai giá trị cho phép, và mô tả trường liệt kê rõ loại câu hỏi nào thuộc giá trị nào.
+
+9. Node rẽ nhánh
+
+Node này so sánh một giá trị trong trạng thái rồi đánh dấu sẽ đi nhánh đúng hay nhánh sai.
+
+Cấu hình gồm ba thứ. Đường dẫn biến, viết theo dạng có dấu chấm, ví dụ extracted_params.intent. Phép so sánh. Giá trị đem so.
+
+Có bốn phép so sánh. Phép tồn tại đúng khi giá trị khác rỗng theo nghĩa không phải null. Phép khác rỗng đúng khi giá trị có nội dung, chuỗi rỗng và số không đều bị coi là sai. Phép bằng so sánh hai giá trị sau khi đưa cả hai về chuỗi. Phép chứa kiểm tra giá trị đem so có nằm trong chuỗi của biến hay không. Mặc định là phép tồn tại.
+
+Vì phép bằng so sánh dạng chuỗi nên giá trị đem so phải khớp từng ký tự, kể cả hoa thường. Nếu node trích tham số trả về Tin_Dung mà bạn so với tin_dung thì kết quả là sai.
+
+Nhắc lại quy tắc ở mục 2.6: cạnh thứ nhất là nhánh đúng, cạnh thứ hai là nhánh sai.
+
+Một node rẽ nhánh được phép có hai cạnh ra, không được ba. Muốn ba hướng thì nối tiếp hai node rẽ nhánh.
+
+10. Node gọi HTTP
+
+Node này gọi một địa chỉ web bên ngoài và cất kết quả vào http_response.
+
+Cấu hình gồm địa chỉ, phương thức, các header, và chuỗi mẫu thân yêu cầu. Phương thức mặc định là POST. Hỗ trợ GET, POST, PUT và DELETE. Với GET và DELETE, phần thân không được gửi đi.
+
+Trong chuỗi mẫu thân, bạn chèn được câu hỏi, câu trả lời hiện tại, và từng trường trong extracted_params theo tên trường.
+
+Thời gian chờ cố định 30 giây. Phần thân trả về bị cắt còn 2000 ký tự trước khi cất vào trạng thái.
+
+Node có bộ chặn địa chỉ nội bộ. Nó từ chối mọi thứ không phải http hoặc https, từ chối tên miền localhost cùng các đuôi chấm local và chấm internal, và phân giải tên miền để từ chối các địa chỉ riêng, địa chỉ vòng lặp và các dải đặc biệt. Khi bị chặn, node không ném lỗi mà ghi vào http_response một bản ghi có mã trạng thái 0 và phần thân bắt đầu bằng chữ Blocked kèm lý do.
+
+Điểm rất quan trọng: bộ chặn của node này không đọc danh sách host nội bộ được phép mà bạn khai cho công cụ. Danh sách đó chỉ áp dụng cho công cụ trong sổ đăng ký. Node gọi HTTP chỉ nới ra khi bật cờ cho phép địa chỉ riêng ở mức toàn hệ thống, mà cờ đó thì mở cho mọi luồng cùng lúc.
+
+Vì vậy khuyến nghị: muốn gọi hệ thống nội bộ, hãy tạo một công cụ loại http trong sổ đăng ký rồi dùng node gọi công cụ, thay vì dùng node gọi HTTP. Công cụ có thêm khoá bí mật lưu mã hoá, có kiểm tra tham số theo lược đồ, có thời gian chờ cấu hình được và có danh sách host nội bộ được phép. Node gọi HTTP chỉ nên dùng cho các dịch vụ công khai.
+
+Lỗi mạng cũng không làm hỏng lần chạy: node ghi mã trạng thái 0 và thông điệp lỗi vào http_response rồi đi tiếp.
+
+11. Node chạy mã
+
+Node này thực thi một đoạn mã Python ngắn với một tập hàm dựng sẵn bị giới hạn.
+
+Mặc định node bị tắt ở mức toàn hệ thống. Khi tắt, node ghi vào code_output một bản ghi lỗi nói rằng cần bật cờ tương ứng, và nói thẳng rằng đây không phải hộp cát an toàn.
+
+Hãy đọc kỹ câu đó. Danh sách hàm dựng sẵn bị thu hẹp không phải là một hàng rào bảo mật thực thụ. Chỉ bật khi bạn kiểm soát được ai sửa được luồng trong đơn vị, và tốt nhất là không bật trên môi trường thật.
+
+Mã nhận một biến tên args chứa câu hỏi, các tham số đầu vào, câu trả lời hiện tại, các tham số đã bóc, các đoạn đã tra và kết quả gọi HTTP. Nếu mã định nghĩa một hàm tên main thì hệ thống gọi hàm đó với args. Nếu hàm trả về một từ điển thì các khoá answer và extracted_params được ghi ngược lại trạng thái, và toàn bộ từ điển được cất vào code_output. Nếu mã không có hàm main nhưng có biến tên result thì biến đó được cất vào code_output.
+
+Mọi ngoại lệ đều bị bắt và ghi thành một bản ghi lỗi trong code_output, luồng vẫn đi tiếp.
+
+12. Node gọi công cụ
+
+Node này chạy một công cụ trong sổ đăng ký của đơn vị và cất kết quả vào tool_results dưới một bí danh.
+
+Cấu hình gồm mã công cụ, bí danh, bảng tham số, và với công cụ loại MCP thì thêm tên công cụ con trên máy chủ đó.
+
+Bí danh mặc định là ket_qua. Nên đặt bí danh có nghĩa vì đây là tên bạn dùng để lấy dữ liệu ở các node sau, ví dụ tool_results.doanh_so.chi_nhanh.
+
+Bảng tham số hỗ trợ chèn giá trị từ trạng thái theo đường dẫn có dấu chấm. Có một điểm tinh tế rất hữu ích: nếu giá trị của một tham số chỉ gồm đúng một chỗ chèn và không có chữ nào khác, giá trị lấy ra giữ nguyên kiểu gốc. Một danh sách vẫn là danh sách, một số vẫn là số. Nếu bạn viết lẫn chữ vào thì kết quả bị ghép thành chuỗi. Đây là lý do ở node xuất tài liệu, phần dòng dữ liệu của bảng Excel phải viết đúng một chỗ chèn, không kèm chữ nào.
+
+Node áp đúng chính sách như khi mô hình gọi công cụ. Công cụ phải thuộc đơn vị hoặc đã được chia sẻ toàn ngân hàng. Tham số được kiểm tra theo lược đồ của công cụ. Khoá bí mật được máy chủ tự chèn vào header, không bao giờ lộ ra cấu hình.
+
+Có một khác biệt quan trọng: công cụ đánh dấu cần duyệt bị từ chối ở node này. Thông báo nói rằng công cụ cần người duyệt nên không chạy tự động được. Lý do rất đơn giản, một báo cáo chạy lúc nửa đêm thì không có ai để bấm duyệt.
+
+Với công cụ loại MCP, một dòng công cụ là một máy chủ chứ không phải một hàm, nên node bắt buộc phải nêu tên công cụ con. Nếu để trống, thông báo lỗi liệt kê luôn các tên có sẵn trên máy chủ đó. Kết quả trả về từ MCP thường là các khối nội dung chứ không phải dữ liệu thuần; hệ thống tự bóc phần văn bản ra và phân tích JSON nếu có. Nếu không có bước bóc này thì bảng Excel sẽ nhận được một chuỗi dài thay vì danh sách dòng.
+
+Node không bao giờ làm hỏng cả lần chạy khi công cụ lỗi. Nó ghi vào tool_results bí danh tương ứng một bản ghi chỉ có một trường tên loi chứa mô tả lỗi. Nhờ vậy mẫu báo cáo có thể kiểm tra trường đó và in ra một dòng cảnh báo thay vì sinh ra một bảng rỗng không lời giải thích.
+
+13. Node xuất tài liệu
+
+Node này biến trạng thái thành một tệp, đẩy tệp lên kho lưu trữ và ghi một dòng vào bảng tệp kết quả.
+
+Cấu hình chung gồm định dạng, tiêu đề, tên tệp, loại tệp, đối tượng nhận, số ngày lưu giữ, và bảng biến phụ.
+
+Định dạng nhận ba giá trị: markdown, docx và xlsx. Mặc định là markdown.
+
+Tiêu đề mặc định là chữ Báo cáo. Tên tệp để trống thì lấy theo tiêu đề. Cả tiêu đề và tên tệp đều được xử lý như một mẫu nhỏ nên chèn được ngày tháng và tham số đầu vào.
+
+Đối tượng nhận có hai giá trị. Giá trị staff nghĩa là tệp được công bố cho cổng cán bộ. Mọi giá trị khác được coi là chỉ dành cho quản trị. Đây là công tắc quyết định tệp có xuất hiện ở mục báo cáo của cán bộ hay không.
+
+Số ngày lưu giữ mặc định là 30. Sau hạn đó tiến trình lập lịch xoá cả dòng dữ liệu lẫn tệp trong kho.
+
+Bảng biến phụ cho phép đặt tên ngắn cho các giá trị nằm sâu trong trạng thái, để mẫu tài liệu viết cho gọn. Ví dụ đặt tên danh_sach trỏ tới tool_results.ho_so.ho_so rồi trong mẫu chỉ cần gọi danh_sach.
+
+13.1 Định dạng Markdown
+
+Cấu hình cần trường mẫu chứa nội dung Markdown viết theo cú pháp Jinja. Mẫu được dựng trong môi trường hạn chế, không đọc được tệp và không chạm được vào nội bộ Python.
+
+Trong mẫu bạn dùng được: câu hỏi, các tham số đầu vào, các tham số đã bóc, kết quả công cụ, câu trả lời, các đoạn đã tra, thời điểm hiện tại, ngày hôm nay và giờ hiện tại. Các tham số đầu vào còn được đặt thêm ở mức ngoài cùng nên gọi thẳng bằng tên cũng được.
+
+Có ba bộ lọc định dạng. Bộ lọc số in số theo kiểu Việt Nam với dấu chấm phân nhóm nghìn. Bộ lọc tiền làm như trên rồi thêm ký hiệu đồng. Bộ lọc ngày đổi chuỗi ngày sang dạng ngày tháng năm.
+
+Mặc định node ghi nội dung Markdown vừa dựng vào answer, nên nếu sau đó còn node xuất tài liệu khác thì node sau nhìn thấy nội dung này chứ không còn thấy nhận định gốc của mô hình. Có một cờ tắt hành vi đó khi cần.
+
+13.2 Định dạng DOCX
+
+Cấu hình cần khoá mẫu, tức là mã của tệp docx đã tải lên trước đó. Nếu chưa chọn mẫu, node báo lỗi nói rằng node chưa chọn mẫu DOCX.
+
+Mẫu docx dùng cú pháp chỗ chèn giống Markdown, cộng thêm cú pháp lặp theo hàng bảng để in danh sách. Khi tải mẫu lên, hệ thống đọc và trả về danh sách biến mà mẫu đang cần, đối chiếu danh sách đó với bảng biến phụ và trạng thái để biết còn thiếu gì.
+
+Tệp mẫu tối đa 5MB và bắt buộc đuôi docx.
+
+13.3 Định dạng XLSX
+
+Với Excel, node không dùng mẫu tệp mà dùng một bản khai. Lý do là một báo cáo dạng bảng thì sinh ra sẽ chắc chắn hơn là điền vào khuôn.
+
+Bản khai là danh sách sheet. Mỗi sheet gồm tên sheet, tiêu đề in ở đầu sheet, danh sách dòng dữ liệu, danh sách cột, và danh sách dòng tóm tắt đặt phía trên bảng.
+
+Mỗi cột gồm tiêu đề cột, tên trường lấy dữ liệu, định dạng ô, độ rộng, và cờ cộng tổng. Tên trường hỗ trợ đường dẫn có dấu chấm. Thay cho tên trường, bạn khai một giá trị cố định nếu muốn cột luôn in cùng một nội dung.
+
+Định dạng ô nhận bốn giá trị: tiền, số, số nguyên và phần trăm. Với phần trăm, giá trị phải là số thập phân, nghĩa là 0,916 sẽ hiện thành 91,6 phần trăm.
+
+Cột nào bật cờ cộng tổng thì bảng có thêm một dòng cuối, ô đầu tiên ghi chữ Tổng cộng. Hàng tiêu đề được đóng băng, độ rộng cột tự tính nếu bạn không khai.
+
+Giới hạn: mỗi sheet tối đa 20000 dòng.
+
+Hai lớp bảo vệ đáng biết. Thứ nhất, tên sheet mà Excel không chấp nhận sẽ được viết lại chứ không làm hỏng cả tệp: các ký tự cấm bị thay bằng gạch ngang, tên bị cắt còn 31 ký tự, tên trùng được thêm số thứ tự. Một tiêu đề dạng Doanh số 08/2026 sẽ thành Doanh số 08-2026. Thứ hai, không ô nào được phép trở thành công thức. Một chuỗi bắt đầu bằng dấu bằng, thí dụ lấy từ nội dung văn bản, bị ép về dạng chữ. Một giá trị mà thư viện Excel không cất được, thí dụ một từ điển, được đổi sang chữ thay vì làm hỏng tệp.
+
+13.4 Khi node xuất tài liệu lỗi
+
+Node cần biết đơn vị để biết cất tệp ở đâu và ai được tải. Nếu lần chạy không có đơn vị, node ghi vào danh sách tệp một bản ghi lỗi nói rằng luồng chưa gắn đơn vị nên không xuất được tệp.
+
+Lỗi mẫu hoặc lỗi bảng khai cũng không giết cả lần chạy. Node ghi lỗi vào danh sách tệp, đặt answer thành câu không tạo được báo cáo kèm lý do, rồi luồng đi tiếp.
+
+Đây là lý do khi một lịch chạy báo hoàn thành nhưng không có tệp nào, bạn nên mở nhật ký lần chạy đó ra đọc phần lỗi, thay vì đoán.
+
+14. Node trả lời
+
+Node này định dạng lại câu trả lời cuối cùng. Nó thường đứng gần cuối luồng hội thoại.
+
+Cấu hình chỉ có một chuỗi mẫu. Nếu để trống, node không làm gì và giữ nguyên câu trả lời mà node sinh câu trả lời đã tạo. Đây là cách dùng phổ biến nhất.
+
+Nếu có chuỗi mẫu, bạn chèn được câu trả lời hiện tại, câu hỏi, từng trường trong extracted_params theo tên, và mã trạng thái của lần gọi HTTP gần nhất.
+
+Dùng chuỗi mẫu khi bạn muốn thêm một câu mở đầu hoặc một dòng ghi chú cố định vào mọi câu trả lời. Không nên dùng nó để viết lại toàn bộ nội dung, vì như vậy công sức của node sinh câu trả lời bị bỏ đi.
+
+15. Node đầu ra
+
+Node đầu ra đánh dấu điểm kết thúc. Nó không làm gì với dữ liệu. Giá trị của nó là để bộ kiểm tra biết đâu là đích, và để bạn nhìn sơ đồ biết luồng đã hết.
+
+Bắt buộc có đúng một node đầu ra và phải đến được từ node đầu vào.
+
+16. Chạy thử và đọc nhật ký
+
+Có ba cách chạy một luồng, khác nhau ở chỗ ai chạy và chạy ở đâu.
+
+Cách thứ nhất là chạy thử ngay trên màn hình luồng. Bạn nhập câu hỏi và các tham số, hệ thống kiểm tra sơ đồ rồi chạy đồng bộ và trả về câu trả lời, các tham số đã bóc, danh sách trích dẫn và danh sách tệp. Lần chạy này được ghi nhật ký với kênh admin_test. Câu hỏi được che dữ liệu cá nhân trước khi chạy, y như mọi kênh khác.
+
+Cách thứ hai là xếp hàng đợi. Hệ thống tạo bản ghi nhật ký với trạng thái đang chờ và kênh report, rồi đẩy công việc sang hàng đợi việc nền. Nếu Redis không sẵn sàng, bạn nhận lỗi 503 và bản ghi nhật ký được đánh dấu thất bại, nên vẫn có dấu vết.
+
+Cách thứ ba là để lịch chạy tự kích hoạt. Nội dung này ở tài liệu về báo cáo và lịch chạy.
+
+Sau khi chạy, danh sách các lần chạy gần đây của luồng cho biết trạng thái, kênh, thời điểm, thời lượng, lỗi, một phần câu trả lời và các tệp đã sinh. Nhật ký từng bước cho biết node nào đã chạy theo thứ tự nào, mỗi bước mất bao lâu và trả về gì. Khi nhánh đi sai, đây là nơi duy nhất trả lời được câu hỏi tại sao.
+
+17. Bốn lỗi hay gặp và cách nhận ra
+
+Câu trả lời không có trích dẫn. Nguyên nhân theo thứ tự hay gặp: node tra kho chưa chọn kho, chuỗi mẫu quên chèn ngữ cảnh, hoặc không có nhà cung cấp embedding đang bật.
+
+Nhánh đi sai. Nguyên nhân theo thứ tự hay gặp: thứ tự hai cạnh ra bị đổi sau khi vẽ lại, giá trị so sánh khác nhau về hoa thường, hoặc node trích tham số không trả về JSON hợp lệ nên trường cần so không tồn tại.
+
+Báo cáo chạy xong nhưng không có tệp. Mở nhật ký lần chạy và đọc phần lỗi. Thường là lỗi mẫu, lỗi bảng khai Excel, hoặc luồng không có đơn vị.
+
+Bảng Excel chỉ có tiêu đề, không có dòng nào. Thường là phần dòng dữ liệu bị viết lẫn chữ nên chỗ chèn trả về chuỗi thay vì danh sách, hoặc node công cụ đã lỗi và tool_results chứa bản ghi lỗi thay vì dữ liệu.
+
+18. Bảng tra nhanh trường cấu hình
+
+Mục này gom lại các trường cấu hình và giá trị mặc định để tra nhanh, không giải thích lại.
+
+18.1 Node đầu vào và node đầu ra
+
+Node đầu vào có một trường duy nhất đáng khai, đó là danh sách tham số. Mỗi tham số gồm tên biến, nhãn, kiểu, cờ bắt buộc, giá trị mặc định, danh sách lựa chọn và mô tả. Sáu kiểu được chấp nhận là chữ, đoạn văn, số, ngày, có hoặc không, và chọn từ danh sách.
+
+Node đầu ra không có trường nào cần khai.
+
+18.2 Node tra kho tri thức và node soạn prompt
+
+Node tra kho tri thức có danh sách kho và số đoạn lấy về. Số đoạn mặc định là 5. Danh sách kho rỗng thì node im lặng không làm gì.
+
+Node soạn prompt có chuỗi mẫu và một trường system_prompt phụ. Chuỗi mẫu mặc định chỉ chèn câu hỏi. Sáu chỗ chèn được hỗ trợ là câu hỏi, ngữ cảnh, system_prompt, kết quả công cụ, câu trả lời hiện tại, và tham số đầu vào theo tên.
+
+18.3 Node sinh câu trả lời và node trích tham số
+
+Node sinh câu trả lời có tên model, nhiệt độ và số token tối đa. Mặc định lần lượt là model của nhà cung cấp đang bật, nhiệt độ 0.7 và 4096 token.
+
+Node trích tham số có một bảng tên trường và mô tả trường. Node luôn chạy ở nhiệt độ 0 với giới hạn 1024 token, hai con số này không cấu hình được.
+
+18.4 Node rẽ nhánh và node trả lời
+
+Node rẽ nhánh có đường dẫn biến, phép so sánh và giá trị đem so. Phép so sánh mặc định là kiểm tra tồn tại. Bốn phép được hỗ trợ là tồn tại, khác rỗng, bằng và chứa.
+
+Node trả lời có một chuỗi mẫu tuỳ chọn. Bốn chỗ chèn được hỗ trợ là câu trả lời, câu hỏi, từng tham số đã bóc theo tên, và mã trạng thái HTTP.
+
+18.5 Node gọi công cụ và node xuất tài liệu
+
+Node gọi công cụ có mã công cụ, tên công cụ con cho máy chủ MCP, bí danh và bảng tham số. Bí danh mặc định là ket_qua.
+
+Node xuất tài liệu có định dạng, tiêu đề, tên tệp, loại tệp, đối tượng nhận, số ngày lưu giữ và bảng biến phụ. Định dạng mặc định là markdown, tiêu đề mặc định là chữ Báo cáo, số ngày lưu giữ mặc định là 30. Với markdown cần thêm chuỗi mẫu. Với docx cần thêm khoá mẫu. Với xlsx cần thêm bản khai sheet.
+
+18.6 Node gọi HTTP và node chạy mã
+
+Node gọi HTTP có địa chỉ, phương thức, header và chuỗi mẫu thân. Phương thức mặc định là POST. Thời gian chờ cố định 30 giây và không cấu hình được.
+
+Node chạy mã có một trường mã. Node bị tắt ở mức toàn hệ thống cho tới khi có người bật cờ tương ứng trên máy chủ.
+
+19. Quyền, giới hạn và nơi lưu dữ liệu
+
+19.1 Ai được sửa luồng
+
+Xem luồng cần quyền chỉ xem trong đơn vị. Tạo, sửa, xoá và xếp hàng chạy nền cần quyền biên tập. Chạy thử chỉ cần quyền chỉ xem, vì đó là thao tác đọc.
+
+Mọi truy vấn đều lọc theo đơn vị đang chọn. Một luồng của đơn vị khác không hiện ra và cũng không mở được bằng đường dẫn trực tiếp.
+
+19.2 Kiểm tra lúc lưu và lúc chạy
+
+Sơ đồ được kiểm tra khi lưu nếu có ít nhất một node, và được kiểm tra lại trước mỗi lần chạy thử cũng như trước khi xếp hàng chạy nền. Nghĩa là một luồng đang hỏng không thể lọt vào hàng đợi.
+
+Nhưng có một loại lỗi mà bộ kiểm tra không bắt được, đó là lỗi nội dung. Chọn nhầm kho, gõ sai tên trường trong bảng tham số, quên chèn ngữ cảnh, tất cả đều là sơ đồ hợp lệ. Chỉ chạy thử mới phát hiện được.
+
+19.3 Mẫu tài liệu lưu ở đâu
+
+Mẫu docx được tải lên và lưu trong kho đối tượng theo đơn vị và theo luồng. Node xuất tài liệu chỉ giữ khoá trỏ tới tệp đó. Tệp mẫu tối đa 5MB và bắt buộc đuôi docx.
+
+Khi tải mẫu lên, hệ thống đọc mẫu và trả về danh sách biến mà mẫu đang cần. Hãy đối chiếu danh sách đó với bảng biến phụ của node ngay lúc ấy.
+
+19.4 Token mà một lần chạy tiêu tốn
+
+Mỗi node tra kho tri thức tính một lượt nhúng câu hỏi. Mỗi node sinh câu trả lời tính một lượt gọi mô hình. Mỗi node trích tham số cũng tính một lượt gọi mô hình.
+
+Một luồng định tuyến vì thế tốn hai lượt gọi mô hình cho mỗi câu hỏi thay vì một. Đây là cái giá của việc phân loại, và nó hiện rõ trong màn hình đo token dưới hai thành phần khác nhau.
+
+20. Câu hỏi thường gặp
+
+Hỏi: Tôi muốn hai node chạy song song rồi gộp kết quả, làm thế nào?
+Đáp: Không làm được. Mỗi node chỉ có một cạnh ra, trừ node rẽ nhánh. Hãy xếp hai node nối tiếp nhau; kết quả của cả hai vẫn nằm trong trạng thái nên node sau đọc được cả hai.
+
+Hỏi: Vì sao node rẽ nhánh của tôi luôn đi nhánh sai?
+Đáp: Hãy kiểm tra biến đem so có tồn tại không bằng nhật ký từng bước, rồi kiểm tra hoa thường của giá trị. Nếu cả hai đều đúng thì gần như chắc chắn thứ tự hai cạnh ra đã bị đổi.
+
+Hỏi: Tôi bật node chạy mã được không?
+Đáp: Được về mặt kỹ thuật, nhưng không nên trên môi trường thật. Node đó chạy mã Python với danh sách hàm bị thu hẹp, không phải hộp cát. Hầu hết nhu cầu tính toán đã có công cụ dựng sẵn làm thay.
+
+Hỏi: Node gọi HTTP của tôi báo Blocked, phải làm sao?
+Đáp: Địa chỉ đích là địa chỉ nội bộ và bị bộ chặn từ chối. Cách đúng là tạo một công cụ loại http trong sổ đăng ký, khai host đó vào danh sách host nội bộ được phép, rồi dùng node gọi công cụ.
+
+Hỏi: Tôi gắn luồng báo cáo vào trợ lý nhưng bị từ chối?
+Đáp: Đúng như thiết kế. Hãy tạo một công cụ loại báo cáo trỏ tới luồng đó, rồi gắn công cụ cho trợ lý và bật công tắc agent. Khi có người hỏi đúng nội dung, mô hình sẽ tự gọi và trả tệp về ngay trong hội thoại.
+
+Hỏi: Đổi model ở node sinh câu trả lời có ảnh hưởng gì không?
+Đáp: Chỉ ảnh hưởng node đó. Tên model bạn gõ phải là model mà nhà cung cấp đang bật phục vụ được, vì khoá và địa chỉ vẫn lấy từ nhà cung cấp đó.
+
+Hỏi: Lần chạy thất bại nhưng tôi không thấy lỗi ở đâu?
+Đáp: Xem danh sách lần chạy của luồng, cột lỗi. Nếu trống thì mở nhật ký từng bước; node lỗi sẽ có dữ liệu ra bất thường. Với node công cụ, lỗi nằm trong kết quả dưới trường tên loi chứ không làm lần chạy thất bại.

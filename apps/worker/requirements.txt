@@ -1,0 +1,12 @@
+sqlalchemy>=2.0
+psycopg2-binary
+pgvector
+minio
+rq
+redis
+pdfplumber
+python-docx
+openai>=1.0
+google-genai>=1.0
+cryptography
+python-dotenv

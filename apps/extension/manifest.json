@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "MSB Knowledge Assistant",
+  "version": "0.1.0",
+  "description": "Bong bóng trợ lý cán bộ trôi nổi trên mọi trang: hỏi quy trình, tra hồ sơ, xuất báo cáo — đăng nhập một lần bằng tài khoản cán bộ.",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "action": {
+    "default_title": "Trợ lý cán bộ MSB — mở panel bên"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "tabs"
+  ],
+  "host_permissions": [
+    "__API_ORIGINS__"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "panel.html",
+        "assets/*"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "use_dynamic_url": true
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "storage": {
+    "managed_schema": "managed_schema.json"
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  }
+}

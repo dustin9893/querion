@@ -1,0 +1,312 @@
+CẨM NANG VẬN HÀNH — BÁO CÁO VÀ LỊCH CHẠY
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Báo cáo trong hệ thống là gì
+
+Báo cáo là một luồng xử lý có kiểu riêng, chạy nền và kết thúc bằng một hoặc nhiều tệp tải về được. Nó không trả lời ai cả. Nó lấy số liệu từ hệ thống khác, nhờ mô hình viết phần nhận định, rồi dựng tệp.
+
+Tệp sinh ra được lưu lại thành một bản ghi riêng, có tiêu đề, tên tệp, kích thước, thời điểm tạo và thời hạn lưu giữ. Bản ghi đó là thứ quyết định ai tải được tệp.
+
+1.1 Khác biệt giữa luồng hội thoại và luồng báo cáo
+
+Luồng có một trường kiểu. Kiểu hội thoại chạy mỗi khi có người nhắn cho trợ lý. Kiểu báo cáo chạy nền theo yêu cầu hoặc theo lịch.
+
+Bốn khác biệt cần nhớ:
+
+- Luồng báo cáo khai tham số đầu vào, còn luồng hội thoại nhận câu hỏi tự do.
+- Luồng báo cáo kết thúc bằng node xuất tài liệu, còn luồng hội thoại kết thúc bằng câu trả lời.
+- Luồng báo cáo được xếp hàng đợi và chạy bằng tiến trình nền, có thể mất vài phút.
+- Luồng báo cáo không gắn được làm bộ não của trợ lý.
+
+1.2 Vì sao báo cáo không chạy trong lúc người dùng chờ
+
+Một báo cáo thường gọi hai hoặc ba hệ thống bên ngoài rồi mới gọi mô hình để viết nhận định, sau đó mới dựng tệp. Chuỗi đó dễ mất vài phút. Giới hạn thời gian cho một việc nền là mười lăm phút, đủ rộng cho các bước chậm.
+
+Nếu chạy trong yêu cầu web, trình duyệt sẽ hết thời gian chờ trước khi báo cáo xong, và người dùng không biết nó đã chạy hay chưa. Vì vậy hệ thống tách hẳn: yêu cầu web chỉ xếp việc vào hàng đợi rồi trả về ngay.
+
+1.3 Vì sao không gắn luồng báo cáo vào trợ lý
+
+Hệ thống từ chối việc gắn một luồng kiểu báo cáo làm bộ não của trợ lý, trả về lỗi kèm câu gợi ý tạo công cụ loại báo cáo. Lý do thực tế: trợ lý chạy luồng đã gắn cho mọi tin nhắn, nên chỉ một câu chào hỏi cũng khởi động cả một báo cáo.
+
+Muốn cán bộ hỏi một câu là có báo cáo, hãy đi đường công cụ, mô tả ở mục 11.
+
+Với trợ lý đã lỡ gắn từ trước, hệ thống vẫn cho lưu để chủ đơn vị gỡ được liên kết, và lúc chạy nó bỏ qua luồng báo cáo rồi trả lời như bình thường.
+
+2. Ba định dạng tệp xuất ra
+
+Một luồng báo cáo có thể xuất nhiều tệp trong cùng một lần chạy, mỗi định dạng một node.
+
+2.1 Markdown
+
+Dùng khi cần một bản tóm tắt đọc được ngay, không cần bố cục chuẩn. Nội dung tệp chính là chuỗi mẫu bạn viết, nên sửa nhanh và không phụ thuộc tệp đính kèm nào.
+
+Bản Markdown còn có một ưu điểm vận hành: nó lưu kèm phần xem trước, nên cán bộ đọc được nội dung ngay trong danh sách báo cáo mà chưa cần tải về.
+
+2.2 Word theo mẫu
+
+Dùng khi tài liệu phải theo bố cục chuẩn của ngân hàng, có tiêu đề, bảng, chữ ký. Bạn tải lên một tệp docx có sẵn các chỗ chèn, hệ thống điền dữ liệu vào đó.
+
+Tệp mẫu chỉ nhận đuôi docx và tối đa năm megabyte. Khi tải lên, hệ thống đọc mẫu và trả về danh sách biến mà mẫu đang cần. Hãy đối chiếu danh sách đó ngay lúc tải, vì đó là lúc rẻ nhất để phát hiện một chỗ chèn viết sai tên.
+
+Mẫu được dựng trong môi trường hạn chế, không đọc được tệp trên máy chủ và không chạm được vào nội bộ chương trình. Lý do: mẫu là dữ liệu nằm trong cơ sở dữ liệu, và một tài khoản quản trị bị chiếm không được phép biến mẫu thành đường vào máy chủ.
+
+2.3 Excel theo bản khai
+
+Dùng cho mọi báo cáo dạng bảng, tức là hầu hết báo cáo định kỳ.
+
+Excel không dùng tệp mẫu mà dùng một bản khai gồm danh sách sheet, danh sách cột và nguồn dòng dữ liệu. Sinh ra chắc chắn hơn điền vào khuôn, vì số dòng thay đổi theo từng kỳ còn khuôn thì cố định.
+
+Hệ thống có hai lớp bảo vệ để một bản khai xấu không phá cả tệp. Tên sheet mà Excel không chấp nhận được viết lại thay vì báo lỗi, ký tự cấm bị thay bằng gạch ngang, tên bị cắt còn ba mươi mốt ký tự, tên trùng được thêm số thứ tự. Và không ô nào được phép trở thành công thức, nên một chuỗi bắt đầu bằng dấu bằng lấy từ văn bản nguồn vẫn hiển thị dưới dạng chữ.
+
+Giới hạn kỹ thuật: tối đa hai mươi nghìn dòng cho mỗi sheet.
+
+3. Chạy báo cáo bằng tay
+
+3.1 Các bước
+
+Mở luồng báo cáo, điền tham số, chọn chạy nền. Hệ thống kiểm tra sơ đồ trước, nếu sơ đồ chưa hợp lệ thì từ chối ngay kèm lý do.
+
+Sau khi xếp hàng thành công, bạn theo dõi ở danh sách các lần chạy của luồng. Ở đó có trạng thái, kênh, thời điểm, thời lượng, lỗi, một phần câu trả lời và các tệp đã sinh.
+
+Có thể chạy đồng bộ ngay trong màn hình luồng để thử nhanh, nhưng cách đó chỉ hợp với luồng ngắn. Báo cáo thật nên luôn chạy nền.
+
+3.2 Vì sao bản ghi lần chạy được tạo trước khi xếp hàng
+
+Hệ thống tạo bản ghi nhật ký với trạng thái đang chờ rồi mới đẩy việc sang hàng đợi. Nhờ vậy nhật ký truy vấn vẫn thấy lần thử ngay cả khi tiến trình nền đang chết.
+
+Nếu ngược lại, một hàng đợi hỏng sẽ làm mọi lần chạy biến mất không dấu vết, và không ai biết báo cáo đã được yêu cầu.
+
+3.3 Điều gì xảy ra khi hàng đợi không sẵn sàng
+
+Nếu Redis không kết nối được, lời gọi trả về lỗi dịch vụ không sẵn sàng kèm thông báo nói rõ hàng đợi công việc không sẵn sàng, và bản ghi lần chạy được đánh dấu thất bại với lý do không xếp được hàng đợi.
+
+Đây là tín hiệu rất rõ. Gặp nó thì đi kiểm tra Redis trước, đừng sửa luồng.
+
+4. Các tiến trình phải chạy
+
+Báo cáo cần hai tiến trình nền ngoài máy chủ API. Thiếu tiến trình nào thì hỏng theo kiểu riêng của nó.
+
+4.1 Tiến trình xử lý việc nền
+
+Tiến trình này lấy việc từ hàng đợi việc nền và chạy luồng báo cáo. Nó chạy từ cùng mã nguồn với API vì nó cần đến bộ chạy luồng, sổ đăng ký công cụ, kho lưu trữ tệp và phần đo token.
+
+Không có tiến trình này, việc vẫn được xếp vào hàng đợi nhưng không ai lấy ra. Lần chạy nằm mãi ở trạng thái đang chờ, không báo lỗi, không sinh tệp. Đây là triệu chứng dễ gây hiểu nhầm nhất, vì mọi thứ trên giao diện trông như bình thường.
+
+4.2 Tiến trình lập lịch
+
+Tiến trình này chạy vòng lặp, mặc định ba mươi giây một nhịp. Mỗi nhịp nó tìm các lịch đã tới hạn, xếp chúng vào hàng đợi, đẩy mốc chạy kế tiếp lên, ghi một nhịp tim vào Redis, và mỗi khoảng chừng một giờ thì dọn các tệp đã hết hạn.
+
+Không có tiến trình này, không lịch nào tự kích hoạt. Chạy tay vẫn được, nhưng mọi lịch đứng yên.
+
+4.3 Dấu hiệu nhận biết khi thiếu tiến trình
+
+Nhịp tim của bộ lập lịch có thời hạn sống năm phút. Màn hình lịch chạy đọc nhịp tim đó và hiện cảnh báo khi không thấy, với nội dung nói rằng bộ lập lịch chưa chạy và lịch sẽ không tự kích hoạt cho tới khi dịch vụ này bật.
+
+Cảnh báo này phân biệt được hai tình huống rất khác nhau: bộ lập lịch đã chết, và bộ lập lịch vẫn sống nhưng chưa có lịch nào tới hạn. Không có nó thì hai tình huống trông giống hệt nhau.
+
+Với tiến trình xử lý việc nền thì không có cảnh báo tương tự. Cách kiểm tra là nhìn danh sách lần chạy: nếu có bản ghi ở trạng thái đang chờ mà mãi không đổi, tiến trình đó không chạy.
+
+5. Đặt lịch chạy bằng biểu thức cron
+
+5.1 Năm trường của biểu thức cron
+
+Biểu thức cron ở đây có đúng năm trường, theo thứ tự phút, giờ, ngày trong tháng, tháng, thứ trong tuần. Thiếu hoặc thừa trường thì hệ thống từ chối với thông báo nói rõ cron phải có năm phần.
+
+Múi giờ mặc định là giờ Việt Nam. Điều này quan trọng vì máy chủ chạy theo giờ quốc tế, nên nếu cron được đọc theo giờ máy chủ thì một lịch bảy giờ sáng sẽ nổ lúc hai giờ chiều.
+
+5.2 Các mẫu chu kỳ có sẵn
+
+Trình soạn lịch có sẵn bốn mẫu để khỏi phải nhớ cú pháp: hằng ngày, ngày làm việc từ thứ Hai đến thứ Sáu, hằng tuần vào thứ Hai, và ngày mùng một hằng tháng.
+
+Mặc định khi mở trình soạn là ngày làm việc lúc bảy giờ ba mươi. Đây là lựa chọn hợp lý cho hầu hết báo cáo nội bộ, vì tệp có mặt trước giờ làm.
+
+Bạn vẫn gõ được biểu thức cron thô nếu cần chu kỳ lạ, ví dụ hai lần mỗi ngày.
+
+5.3 Xem trước lần chạy kế tiếp
+
+Trình soạn hiển thị mô tả chu kỳ bằng tiếng Việt và danh sách các mốc chạy kế tiếp trước khi bạn lưu. Biểu thức sai bị từ chối ngay tại chỗ.
+
+Hãy nhìn danh sách mốc đó mỗi lần sửa chu kỳ. Đó là cách nhanh nhất phát hiện mình nhầm giữa trường ngày trong tháng và trường thứ trong tuần.
+
+5.4 Cách bộ lập lịch tránh chạy trùng và chạy bù
+
+Cơ sở dữ liệu là nguồn sự thật, không phải bộ nhớ của tiến trình. Mỗi nhịp, bộ lập lịch lấy các lịch tới hạn bằng một kiểu khoá bỏ qua những dòng mà tiến trình khác đã lấy, xếp mỗi dòng thành một việc, rồi đẩy mốc chạy kế tiếp lên mốc sau thời điểm hiện tại.
+
+Hai hệ quả thực tế:
+
+- Chạy hai bộ lập lịch cùng lúc, hoặc khởi động lại đúng giữa nhịp, cũng không làm một báo cáo chạy hai lần.
+- Bộ lập lịch nghỉ ba ngày rồi bật lại sẽ không bắn bù ba ngày báo cáo. Các mốc đã lỡ bị bỏ qua, chỉ mốc kế tiếp được tính. Đây là lựa chọn có chủ ý, vì một trận lũ báo cáo cũ thường tệ hơn là thiếu vài bản.
+
+Mỗi nhịp xử lý tối đa hai mươi lịch, nên một đợt dồn cũng không làm nghẽn hàng đợi.
+
+6. Một lịch chạy lưu những gì
+
+Một lịch gồm: luồng báo cáo được chọn, tên lịch, biểu thức cron, múi giờ, bảng tham số đã lưu, trạng thái bật hay tắt, danh sách chức danh được gửi, và số ngày giữ tệp.
+
+Lịch thuộc về một đơn vị và chỉ trỏ được vào luồng của chính đơn vị đó.
+
+Số ngày giữ tệp nhận giá trị từ một đến ba trăm sáu mươi lăm, mặc định là ba mươi.
+
+6.1 Tham số báo cáo lưu trong lịch
+
+Bảng tham số trong lịch chính là biểu mẫu mà node đầu vào của luồng khai báo. Lịch chạy tự động dùng đúng các giá trị này, không hỏi ai cả.
+
+Đây là chỗ hay hỏng nhất. Một tham số bắt buộc mà lịch không lưu giá trị sẽ làm mọi lần chạy dừng ngay bước đầu tiên với thông báo thiếu tham số bắt buộc. Cách phòng: đặt giá trị mặc định cho tham số ngay trong luồng, và điền đủ trong lịch.
+
+Nếu sau này bạn thêm một tham số bắt buộc vào luồng, mọi lịch cũ trỏ vào luồng đó sẽ hỏng ở lần chạy kế tiếp. Hãy mở lại từng lịch sau khi sửa luồng.
+
+6.2 Bật tắt lịch
+
+Tắt lịch thì mốc chạy kế tiếp bị xoá. Bật lại thì mốc được tính mới từ thời điểm hiện tại, không tính bù các mốc đã lỡ trong lúc tắt.
+
+Nhờ vậy tắt một lịch trong kỳ nghỉ là an toàn, bật lại không gây ra một loạt báo cáo cũ.
+
+6.3 Chạy ngay để kiểm tra
+
+Có chức năng chạy ngay, xếp lịch vào hàng đợi lập tức với đúng bảng tham số và đúng cách gửi như khi cron kích hoạt.
+
+Đây là cách kiểm tra đúng nhất, tốt hơn là chạy thử luồng từ màn hình sơ đồ. Lý do: chạy thử từ sơ đồ không đi qua lịch, nên nó không kiểm tra được bảng tham số đã lưu và không gửi tệp cho ai.
+
+7. Gửi báo cáo theo chức danh
+
+Mỗi lịch có danh sách chức danh nhận báo cáo. Sáu giá trị hợp lệ là RM, CA, GDV, OPS, CCO và KSV. Giá trị ngoài danh sách bị từ chối khi lưu.
+
+Danh sách để trống nghĩa là mọi cán bộ trong đơn vị đều nhận.
+
+Đây là cơ chế duy nhất đưa một tệp tới tay người không tự tạo ra nó. Không có cách nào khác để chia sẻ một báo cáo cho đồng nghiệp từ bên trong hệ thống.
+
+Lưu ý một hệ quả: cán bộ chưa khai chức danh sẽ không khớp bất kỳ danh sách chức danh cụ thể nào, nên chỉ nhận được báo cáo của các lịch để trống danh sách.
+
+8. Ai thấy tệp nào
+
+Đây là phần hay bị hiểu sai nhất, nên đọc kỹ.
+
+8.1 Hộp báo cáo của cán bộ gồm đúng hai nguồn
+
+Mục báo cáo của cán bộ trong cổng nội bộ chứa đúng hai loại tệp, không hơn:
+
+- Tệp do chính người đó tạo ra, tức là một biểu mẫu họ vừa lập, hoặc một báo cáo họ vừa nhờ trợ lý chạy trong hội thoại.
+- Tệp do một lịch chạy gửi tới họ, có xét danh sách chức danh của lịch đó.
+
+8.2 Ba điều kiện phải cùng đúng
+
+Một tệp chỉ xuất hiện trong hộp của cán bộ khi cả ba điều kiện dưới đây cùng đúng:
+
+- Node xuất tài liệu đã đánh dấu tệp dành cho cán bộ. Nếu để mặc định, tệp chỉ dành cho quản trị.
+- Tệp thuộc đúng đơn vị của cán bộ đó.
+- Tệp hoặc do chính họ tạo, hoặc đến từ một lịch có chức danh khớp.
+
+Cán bộ chưa được gán đơn vị thì hộp báo cáo luôn rỗng, vì điều kiện thứ hai không bao giờ đúng.
+
+8.3 Báo cáo quản trị chạy tay không vào hộp của ai
+
+Một báo cáo mà quản trị chạy bằng tay từ màn hình luồng không gắn với lịch nào, nên không có đích gửi. Nó nằm ở phía quản trị và không rơi vào hộp của bất kỳ cán bộ nào.
+
+Đây là thiết kế có chủ ý. Nếu không, mỗi lần quản trị bấm chạy thử, cả đơn vị lại nhận một tệp nháp.
+
+Muốn cán bộ nhận tệp, hãy tạo một lịch, kể cả khi bạn chỉ định dùng chức năng chạy ngay của lịch đó.
+
+9. Tệp được lưu ở đâu và tải về thế nào
+
+Nội dung tệp nằm trong kho lưu trữ đối tượng, không nằm trong cơ sở dữ liệu. Cơ sở dữ liệu chỉ giữ bản ghi mô tả tệp.
+
+Kho lưu trữ không mở ra ngoài. Tệp chỉ đi ra qua hai đường. Đường thứ nhất dành cho quản trị, kiểm tra theo đơn vị đang chọn. Đường thứ hai dành cho cán bộ, kiểm tra theo đúng hai nguồn ở mục 8.1, và trả về lỗi không tìm thấy kèm câu báo cáo không dành cho bạn khi tệp không thuộc hộp của người đó.
+
+Khi tải về, hệ thống đặt tên tệp theo hai cách cùng lúc để tên tiếng Việt có dấu không bị vỡ trên mọi trình duyệt, và đánh dấu nội dung không được suy đoán kiểu, không được lưu bộ đệm.
+
+Nếu bản ghi còn nhưng tệp trong kho đã mất, lời gọi tải về trả về lỗi nói rõ tệp không còn trên hệ thống lưu trữ. Đây là dấu hiệu kho lưu trữ đã bị xoá thủ công hoặc bị thay.
+
+10. Thời hạn lưu giữ và dọn dẹp
+
+Mỗi tệp có ngày hết hạn, mặc định ba mươi ngày kể từ lúc tạo. Node xuất tài liệu và lịch chạy đều chỉnh được con số này.
+
+Tiến trình lập lịch định kỳ tìm các tệp quá hạn rồi xoá cả bản ghi lẫn đối tượng trong kho, mỗi lượt tối đa hai trăm tệp. Nếu đối tượng đã biến mất, bản ghi vẫn bị xoá, vì một đối tượng thiếu không được phép chặn việc dọn dẹp.
+
+Bản ghi tệp cố ý không ràng buộc khoá ngoại với luồng, lịch hay đơn vị. Hệ quả rất thực tế: xoá một luồng xử lý không xoá các báo cáo nó đã tạo, xoá một lịch cũng vậy. Các tệp cũ vẫn tải về được cho tới khi hết hạn.
+
+Điều này là chủ ý, vì một báo cáo đã phát hành là bằng chứng nghiệp vụ, nó phải sống lâu hơn công cụ đã tạo ra nó.
+
+11. Báo cáo ngay trong hội thoại
+
+11.1 Công cụ loại báo cáo
+
+Tạo một công cụ loại báo cáo trỏ tới luồng báo cáo, rồi gắn công cụ đó cho trợ lý và bật công tắc cho phép trợ lý gọi công cụ.
+
+Tham số của công cụ được sinh tự động từ chính các tham số đầu vào của luồng, nên mô hình điền đúng biểu mẫu mà con người vẫn điền. Bạn không phải mô tả lại tham số lần thứ hai.
+
+Khi cán bộ hỏi đúng nội dung, mô hình gọi công cụ, luồng chạy trên phiên làm việc riêng, ghi một bản ghi nhật ký riêng, rồi trả về phần tóm tắt cho mô hình và các tệp cho giao diện. Cán bộ thấy nút tải tệp ngay dưới câu trả lời.
+
+Tệp đó được ghi nhận là do chính cán bộ đang hỏi tạo ra, nên nó nằm trong hộp báo cáo của riêng người đó, không lan sang ai khác.
+
+Công cụ loại báo cáo chỉ gắn được vào luồng kiểu báo cáo của chính đơn vị. Chọn nhầm kiểu luồng sẽ bị từ chối khi lưu.
+
+11.2 Công cụ xuất Excel dùng chung
+
+Một luồng báo cáo chỉ trả lời một câu hỏi cố định. Cho mọi thứ còn lại có công cụ xuất Excel dùng chung.
+
+Công cụ này không có luồng phía sau và không tra cứu gì cả. Tham số của nó chính là bảng cần xuất, gồm danh sách sheet, danh sách cột và danh sách dòng. Mô hình tự điền từ những gì đang có trong hội thoại, ví dụ một bảng cán bộ vừa dán vào, một kết quả công cụ vừa tra, hoặc một đoạn vừa trích trong tài liệu.
+
+Giới hạn: tối đa năm sheet, ba mươi cột, hai nghìn dòng và hai nghìn ký tự cho mỗi ô.
+
+Tệp sinh ra đi theo đúng đường của báo cáo, nên nó cũng nằm trong hộp báo cáo của người đã hỏi và cũng xuất hiện trong nhật ký truy vấn.
+
+Vì dữ liệu do mô hình điền, hãy nhắc cán bộ đối chiếu lại bảng trước khi gửi ra ngoài.
+
+12. Xử lý sự cố
+
+12.1 Lần chạy nằm mãi ở trạng thái chờ
+
+Tiến trình xử lý việc nền không chạy, hoặc nó đang trỏ vào một Redis khác với máy chủ API. Kiểm tra tiến trình trước, rồi kiểm tra cấu hình kết nối Redis của cả hai bên.
+
+12.2 Chạy xong nhưng không có tệp
+
+Mở nhật ký lần chạy và đọc phần lỗi. Node xuất tài liệu khi gặp lỗi mẫu hoặc lỗi bản khai không làm hỏng cả lần chạy mà ghi lỗi vào danh sách tệp rồi đi tiếp, nên lần chạy vẫn báo kết thúc.
+
+Ba nguyên nhân hay gặp: mẫu Markdown hoặc mẫu Word có lỗi cú pháp, bản khai Excel thiếu cột, hoặc luồng không gắn đơn vị nên không biết cất tệp ở đâu.
+
+12.3 Cán bộ không thấy tệp
+
+Kiểm tra lần lượt theo ba điều kiện ở mục 8.2. Theo kinh nghiệm, nguyên nhân phổ biến nhất là node xuất tài liệu để mặc định nên tệp chỉ dành cho quản trị. Nguyên nhân phổ biến thứ hai là cán bộ chưa được gán đơn vị.
+
+12.4 Sheet Excel chỉ có tiêu đề
+
+Phần nguồn dòng dữ liệu trong bản khai phải là đúng một chỗ chèn, không kèm chữ nào khác, để giá trị giữ nguyên kiểu danh sách. Viết lẫn chữ thì nó biến thành một chuỗi và bảng không có dòng nào.
+
+Nguyên nhân còn lại là node gọi công cụ đã lỗi, nên kết quả chỉ là một bản ghi lỗi thay vì dữ liệu. Nhật ký lần chạy cho thấy điều này ngay.
+
+12.5 Lịch không bao giờ kích hoạt
+
+Xem cảnh báo về bộ lập lịch trên màn hình lịch chạy. Nếu không có cảnh báo, kiểm tra lịch còn bật không, rồi xem mốc chạy kế tiếp đã qua chưa, rồi kiểm tra biểu thức cron bằng danh sách mốc xem trước.
+
+12.6 Lịch tự tắt
+
+Bộ lập lịch tự tắt một lịch trong hai trường hợp: biểu thức cron trở nên không hợp lệ, hoặc luồng mà lịch trỏ tới đã bị xoá.
+
+Cả hai đều được ghi vào nhật ký của tiến trình. Trên giao diện bạn thấy lịch chuyển sang trạng thái tắt và tên luồng hiện là đã xoá.
+
+13. Câu hỏi thường gặp
+
+Hỏi: Tôi bấm chạy nền xong mà mãi không thấy tệp, luồng có sai không?
+Đáp: Kiểm tra trạng thái lần chạy trước. Nếu nó đứng ở đang chờ thì luồng không sai, tiến trình xử lý việc nền không chạy. Nếu nó đã kết thúc mà không có tệp thì mới mở phần lỗi ra đọc.
+
+Hỏi: Vì sao chạy thử ở màn hình luồng thì có tệp, mà cán bộ vẫn không nhận được?
+Đáp: Vì báo cáo chạy tay không gắn với lịch nào nên không có đích gửi. Hãy tạo một lịch, đặt danh sách chức danh, rồi dùng chức năng chạy ngay của lịch đó.
+
+Hỏi: Tôi tắt một lịch hai tuần, bật lại có bị chạy bù mười mấy lần không?
+Đáp: Không. Bật lại thì mốc kế tiếp được tính mới từ thời điểm hiện tại, các mốc đã lỡ bị bỏ qua.
+
+Hỏi: Xoá luồng báo cáo có mất các báo cáo cũ không?
+Đáp: Không. Bản ghi tệp cố ý không ràng buộc với luồng, nên tệp cũ vẫn tải về được cho tới khi hết hạn lưu giữ.
+
+Hỏi: Làm sao để một báo cáo được giữ lâu hơn ba mươi ngày?
+Đáp: Chỉnh số ngày giữ tệp trong lịch, hoặc chỉnh ở node xuất tài liệu. Giá trị nhận tối đa ba trăm sáu mươi lăm ngày.
+
+Hỏi: Cán bộ chưa khai chức danh thì có nhận báo cáo theo lịch không?
+Đáp: Chỉ nhận từ các lịch để trống danh sách chức danh. Lịch có chỉ định chức danh cụ thể sẽ không khớp.
+
+Hỏi: Một lần chạy xuất được nhiều tệp không?
+Đáp: Được. Xếp nhiều node xuất tài liệu nối tiếp nhau, mỗi node một định dạng. Mỗi node tạo ra một tệp riêng với thiết lập người xem riêng.
+
+Hỏi: Tôi muốn cán bộ tự xin báo cáo bất cứ lúc nào, không chờ lịch?
+Đáp: Tạo công cụ loại báo cáo trỏ vào luồng, gắn cho trợ lý và bật công tắc cho phép gọi công cụ. Cán bộ hỏi một câu là có tệp, và tệp nằm trong hộp riêng của người đó.

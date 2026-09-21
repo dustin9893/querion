@@ -1,0 +1,18 @@
+{
+  "title": "Test Chat",
+  "description": "Try an assistant of the selected unit exactly as staff or customers will: same knowledge base, workflow, guardrails and PII masking. Every answer is written to the audit log with channel “Admin test”.",
+  "assistants": "Assistants in this unit",
+  "selectAssistant": "Pick an assistant on the left to start testing.",
+  "noAssistants": "This unit has no assistants yet.",
+  "createAssistant": "Create an assistant",
+  "unpublished": "Draft",
+  "published": "Published",
+  "audienceStaff": "Staff",
+  "audienceCustomer": "Customers",
+  "openSettings": "Open settings",
+  "modeWorkflow": "Workflow",
+  "modeRag": "Knowledge base",
+  "modeLlm": "LLM only",
+  "testingNote": "Test questions are logged under the “Admin test” channel and are never shown to staff or customers.",
+  "inputPlaceholder": "Type a test question..."
+}

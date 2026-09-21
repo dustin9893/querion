@@ -1,0 +1,30 @@
+# Web and API share one origin: /v1/* and /health go to the API, everything else to Next.js.
+# Same origin means the browser never needs CORS.
+{$PUBLIC_DOMAIN} {
+	@api path /v1/* /health
+	handle @api {
+		reverse_proxy api:8000 {
+			# Server-Sent Events: pass every chunk through immediately (no buffering, no compression)
+			flush_interval -1
+		}
+	}
+	handle {
+		encode zstd gzip
+		reverse_proxy web:3000
+	}
+}
+
+# Mock bank website that embeds the chat bubble, on a different origin on purpose.
+demo.{$PUBLIC_DOMAIN} {
+	encode zstd gzip
+	handle /config.js {
+		# written by seed_demo into the persistent shared directory
+		root * /shared/demo-site
+		header Cache-Control "no-store"
+		file_server
+	}
+	handle {
+		root * /srv/demo-site
+		file_server
+	}
+}

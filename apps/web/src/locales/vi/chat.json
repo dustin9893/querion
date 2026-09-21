@@ -1,0 +1,18 @@
+{
+  "title": "Thử nghiệm hỏi đáp",
+  "description": "Hỏi thử một trợ lý của đơn vị đang chọn đúng như cán bộ hoặc khách hàng sẽ thấy: cùng kho tri thức, luồng xử lý, guardrail và che PII. Mỗi câu trả lời được ghi vào Nhật ký truy vấn với kênh “Quản trị thử nghiệm”.",
+  "assistants": "Trợ lý của đơn vị",
+  "selectAssistant": "Chọn một trợ lý ở bên trái để bắt đầu hỏi thử.",
+  "noAssistants": "Đơn vị này chưa có trợ lý nào.",
+  "createAssistant": "Tạo trợ lý",
+  "unpublished": "Chưa công bố",
+  "published": "Đã công bố",
+  "audienceStaff": "Cán bộ",
+  "audienceCustomer": "Khách hàng",
+  "openSettings": "Mở cấu hình",
+  "modeWorkflow": "Luồng xử lý",
+  "modeRag": "Kho tri thức",
+  "modeLlm": "Chỉ LLM",
+  "testingNote": "Câu hỏi thử được ghi nhật ký kênh “Quản trị thử nghiệm”, không hiển thị cho cán bộ hay khách hàng.",
+  "inputPlaceholder": "Nhập câu hỏi thử..."
+}

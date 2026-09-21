@@ -1,0 +1,57 @@
+CẨM NANG VẬN HÀNH — BIỂU ĐỒ TRONG CÂU TRẢ LỜI VÀ BÁO CÁO
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Hai chỗ có biểu đồ
+
+Hệ thống vẽ biểu đồ ở hai chỗ, và hai chỗ đó dùng hai cơ chế khác nhau.
+
+Chỗ thứ nhất là ngay trong câu trả lời của trợ lý cán bộ. Khi cán bộ hỏi một câu có số liệu so sánh nhiều nhóm hoặc nhiều kỳ, ví dụ giải ngân theo chi nhánh, số điện thanh toán quốc tế theo ngày, hoặc khiếu nại theo loại, trợ lý có thể vẽ một biểu đồ nhỏ ngay dưới phần chữ. Cán bộ cũng có thể yêu cầu thẳng bằng câu "vẽ biểu đồ".
+
+Chỗ thứ hai là trong tệp Excel do luồng báo cáo hoặc công cụ xuất Excel tạo ra. Biểu đồ nằm bên phải bảng số liệu trong cùng sheet, là biểu đồ Excel thật, mở ra sửa được như mọi biểu đồ khác.
+
+1.1 Biểu đồ trong câu trả lời
+
+Trợ lý không vẽ hình. Nó chỉ mô tả biểu đồ bằng một khối dữ liệu có cấu trúc nằm cuối câu trả lời, và giao diện cán bộ, trang khách hàng nhúng, tiện ích trình duyệt cùng dùng chung một bộ vẽ để dựng hình từ khối đó. Vì thế biểu đồ trong câu trả lời không phải là ảnh, không tải từ đâu về, và không thể bị lợi dụng để chèn liên kết hay ảnh theo dõi.
+
+Có bốn loại: cột đứng, cột ngang, đường và tròn. Cột dùng khi so sánh các nhóm với nhau. Đường dùng cho chuỗi theo thời gian. Tròn dùng cho cơ cấu một chỉ tiêu, và chỉ vẽ được một chuỗi. Giới hạn là mười hai nhãn và bốn chuỗi cho một biểu đồ; vượt quá thì phần dư bị cắt.
+
+Biểu đồ chỉ hiện trong trợ lý dành cho cán bộ và trong màn thử nghiệm hỏi đáp của quản trị viên. Trợ lý khách hàng không vẽ biểu đồ: câu hỏi của khách về phí hay lãi thường chỉ cần một bảng ngắn, và giữ câu trả lời cho khách đơn giản là chủ đích.
+
+1.2 Khi nào trợ lý tự vẽ
+
+Trợ lý vẽ khi hai điều cùng đúng: số liệu đã có thật trong hội thoại, từ kết quả công cụ hoặc từ bảng cán bộ dán vào, và số liệu đó so sánh được giữa nhiều nhóm hoặc nhiều kỳ. Một con số đơn lẻ không thành biểu đồ. Câu hỏi về quy trình không có biểu đồ.
+
+Trợ lý không được bịa số để vẽ. Nếu cán bộ yêu cầu vẽ mà chưa có số liệu, trợ lý nói rõ chưa có dữ liệu và gợi ý tra công cụ hoặc lập báo cáo trước.
+
+1.3 Khi biểu đồ không hiện
+
+Nếu khối dữ liệu trợ lý sinh ra bị lỗi, giao diện hiện dòng "Không vẽ được biểu đồ" kèm phần dữ liệu thô, không làm hỏng phần còn lại của câu trả lời. Trường hợp này hiếm và thường do mô hình viết số dạng chữ có dấu chấm phân cách thay vì số thuần. Hỏi lại một lần là đủ; nếu lặp lại nhiều, đổi mô hình cho trợ lý đó trong phần cấu hình.
+
+2. Biểu đồ trong tệp Excel
+
+2.1 Từ luồng báo cáo
+
+Node xuất tài liệu ở định dạng xlsx khai báo từng sheet: tên, tiêu đề, dòng dữ liệu, cột và phần tóm tắt. Muốn có biểu đồ, thêm vào sheet một danh sách biểu đồ. Mỗi biểu đồ nêu loại, tiêu đề, cột nào làm nhãn và những cột nào làm chuỗi. Loại gồm cột đứng, cột ngang, đường và tròn, giống trong câu trả lời.
+
+Biểu đồ luôn tham chiếu tới cột của chính sheet đó theo tên trường, không phải theo địa chỉ ô. Nhờ vậy nó không thể trỏ ra ngoài vùng dữ liệu đã dựng, và khi bảng đổi số dòng thì biểu đồ tự theo. Mỗi sheet tối đa ba biểu đồ, mỗi biểu đồ tối đa bốn chuỗi. Biểu đồ tròn chỉ nhận chuỗi đầu.
+
+Một khai báo biểu đồ sai, ví dụ trỏ vào cột không tồn tại hay dùng loại không có, bị bỏ qua trong im lặng: bảng vẫn được dựng và tệp vẫn tải về được. Đây là chủ đích. Báo cáo định kỳ chạy nền lúc nửa đêm không có ai sửa, nên một lỗi trang trí không được phép làm mất cả bảng số liệu.
+
+Các luồng báo cáo mẫu đều có biểu đồ: báo cáo kinh doanh tháng của Khối Khách hàng Doanh nghiệp có cột so sánh giải ngân với kế hoạch, tròn cho cơ cấu dư nợ và cột cho tỷ lệ đúng hạn của cán bộ; báo cáo giao dịch thanh toán quốc tế có đường theo ngày; báo cáo huy động và cho vay của Khối Khách hàng Cá nhân có cột, tròn và đường xu hướng sáu tháng; báo cáo khiếu nại có cột đúng hạn và quá hạn theo loại. Mở một luồng mẫu trên canvas rồi xem node xuất tài liệu là cách nhanh nhất để chép khai báo.
+
+2.2 Từ công cụ xuất Excel
+
+Công cụ xuất Excel dùng chung toàn ngân hàng nhận thêm một trường biểu đồ cho mỗi sheet. Trợ lý tự điền khi cán bộ yêu cầu biểu đồ hoặc khi bảng đang xuất so sánh nhiều nhóm. Trường này nêu loại, tiêu đề, khoá của cột chữ dùng làm nhãn và các khoá của cột số cần vẽ. Kết quả là một tệp có bảng và biểu đồ cạnh nhau, nằm trong Báo cáo của tôi của cán bộ đã hỏi.
+
+Cán bộ có thể nói rõ loại muốn vẽ, ví dụ "xuất Excel kèm biểu đồ tròn". Không nói thì trợ lý chọn cột đứng.
+
+3. Câu hỏi thường gặp
+
+Vì sao trợ lý vẽ biểu đồ nhưng tệp Excel xuất ra lại không có? Hai cơ chế độc lập. Biểu đồ trong câu trả lời do mô hình quyết định; biểu đồ trong tệp do khai báo của node hoặc do trường biểu đồ của công cụ xuất Excel. Kiểm tra khai báo của node trước, sau đó kiểm tra xem mô hình đã điền trường biểu đồ khi gọi công cụ chưa, xem trong bước gọi công cụ của nhật ký truy vấn.
+
+Có tắt được biểu đồ trong câu trả lời không? Không có công tắc riêng. Một trợ lý có hướng dẫn hệ thống tuỳ chỉnh vẫn nhận hướng dẫn vẽ biểu đồ; muốn trợ lý không vẽ, ghi vào hướng dẫn hệ thống của trợ lý đó rằng không dùng biểu đồ.
+
+Biểu đồ có vào nhật ký truy vấn không? Có. Khối dữ liệu biểu đồ là một phần của câu trả lời đã lưu, nên bộ phận Tuân thủ mở lại lượt hỏi sẽ thấy đúng biểu đồ cán bộ đã thấy.
+
+Mô hình nào vẽ tốt? Mọi mô hình đang bật đều làm được vì đây chỉ là một khối dữ liệu ngắn. Mô hình yếu về định dạng có thể viết số kèm dấu phân cách; bộ vẽ bỏ qua giá trị không phải số và báo không vẽ được.

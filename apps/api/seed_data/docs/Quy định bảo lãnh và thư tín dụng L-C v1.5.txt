@@ -1,0 +1,100 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG DOANH NGHIỆP, TRUNG TÂM THANH TOÁN QUỐC TẾ
+QUY ĐỊNH VỀ BẢO LÃNH VÀ THƯ TÍN DỤNG (L/C)
+Số hiệu: QĐ.BL.EB.06 — Phiên bản: 1.5 — Hiệu lực từ: 01/05/2026
+Đơn vị ban hành: Khối Khách hàng Doanh nghiệp, phối hợp Trung tâm Thanh toán quốc tế (TTQT)
+Văn bản liên quan: QT.TD.EB.01 (Quy trình cấp tín dụng KHDN), QĐ.TSBĐ.02 (Quy định TSBĐ), HD.TĐ.EB.05
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Phạm vi và loại bảo lãnh
+1. Quy định này áp dụng cho nghiệp vụ phát hành bảo lãnh trong nước và thư tín dụng (L/C) nhập khẩu, xuất khẩu cho khách hàng doanh nghiệp (EB) tại MSB.
+2. Các loại bảo lãnh được phát hành:
+a) Bảo lãnh dự thầu (Bid Bond);
+b) Bảo lãnh thực hiện hợp đồng (Performance Bond);
+c) Bảo lãnh tạm ứng (Advance Payment Guarantee);
+d) Bảo lãnh thanh toán (Payment Guarantee);
+e) Bảo lãnh bảo hành (Warranty/Retention Bond).
+3. Bảo lãnh và L/C được coi là hình thức cấp tín dụng, phải qua thẩm định và phê duyệt theo hạn mức tại Điều 5.
+
+Điều 2. Điều kiện phát hành
+1. Khách hàng phải có hạn mức bảo lãnh/L/C được phê duyệt còn hiệu lực, hoặc được thẩm định theo từng lần phát sinh nếu chưa có hạn mức.
+2. Hồ sơ đề nghị gồm: văn bản đề nghị phát hành theo mẫu MSB, hợp đồng gốc hoặc hồ sơ mời thầu làm căn cứ phát hành, cam kết ký quỹ hoặc tài sản bảo đảm khác theo Điều 3.
+3. Nội dung bảo lãnh, L/C không được trái quy định pháp luật hiện hành về bảo lãnh ngân hàng và thông lệ quốc tế (URDG 758 đối với bảo lãnh, UCP 600 đối với L/C).
+4. Không phát hành bảo lãnh, L/C cho khách hàng đang có nợ quá hạn tại MSB hoặc nợ nhóm 2 trở lên tại tổ chức tín dụng khác theo tra cứu CIC trong 30 ngày gần nhất.
+
+CHƯƠNG II. KÝ QUỸ VÀ PHÍ
+
+Điều 3. Tỷ lệ ký quỹ theo xếp hạng tín dụng
+1. Tỷ lệ ký quỹ áp dụng theo kết quả xếp hạng tín dụng nội bộ (XHTD) của khách hàng theo HD.TĐ.EB.05:
+a) Hạng AAA, AA: ký quỹ từ 0% đến 10% giá trị bảo lãnh/L/C (miễn ký quỹ khi có tài sản bảo đảm khác thay thế đủ giá trị);
+b) Hạng A, BBB: ký quỹ 20%;
+c) Hạng BB: ký quỹ 50%;
+d) Hạng dưới BB (B, CCC, CC, C): ký quỹ 100% giá trị bảo lãnh/L/C, riêng hạng D từ chối phát hành.
+2. Khách hàng mới giao dịch lần đầu với MSB (chưa có lịch sử tín dụng nội bộ trên 12 tháng): áp dụng ký quỹ tối thiểu 30%, không phụ thuộc XHTD sơ bộ.
+3. Tiền ký quỹ được phong toả trên tài khoản chuyên dùng tại MSB, hưởng lãi suất không kỳ hạn, chỉ giải toả theo Điều 8.
+
+Điều 4. Phí bảo lãnh và L/C
+1. Phí phát hành bảo lãnh: 1,8%/năm trên giá trị bảo lãnh, tính theo số ngày thực tế, tối thiểu 500.000 đồng/bảo lãnh; riêng bảo lãnh dự thầu tối thiểu 300.000 đồng.
+2. Phí phát hành L/C nhập khẩu: 0,15%/quý (hoặc phần của quý) trên giá trị L/C, tối thiểu 50 USD/L/C.
+3. Phí sửa đổi, tu chỉnh L/C hoặc bảo lãnh: 20 USD/lần (L/C) hoặc 200.000 đồng/lần (bảo lãnh trong nước), cộng phần chênh lệch phí nếu tăng giá trị hoặc gia hạn thời hạn.
+4. Phí kiểm tra bộ chứng từ xuất trình theo L/C: 0,15% giá trị bộ chứng từ, tối thiểu 50 USD.
+5. Phí huỷ bảo lãnh/L/C trước hạn theo yêu cầu khách hàng: 500.000 đồng/lần (bảo lãnh) hoặc 30 USD/lần (L/C).
+
+CHƯƠNG III. THẨM QUYỀN PHÊ DUYỆT
+
+Điều 5. Phân quyền phê duyệt theo hạn mức
+1. Thẩm quyền phê duyệt phát hành bảo lãnh, L/C áp dụng theo phân quyền cấp tín dụng tại QT.TD.EB.01: CCO1 phê duyệt khoản cấp tín dụng đến 20 tỷ đồng; CCO2 phê duyệt trên 20 tỷ đến 80 tỷ đồng; trên 80 tỷ đồng trình Hội đồng Tín dụng (HĐTD).
+2. Giá trị tính hạn mức phê duyệt là tổng giá trị bảo lãnh/L/C đề nghị cộng dư nợ quy đổi hiện có của khách hàng trong cùng hạn mức cấp tín dụng.
+3. Bảo lãnh, L/C ký quỹ 100% theo Điều 3 khoản 1 điểm d được Giám đốc Đơn vị kinh doanh (ĐVKD) phê duyệt phát hành không giới hạn theo phân quyền tín dụng, do rủi ro tín dụng đã được bảo đảm toàn bộ bằng tiền.
+
+CHƯƠNG IV. NGHIỆP VỤ THƯ TÍN DỤNG NHẬP KHẨU
+
+Điều 6. Các loại L/C nhập khẩu
+1. L/C trả ngay (At Sight): ngân hàng phát hành thanh toán ngay khi bộ chứng từ xuất trình phù hợp.
+2. L/C UPAS (Usance Payable At Sight): người thụ hưởng được thanh toán ngay bởi ngân hàng tài trợ nước ngoài, khách hàng thanh toán MSB vào ngày đáo hạn thực tế; áp dụng khi có hạn mức UPAS riêng được phê duyệt.
+3. L/C trả chậm (Deferred/Usance): MSB cam kết thanh toán vào ngày đáo hạn ghi trên L/C, không tài trợ trước cho người thụ hưởng.
+
+Điều 7. Bộ chứng từ và kiểm tra theo UCP 600
+1. Bộ chứng từ xuất trình theo L/C nhập khẩu thường gồm: hối phiếu (nếu có), hoá đơn thương mại, vận đơn, chứng từ bảo hiểm, giấy chứng nhận xuất xứ, phiếu đóng gói theo yêu cầu cụ thể của từng L/C.
+2. Bộ phận kiểm tra chứng từ tại TTQT có tối đa 5 ngày làm việc ngân hàng kể từ ngày nhận bộ chứng từ để xác định phù hợp hay bất hợp lệ, đúng thời hạn quy định tại UCP 600 Điều 14.
+3. Bất hợp lệ (discrepancy) phải được thông báo cho khách hàng trong ngày làm việc kế tiếp ngày phát hiện; khách hàng có 2 ngày làm việc để phản hồi chấp nhận bất hợp lệ và thanh toán, hoặc từ chối nhận hàng.
+4. Tu chỉnh L/C (amendment) phải được cả người mở và người thụ hưởng đồng ý bằng văn bản; MSB thông báo tu chỉnh cho ngân hàng thông báo trong 1 ngày làm việc kể từ khi nhận đủ yêu cầu hợp lệ.
+5. L/C hết hạn hiệu lực mà chưa xuất trình chứng từ: tự động đóng trên hệ thống, số dư hạn mức được giải phóng; ký quỹ liên quan xử lý theo Điều 9.
+
+Điều 8. L/C xuất khẩu và nhờ thu chứng từ
+1. MSB thông báo L/C xuất khẩu do ngân hàng nước ngoài phát hành cho khách hàng doanh nghiệp là người thụ hưởng; kiểm tra tính xác thực điện MT700 qua kênh SWIFT trước khi thông báo, không chịu trách nhiệm về khả năng thanh toán của ngân hàng phát hành nếu khách hàng không yêu cầu xác nhận (confirm) L/C.
+2. Trường hợp khách hàng yêu cầu MSB xác nhận L/C xuất khẩu (confirmed L/C): áp dụng khi ngân hàng phát hành nước ngoài được MSB chấp nhận hạn mức đối tác (line ngân hàng đại lý); phí xác nhận theo thoả thuận từng giao dịch, tối thiểu 100 USD.
+3. Khách hàng xuất trình bộ chứng từ theo L/C xuất khẩu tại MSB trong thời hạn hiệu lực của L/C và không quá 21 ngày kể từ ngày giao hàng (trừ khi L/C quy định thời hạn khác); MSB kiểm tra và gửi đòi tiền ngân hàng phát hành trong 1 ngày làm việc kể từ khi chứng từ phù hợp.
+4. Nhờ thu kèm chứng từ (D/P, D/A) áp dụng theo URC 522; MSB chỉ giao chứng từ cho người mua nước ngoài khi đã thanh toán (D/P) hoặc đã chấp nhận hối phiếu (D/A) theo chỉ thị nhờ thu của khách hàng xuất khẩu.
+
+Điều 9. Giải toả ký quỹ
+1. Ký quỹ được giải toả khi bảo lãnh/L/C hết hiệu lực mà không phát sinh nghĩa vụ thanh toán, hoặc khi khách hàng đã hoàn thành nghĩa vụ thanh toán cho MSB.
+2. Thời gian giải toả: trong 2 ngày làm việc kể từ ngày MSB xác nhận không còn nghĩa vụ liên quan.
+3. Giải toả một phần được áp dụng đối với bảo lãnh giảm dần giá trị theo tiến độ hợp đồng (ví dụ bảo lãnh bảo hành giảm dần) khi có xác nhận của bên nhận bảo lãnh.
+
+CHƯƠNG V. TRẠNG THÁI XỬ LÝ TRÊN BPM
+
+Điều 10. Mã trạng thái bảo lãnh, L/C
+1. STBL01: Khởi tạo — RM/ĐVKD lập đề nghị phát hành trên BPM.
+2. STBL02: Chờ thẩm định — hồ sơ chuyển CA thẩm định, áp dụng khi vượt hạn mức đã cấp hoặc phát hành theo từng lần.
+3. STBL03: Chờ phê duyệt — trình cấp có thẩm quyền theo Điều 5.
+4. STBL04: Đã phê duyệt — chờ hoàn tất ký quỹ/tài sản bảo đảm và ký hồ sơ.
+5. STBL05: Đã phát hành — bảo lãnh/L/C đã có hiệu lực, thông báo cho bên thụ hưởng hoặc ngân hàng thông báo.
+6. STBL06: Đang xử lý bất hợp lệ — áp dụng riêng cho L/C khi bộ chứng từ có discrepancy.
+7. STBL07: Đã tất toán — hết nghĩa vụ, ký quỹ đã giải toả.
+8. STBL08: Đã huỷ — huỷ trước hạn theo yêu cầu khách hàng hoặc do L/C hết hạn không sử dụng.
+
+Điều 11. Thời gian xử lý
+1. Phát hành bảo lãnh trong nước: tối đa 4 giờ làm việc kể từ khi nhận đủ hồ sơ hợp lệ và hoàn tất ký quỹ, đối với hồ sơ trong hạn mức đã cấp không cần thẩm định lại.
+2. Phát hành bảo lãnh, L/C ngoài hạn mức, phải qua thẩm định: theo thời hạn thẩm định luồng FAST hoặc NORMAL tại Điều 4 QT.TD.EB.01, cộng thêm tối đa 4 giờ làm việc để hoàn tất phát hành sau khi có phê duyệt.
+3. Xử lý sửa đổi, tu chỉnh không làm tăng giá trị hoặc kéo dài thời hạn: tối đa 2 giờ làm việc.
+4. Kiểm tra bộ chứng từ L/C theo Điều 7: tối đa 5 ngày làm việc ngân hàng kể từ ngày nhận đủ bộ chứng từ.
+
+CHƯƠNG VI. TỔ CHỨC THỰC HIỆN
+
+Điều 12. Hiệu lực thi hành
+1. Quy định có hiệu lực từ ngày 01/05/2026, thay thế phiên bản 1.4.
+2. Thay đổi chính so với phiên bản 1.4: bổ sung sản phẩm L/C UPAS tại Điều 6 khoản 2; điều chỉnh tỷ lệ ký quỹ hạng BB từ 40% lên 50%; bổ sung mã trạng thái STBL06 xử lý bất hợp lệ chứng từ; bổ sung Điều 8 về nghiệp vụ L/C xuất khẩu và Điều 11 về thời gian xử lý.
+3. Vướng mắc phát sinh trong quá trình thực hiện phản ánh về Trung tâm Thanh toán quốc tế.

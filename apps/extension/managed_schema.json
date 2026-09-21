@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-03/schema#",
+  "type": "object",
+  "description": "Cấu hình IT đẩy xuống qua chính sách Chrome Enterprise (chrome.storage.managed). Cán bộ không sửa được.",
+  "properties": {
+    "apiBase": {
+      "type": "string",
+      "description": "Địa chỉ API của MSB Knowledge Assistant, ví dụ https://kb.msb.com.vn"
+    },
+    "brandName": {
+      "type": "string",
+      "description": "Tên hiển thị trong bong bóng"
+    },
+    "disabledHosts": {
+      "type": "array",
+      "description": "Tên miền KHÔNG hiện bong bóng (ví dụ trang ngân hàng điện tử khách hàng)",
+      "items": { "type": "string" }
+    }
+  }
+}

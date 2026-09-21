@@ -1,0 +1,9 @@
+{
+  "title": "Quy trình",
+  "description": "Xây dựng và quản lý các quy trình AI bằng canvas trực quan.",
+  "createWorkflow": "Quy trình mới",
+  "empty": {
+    "title": "Chưa có quy trình nào",
+    "description": "Tạo quy trình đầu tiên để bắt đầu điều phối các tác vụ AI."
+  }
+}

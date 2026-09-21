@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Trợ lý cán bộ">
+  <circle cx="32" cy="32" r="32" fill="#1f3a5f"/>
+  <path d="M32 13l15 5.5V30c0 9.6-6.3 17.2-15 21-8.7-3.8-15-11.4-15-21V18.5L32 13z" fill="#fff"/>
+  <path d="M24.5 31.5l5.2 5.2L40 26.3" fill="none" stroke="#1f3a5f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,302 @@
+CẨM NANG VẬN HÀNH — KHO TRI THỨC VÀ TẢI VĂN BẢN
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Kho tri thức là gì
+
+Kho tri thức là một tập văn bản nghiệp vụ mà trợ lý được phép tra cứu để trả lời. Quy trình, quy định, hướng dẫn, mô tả sản phẩm, biểu phí, mẫu biểu và câu hỏi thường gặp đều nằm ở đây.
+
+Trợ lý không tự biết nội dung văn bản. Mỗi khi có câu hỏi, hệ thống tìm trong kho vài đoạn liên quan nhất, đưa các đoạn đó vào lời nhắc gửi cho mô hình, và yêu cầu mô hình chỉ trả lời dựa trên các đoạn đó. Chất lượng câu trả lời vì thế phụ thuộc gần như hoàn toàn vào chất lượng kho.
+
+1.1 Kho thuộc về một đơn vị
+
+Mỗi kho thuộc đúng một đơn vị. Bạn chỉ thấy kho của đơn vị đang chọn ở thanh trên cùng.
+
+Không có cách nào chia sẻ một kho sang đơn vị khác. Nếu hai đơn vị cần cùng một bộ văn bản, có hai lựa chọn: tải văn bản vào cả hai kho, hoặc dựng một trợ lý ở một đơn vị rồi mở trợ lý đó cho toàn ngân hàng.
+
+Lựa chọn thứ hai thường đúng hơn. Một bản văn bản, một nơi cập nhật, và cán bộ khắp ngân hàng vẫn hỏi được.
+
+1.2 Một kho gồm những gì
+
+Một kho gồm danh sách văn bản. Mỗi văn bản gồm tệp gốc được lưu lại, ba trường thông tin nghiệp vụ, một trạng thái lập chỉ mục, một công tắc bật tắt dùng cho AI, và tập đoạn văn bản sinh ra sau khi lập chỉ mục.
+
+Đoạn văn bản là đơn vị nhỏ nhất mà hệ thống tìm kiếm. Nội dung về cách cắt đoạn nằm ở tài liệu về lập chỉ mục.
+
+2. Tạo kho tri thức
+
+Trên trang Kho tri thức, nút tạo mới mở một hộp thoại có ba ô.
+
+2.1 Tên kho và mô tả
+
+Tên kho hiện ở nhiều nơi: danh sách kho, ô chọn kho khi cấu hình trợ lý, và ô chọn kho trong node tra cứu của luồng xử lý. Đặt tên theo mảng nghiệp vụ và phân khúc, ví dụ tên nêu rõ đây là kho quy trình và quy định tín dụng khách hàng doanh nghiệp.
+
+Mô tả chỉ để người quản trị đọc. Mô hình không đọc mô tả kho. Dùng nó để ghi phạm vi văn bản trong kho và người phụ trách cập nhật.
+
+2.2 Phạm vi sử dụng
+
+Ô này có hai giá trị và là lựa chọn quan trọng nhất khi tạo kho.
+
+Giá trị Nội bộ nghĩa là chỉ cán bộ dùng được. Giao diện ghi rõ kho nội bộ không gắn được cho trợ lý khách hàng.
+
+Giá trị Công khai nghĩa là kho có thể dùng cho trợ lý khách hàng. Giao diện gợi ý các loại nội dung phù hợp là biểu phí, sản phẩm và câu hỏi thường gặp.
+
+Mặc định khi tạo qua API là Nội bộ. Đây là mặc định an toàn: nếu quên chọn, không có gì lọt ra kênh công khai.
+
+2.3 Đổi phạm vi sau khi đã tạo
+
+Đổi được bất cứ lúc nào. Trên trang chi tiết kho, phù hiệu phạm vi bấm được và đổi ngay lập tức, không có bước xác nhận.
+
+Cần biết một hệ quả quan trọng. Việc đổi kho từ công khai sang nội bộ không tự động gỡ kho đó khỏi các trợ lý khách hàng đang gắn nó. Hệ thống chỉ kiểm tra ràng buộc khi bạn tạo hoặc lưu một trợ lý.
+
+Nghĩa là trợ lý khách hàng đang chạy vẫn tiếp tục tra kho đó cho tới khi có người mở trợ lý ra và bấm lưu, lúc đó thao tác lưu sẽ bị từ chối.
+
+Vì vậy khi chuyển một kho sang nội bộ, hãy tự rà lại danh sách trợ lý khách hàng của đơn vị và gỡ kho đó ra bằng tay. Đừng dựa vào hệ thống nhắc giúp.
+
+3. Ràng buộc kho công khai với trợ lý khách hàng
+
+3.1 Quy tắc
+
+Một trợ lý dành cho đối tượng khách hàng chỉ gắn được kho có phạm vi công khai. Quy tắc áp cho mọi kho được gắn, không phải chỉ kho đầu tiên.
+
+Hệ thống kiểm tra ở hai thời điểm: khi tạo trợ lý và khi cập nhật trợ lý. Cả hai đều chạy cùng một hàm kiểm tra.
+
+3.2 Vì sao quy tắc này chặt
+
+Trang khách hàng không có đăng nhập. Bất kỳ ai cầm đường dẫn đều mở được.
+
+Nếu một kho nội bộ lọt vào trợ lý khách hàng thì nội dung quy trình nội bộ, hạn mức phê duyệt, ngưỡng rủi ro và thẩm quyền ký có thể bị hỏi ra bằng câu hỏi khéo léo. Không có lớp bảo vệ nào ở phía sau bù lại được, vì bản chất việc tra cứu là đưa nội dung văn bản vào câu trả lời.
+
+Đây là lý do ràng buộc nằm ở tầng dữ liệu chứ không phải ở lời nhắc gửi cho mô hình. Lời nhắc là khuyến nghị, ràng buộc dữ liệu là bắt buộc.
+
+3.3 Thông báo lỗi khi vi phạm
+
+Khi bạn cố lưu một trợ lý khách hàng có gắn kho nội bộ, API trả lỗi 400. Thông báo nêu rõ trợ lý dành cho khách hàng chỉ được gắn kho có phạm vi công khai, và liệt kê tên các kho nội bộ đang bị gắn.
+
+Cách xử lý có hai hướng. Bỏ chọn các kho đó ra khỏi trợ lý. Hoặc nếu nội dung thật sự công khai được, đổi phạm vi kho sang công khai rồi lưu lại.
+
+Đừng chọn hướng thứ hai chỉ để cho qua lỗi. Hãy đọc lại nội dung kho trước.
+
+Trên giao diện chọn kho, các kho nội bộ bị khoá sẵn khi trợ lý thuộc đối tượng khách hàng, kèm dòng giải thích rằng trợ lý khách hàng không dùng được kho nội bộ. Nhờ vậy bạn thường gặp cảnh báo trước khi gặp lỗi.
+
+4. Tải văn bản lên
+
+4.1 Định dạng và dung lượng được chấp nhận
+
+Hệ thống nhận ba định dạng: PDF, DOCX và TXT. Dung lượng tối đa mỗi tệp là 50MB.
+
+Tệp sai định dạng bị từ chối với thông báo liệt kê ba đuôi được phép. Tệp quá lớn bị từ chối với thông báo nêu giới hạn. Hai thông báo này hiện bằng tiếng Anh.
+
+Một lưu ý về PDF. Hệ thống bóc chữ từ PDF chứ không nhận dạng ảnh. Một bản PDF là ảnh chụp hoặc bản scan không bóc được chữ nào, và văn bản sẽ chuyển sang trạng thái lỗi với thông báo không trích xuất được nội dung. Với tài liệu scan, hãy nhận dạng chữ trước bằng công cụ bên ngoài rồi mới tải lên.
+
+Định dạng TXT cho kết quả cắt đoạn tốt nhất, vì cấu trúc chương, mục, điều được giữ nguyên theo dòng. Nếu bạn có thể chọn, hãy chọn TXT.
+
+4.2 Tải nhiều tệp một lúc
+
+Vùng tải lên nhận kéo thả nhiều tệp cùng lúc. Mỗi tệp trở thành một văn bản riêng trong kho.
+
+Ba trường thông tin nghiệp vụ điền ở phía trên vùng kéo thả sẽ áp cho toàn bộ tệp trong lượt tải đó. Giao diện nói rõ điều này.
+
+Vì vậy chỉ nên gộp nhiều tệp trong một lượt khi chúng cùng loại, cùng phiên bản và cùng ngày hiệu lực. Nếu khác nhau, hãy tải từng tệp một, hoặc tải chung rồi sửa lại thông tin từng văn bản sau.
+
+4.3 Điều gì xảy ra ngay sau khi tải lên
+
+Tệp được cất vào kho lưu trữ đối tượng, một bản ghi văn bản được tạo, rồi hệ thống tự đẩy việc lập chỉ mục vào hàng đợi và chuyển trạng thái sang đang lập chỉ mục.
+
+Nếu không đẩy được vào hàng đợi, ví dụ Redis không chạy, trạng thái được đặt lại thành đã tải để bạn bấm lập chỉ mục thủ công sau. Việc tải lên không thất bại vì lý do đó.
+
+Danh sách văn bản tự làm mới trong lúc một văn bản đang lập chỉ mục, nên bạn thấy trạng thái chuyển sang sẵn sàng mà không cần tải lại trang.
+
+5. Ba trường thông tin đi kèm văn bản
+
+Ba trường này là Loại văn bản, Phiên bản và Hiệu lực từ. Cả ba đều không bắt buộc, nhưng bỏ trống là bỏ phí phần lớn giá trị của hệ thống trích dẫn.
+
+5.1 Loại văn bản
+
+Chọn từ danh sách bảy giá trị:
+
+- Quy trình
+- Quy định
+- Hướng dẫn
+- Sản phẩm
+- Biểu phí
+- Mẫu biểu
+- FAQ
+
+Loại văn bản đi kèm mỗi đoạn được tra cứu và hiện trong dữ liệu nguồn của câu trả lời. Nó giúp người đọc phân biệt ngay một câu trả lời đang dựa trên văn bản có hiệu lực bắt buộc hay chỉ dựa trên tài liệu hướng dẫn.
+
+5.2 Phiên bản
+
+Ô nhập tự do. Quy ước nên dùng là chữ v kèm số, ví dụ dạng v3.2, trùng với cách đánh số trên bìa văn bản gốc.
+
+Phiên bản được lưu cùng văn bản và đi kèm mỗi đoạn tra cứu. Trong danh sách văn bản, phiên bản hiển thị ở cột thông tin cùng với loại và ngày hiệu lực.
+
+5.3 Hiệu lực từ
+
+Ô nhập tự do, không phải bộ chọn lịch. Quy ước nên dùng là ngày tháng năm theo dạng hai chữ số ngày, hai chữ số tháng, bốn chữ số năm, ví dụ dạng 01/03/2026.
+
+Vì đây là ô tự do, việc thống nhất định dạng trong toàn ngân hàng là trách nhiệm của người vận hành. Trộn nhiều cách viết làm câu trả lời khó đọc.
+
+5.4 Vì sao ba trường này quan trọng
+
+Có ba lý do cụ thể.
+
+Lý do thứ nhất là trích dẫn. Mỗi đoạn tra được mang theo tên tệp, loại, phiên bản, ngày hiệu lực và tên điều khoản mà đoạn đó thuộc về. Dòng nhãn trích dẫn hiển thị cho người dùng ghép tên văn bản, ngày hiệu lực và tên điều khoản. Phiên bản được lưu và đi kèm dữ liệu nguồn nhưng không nằm trên dòng nhãn rút gọn đó.
+
+Lý do thứ hai là xử lý nhiều phiên bản. Bộ nguyên tắc mặc định gửi cho mô hình yêu cầu khi có nhiều phiên bản của cùng một văn bản thì ưu tiên phiên bản mới nhất và nêu rõ đang trích phiên bản nào, ngày hiệu lực nào. Mô hình chỉ làm được việc đó nếu thông tin có trong dữ liệu. Bỏ trống hai trường này là làm mất khả năng phân biệt.
+
+Lý do thứ ba là kiểm soát tuân thủ. Nhật ký truy vấn lưu lại danh sách nguồn của từng câu trả lời. Khi cần rà soát về sau, một trích dẫn có phiên bản và ngày hiệu lực chứng minh được câu trả lời đã dựa trên văn bản nào, tại thời điểm nào.
+
+5.5 Thông tin áp cho cả lượt tải
+
+Nhắc lại vì đây là nguồn sai sót phổ biến. Ba trường điền ở vùng tải lên áp cho toàn bộ tệp trong lượt tải đó, không phải cho từng tệp riêng.
+
+Nếu bạn kéo mười tệp thuộc năm văn bản khác nhau vào cùng một lượt, cả mười văn bản sẽ mang chung một phiên bản và một ngày hiệu lực. Sửa lại sau thì được, nhưng mất công hơn là tải đúng ngay từ đầu.
+
+6. Sửa thông tin văn bản sau khi tải
+
+6.1 Sửa được những gì
+
+Ba trường loại, phiên bản và ngày hiệu lực sửa được bất cứ lúc nào cho từng văn bản. Công tắc bật tắt dùng cho AI cũng nằm cùng nhóm thao tác này.
+
+Sửa thông tin có hiệu lực ngay với mọi câu trả lời sau đó, vì trích dẫn đọc thông tin từ bản ghi văn bản chứ không phải từ đoạn đã lưu.
+
+6.2 Sửa thông tin không làm lập chỉ mục lại
+
+Đây là điểm dễ hiểu lầm. Sửa loại, phiên bản hay ngày hiệu lực không đụng gì tới nội dung đã cắt đoạn và đã nhúng. Không có việc lập chỉ mục nào chạy lại.
+
+Muốn thay nội dung thì phải tải tệp mới hoặc bấm lập chỉ mục lại, không phải sửa thông tin.
+
+Tương tự, sửa thông tin không bật lại một văn bản đang tắt. Bật lại là một thao tác riêng.
+
+7. Xem và sửa nội dung đoạn văn bản
+
+Với văn bản đã ở trạng thái sẵn sàng, bấm vào tên tệp để mở cửa sổ xem trước các đoạn. Cửa sổ này phân trang và cho phép sửa nội dung từng đoạn.
+
+Khi bạn lưu một đoạn đã sửa, hệ thống tính lại vector cho riêng đoạn đó bằng nhà cung cấp embedding đang bật. Nếu không có nhà cung cấp nào bật, nội dung vẫn được lưu nhưng vector cũ giữ nguyên, nghĩa là việc tìm kiếm vẫn dựa trên nội dung cũ. Cửa sổ báo lại điều này.
+
+Việc sửa đoạn được ghi vào bảng đo token dưới kênh sửa đoạn văn bản, nên chi phí vẫn được tính đủ.
+
+Nội dung cửa sổ xem trước đoạn hiện đang hiển thị bằng tiếng Anh. Nút thử hỏi đáp trên trang chi tiết kho cũng dẫn sang một màn hình còn tiếng Anh. Đây là hạn chế đã biết của bản hiện tại.
+
+Chỉ nên sửa đoạn trong hai trường hợp: bản bóc chữ từ PDF bị lỗi ký tự, hoặc một đoạn bị cắt giữa chừng làm mất ngữ cảnh. Sửa đoạn không thay tệp gốc, nên lần lập chỉ mục lại sẽ ghi đè mọi chỉnh sửa thủ công.
+
+8. Gắn nhiều kho vào một trợ lý
+
+8.1 Giới hạn và thứ tự
+
+Một trợ lý gắn được tối đa mười kho. Vượt quá thì API trả lỗi 400 nêu rõ giới hạn.
+
+Thứ tự bạn chọn được lưu lại và trả về nguyên thứ tự đó. Thứ tự này chỉ để hiển thị cho người quản trị, nó không ưu tiên kho nào khi tìm kiếm.
+
+Mọi kho được gắn phải thuộc đúng đơn vị của trợ lý. Gắn kho của đơn vị khác trả lỗi 400 nói rằng kho không tồn tại hoặc không thuộc đơn vị này. Hai trường hợp gộp chung một thông báo là cố ý, để không tiết lộ sự tồn tại của kho thuộc đơn vị khác.
+
+8.2 Cách hệ thống tra cứu trên nhiều kho
+
+Điểm này quyết định chất lượng và hay bị hiểu sai.
+
+Hệ thống không tra từng kho rồi gộp kết quả. Nó chạy đúng một truy vấn trên toàn bộ các kho đã gắn, rồi lấy đúng số đoạn gần nhất trên tổng thể. Số đoạn mặc định là 5 cho cả trợ lý, không phải 5 cho mỗi kho.
+
+Nghĩa là năm đoạn đó hoàn toàn có thể đến từ một kho duy nhất, nếu kho đó có nội dung gần câu hỏi nhất.
+
+8.3 Hệ quả thực tế
+
+Một kho lớn và ồn có thể chiếm hết chỗ của một kho nhỏ nhưng chính xác. Nếu bạn gắn kho quy trình ba trăm trang cùng với kho biểu phí hai trang, nhiều câu hỏi về phí sẽ lấy đoạn từ kho quy trình vì ở đó cũng có chữ phí.
+
+Do đó nguyên tắc nên theo là: nhiều trợ lý chuyên biệt tốt hơn một trợ lý gắn mười kho.
+
+Chỉ gộp nhiều kho vào một trợ lý khi các kho cùng mảng nghiệp vụ và bổ sung cho nhau, ví dụ một kho quy trình tín dụng đi cùng một kho quy định tài sản bảo đảm. Khi chủ đề khác hẳn nhau, hãy tách trợ lý, hoặc dùng luồng xử lý có bước phân loại rồi mới chọn kho.
+
+8.4 Trợ lý gắn luồng xử lý thì bỏ qua kho
+
+Nếu trợ lý được gắn một luồng xử lý, các kho gắn trực tiếp vào trợ lý không được dùng. Luồng tự chọn kho ở các node tra cứu bên trong nó.
+
+Giao diện cấu hình trợ lý có dòng nhắc khác nhau tuỳ theo trợ lý có gắn luồng hay không, nhưng vẫn nên nhớ quy tắc này khi đi dò lỗi. Nếu một trợ lý gắn luồng mà trả lời không có trích dẫn, hãy đi kiểm tra node tra cứu trong luồng chứ không phải danh sách kho của trợ lý.
+
+9. Xoá kho và xoá văn bản
+
+Xoá một văn bản sẽ xoá bản ghi, toàn bộ đoạn và vector của nó, và xoá tệp gốc trong kho lưu trữ. Thao tác không hoàn tác được. Giao diện hỏi xác nhận và nói rõ toàn bộ chỉ mục sẽ bị xoá.
+
+Xoá một kho sẽ xoá mọi văn bản bên trong theo cùng cách đó, và gỡ liên kết kho khỏi mọi trợ lý đang gắn nó. Trợ lý không bị xoá, nó chỉ mất một nguồn tra cứu.
+
+Việc xoá tệp trong kho lưu trữ là nỗ lực tối đa. Nếu kho lưu trữ tạm thời không truy cập được, bản ghi vẫn bị xoá và tệp có thể còn sót lại. Đây là đánh đổi có chủ ý để một sự cố hạ tầng không chặn việc dọn dữ liệu.
+
+Trước khi xoá một kho, hãy kiểm tra xem trợ lý nào đang gắn nó. Không có màn hình nào liệt kê ngược quan hệ này, nên cách nhanh nhất là mở lần lượt các trợ lý của đơn vị và xem danh sách kho đã chọn.
+
+10. Cách chia kho cho dễ dùng
+
+10.1 Chia theo mảng nghiệp vụ
+
+Chia kho theo mảng nghiệp vụ mà cán bộ hỏi, không theo phòng ban ban hành văn bản.
+
+Cán bộ hỏi về giải ngân thì quan tâm tới quy trình tín dụng, quy định tài sản bảo đảm và hướng dẫn chứng từ cùng lúc, dù ba văn bản đó do ba đơn vị khác nhau ban hành. Gom theo câu hỏi, không gom theo tác giả.
+
+Một kho nên giữ trong khoảng vài chục văn bản. Ít quá thì việc quản lý vụn. Nhiều quá thì kết quả tra cứu loãng.
+
+10.2 Một văn bản gốc là một tệp
+
+Đừng gộp nhiều văn bản gốc vào một tệp. Mỗi văn bản gốc nên là một tệp riêng, vì phiên bản và ngày hiệu lực gắn với cả tệp.
+
+Gộp hai quy định vào một tệp nghĩa là chúng buộc phải dùng chung một phiên bản và một ngày hiệu lực, và mọi trích dẫn sẽ chỉ về đúng một tên tệp, làm người đọc không biết đang trích văn bản nào.
+
+Ngược lại, đừng cắt một văn bản gốc thành nhiều tệp theo chương. Bộ cắt đoạn đã hiểu cấu trúc chương, mục, điều và tự cắt đúng chỗ.
+
+10.3 Đặt tên tệp cho người đọc
+
+Tên tệp là thứ hiện ra trong trích dẫn của câu trả lời, sau khi bỏ phần đuôi. Đây là lý do tên tệp quan trọng hơn người ta tưởng.
+
+Tên tệp nên gồm tên văn bản và số phiên bản, viết như cách người nghiệp vụ gọi văn bản đó. Tránh mã nội bộ khó đọc, tránh ngày tải, tránh tên dạng bản cuối cùng sửa lần ba.
+
+Một cán bộ đọc câu trả lời phải nhận ra ngay đó là văn bản nào để đi tra bản gốc. Đó là toàn bộ mục đích của trích dẫn.
+
+11. Đọc danh sách văn bản trong kho
+
+Trang chi tiết kho có một bảng liệt kê văn bản với bảy cột. Hiểu bảy cột này là đủ để vận hành hàng ngày.
+
+Cột đầu là tên tệp. Tên chỉ bấm được khi văn bản đã ở trạng thái sẵn sàng, vì chỉ khi đó mới có đoạn để xem.
+
+Cột thứ hai gộp loại văn bản, phiên bản và ngày hiệu lực trên một dòng. Ngày hiệu lực có tiền tố hai chữ cái viết tắt đứng trước. Ô trống hiển thị một dấu gạch.
+
+Cột thứ ba là kích thước tệp. Cột thứ tư là trạng thái lập chỉ mục với bốn giá trị đã tải, đang lập chỉ mục, sẵn sàng và lỗi.
+
+Cột thứ năm là số đoạn đã sinh ra. Cột này còn hiển thị tiêu đề và nội dung bằng tiếng Anh trong bản hiện tại.
+
+Cột thứ sáu là công tắc dùng cho AI. Cột thứ bảy là các thao tác trên từng dòng.
+
+Ở đầu trang, bên cạnh tên kho, có một con số đếm tổng số văn bản, và khi có văn bản đang tắt thì hiển thị thêm số lượng đang tắt. Con số thứ hai đáng chú ý, vì nó là cách nhanh nhất để phát hiện có người đã tắt một văn bản mà quên bật lại.
+
+12. Kiểm tra kho sau khi tải xong
+
+Tải xong không có nghĩa là dùng được. Nên chạy bốn bước kiểm tra sau mỗi đợt cập nhật nội dung.
+
+Bước một là nhìn cột trạng thái. Mọi văn bản phải ở trạng thái sẵn sàng. Văn bản ở trạng thái lỗi cần đọc thông báo lỗi và xử lý theo tài liệu về lập chỉ mục.
+
+Bước hai là nhìn cột số đoạn. Một văn bản vài chục trang mà chỉ sinh ra vài đoạn là dấu hiệu bóc chữ hỏng. Một văn bản hai trang mà sinh ra hàng trăm đoạn cũng bất thường.
+
+Bước ba là mở cửa sổ xem trước đoạn của một văn bản bất kỳ và đọc vài đoạn đầu. Mỗi đoạn nên bắt đầu bằng phần dẫn đường trong dấu ngoặc vuông cho biết đoạn đó thuộc chương, mục hay điều nào. Nếu không có phần dẫn đường, nghĩa là bộ cắt đoạn không nhận ra cấu trúc văn bản, và trích dẫn sau này sẽ không nêu được điều khoản.
+
+Bước bốn là hỏi thử vài câu mà bạn biết chắc câu trả lời nằm ở đâu. Dùng màn hình Thử nghiệm hỏi đáp với một trợ lý đã gắn kho này. Kiểm tra hai thứ: câu trả lời có đúng không, và trích dẫn có trỏ về đúng văn bản và đúng điều khoản không.
+
+Bốn bước này mất khoảng mười phút và tiết kiệm rất nhiều thời gian giải thích về sau.
+
+13. Câu hỏi thường gặp
+
+Hỏi: Vì sao trợ lý khách hàng của tôi không chọn được kho nội bộ?
+Đáp: Vì trang khách hàng không có đăng nhập, nên mọi nội dung tra được từ đó coi như công khai. Ràng buộc nằm ở tầng dữ liệu và được kiểm tra cả khi tạo lẫn khi lưu trợ lý.
+
+Hỏi: Tôi đổi một kho từ công khai sang nội bộ, trợ lý khách hàng có tự ngừng dùng kho đó không?
+Đáp: Không. Hệ thống chỉ kiểm tra khi trợ lý được tạo hoặc được lưu. Hãy tự mở trợ lý khách hàng ra và gỡ kho đó khỏi danh sách.
+
+Hỏi: Tôi tải cả phiên bản cũ và phiên bản mới của cùng một quy định, có sao không?
+Đáp: Cả hai đều được tra. Mô hình được yêu cầu ưu tiên phiên bản mới nhất và nêu rõ phiên bản đang trích, nhưng chỉ làm được khi hai trường phiên bản và ngày hiệu lực đã điền. Cách chắc chắn hơn là tắt công tắc dùng cho AI ở phiên bản cũ mà vẫn giữ tệp để lưu vết.
+
+Hỏi: Tải lại cùng một tệp có thay thế văn bản cũ không?
+Đáp: Không. Mỗi lần tải tạo một văn bản mới, kể cả khi trùng tên tệp. Muốn thay nội dung, hãy xoá văn bản cũ rồi tải bản mới, hoặc tắt bản cũ cho AI.
+
+Hỏi: Một trợ lý gắn được bao nhiêu kho?
+Đáp: Tối đa mười. Nhưng nên gắn ít hơn nhiều, vì hệ thống lấy tổng cộng năm đoạn gần nhất trên toàn bộ các kho, nên kho lớn dễ lấn át kho nhỏ.
+
+Hỏi: Tôi sửa phiên bản của văn bản, có cần lập chỉ mục lại không?
+Đáp: Không cần. Thông tin nghiệp vụ được đọc trực tiếp từ bản ghi văn bản khi dựng trích dẫn. Lập chỉ mục lại chỉ cần khi nội dung tệp thay đổi.
+
+Hỏi: Tệp PDF của tôi tải lên xong báo lỗi không trích xuất được nội dung?
+Đáp: Gần như chắc chắn đó là bản scan hoặc ảnh chụp, không có lớp chữ. Hãy nhận dạng chữ bằng công cụ bên ngoài rồi tải lại, hoặc chuyển sang bản DOCX hay TXT.

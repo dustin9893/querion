@@ -1,0 +1,62 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI PHÁP CHẾ VÀ TUÂN THỦ
+QUY ĐỊNH VỀ BẢO MẬT THÔNG TIN KHÁCH HÀNG VÀ SỬ DỤNG CÔNG CỤ SỐ TRONG CÔNG VIỆC
+Số hiệu: QĐ.TT.07 — Phiên bản: 1.2 — Hiệu lực từ: 01/01/2026
+Đơn vị ban hành: Khối Pháp chế và Tuân thủ, phối hợp Trung tâm An toàn thông tin
+Áp dụng: Toàn bộ cán bộ, nhân viên, cộng tác viên và nhà thầu làm việc tại MSB
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Mục đích và phạm vi
+1. Quy định này thiết lập nguyên tắc bảo vệ thông tin khách hàng và thông tin nội bộ của MSB theo Luật Các tổ chức tín dụng, Luật An toàn thông tin mạng, Nghị định về bảo vệ dữ liệu cá nhân và các quy định liên quan.
+2. Áp dụng cho mọi hình thức thông tin: bản giấy, dữ liệu trên hệ thống, email, tin nhắn, hình ảnh, bản ghi âm và nội dung trao đổi với các công cụ số bao gồm trợ lý trí tuệ nhân tạo (AI).
+
+Điều 2. Phân loại thông tin
+1. Công khai: thông tin MSB đã công bố (biểu phí, sản phẩm, thông cáo báo chí). Được chia sẻ tự do.
+2. Nội bộ: quy trình, hướng dẫn nghiệp vụ, tài liệu đào tạo, số liệu tổng hợp không định danh khách hàng. Chỉ chia sẻ trong MSB, không đăng tải ra bên ngoài.
+3. Mật: thông tin định danh khách hàng (họ tên kèm CIF, số tài khoản, số căn cước, số điện thoại, địa chỉ), số dư, lịch sử giao dịch, hồ sơ tín dụng, xếp hạng tín dụng, kết quả thẩm định. Chỉ truy cập theo nguyên tắc cần biết (need-to-know).
+4. Tối mật: thông tin điều tra gian lận, kế hoạch kinh doanh chiến lược, mật khẩu hệ thống, khoá mã hoá. Chỉ cấp cho danh sách người được chỉ định bằng văn bản.
+
+CHƯƠNG II. NGUYÊN TẮC XỬ LÝ THÔNG TIN
+
+Điều 3. Nguyên tắc cần biết và tối thiểu hoá
+1. Cán bộ chỉ được truy cập, sử dụng thông tin khách hàng trong phạm vi công việc được giao; không tra cứu thông tin khách hàng không thuộc hồ sơ mình xử lý dù có quyền hệ thống.
+2. Khi trao đổi nội bộ, sử dụng mã hồ sơ, mã CIF rút gọn hoặc tên viết tắt thay cho họ tên đầy đủ và số tài khoản khi không thật sự cần thiết.
+3. Không chụp màn hình hệ thống có thông tin khách hàng bằng thiết bị cá nhân; không gửi thông tin Mật qua ứng dụng nhắn tin cá nhân (Zalo, Messenger, Telegram), email cá nhân hoặc lưu trên dịch vụ đám mây không do MSB quản lý.
+4. Tài liệu giấy chứa thông tin Mật phải được cất trong tủ có khoá khi rời chỗ làm việc và huỷ bằng máy huỷ tài liệu khi không còn sử dụng.
+
+Điều 4. Cung cấp thông tin cho bên thứ ba
+1. MSB chỉ cung cấp thông tin khách hàng khi có văn bản yêu cầu của cơ quan nhà nước có thẩm quyền theo quy định pháp luật, hoặc khi khách hàng có văn bản đồng ý.
+2. Mọi yêu cầu cung cấp thông tin từ cơ quan bên ngoài phải chuyển về Khối Pháp chế và Tuân thủ để thẩm định tính hợp pháp trước khi thực hiện; Đơn vị kinh doanh không trực tiếp cung cấp.
+3. Không xác nhận hay phủ nhận việc khách hàng có quan hệ với MSB qua điện thoại với người không xác định được danh tính, kể cả người tự nhận là thân nhân khách hàng.
+4. Việc chia sẻ thông tin với đối tác (bảo hiểm, định giá, thu hồi nợ) phải theo hợp đồng có điều khoản bảo mật và chỉ trong phạm vi tối thiểu cần thiết.
+
+Điều 5. Sử dụng công cụ trí tuệ nhân tạo và trợ lý số
+1. Cán bộ được sử dụng trợ lý AI nội bộ do MSB triển khai để tra cứu quy trình, quy định, sản phẩm và hướng dẫn nghiệp vụ.
+2. Không nhập vào bất kỳ công cụ AI nào (kể cả công cụ nội bộ) các thông tin Mật và Tối mật như: số CIF đầy đủ, số tài khoản, số căn cước, số thẻ đầy đủ, mật khẩu, mã OTP, số dư hoặc lịch sử giao dịch của khách hàng cụ thể. Khi cần hỏi về tình huống, cán bộ mô tả tình huống bằng thông tin đã ẩn danh.
+3. Nghiêm cấm sử dụng công cụ AI công cộng bên ngoài (không do MSB cung cấp) để xử lý thông tin Nội bộ, Mật hoặc Tối mật.
+4. Câu trả lời của trợ lý AI chỉ có giá trị tham khảo. Trước khi áp dụng vào nghiệp vụ, cán bộ phải đối chiếu với văn bản gốc còn hiệu lực được trích dẫn; trách nhiệm quyết định nghiệp vụ thuộc về cán bộ và cấp phê duyệt, không thuộc về công cụ AI.
+5. Trợ lý AI không được sử dụng để ra quyết định tự động về việc phê duyệt hay từ chối cấp tín dụng, mở tài khoản hoặc thực hiện giao dịch cho khách hàng cụ thể.
+6. Toàn bộ câu hỏi và câu trả lời trên trợ lý AI nội bộ được ghi nhật ký phục vụ kiểm soát tuân thủ; cán bộ có thể đánh giá chất lượng câu trả lời để cải thiện hệ thống.
+
+Điều 6. Bảo mật tài khoản và thiết bị
+1. Mật khẩu hệ thống tối thiểu 12 ký tự, đổi định kỳ 90 ngày, không dùng chung tài khoản; bắt buộc xác thực đa yếu tố (MFA) khi truy cập từ ngoài mạng nội bộ.
+2. Khoá màn hình khi rời vị trí làm việc; không để người khác sử dụng phiên đăng nhập của mình để thực hiện giao dịch.
+3. Chỉ sử dụng thiết bị do MSB cấp hoặc đã đăng ký quản lý (MDM) để truy cập hệ thống nghiệp vụ.
+
+CHƯƠNG III. SỰ CỐ VÀ CHẾ TÀI
+
+Điều 7. Báo cáo sự cố lộ lọt thông tin
+1. Khi phát hiện hoặc nghi ngờ lộ lọt thông tin (gửi nhầm email, mất thiết bị, truy cập bất thường, khách hàng phản ánh bị lộ thông tin), cán bộ phải báo cáo trong 2 giờ cho Trung tâm An toàn thông tin qua đường dây nóng nội bộ và cho lãnh đạo trực tiếp.
+2. Không tự ý liên hệ khách hàng hoặc bên thứ ba để xử lý sự cố khi chưa có hướng dẫn của Trung tâm An toàn thông tin và Khối Pháp chế và Tuân thủ.
+3. Sự cố liên quan dữ liệu cá nhân phải được đánh giá và thông báo cơ quan quản lý trong 72 giờ theo quy định về bảo vệ dữ liệu cá nhân.
+
+Điều 8. Chế tài
+1. Vi phạm lần đầu không gây thiệt hại: khiển trách, bắt buộc đào tạo lại về an toàn thông tin.
+2. Vi phạm gây lộ thông tin Mật của khách hàng hoặc tái phạm: cảnh cáo, hạ bậc lương hoặc chấm dứt hợp đồng lao động tuỳ mức độ.
+3. Vi phạm có dấu hiệu tội phạm được chuyển cơ quan có thẩm quyền xử lý theo pháp luật.
+
+Điều 9. Hiệu lực
+1. Quy định có hiệu lực từ ngày 01/01/2026, thay thế phiên bản 1.1.
+2. Thay đổi chính: bổ sung Điều 5 về sử dụng công cụ trí tuệ nhân tạo và trợ lý số; rút ngắn thời hạn báo cáo sự cố từ 24 giờ xuống 2 giờ.

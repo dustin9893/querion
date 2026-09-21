@@ -1,0 +1,301 @@
+CẨM NANG VẬN HÀNH — BỘ NHỚ CÁ NHÂN CỦA CÁN BỘ
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Bộ nhớ cá nhân là gì
+
+Bộ nhớ cá nhân là những gì trợ lý tự rút ra và ghi nhớ về cách một người hỏi làm việc, để lần sau trả lời hợp với người đó hơn. Nó không phải một cơ sở dữ liệu khách hàng, không phải một nơi lưu quy định, và không phải trí nhớ chung của cả tổ chức.
+
+Sau mỗi câu trả lời, hệ thống tự hỏi lại một câu hỏi hẹp, có điều gì đáng nhớ về cách người này muốn được trả lời hay không, và nếu có thì ghi lại đúng một câu ngắn. Phần lớn các lượt trả lời không có gì đáng nhớ, và đó là kết quả bình thường.
+
+Việc rút bản ghi nhớ tách hẳn khỏi việc soạn câu trả lời chính. Câu trả lời cho câu hỏi của cán bộ luôn được soạn và trả về trước, việc xem xét có gì đáng nhớ trong lượt trao đổi đó chỉ diễn ra sau khi câu trả lời đã xong, nên tính năng này không thể làm chậm hay thay đổi nội dung của chính câu trả lời.
+
+1.1 Vì sao cố ý không có bộ nhớ tổ chức tự học
+
+Đây là quyết định thiết kế quan trọng nhất của cả tính năng, và cần hiểu đúng lý do trước khi dùng.
+
+Nếu trợ lý học từ mọi cán bộ rồi dùng chung cho mọi người, một câu nói sai của một cán bộ có thể trở thành sự thật cho người khác vào hôm sau. Điều đó xảy ra mà không có trích dẫn, không ai duyệt, và không ai biết nó đến từ đâu để sửa lại khi cần.
+
+Vì vậy bộ nhớ ở đây chỉ nhớ về chính người đang hỏi, không bao giờ trộn giữa người này với người khác, và không bao giờ dùng thứ một người nói để trả lời cho người khác.
+
+1.2 Điều đơn vị muốn trợ lý nhớ thì đặt ở đâu
+
+Nếu cả đơn vị muốn trợ lý luôn biết một điều gì đó, ví dụ một quy trình mới hay một cách xử lý chuẩn, điều đó không thuộc về bộ nhớ cá nhân. Nó thuộc về văn bản trong kho tri thức, hoặc về một kỹ năng.
+
+Cả văn bản lẫn kỹ năng đều có phiên bản và có người duyệt trước khi dùng thật. Bộ nhớ cá nhân thì ngược lại, không ai duyệt trước khi trợ lý ghi, vì nó chỉ ghi lại sở thích và bối cảnh làm việc của một người, không phải một khẳng định nghiệp vụ mà người khác sẽ dựa vào.
+
+1.3 Mỗi lượt trả lời chỉ ghi tối đa hai điều mới
+
+Sau mỗi câu trả lời, hệ thống chỉ được phép ghi tối đa hai bản ghi mới, và mỗi bản ghi tối đa 240 ký tự. Giới hạn này giữ cho bộ nhớ luôn gồm những câu ngắn, cô đọng, thay vì những đoạn dài kể lể.
+
+Phần lớn các lượt trả lời không sinh ra bản ghi nào, vì không phải câu hỏi nào cũng để lộ điều gì đáng nhớ về cách người hỏi làm việc. Việc trả về danh sách rỗng là kết quả bình thường, không phải một lỗi cần khắc phục.
+
+2. Bộ nhớ thuộc về ai
+
+2.1 Cán bộ dùng chung một bộ nhớ cho mọi trợ lý
+
+Bộ nhớ gắn với chính cán bộ, không gắn với từng trợ lý riêng lẻ. Một cán bộ nói với trợ lý tín dụng rằng mình thích câu trả lời ngắn gọn có bước đánh số, thì khi chuyển sang hỏi trợ lý vận hành, sở thích đó vẫn được áp dụng, miễn là trợ lý đó cũng bật bộ nhớ.
+
+Lý do là không ai muốn dạy lại cùng một điều cho từng trợ lý một. Cách trình bày một người muốn, vai trò của họ, hay cách họ gọi tên một khối nghiệp vụ đều là thứ đúng với người đó ở mọi nơi, không riêng gì một trợ lý.
+
+2.2 Quản trị viên cũng có một bộ nhớ riêng
+
+Bộ nhớ không chỉ dành cho cán bộ. Khi một quản trị viên trò chuyện với Trợ lý Vận hành, hoặc thử một trợ lý bất kỳ trong màn hình quản trị, cùng cơ chế này cũng ghi lại điều đáng nhớ về cách quản trị viên đó muốn được trả lời, dùng chính tài khoản quản trị làm chủ sở hữu thay vì mã cán bộ.
+
+Ở phiên bản này, quản trị viên chưa có một trang riêng để xem lại bộ nhớ của chính mình như trang dành cho cán bộ ở mục 6. Bộ nhớ đó vẫn ghi và vẫn dùng để trả lời, chỉ là chưa xem lại trực tiếp được ngoài việc tra qua nhật ký truy vấn.
+
+Trong thực tế, trường hợp này chỉ phát sinh khi một quản trị viên tự mình trò chuyện với một trợ lý, ví dụ để hỏi Trợ lý Vận hành cách cấu hình một tính năng, hoặc để thử một trợ lý trước khi công bố. Phần lớn công việc quản trị hằng ngày không đi qua đường này, nên đây là một trường hợp phụ chứ không phải cách dùng chính của tính năng.
+
+Cách để tra lại nội dung này khi cần, ví dụ khi kiểm tra vì sao Trợ lý Vận hành trả lời theo một cách riêng cho một quản trị viên cụ thể, vẫn là mở lại đúng lượt trả lời đó trong nhật ký truy vấn, như mô tả ở mục 10.
+
+2.3 Một câu hỏi không nạp toàn bộ bộ nhớ đang có
+
+Một cán bộ dùng hệ thống lâu ngày có thể tích luỹ hàng chục bản ghi. Đưa hết tất cả vào mỗi câu hỏi sẽ làm ngữ cảnh nặng lên vô ích, vì phần lớn bản ghi không liên quan tới câu hỏi đang hỏi.
+
+Mỗi câu hỏi chỉ nạp phần bản ghi đã ghim, cộng thêm tối đa năm bản ghi gần nghĩa nhất với câu hỏi đó trong số còn lại, tính theo cùng phép so khớp mà kỹ năng dùng để chọn trước. Một bản ghi quá xa nghĩa so với câu hỏi thì không được nạp, dù nó vẫn còn tồn tại trong danh sách đầy đủ ở trang bộ nhớ cá nhân.
+
+Tổng số bản ghi của một người cũng có trần, tối đa sáu mươi bản ghi. Vượt trần thì bản ghi cũ nhất chưa ghim bị bỏ bớt để nhường chỗ cho bản ghi mới, bản ghi đã ghim không bao giờ bị bỏ theo cách này.
+
+2.4 Nói cùng một điều nhiều lần không tạo ra nhiều dòng
+
+Một người nói ngắn gọn thôi năm lần trong năm lượt hỏi khác nhau sẽ không tạo ra năm bản ghi giống nhau. Bản ghi mới có nội dung gần nghĩa với một bản ghi cũ cùng loại sẽ được gộp vào bản ghi cũ đó, cập nhật lại nội dung và hạn dùng, thay vì cộng thêm một dòng mới.
+
+Nhờ vậy danh sách bộ nhớ của một người luôn gọn, mỗi ý chỉ có đúng một dòng đại diện, dù người đó có nhắc lại ý đó bao nhiêu lần trong quá trình dùng hệ thống.
+
+Việc gộp chỉ xảy ra giữa các bản ghi cùng loại. Một câu về cách trình bày và một câu về bối cảnh công việc, dù có đôi chút gần nghĩa về mặt câu chữ, vẫn luôn là hai dòng riêng biệt, vì chúng phục vụ hai mục đích khác nhau khi trợ lý đọc lại để trả lời.
+
+3. Bốn loại được phép nhớ
+
+Chỉ bốn loại nội dung sau được phép ghi vào bộ nhớ. Mọi thứ ngoài bốn loại này đều bị loại ngay, dù mô hình có đề xuất.
+
+Cách trình bày, tức là cách một người muốn nhận câu trả lời. Ví dụ thích câu trả lời ngắn gọn, có các bước đánh số, hoặc muốn phần kết luận đặt lên đầu câu trả lời.
+
+Vai trò và phạm vi công việc. Ví dụ là cán bộ quan hệ khách hàng phụ trách khách hàng doanh nghiệp có vốn đầu tư nước ngoài, hoặc làm việc tại một chi nhánh cụ thể thuộc mảng thanh toán quốc tế.
+
+Bối cảnh công việc, nêu theo mã nghiệp vụ chứ không nêu chi tiết. Ví dụ đang theo một hồ sơ với mã cụ thể, hoặc tuần này tập trung vào các hồ sơ sắp tới hạn xử lý.
+
+Thuật ngữ quen dùng, tức là cách một người gọi tên riêng một điều gì đó. Ví dụ quen gọi Khối Vận hành và Thanh toán quốc tế là OPS, hoặc quen dùng từ tiếng Anh cho thuật ngữ tín dụng thay vì tiếng Việt.
+
+3.1 Vì sao đúng bốn loại này chứ không phải hơn
+
+Bốn loại được chọn vì đều là những điều đổi cách trả lời phù hợp hơn cho một người, mà không đụng tới dữ liệu của bên thứ ba nào. Cách trình bày và thuật ngữ quen dùng đổi giọng văn của câu trả lời. Vai trò giúp trợ lý biết nên trả lời sâu tới đâu và nhắm vào việc gì. Bối cảnh công việc giúp trợ lý hiểu một câu hỏi tiếp theo đang nói tới hồ sơ nào mà không cần cán bộ nhắc lại từ đầu.
+
+Không có loại nào trong bốn loại này chạm tới thông tin của khách hàng hay nội dung quy định, vì cả hai thứ đó đã có lớp chặn riêng và không bao giờ được coi là hợp lệ, dù mô hình có cố gán chúng vào một trong bốn loại trên.
+
+3.2 Bộ nhớ luôn đi kèm một dòng nhắc khi đưa vào câu trả lời
+
+Khi có bản ghi nhớ được nạp cho một câu hỏi, chúng luôn được bọc trong một khối riêng, tách khỏi phần tài liệu tra cứu và phần hội thoại, kèm một dòng nói rõ đây là điều trợ lý nhớ về người hỏi để chọn cách trả lời, không phải nguồn về quy định, và mọi khẳng định nghiệp vụ vẫn phải lấy từ tài liệu.
+
+Dòng nhắc này gắn liền với chính khối bộ nhớ, không phải điều người soạn phải tự thêm ở đâu đó, nên nó luôn có mặt mỗi khi bộ nhớ được dùng, giống hệt cách kỹ năng luôn kèm một dòng nhắc tương tự đã nói ở cẩm nang về kỹ năng.
+
+4. Những gì không bao giờ được nhớ
+
+Không được ghi bất cứ gì về khách hàng, tên, số tài khoản, số tiền hay tình trạng hồ sơ của họ. Không được ghi kết quả nghiệp vụ của một hồ sơ, ví dụ được duyệt hay bị từ chối. Không được ghi nhận xét về đồng nghiệp. Không được ghi nội dung quy định, con số, tỉ lệ hay tên Điều Khoản, vì những thứ đó thuộc về kho tri thức để trích dẫn được, không thuộc về bộ nhớ của một người.
+
+4.1 Ba lớp chặn
+
+Phần khó của tính năng này không phải là trích xuất, mà là quyết định đúng cái gì không được nhớ. Vì vậy có ba lớp chặn xếp từ chắc chắn nhất tới mềm nhất.
+
+Lớp thứ nhất, nhãn che dữ liệu cá nhân. Mọi tin nhắn của cán bộ đã được che số căn cước, số tài khoản, số điện thoại và các dữ liệu nhạy cảm khác trước khi tới mô hình. Một bản ghi nhớ nào còn giữ dấu vết của phần bị che đó bị loại ngay lập tức, không cần hỏi thêm gì.
+
+Lớp thứ hai, chỉ bốn loại được phép ở mục 3 mới được nhận, và mô hình bị ràng buộc chỉ được chọn trong bốn loại đó ngay tại lúc sinh ra kết quả, không phải lọc lại sau khi mô hình đã trả lời tự do.
+
+Lớp thứ ba, một loạt mẫu chặn bắt những gì hai lớp trên có thể để lọt, mỗi mẫu ứng với một cách nội dung cấm hay xuất hiện trong thực tế.
+
+Một câu như khách hàng Nguyễn Văn An hay hỏi về lãi suất, hoặc chị Lan là kế toán trưởng của khách, bị chặn vì mang tên riêng đi kèm một từ xưng hô như khách, anh, chị, ông, bà ngay trước, dấu hiệu thường gặp của việc nhắc tới một khách hàng cụ thể.
+
+Một câu như hồ sơ này đề nghị vay năm tỷ đồng, hoặc hạn mức một trăm hai mươi nghìn đô la Mỹ, bị chặn vì chứa số tiền.
+
+Một câu như hồ sơ đã được duyệt, hoặc khoản vay này đã giải ngân xong, bị chặn vì nêu kết quả nghiệp vụ của một hồ sơ.
+
+Một câu như tỉ lệ cho vay tối đa là bảy mươi phần trăm, hoặc theo Điều 5 thì hồ sơ phải có tài sản bảo đảm, bị chặn vì chứa nội dung quy định, đúng loại nội dung phải nằm trong văn bản để trích dẫn được chứ không thuộc về bộ nhớ của một người.
+
+4.2 Vì sao lớp chặn nằm trong mã nguồn chứ không phải lời dặn mô hình
+
+Đây là điểm cần nhấn mạnh với bất kỳ ai lo ngại về rủi ro của tính năng này. Ba lớp chặn ở trên đều là mã chạy trên máy chủ, không phải một câu dặn dò trong lời nhắc gửi cho mô hình.
+
+Một lời dặn có thể bị mô hình quên hoặc hiểu sai trong một số tình huống hiếm gặp. Một đoạn mã kiểm tra chạy trên mọi bản ghi trước khi lưu thì không có chuyện quên, vì nó luôn chạy đúng như đã viết, không phụ thuộc vào việc mô hình có nhớ lời dặn hay không trong lượt trả lời đó.
+
+Ràng buộc loại ở lớp thứ hai còn được ép ngay tại chỗ mô hình sinh ra kết quả, tức là mô hình về mặt kỹ thuật không thể trả về một loại nằm ngoài bốn loại cho phép, chứ không phải chỉ được nhắc là đừng làm vậy.
+
+4.3 Khi nhà cung cấp mô hình không hỗ trợ ràng buộc lược đồ
+
+Ràng buộc lược đồ ở lớp thứ hai chỉ chạy được với các nhà cung cấp tương thích giao diện OpenAI. Với những nhà cung cấp khác, hệ thống lùi về cách đọc kết quả dạng JSON thông thường, dựa vào lời dặn trong hướng dẫn trích xuất, rồi vẫn cho đi qua đúng ba lớp chặn như bình thường trước khi lưu.
+
+Cách lùi này chỉ mất đi sự chắc chắn tuyệt đối của lớp thứ hai, không mất đi lớp thứ nhất và lớp thứ ba, nên dữ liệu bị cấm vẫn bị chặn. Nếu việc trích xuất thất bại hoàn toàn, ví dụ mô hình trả về một đoạn không đọc được thành JSON, hệ thống chỉ đơn giản là không ghi thêm bản ghi nào cho lượt đó, và không làm ảnh hưởng tới câu trả lời đã có.
+
+5. Vì sao khách hàng không có bộ nhớ dài hạn
+
+Kênh khách hàng không bao giờ đi vào cơ chế bộ nhớ cá nhân. Một cuộc trò chuyện với khách hàng không để lại bất kỳ bản ghi nhớ nào cho lần sau, dù khách hàng đó có quay lại cùng một địa chỉ đã dùng trước đó.
+
+Lý do là pháp lý, không phải kỹ thuật. Luật Bảo vệ dữ liệu cá nhân số 91 năm 2025 do Quốc hội ban hành, hiệu lực từ ngày 01 tháng 01 năm 2026, cho chủ thể dữ liệu quyền được biết dữ liệu của mình bị xử lý ra sao, quyền đồng ý hoặc không đồng ý, quyền truy cập, quyền yêu cầu chỉnh sửa, và quyền yêu cầu xoá.
+
+Khách hàng dùng kênh công khai không có tài khoản, không đăng nhập, và không có nơi nào để tự thực thi các quyền đó. Không có tài khoản thì không xác minh được ai đang yêu cầu xem, sửa hay xoá dữ liệu của chính mình, nên hệ thống không thể vừa giữ dữ liệu vừa bảo đảm các quyền luật định đi kèm. Cách an toàn duy nhất là không giữ bộ nhớ dài hạn nào cho kênh này ngay từ đầu.
+
+Đây cũng là lý do bộ nhớ được gắn với mã cán bộ hoặc tài khoản quản trị, hai loại danh tính có đăng nhập và xác minh được, thay vì gắn với địa chỉ thiết bị hay một mã phiên tạm thời như cách một số hệ thống khác vẫn làm để cá nhân hoá cho người dùng ẩn danh.
+
+5.1 Đây không chỉ là một quy ước, mà là một giới hạn kỹ thuật
+
+Dù công tắc bộ nhớ của một trợ lý phục vụ khách hàng có lỡ được bật, việc đó cũng không tạo ra bản ghi nào. Điều kiện để một lượt trò chuyện đi vào cơ chế bộ nhớ là phải có mã cán bộ hoặc tài khoản quản trị đứng sau lượt chạy đó, còn một phiên trò chuyện với khách hàng chỉ xác thực bằng khoá công khai của trợ lý, không bao giờ có hai thứ này.
+
+Nói cách khác, việc kênh khách hàng không có bộ nhớ dài hạn không chỉ là một lựa chọn cấu hình có thể bật nhầm, mà là một giới hạn nằm sẵn trong cách hệ thống nhận diện ai đang hỏi.
+
+6. Cán bộ kiểm soát bộ nhớ ở đâu
+
+Mỗi cán bộ có một trang riêng ghi trợ lý nhớ gì về tôi, liệt kê đầy đủ mọi bản ghi đang có, nhóm theo bốn loại ở mục 3. Trang này không tóm tắt và không giấu bớt mục nào, vì cá nhân hoá mà người dùng không nhìn thấy được thì giống rò rỉ hơn là một tính năng.
+
+Trang cũng hiện một mục hồ sơ nghề nghiệp, gồm tên, mã cán bộ, chức danh, chi nhánh và phòng ban. Phần này do đơn vị quản lý qua hồ sơ nhân sự, cán bộ không tự sửa ở trang này, để không lẫn với những gì trợ lý tự học được.
+
+Ngay dưới danh sách bản ghi, trang còn liệt kê nguyên văn bốn điều trợ lý không bao giờ nhớ đã nói ở mục 4, để cán bộ không phải đọc cẩm nang này mới biết giới hạn của tính năng, mà thấy ngay trên chính trang họ đang dùng.
+
+6.1 Mỗi dòng làm được gì
+
+Mỗi bản ghi hiện nội dung, lần dùng lại gần nhất, và có sửa được, ghim được, xoá được. Sửa nội dung vẫn phải qua lại đúng ba lớp chặn như lúc ghi lần đầu, nên không thể sửa một bản ghi hợp lệ thành một bản ghi chứa dữ liệu bị cấm.
+
+Ghim một bản ghi để nó luôn được nạp vào mọi câu trả lời sau này, không phụ thuộc câu hỏi có gần nghĩa với nó hay không, và bản ghi đã ghim thì không tự hết hạn nữa.
+
+6.1.1 Bản ghi được nhóm theo bốn loại
+
+Danh sách trên trang không xếp lẫn lộn mà nhóm theo đúng bốn loại đã nói ở mục 3, mỗi nhóm có tiêu đề riêng. Cách trình bày, vai trò và phạm vi công việc, bối cảnh công việc, và thuật ngữ quen dùng, mỗi nhóm chỉ hiện khi cán bộ đó đang có ít nhất một bản ghi thuộc loại đó.
+
+Cách nhóm này giúp cán bộ nhìn lướt qua là biết ngay trợ lý đang nhớ về mình theo hướng nào nhiều nhất, ví dụ toàn là bối cảnh công việc mà chưa có gì về cách trình bày họ muốn.
+
+6.2 Tạm dừng khác gì xoá tất cả
+
+Trang này có hai lựa chọn tách biệt có chủ đích, tạm dừng ghi nhớ và xoá tất cả. Phần lớn người dùng muốn ngừng học thêm chứ không muốn mất những gì đã có, nên gộp hai việc làm một sẽ ép họ chọn cái họ không thật sự muốn.
+
+Tạm dừng ghi nhớ là một lựa chọn cá nhân lưu ngay trên trình duyệt của cán bộ đó, tách biệt với dữ liệu trên máy chủ. Bật tuỳ chọn này không xoá bất cứ điều gì đã có sẵn trong danh sách, chỉ đổi trạng thái hiển thị trên chính trình duyệt đang dùng. Vì lưu trên trình duyệt, chuyển sang máy khác hoặc xoá dữ liệu trình duyệt sẽ làm mất lựa chọn này, và cán bộ cần bật lại nếu muốn.
+
+Xoá tất cả xoá thật sự mọi bản ghi của cán bộ đó khỏi hệ thống, kể cả bản ghi đã ghim, và không khôi phục lại được. Bấm nút này lần đầu chưa xoá ngay, mà mở ra một dòng xác nhận nêu rõ số bản ghi sắp mất kèm hai lựa chọn xoá hết hoặc huỷ, để một cú bấm nhầm không lỡ tay xoá sạch bộ nhớ đã tích luỹ.
+
+7. Thông báo ngay dưới câu trả lời khi vừa ghi nhớ
+
+Khi trợ lý vừa ghi một điều gì đó sau một câu trả lời, cổng chat của cán bộ hiện ngay một dòng nhỏ dưới câu trả lời đó, nói rõ đã ghi nhớ gì, kèm một nút hoàn tác.
+
+Việc báo ngay lúc đó, không phải để cán bộ phải vào trang riêng mới biết, là điều kiện để người dùng tin vào tính năng này. Biết trợ lý vừa học gì đúng lúc nó học, và sửa được chỉ bằng một cú bấm, quan trọng hơn một trang thống kê xem lại sau.
+
+Bấm hoàn tác sẽ xoá ngay những bản ghi gắn với lượt trả lời đó. Với một bản ghi hoàn toàn mới, đây đúng là huỷ lại việc vừa ghi nhớ. Nhưng nếu lượt đó thực chất là gộp nội dung mới vào một bản ghi cũ đã có theo quy tắc ở mục 2.4, hoàn tác sẽ xoá nguyên cả dòng đó, kể cả phần nội dung cũ đã có từ trước, chứ không chỉ lùi lại đúng phần vừa cập nhật. Cần cân nhắc điều này trước khi bấm hoàn tác cho một bản ghi đã tồn tại từ lâu.
+
+Việc rút bản ghi nhớ diễn ra ngay trong khi xử lý yêu cầu, không phải một việc chạy nền sau đó, đúng để dòng thông báo có thể hiện ra ngay lập tức cùng lúc với câu trả lời được lưu lại.
+
+Dòng thông báo này luôn hiện sau khi câu trả lời đã được lưu xong, không hiện trước, để cán bộ luôn đọc trước nội dung trả lời rồi mới thấy trợ lý vừa học thêm điều gì từ chính lượt hỏi đó.
+
+Thứ tự này cũng khớp với cách hệ thống xử lý phía sau, câu trả lời phải được lưu lại thành công trước, rồi việc rút bản ghi nhớ mới bắt đầu, nên dòng thông báo ghi nhớ không bao giờ xuất hiện một mình mà không có câu trả lời đi kèm.
+
+7.1 Nơi dòng thông báo xuất hiện
+
+Dòng thông báo này hiện trên cổng chat của cán bộ trên web. Việc ghi nhớ vẫn diễn ra như nhau ở mọi kênh cán bộ dùng, vì tất cả đều đi qua cùng một điểm xử lý phía máy chủ, chỉ là một số giao diện khác chưa vẽ ra dòng thông báo này ngay dưới câu trả lời. Cách chắc chắn nhất để xem lại việc ghi nhớ ở những kênh đó là mở trang trợ lý nhớ gì về tôi sau khi trò chuyện, hoặc tra theo lượt trong nhật ký truy vấn.
+
+8. Ghim và hết hạn
+
+Một bản ghi không ghim sẽ tự hết hạn nếu lâu ngày không được dùng tới, để bộ nhớ không phình to mãi bằng những điều không còn liên quan.
+
+Bản ghi thuộc loại bối cảnh công việc hết hạn nhanh hơn hẳn ba loại còn lại, cố định ở ba mươi ngày không đổi. Lý do là một hồ sơ đã xong việc mà trợ lý còn nhắc lại mã hồ sơ đó ở những câu hỏi sau này là phiền chứ không phải hữu ích.
+
+Ba loại còn lại, cách trình bày, vai trò và thuật ngữ quen dùng, hết hạn theo số ngày lưu mà đơn vị cấu hình, mặc định một trăm tám mươi ngày.
+
+Mỗi lần một bản ghi được dùng lại để trả lời một câu hỏi, hạn dùng của nó được gia hạn tiếp từ thời điểm đó, giống cách một phiên đăng nhập gia hạn mỗi khi còn hoạt động. Bản ghi càng hữu ích và càng được dùng lại thường xuyên thì càng sống lâu, còn bản ghi không ai dùng tới sẽ tự rụng.
+
+Bản ghi đã ghim thì không nằm trong quy tắc hết hạn này, nó chỉ mất đi khi cán bộ tự xoá.
+
+8.1 Một ví dụ về vòng đời của một bản ghi
+
+Cán bộ nói với trợ lý là đang theo hồ sơ mã HS2026-0412. Trợ lý ghi lại đây là bối cảnh công việc, hạn dùng đặt ba mươi ngày kể từ lúc đó.
+
+Mười ngày sau, cán bộ hỏi tiếp về đúng hồ sơ này, trợ lý nạp lại bản ghi đó để hiểu ngay đang nói tới hồ sơ nào, và hạn dùng được gia hạn thêm ba mươi ngày kể từ lần dùng lại đó.
+
+Nếu hồ sơ này xong việc và không còn ai hỏi tới nó nữa, bản ghi không được gia hạn thêm lần nào, và tự biến mất sau ba mươi ngày kể từ lần dùng cuối cùng, đúng lúc nó không còn cần thiết nữa.
+
+Nếu ngay từ đầu cán bộ ghim bản ghi này lại, nó sẽ không bao giờ tự hết hạn theo cách trên, và chỉ mất đi khi chính cán bộ đó vào trang bộ nhớ cá nhân để xoá tay.
+
+9. Hai công tắc cho quản trị
+
+9.1 Theo từng trợ lý
+
+Màn hình chi tiết trợ lý có một công tắc bật tắt bộ nhớ cá nhân riêng cho trợ lý đó, nằm cùng tab với việc gắn kỹ năng, và mặc định đang bật khi tạo một trợ lý mới. Trợ lý chỉ tra cứu quy định thuần, không cần cá nhân hoá theo người hỏi, hợp lý để tắt công tắc này.
+
+Tắt công tắc này thì trợ lý đó không đọc và không ghi bộ nhớ nào nữa, dù cán bộ hỏi trợ lý đó đang có bộ nhớ từ những trợ lý khác. Công tắc thuộc quyền biên tập viên trở lên, không cần vai trò chủ sở hữu đơn vị.
+
+9.2 Theo đơn vị
+
+Mỗi đơn vị có một cờ bật tắt bộ nhớ cho toàn khối, và một số ngày lưu áp dụng cho ba loại bản ghi không phải bối cảnh công việc. Tắt cờ này thì mọi trợ lý của đơn vị, dù công tắc riêng của từng trợ lý có bật, đều không dùng bộ nhớ nữa.
+
+Cán bộ vẫn biết được trạng thái này, vì trang trợ lý nhớ gì về tôi hiện một dòng nhắc riêng khi đơn vị đang tắt bộ nhớ, để không ai thắc mắc vì sao trợ lý bỗng nhiên không còn nhớ gì thêm.
+
+Ở phiên bản này, hai giá trị cờ bật tắt và số ngày lưu theo đơn vị chưa có một màn hình riêng để chỉnh trực tiếp, chúng nhận giá trị mặc định là bật và một trăm tám mươi ngày. Đây là điều quản trị hệ thống cần biết khi có yêu cầu đổi số ngày lưu cho một đơn vị cụ thể.
+
+9.3 Tắt công tắc có xoá dữ liệu đã có không
+
+Không. Cả hai công tắc, theo trợ lý và theo đơn vị, chỉ đổi việc bộ nhớ có được đọc và được ghi thêm hay không cho những lượt trả lời tiếp theo. Bản ghi đã lưu từ trước vẫn còn nguyên trong hệ thống và vẫn hiện đầy đủ trên trang trợ lý nhớ gì về tôi của cán bộ, chỉ là tạm thời không được dùng tới khi trả lời.
+
+Bật lại công tắc thì bộ nhớ cũ hoạt động lại ngay, không cần cán bộ làm gì thêm, vì dữ liệu chưa từng bị động tới trong suốt thời gian tắt.
+
+Ngoại lệ duy nhất là hạn dùng. Trong lúc công tắc tắt, bản ghi không được đọc nên cũng không được gia hạn qua lượt dùng nào, nên một bản ghi gần hết hạn có thể tự biến mất đúng vào lúc công tắc đang tắt, dù không ai chủ động xoá nó.
+
+10. Compliance xem bộ nhớ đã dùng ở đâu
+
+Mọi lần bộ nhớ được đọc để trả lời hoặc được ghi sau một câu trả lời đều để lại dấu vết trong danh sách các bước xử lý của đúng lượt chạy đó, xem được từ nhật ký truy vấn.
+
+Mở một lượt trả lời trong nhật ký, quản trị viên thấy đúng bước đọc bộ nhớ trước khi trả lời, gồm nội dung từng bản ghi đã dùng, và đúng bước ghi bộ nhớ sau khi trả lời, gồm nội dung từng bản ghi mới tạo nếu có. Đây là cách để bộ phận tuân thủ kiểm tra lại một câu trả lời có bị ảnh hưởng bởi bộ nhớ hay không, và bộ nhớ đó có nội dung gì, mà không cần hỏi trực tiếp cán bộ.
+
+Cách xem này áp dụng cho từng lượt trả lời riêng lẻ, không phải một danh sách tổng hợp theo người. Muốn biết toàn bộ những gì trợ lý đang nhớ về một cán bộ tại một thời điểm, cách đầy đủ nhất vẫn là chính cán bộ đó mở trang trợ lý nhớ gì về tôi của họ.
+
+Quyền xem nhật ký truy vấn vẫn theo đúng quy tắc đã áp dụng cho toàn bộ nhật ký, quản trị hệ thống xem được mọi đơn vị, còn chủ sở hữu một đơn vị chỉ xem được lượt chạy của đơn vị mình.
+
+11. Cán bộ nghỉ việc thì bộ nhớ bị xoá
+
+Khi một cán bộ bị vô hiệu hoá khỏi hệ thống, toàn bộ bản ghi nhớ của người đó, kể cả bản ghi đã ghim, bị xoá ngay trong cùng thao tác, không phải một việc dọn dẹp định kỳ làm sau.
+
+Việc này thực thi đúng quyền yêu cầu xoá của luật bảo vệ dữ liệu cá nhân, và tránh để lại dữ liệu mồ côi mà không còn ai có quyền xem hay yêu cầu sửa, vì người duy nhất từng là chủ sở hữu của những bản ghi đó đã rời hệ thống.
+
+Thao tác này trên màn hình quản trị cán bộ hiện là nút xoá cán bộ, nhưng về bản chất là vô hiệu hoá tài khoản chứ không xoá hẳn hồ sơ nhân sự khỏi hệ thống. Dù gọi tên là xoá hay vô hiệu hoá, bộ nhớ cá nhân của cán bộ đó vẫn bị dọn sạch ngay tại thời điểm bấm nút, vì đó là thời điểm người đó không còn quyền truy cập để tự quản lý bộ nhớ của mình nữa.
+
+12. Bộ nhớ và kỹ năng cùng góp vào một hướng dẫn
+
+Bộ nhớ không đứng riêng lẻ. Khi trợ lý soạn câu trả lời, danh mục kỹ năng, toàn văn kỹ năng nếu có kỹ năng khớp, và khối bộ nhớ của người đang hỏi đều được ghép chung vào cùng một hướng dẫn hệ thống gửi cho mô hình.
+
+Hai phần này phục vụ hai việc khác nhau và không ghi đè lên nhau. Kỹ năng quyết định trình tự và cách xử lý cho đúng loại câu hỏi đang gặp. Bộ nhớ chỉ thêm một lớp ngữ cảnh về người hỏi, ví dụ họ thích câu trả lời ngắn gọn hay đang theo một hồ sơ cụ thể, để cùng một trình tự đó được trình bày hợp với từng người hơn.
+
+Cẩm nang về kỹ năng của trợ lý trong cùng bộ tài liệu này giải thích chi tiết phần kỹ năng, bao gồm quy tắc quan trọng nhất là không được chép số liệu quy định vào kỹ năng, đúng tinh thần với quy tắc không bao giờ nhớ nội dung quy định ở mục 4 của tài liệu này.
+
+Điểm chung xuyên suốt cả hai tính năng là cùng một triết lý, nội dung có thể thay đổi hoặc cần ai đó chịu trách nhiệm thì phải đi qua văn bản hoặc kỹ năng, còn thứ chỉ giúp cá nhân hoá cách trả lời cho một người cụ thể thì mới thuộc về bộ nhớ.
+
+13. Chi phí của tính năng
+
+Mỗi lượt trả lời có bật bộ nhớ tốn thêm đúng một lời gọi mô hình để trích xuất điều đáng nhớ, chạy ngay sau khi câu trả lời đã hoàn tất, ước tính khoảng 700 token cho lượt gọi đó.
+
+Chi phí này ghi vào thành phần riêng trên trang thống kê token, tách bạch khỏi chi phí sinh câu trả lời chính, để quản trị viên biết rõ tính năng bộ nhớ tốn bao nhiêu chứ không lẫn vào tổng chi phí trả lời.
+
+Việc tính điểm gần nghĩa để chọn bản ghi nào nên nạp vào một câu hỏi cũng tốn thêm một lượt embedding nhỏ, ghi vào một thành phần riêng khác, tương tự cách kỹ năng tính điểm gần nghĩa cho việc chọn trước.
+
+Chi phí trích xuất chỉ phát sinh khi trợ lý đang trả lời có bật bộ nhớ, và chỉ phát sinh với câu hỏi của cán bộ hoặc quản trị viên, vì kênh khách hàng không bao giờ đi qua bước này. Tắt công tắc bộ nhớ ở một trợ lý không cần dùng tới cá nhân hoá vừa đúng về mặt thiết kế vừa tiết kiệm đúng khoản chi phí này.
+
+13.1 Vì sao tách riêng thành phần chi phí này
+
+Nếu chi phí trích xuất bộ nhớ gộp chung vào chi phí sinh câu trả lời, một trợ lý bật bộ nhớ sẽ trông như đang tốn kém hơn hẳn một trợ lý giống hệt nhưng tắt bộ nhớ, mà không ai nhìn ra vì sao. Tách thành một thành phần riêng trên trang thống kê giúp trả lời đúng câu hỏi tính năng này thật sự tốn bao nhiêu, tách bạch khỏi phần chi phí trả lời vốn đã có từ trước khi có bộ nhớ.
+
+14. Câu hỏi thường gặp
+
+Hỏi: Bộ nhớ cá nhân có thay được việc cập nhật văn bản khi quy trình đổi không?
+Đáp: Không. Bộ nhớ chỉ nhớ cách một người muốn được trả lời, không bao giờ được phép chứa nội dung quy định. Quy trình đổi thì vẫn phải cập nhật văn bản trong kho tri thức như bình thường.
+
+Hỏi: Vì sao trợ lý của tôi không ghi nhớ gì cả dù tôi đã hỏi rất nhiều lần?
+Đáp: Kiểm tra ba điều theo thứ tự. Công tắc bộ nhớ của trợ lý đó có đang bật không. Đơn vị có đang tắt bộ nhớ cho cả khối không, dòng nhắc trên trang bộ nhớ cá nhân sẽ báo điều này. Và phần lớn câu hỏi vốn dĩ không có gì đáng nhớ, đó cũng là kết quả bình thường và hay gặp nhất.
+
+Hỏi: Một cán bộ phàn nàn trợ lý nhớ nhầm điều gì đó, xử lý thế nào?
+Đáp: Vào trang trợ lý nhớ gì về tôi của chính cán bộ đó, sửa hoặc xoá đúng dòng bị nhầm. Không có nơi nào khác để sửa bản ghi ngoài trang này, vì bộ nhớ không đi qua bất kỳ khâu duyệt nào của quản trị viên trước khi được dùng.
+
+Hỏi: Bộ nhớ có bị lộ sang cán bộ khác không?
+Đáp: Không. Mỗi bản ghi chỉ gắn với đúng một chủ sở hữu, và chỉ được nạp lại khi đúng người đó hỏi tiếp. Không có đường nào để bản ghi của người này bị dùng cho câu trả lời của người khác.
+
+Hỏi: Tôi bỏ ghim một bản ghi đã ghim từ trước, nó có hết hạn trở lại không?
+Đáp: Không tự động. Bỏ ghim chỉ đổi lại trạng thái ghim, không tự gán lại một hạn dùng mới, nên bản ghi đó sẽ không hết hạn cho tới khi cán bộ tự sửa nội dung để làm mới hạn dùng, hoặc tự xoá.
+
+Hỏi: Tạm dừng ghi nhớ có đồng bộ giữa các thiết bị của cùng một cán bộ không?
+Đáp: Không. Đây là lựa chọn lưu trên trình duyệt đang dùng, không lưu trên máy chủ, nên đổi máy hoặc đổi trình duyệt cần bật lại nếu muốn tiếp tục tạm dừng.
+
+Hỏi: Quản trị viên có xem được bộ nhớ của một cán bộ cụ thể không?
+Đáp: Không có một trang quản trị liệt kê bộ nhớ theo từng cán bộ. Cách duy nhất quản trị viên thấy được nội dung bộ nhớ đã dùng là qua nhật ký truy vấn của từng lượt trả lời, đúng phạm vi mà quyền xem nhật ký của quản trị viên đó cho phép.
+
+Hỏi: Kỹ năng và bộ nhớ cùng ảnh hưởng một câu trả lời thì cái nào ưu tiên hơn?
+Đáp: Cả hai không loại trừ nhau. Kỹ năng quyết định trình tự và cách làm cho câu hỏi đó, còn bộ nhớ chỉ thêm ngữ cảnh về người hỏi, ví dụ họ thích câu trả lời ngắn gọn. Cả hai đều được đưa vào cùng một hướng dẫn hệ thống cho mô hình, không cái nào ghi đè cái nào.

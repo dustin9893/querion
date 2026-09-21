@@ -1,0 +1,6 @@
+email,name,employee_code,branch,department,position,unit
+rm.an@msb-demo.vn,Nguyễn Văn An,MSB01001,CN Hà Nội,Khối KHDN,RM,Khối Khách hàng Doanh nghiệp (EB)
+ca.binh@msb-demo.vn,Trần Thị Bình,MSB01002,Hội sở,Khối Quản trị rủi ro,CA,Khối Khách hàng Doanh nghiệp (EB)
+gdv.cuong@msb-demo.vn,Lê Hoàng Cường,MSB01003,CN Đống Đa,Khối Vận hành,GDV,Khối Vận hành & Thanh toán quốc tế
+rm.dung@msb-demo.vn,Phạm Minh Dũng,MSB01004,CN Hồ Chí Minh,Khối KHCN,RM,Khối Khách hàng Cá nhân (RB)
+ops.hoa@msb-demo.vn,Hoàng Thị Hoa,MSB01005,Hội sở,Trung tâm Thanh toán quốc tế,OPS,Khối Vận hành & Thanh toán quốc tế

@@ -1,0 +1,74 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG CÁ NHÂN
+CẨM NANG SẢN PHẨM TIẾT KIỆM VÀ THẺ DÀNH CHO KHÁCH HÀNG CÁ NHÂN
+Số hiệu: CN.SP.RB.02 — Phiên bản: 2.2 — Hiệu lực từ: 01/06/2026
+Đơn vị ban hành: Khối Khách hàng Cá nhân — Phòng Phát triển sản phẩm huy động và thẻ
+Phân loại: Tài liệu công khai — dùng cho tư vấn và tự tra cứu của khách hàng
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB. Lãi suất, phí và hạn mức trong tài liệu là số liệu giả định, chỉ mang tính minh hoạ. ***
+
+Điều 1. Các sản phẩm tiết kiệm
+1. M-Saving — Tiết kiệm lãi cuối kỳ: kỳ hạn linh hoạt từ 1 đến 36 tháng, lãi suất cố định trong suốt kỳ hạn, nhận lãi một lần khi đáo hạn.
+2. M-Flex — Tiết kiệm rút gốc linh hoạt: cho phép rút một phần gốc trước hạn (tối thiểu giữ lại 1.000.000 đồng) mà phần gốc còn lại vẫn hưởng nguyên lãi suất đã cam kết; phần rút trước hưởng lãi suất không kỳ hạn.
+3. Tiết kiệm online trên MSB mBank: mở và tất toán hoàn toàn trên ứng dụng, được cộng thêm 0,2%/năm so với lãi suất niêm yết tại quầy cho cùng kỳ hạn.
+4. M-Goal — Tiết kiệm gửi góp: khách hàng nộp tiền định kỳ hằng tháng theo số tiền đăng ký (tối thiểu 500.000 đồng/tháng), hưởng lãi suất cố định theo kỳ hạn mục tiêu, phù hợp tích luỹ cho kế hoạch dài hạn.
+5. Tất cả sản phẩm tiết kiệm nêu trên áp dụng cho khách hàng cá nhân từ 18 tuổi trở lên; người từ 15 đến dưới 18 tuổi có thể đứng tên sổ tiết kiệm với sự đồng ý bằng văn bản của người giám hộ hợp pháp.
+
+Điều 2. Bảng lãi suất tham khảo
+1. Lãi suất dưới đây chỉ mang tính tham khảo tại thời điểm ban hành, áp dụng thực tế theo thông báo lãi suất hiệu lực từng thời kỳ được niêm yết tại quầy và trên ứng dụng MSB mBank:
+a) Kỳ hạn 1 tháng: 3,1%/năm; kỳ hạn 3 tháng: 3,4%/năm; kỳ hạn 6 tháng: 4,6%/năm;
+b) Kỳ hạn 9 tháng: 4,8%/năm; kỳ hạn 12 tháng: 5,3%/năm; kỳ hạn 18 tháng: 5,5%/năm;
+c) Kỳ hạn 24 tháng: 5,7%/năm; kỳ hạn 36 tháng: 5,9%/năm.
+2. Gửi tiết kiệm online cộng thêm 0,2%/năm cho tất cả các kỳ hạn tại khoản 1.
+3. Số tiền gửi tối thiểu: 1.000.000 đồng đối với M-Saving và tiết kiệm online; 500.000 đồng/lần góp đối với M-Goal.
+4. Khách hàng gửi tiết kiệm từ 500.000.000 đồng trở lên trong một sổ có thể thoả thuận lãi suất riêng với chi nhánh, không vượt quá lãi suất trần theo quy định của Ngân hàng Nhà nước tại thời điểm gửi.
+
+Điều 3. Rút trước hạn và tái tục
+1. Rút toàn bộ sổ tiết kiệm trước ngày đáo hạn: toàn bộ số tiền gửi được tính theo lãi suất không kỳ hạn hiện hành (tham khảo 0,2%/năm) tại thời điểm rút, không hưởng lãi suất kỳ hạn đã cam kết.
+2. Riêng M-Flex, phần gốc rút trước hưởng lãi suất không kỳ hạn, phần gốc giữ lại tiếp tục hưởng nguyên lãi suất kỳ hạn ban đầu đến ngày đáo hạn.
+3. Sổ tiết kiệm đến hạn mà khách hàng không đến tất toán hoặc không có yêu cầu khác: hệ thống tự động tái tục toàn bộ gốc và lãi sang kỳ hạn tương đương theo lãi suất hiệu lực tại ngày tái tục.
+4. Khách hàng có thể đăng ký không tái tục tự động, hoặc chọn tái tục chỉ phần gốc, ngay khi mở sổ hoặc bất kỳ lúc nào trước ngày đáo hạn qua ứng dụng.
+5. Sổ tiết kiệm có thể dùng làm tài sản bảo đảm cho khoản vay cầm cố sổ tiết kiệm (M-Deposit Loan) hoặc thấu chi có bảo đảm bằng tiền gửi theo Cẩm nang SP.RB.05; sổ đã cầm cố không được rút trước hạn hoặc tất toán cho đến khi giải chấp.
+
+Điều 4. Thẻ ghi nợ và thẻ tín dụng
+1. Thẻ ghi nợ nội địa và thẻ ghi nợ quốc tế (M-Visa Debit): phát hành miễn phí khi mở qua ứng dụng; sử dụng để rút tiền, thanh toán và giao dịch trực tuyến trong hạn mức tài khoản thanh toán.
+2. M-Visa Classic (thẻ tín dụng): hạn mức từ 10.000.000 đến 100.000.000 đồng tuỳ thu nhập và lịch sử tín dụng; phí thường niên 300.000 đồng/năm, miễn phí năm đầu; hoàn tiền 0,3% cho mọi giao dịch chi tiêu.
+3. M-Visa Platinum (thẻ tín dụng): hạn mức từ 50.000.000 đến 500.000.000 đồng; phí thường niên 800.000 đồng/năm; hoàn tiền 1% cho giao dịch trực tuyến và siêu thị, 0,5% cho giao dịch khác; kèm bảo hiểm du lịch quốc tế miễn phí khi thanh toán vé máy bay bằng thẻ.
+4. Cả hai hạng thẻ đều được miễn lãi tối đa 45 ngày kể từ ngày sao kê nếu thanh toán đủ dư nợ trước hạn thanh toán ghi trên sao kê.
+5. Thanh toán tối thiểu hằng tháng: 5% tổng dư nợ trên sao kê, tối thiểu 100.000 đồng; số tiền còn lại được coi là chậm trả nếu quá hạn thanh toán ghi trên sao kê.
+
+Điều 5. Điều kiện mở thẻ tín dụng
+1. Khách hàng từ 20 đến 65 tuổi, có thu nhập chuyển khoản hoặc xác nhận từ 8.000.000 đồng/tháng trở lên (đối với M-Visa Classic) hoặc từ 20.000.000 đồng/tháng trở lên (đối với M-Visa Platinum), hoặc mở theo hình thức thế chấp sổ tiết kiệm không yêu cầu chứng minh thu nhập.
+2. Không có nợ nhóm 2 trở lên tại bất kỳ tổ chức tín dụng nào theo tra cứu CIC.
+3. Hồ sơ: căn cước công dân, chứng minh thu nhập (hợp đồng lao động và sao kê lương, hoặc sổ tiết kiệm nếu mở theo hình thức thế chấp).
+
+Điều 6. Phí sử dụng thẻ
+1. Phí rút tiền mặt bằng thẻ tín dụng tại ATM: 4% số tiền rút, tối thiểu 50.000 đồng/giao dịch, tính lãi ngay từ ngày rút, không hưởng thời gian miễn lãi.
+2. Phí chậm thanh toán dư nợ thẻ tín dụng: 5% số tiền thanh toán tối thiểu chưa thanh toán, tối thiểu 150.000 đồng.
+3. Phí rút tiền mặt thẻ ghi nợ ngoài hệ thống MSB: theo Biểu phí BP.KH.06 hiện hành.
+4. Phí phát hành lại thẻ do mất, hỏng: 50.000 đồng/thẻ ghi nợ; 100.000 đồng/thẻ tín dụng.
+
+Điều 7. Khoá thẻ khẩn cấp và bảo mật
+1. Khách hàng có thể tự khoá/mở khoá thẻ tạm thời ngay trên ứng dụng MSB mBank (mục Thẻ → Khoá thẻ) khi nghi ngờ mất thẻ hoặc lộ thông tin, không mất phí và có hiệu lực tức thời.
+2. Trường hợp mất thẻ vĩnh viễn, khách hàng khoá thẻ trên ứng dụng và yêu cầu phát hành lại; thẻ mới được giao trong 5 đến 7 ngày làm việc.
+3. Khuyến nghị bật thông báo biến động số dư tức thời và không cung cấp mã OTP, số thẻ đầy đủ, mã CVV cho bất kỳ ai, kể cả người tự nhận là nhân viên MSB.
+
+Điều 8. Tranh chấp giao dịch thẻ
+1. Khách hàng phát hiện giao dịch thẻ không nhận diện được hoặc nghi ngờ gian lận cần gửi yêu cầu tra soát trên ứng dụng hoặc tại quầy trong vòng 60 ngày kể từ ngày giao dịch.
+2. Thời gian xử lý tra soát: 5 đến 7 ngày làm việc đối với giao dịch trong nước; 45 đến 60 ngày đối với giao dịch quốc tế theo quy định của tổ chức thẻ Visa/Mastercard.
+3. Trong thời gian chờ kết quả tra soát, MSB có thể tạm hoàn số tiền tranh chấp vào tài khoản/thẻ của khách hàng theo chính sách bảo vệ chủ thẻ, và sẽ thu hồi nếu kết quả cuối cùng xác định giao dịch hợp lệ.
+
+Điều 9. Bảo hiểm tiền gửi
+1. Tiền gửi tiết kiệm của khách hàng cá nhân tại MSB được bảo hiểm theo quy định của pháp luật về bảo hiểm tiền gửi, hạn mức chi trả tối đa theo quy định hiện hành của Bảo hiểm tiền gửi Việt Nam tại thời điểm phát sinh nghĩa vụ trả tiền bảo hiểm.
+2. Khách hàng có thể tra cứu thông tin về tổ chức tham gia bảo hiểm tiền gửi và hạn mức chi trả hiện hành tại quầy giao dịch hoặc trên website MSB.
+3. Bảo hiểm tiền gửi áp dụng cho tiền gửi tiết kiệm bằng đồng Việt Nam của cá nhân; không áp dụng cho tiền gửi bằng ngoại tệ, chứng chỉ tiền gửi ghi danh cho tổ chức, hoặc số dư trên tài khoản thanh toán vượt phạm vi được bảo hiểm theo quy định.
+
+Điều 10. Câu hỏi thường gặp
+1. Gửi tiết kiệm online có được cấp sổ giấy không? Không, sổ tiết kiệm online là sổ điện tử; khách hàng tra cứu và tất toán hoàn toàn trên ứng dụng.
+2. Có thể gửi thêm tiền vào sổ M-Saving đã mở không? Không, mỗi sổ M-Saving là một khoản gửi cố định; muốn gửi thêm khách hàng mở sổ mới hoặc chọn sản phẩm M-Goal.
+3. Thẻ tín dụng có bị tính lãi nếu chỉ thanh toán một phần dư nợ tối thiểu không? Có, phần dư nợ còn lại sau khi thanh toán tối thiểu sẽ bị tính lãi kể từ ngày phát sinh giao dịch, không còn được hưởng thời gian miễn lãi 45 ngày cho đến khi tất toán hết dư nợ kỳ đó.
+4. Quên thanh toán dư nợ thẻ tín dụng đúng hạn có ảnh hưởng gì? Bị tính phí chậm thanh toán theo Điều 6 khoản 2 và lãi suất trên dư nợ; chậm trả kéo dài có thể ảnh hưởng đến lịch sử tín dụng CIC của khách hàng.
+
+Điều 11. Hiệu lực
+1. Cẩm nang có hiệu lực từ ngày 01/06/2026, thay thế phiên bản 2.1.
+2. Thay đổi chính: bổ sung sản phẩm M-Goal (tiết kiệm gửi góp) tại Điều 1 khoản 4; điều chỉnh hạn mức M-Visa Platinum từ 400 triệu lên 500 triệu đồng; bổ sung Điều 9 về bảo hiểm tiền gửi.
+3. Thông tin trong cẩm nang có thể thay đổi theo thông báo mới nhất của MSB; khách hàng vui lòng tra cứu bản cập nhật trên ứng dụng MSB mBank hoặc hỏi trợ lý ảo trước khi quyết định.

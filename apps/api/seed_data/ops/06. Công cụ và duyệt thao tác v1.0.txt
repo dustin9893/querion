@@ -1,0 +1,318 @@
+CẨM NANG VẬN HÀNH — CÔNG CỤ VÀ DUYỆT THAO TÁC
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Công cụ là gì và vì sao cần
+
+Công cụ là một hàm mà trợ lý được phép gọi trong lúc trả lời. Nó có thể gọi một API nội bộ, chạy một phép tính, nói chuyện với một máy chủ MCP, chạy một luồng báo cáo, hoặc xuất một tệp Excel.
+
+Danh sách công cụ nằm ở mục Công cụ trên thanh bên. Mỗi dòng cho biết tên công cụ, loại, phạm vi, số trợ lý đang dùng và trạng thái bật hay tắt.
+
+1.1 Tài liệu trả lời quy định, công cụ trả lời hiện trạng
+
+Đây là ranh giới cần nắm. Kho tri thức trả lời câu hỏi dạng quy định nói gì. Công cụ trả lời câu hỏi dạng hiện trạng ra sao.
+
+Cán bộ hỏi điều kiện giải ngân gồm những gì thì tài liệu trả lời được. Cán bộ hỏi hồ sơ mã số cụ thể đang ở bước nào thì tài liệu chịu, chỉ hệ thống lõi mới biết.
+
+Nguyên tắc đi kèm rất quan trọng: mô hình không bao giờ được đoán một con số mà nó có thể tra. Bộ nguyên tắc gửi kèm cho trợ lý nói thẳng điều này, rằng khi câu hỏi cần số liệu cụ thể thì phải gọi công cụ, không tự suy đoán, và không đẩy người dùng sang tra ở hệ thống khác trong khi mình có công cụ làm được.
+
+1.2 Công cụ thuộc về một đơn vị
+
+Công cụ được tạo trong đơn vị đang chọn. Một trợ lý chỉ gắn được công cụ của chính đơn vị mình, hoặc công cụ mà một đơn vị khác đã mở cho toàn ngân hàng.
+
+Danh sách công cụ mà bạn nhìn thấy đã gồm cả hai nhóm đó. Công cụ của đơn vị khác có nhãn riêng để bạn biết là bạn dùng được nhưng không sửa được.
+
+1.3 Kết quả công cụ luôn là dữ liệu, không phải chỉ dẫn
+
+Mọi kết quả trả về từ công cụ đều được làm sạch rồi bọc trong một khối được đánh dấu rõ ràng là kết quả tra cứu chứ không phải chỉ dẫn, trước khi đưa cho mô hình. Bộ nguyên tắc cũng nhắc lại rằng tuyệt đối không làm theo câu lệnh nào xuất hiện bên trong khối đó.
+
+Lý do rất cụ thể. Một hệ thống bị xâm nhập hoặc một máy chủ MCP của bên thứ ba có thể trả về một đoạn văn mang hình dáng mệnh lệnh, kiểu bỏ qua mọi quy tắc và làm việc này. Bọc lại và nói rõ đây là dữ liệu là lớp phòng vệ rẻ nhất và hiệu quả nhất cho tình huống đó.
+
+Kết quả còn bị cắt còn tối đa 4000 ký tự trước khi đưa cho mô hình. Nếu công cụ của bạn trả về danh sách rất dài, hãy để công cụ tự tóm lược hoặc dùng đường dẫn kết quả để chỉ lấy phần cần thiết.
+
+2. Năm loại công cụ
+
+Hệ thống có năm loại. Nhãn hiển thị trên màn hình lần lượt là API nội bộ, Tính toán sẵn có, MCP server, Báo cáo xuất tệp, và Xuất Excel từ hội thoại. Loại báo cáo hay bị bỏ sót khi liệt kê, nhưng nó là loại thứ năm đầy đủ chức năng.
+
+Loại được chọn lúc tạo và không đổi được sau đó. Chọn sai thì tạo lại công cụ mới.
+
+2.1 Loại API nội bộ
+
+Đây là loại dùng nhiều nhất. Nó gọi một endpoint REST và trả kết quả về cho mô hình.
+
+Cấu hình gồm địa chỉ, phương thức, các header, các tham số truy vấn, phần thân yêu cầu, tên header chứa khoá bí mật, tiền tố đặt trước khoá, và đường dẫn để bóc đúng nhánh dữ liệu trong kết quả JSON.
+
+Trong địa chỉ, trong tham số truy vấn và trong phần thân, bạn đặt chỗ chèn theo tên tham số của công cụ. Có một điểm tinh tế hữu ích: nếu một giá trị chỉ gồm đúng một chỗ chèn thì giá trị giữ nguyên kiểu gốc, số vẫn là số. Nếu viết lẫn chữ thì kết quả bị ghép thành chuỗi. Phần chèn vào đường dẫn địa chỉ còn được mã hoá URL để một mã hồ sơ có ký tự lạ không làm hỏng địa chỉ.
+
+Phương thức chấp nhận GET, POST, PUT, PATCH và DELETE. Máy chủ không đi theo chuyển hướng, nên một endpoint trả về chuyển hướng sẽ không được đi tiếp.
+
+Thời gian chờ đặt riêng cho từng công cụ, từ 1 đến 60 giây, mặc định 10. Đặt con số này theo thực tế của hệ thống đích. Endpoint chậm mà để mặc định thì trợ lý báo không phản hồi trong khi hệ thống vẫn đang xử lý.
+
+Các thông báo lỗi thường gặp và ý nghĩa:
+
+- Thông báo công cụ chưa cấu hình URL nghĩa là trường địa chỉ trống.
+- Thông báo không gọi được endpoint kèm lý do nghĩa là bộ chặn địa chỉ đã từ chối. Xem mục về bộ chặn.
+- Thông báo endpoint không phản hồi trong số giây đã đặt nghĩa là quá thời gian chờ.
+- Thông báo endpoint trả lỗi kèm mã và một đoạn nội dung nghĩa là hệ thống đích trả về mã lỗi từ 400 trở lên.
+
+2.2 Loại tính toán sẵn có
+
+Đây là các phép tính chạy ngay trên máy chủ, không ra mạng, không đọc dữ liệu của ai. Đây là loại công cụ an toàn nhất.
+
+Bốn phép tính có sẵn:
+
+- Tính lịch trả nợ, cho ra số tiền trả hàng tháng, tổng lãi, tổng phải trả và các kỳ đầu. Hỗ trợ dư nợ giảm dần và niên kim.
+- Tính phí giao dịch theo tỷ lệ phần trăm có mức tối thiểu và mức tối đa, hợp với phí chuyển tiền.
+- Tính ngày làm việc, cộng hoặc trừ số ngày làm việc từ một mốc và bỏ qua thứ Bảy cùng Chủ Nhật, dùng để tính hạn xử lý.
+- Tính lãi tiền gửi cho sổ tiết kiệm lãi cuối kỳ.
+
+Vì sao chúng tồn tại: mô hình ngôn ngữ tính toán rất kém và sai một cách tự tin, trong khi cán bộ ngân hàng cần các phép tính này liên tục. Đưa phép tính ra khỏi mô hình là cách duy nhất để con số đáng tin.
+
+Cấu hình chỉ gồm việc chọn phép tính. Lược đồ tham số lấy thẳng từ định nghĩa của phép tính đó, bạn không phải khai và cũng không sửa được. Trường khoá bí mật không xuất hiện vì không có gì để gọi.
+
+2.3 Loại MCP server
+
+Một dòng công cụ loại này là một máy chủ, không phải một hàm. Hệ thống kết nối tới máy chủ lúc chạy, hỏi xem máy chủ đó cung cấp những công cụ nào, rồi đưa tất cả cho mô hình.
+
+Tên mà mô hình nhìn thấy được ghép từ slug của dòng công cụ cộng với tên công cụ trên máy chủ, nhờ vậy hai máy chủ có công cụ trùng tên cũng không đụng nhau.
+
+Cấu hình gồm kiểu kết nối và địa chỉ, cùng các header nếu cần. Kiểu kết nối qua HTTP là mặc định và là kiểu nên dùng. Kiểu kết nối qua tiến trình cục bộ bị tắt trừ khi được bật riêng ở mức hệ thống, vì nó tương đương với việc chạy một chương trình trên máy chủ bằng cấu hình.
+
+Khi máy chủ MCP không kết nối được, hệ thống ghi một cảnh báo vào nhật ký kỹ thuật và đơn giản là không nạp công cụ nào của máy chủ đó. Trợ lý vẫn trả lời bình thường, chỉ là thiếu mất các công cụ đó. Biểu hiện với người dùng là trợ lý nói không tra cứu được. Khi nghi ngờ, hãy dùng chức năng chạy thử, vì với loại MCP nó liệt kê đúng những công cụ mà máy chủ đang cung cấp.
+
+2.4 Loại báo cáo
+
+Công cụ loại này trỏ tới một luồng xử lý kiểu báo cáo của cùng đơn vị. Hệ thống từ chối nếu luồng thuộc đơn vị khác hoặc không phải kiểu báo cáo.
+
+Tham số của công cụ được sinh tự động từ các tham số đầu vào của luồng đó. Bạn không khai lược đồ, và nếu luồng đổi tham số thì lưu lại công cụ là lược đồ cập nhật theo. Ý nghĩa của thiết kế này: mô hình điền đúng biểu mẫu mà con người vẫn điền khi chạy báo cáo bằng tay.
+
+Khi mô hình gọi công cụ, luồng chạy trên một phiên làm việc riêng, một lần chạy được ghi vào nhật ký, và các tệp sinh ra quay về hội thoại dưới dạng nút tải về đặt ngay dưới câu trả lời. Mô hình chỉ nhìn thấy phần tóm tắt và tên tệp, không nhìn thấy mã định danh tệp, nên nó không thể bịa ra một đường dẫn tải về.
+
+Nếu luồng chạy xong mà không tạo được tệp nào, công cụ báo lỗi kèm nguyên nhân đầu tiên. Đây là cách nhanh nhất để phát hiện mẫu tài liệu hỏng.
+
+Đây là cách đúng để một trợ lý lập báo cáo theo yêu cầu, thay cho việc gắn thẳng luồng báo cáo vào trợ lý, vốn bị hệ thống từ chối.
+
+2.5 Loại xuất Excel từ hội thoại
+
+Loại này không tra cứu gì cả. Tham số của nó chính là bảng tính: danh sách sheet, mỗi sheet có tên, tiêu đề, danh sách cột gồm nhãn và khoá, danh sách dòng dữ liệu, và các dòng tóm tắt.
+
+Mô hình điền các tham số đó từ những gì đã có trong hội thoại: một bảng người dùng vừa dán vào, kết quả một công cụ vừa gọi, hay một đoạn văn bản vừa tra được. Vì vậy nó phục vụ đúng yêu cầu kiểu xuất cái này ra Excel, không cần dựng luồng nào.
+
+Lược đồ tham số do hệ thống sinh ra, không bao giờ do người tạo công cụ khai. Cấu hình duy nhất là định dạng, và hiện chỉ hỗ trợ xlsx.
+
+Giới hạn: tối đa 5 sheet, 30 cột, 2000 dòng và 2000 ký tự mỗi ô.
+
+Hệ thống có sẵn vài lớp sửa lỗi cho những gì mô hình viết ra. Số viết kiểu Việt Nam hay kiểu Anh đều được đổi về số thật. Tỷ lệ viết dạng chín mươi mốt phẩy sáu được hiểu thành phần trăm. Một dòng đưa vào dạng mảng được ghép theo thứ tự cột. Tên sheet mà Excel không chấp nhận được viết lại thay vì làm hỏng tệp. Và không ô nào được phép trở thành công thức, nên một chuỗi bắt đầu bằng dấu bằng bị ép về dạng chữ.
+
+Tệp sinh ra cũng nằm trong mục báo cáo của chính cán bộ đã yêu cầu, và lần chạy được ghi vào nhật ký.
+
+2.6 Chọn loại nào
+
+- Cần số liệu từ một hệ thống có API thì chọn API nội bộ.
+- Cần một phép tính tài chính thì chọn tính toán sẵn có, đừng để mô hình tự tính.
+- Cần nối tới một hệ thống đã có sẵn máy chủ MCP thì chọn MCP server.
+- Cần một báo cáo có khuôn cố định, chạy đi chạy lại với tham số khác nhau, thì dựng luồng báo cáo rồi bọc bằng công cụ loại báo cáo.
+- Cần xuất ra Excel những gì vừa trao đổi, không theo khuôn nào, thì chọn xuất Excel từ hội thoại. Một công cụ loại này mở cho toàn ngân hàng là đủ cho cả tổ chức.
+
+3. Công tắc cho phép trợ lý gọi công cụ
+
+Trên màn hình chi tiết trợ lý, tab Công cụ có một công tắc và một danh sách công cụ để tích chọn.
+
+3.1 Lỗi phổ biến nhất của cả hệ thống
+
+Gắn công cụ cho trợ lý trong khi công tắc đang tắt thì công cụ không bao giờ được gọi. Trợ lý vẫn trả lời, vẫn có trích dẫn, chỉ là không bao giờ tra số liệu.
+
+Biểu hiện giống hệt một công cụ hỏng, nên người ta thường đi kiểm tra endpoint, kiểm tra khoá, kiểm tra mạng, trong khi nguyên nhân chỉ là một công tắc.
+
+Nếu có một thứ duy nhất cần nhớ trong tài liệu này thì là điều này.
+
+3.2 Hệ thống đã cố tránh lỗi này thế nào
+
+Ba cơ chế cùng lúc.
+
+- Khi tạo trợ lý mà có chọn công cụ ngay từ đầu, công tắc được bật mặc định.
+- Trên tab Công cụ, tích chọn công cụ đầu tiên sẽ tự bật công tắc.
+- Nếu vẫn còn trạng thái đã chọn công cụ mà công tắc tắt, màn hình hiện một cảnh báo màu đỏ nói rõ trợ lý sẽ không gọi công cụ nào cho tới khi bật công tắc rồi lưu.
+
+Dù vậy, trạng thái này vẫn xảy ra khi ai đó tắt công tắc để thử rồi quên bật lại, hoặc khi cấu hình được tạo qua API.
+
+3.3 Khi trợ lý vừa có luồng xử lý vừa có công cụ
+
+Chế độ agent thắng và luồng xử lý bị bỏ qua. Màn hình có cảnh báo về việc này. Hãy chọn một trong hai. Nếu cần cả hai thì đưa việc gọi công cụ vào trong luồng bằng node gọi công cụ, thay vì bật chế độ agent.
+
+4. Mô tả công cụ và lược đồ tham số
+
+4.1 Mô tả là thứ mô hình đọc
+
+Nhãn của ô mô tả nói thẳng điều này: mô hình đọc phần này để quyết định có gọi hay không. Đây không phải ghi chú nội bộ.
+
+Mô tả tốt nêu ba thứ: công cụ trả về cái gì, khoá tra cứu là gì, và một ví dụ về khoá đó. Ví dụ một mô tả tốt nói rằng công cụ tra trạng thái, khách hàng, số tiền, cán bộ phụ trách và hạn xử lý của một hồ sơ tín dụng doanh nghiệp theo mã hồ sơ, kèm một mã mẫu.
+
+Mô tả tồi là loại chỉ ghi tên hệ thống. Mô hình sẽ hoặc không gọi bao giờ, hoặc gọi sai lúc.
+
+Với công cụ thực hiện thao tác ghi, hãy nói rõ trong mô tả rằng đây là thao tác ghi dữ liệu. Mô hình dùng thông tin đó để chọn đúng công cụ.
+
+4.2 Lược đồ tham số
+
+Với loại API nội bộ và loại MCP, bạn khai lược đồ tham số theo chuẩn JSON Schema. Lược đồ phải là một đối tượng có phần thuộc tính, và tối đa 20 tham số. Hệ thống kiểm tra tính hợp lệ của chính lược đồ khi lưu và báo lỗi nếu sai.
+
+Phần mô tả của từng tham số cũng là thứ mô hình đọc. Viết rõ định dạng và cho một ví dụ.
+
+Lược đồ được kiểm tra trước mỗi lần chạy công cụ, cả khi mô hình gọi lẫn khi node trong luồng gọi. Tham số sai kiểu hay thiếu tham số bắt buộc quay về dưới dạng một câu tiếng Việt nói tham số không hợp lệ, kèm chỗ sai. Mô hình đọc được câu đó và thường tự sửa rồi gọi lại. Nếu không có bước kiểm tra này thì lỗi sẽ rơi xuống tận hệ thống đích.
+
+Với loại tính toán sẵn có, loại báo cáo và loại xuất Excel, lược đồ do hệ thống sinh, bạn không khai.
+
+4.3 Slug
+
+Slug là tên hàm mà mô hình nhìn thấy. Nó chỉ gồm chữ, số, gạch dưới và gạch ngang, tối đa 64 ký tự, và không được trùng trong cùng một đơn vị. Đặt trùng thì hệ thống báo đơn vị đã có công cụ với slug này.
+
+Slug không đổi được sau khi tạo. Đặt slug bằng tiếng Việt không dấu theo nghiệp vụ, vì mô hình đọc cả slug lẫn mô tả khi quyết định gọi gì.
+
+5. Khoá bí mật
+
+Ô khoá bí mật nhận token gọi API nội bộ. Khoá được mã hoá trước khi lưu và không bao giờ trả về. Giao diện chỉ cho biết công cụ đã có khoá hay chưa, thể hiện bằng một nhãn trong danh sách.
+
+Khi sửa một công cụ đã có khoá, nhãn của ô đổi thành lời nhắc rằng khoá đã lưu, nhập giá trị mới để thay và để trống thì giữ nguyên. Nhập một chuỗi rỗng là cách xoá khoá.
+
+Máy chủ tự chèn khoá vào header đã khai lúc gọi, kèm tiền tố nếu bạn khai. Khoá không xuất hiện trong cấu hình mà API trả về, không xuất hiện trong nhật ký truy vấn, và không đến tay mô hình.
+
+Xoay khoá định kỳ: mở công cụ, nhập khoá mới, lưu, rồi dùng chức năng chạy thử để xác nhận. Không cần đụng tới trợ lý nào.
+
+6. Duyệt thao tác
+
+Ô tích với nhãn nói rằng cần cán bộ duyệt trước khi chạy là cờ quan trọng nhất về mặt kiểm soát. Gợi ý bên cạnh nói rõ nó dùng cho thao tác ghi dữ liệu.
+
+6.1 Khi nào bật cờ cần duyệt
+
+Bật cho mọi công cụ làm thay đổi dữ liệu ở hệ thống khác: gia hạn hồ sơ, cập nhật trạng thái, tạo yêu cầu, gửi thông báo.
+
+Không cần bật cho công cụ chỉ đọc. Bật tràn lan làm cán bộ mệt và họ sẽ bấm duyệt theo phản xạ, lúc đó lớp kiểm soát mất hết ý nghĩa.
+
+6.2 Chuỗi sự việc người dùng thấy
+
+Mô hình quyết định gọi công cụ. Trước khi công cụ chạy, hệ thống dừng lại. Câu trả lời chưa được viết ra.
+
+Trong khung chat hiện một thẻ xác nhận nêu rõ trợ lý muốn chạy công cụ nào với tham số nào, kèm hai nút duyệt và từ chối. Cán bộ bấm một trong hai. Nếu duyệt, công cụ chạy và phần còn lại của câu trả lời được viết tiếp ngay trong cùng lượt hỏi. Nếu từ chối, mô hình được báo là thao tác bị từ chối và nó trả lời theo hướng đó.
+
+Bộ nguyên tắc gửi cho mô hình có một điều khoản riêng cho tình huống này: khi cán bộ yêu cầu một thao tác ghi thì cứ gọi công cụ, hệ thống sẽ tự chặn lại và hỏi duyệt, nên không phải xin phép trước, và tuyệt đối không được nói đã làm xong khi chưa có kết quả.
+
+6.3 Dấu vết tuân thủ
+
+Khi hệ thống dừng lại chờ duyệt, lần chạy được đánh dấu trạng thái chờ duyệt trong nhật ký truy vấn, và một bản ghi phê duyệt được tạo gồm tên công cụ, bản xem trước của tham số, và sau đó là ai đã quyết định cùng thời điểm quyết định.
+
+Bản ghi này là bằng chứng kiểm soát. Nó tồn tại độc lập với hội thoại.
+
+Một phê duyệt đã quyết định thì không quyết định lại được. Bấm lại đường dẫn cũ trả về không tìm thấy. Nhờ vậy không ai duyệt hai lần cùng một thao tác.
+
+6.4 Công cụ cần duyệt trong báo cáo và trên kênh khách hàng
+
+Node gọi công cụ trong luồng xử lý từ chối thẳng công cụ cần duyệt, kèm thông báo rằng công cụ cần người duyệt nên không chạy tự động được. Lý do hiển nhiên: một báo cáo chạy theo lịch lúc bảy giờ sáng không có ai ngồi đó để bấm duyệt.
+
+Trên kênh khách hàng, công cụ cần duyệt không được đưa ra cho mô hình ngay từ đầu. Trang khách hàng không có cán bộ nào để duyệt, nên thay vì dừng lại chờ vô vọng, hệ thống đơn giản là không mời chào công cụ đó.
+
+7. Chia sẻ toàn ngân hàng và cho phép kênh khách hàng
+
+Hai ô tích này đều là quyết định vượt ra ngoài đơn vị, nên chỉ chủ đơn vị mới bật được. Người có vai trò biên tập thấy ô ở trạng thái khoá kèm dòng giải thích.
+
+7.1 Mở cho toàn ngân hàng
+
+Khi bật, mọi đơn vị đều nhìn thấy công cụ trong danh sách của họ và gắn được cho trợ lý của họ.
+
+Nên mở cho những công cụ mang tính dùng chung: các phép tính, công cụ xuất Excel, công cụ tra tỷ giá. Không nên mở cho công cụ gắn với nghiệp vụ riêng của một khối, vì trợ lý đơn vị khác gắn vào sẽ tạo ra câu trả lời lạc đề.
+
+7.2 Cho phép kênh khách hàng
+
+Khi bật, công cụ được phép chạy trên trang khách hàng và trong bản nhúng của trợ lý khách hàng. Gợi ý trên màn hình nói đúng nguyên tắc: chỉ bật với dữ liệu công khai.
+
+Trợ lý khách hàng chỉ gắn được công cụ đã bật cờ này. Cố gắn công cụ khác thì thao tác lưu trợ lý bị từ chối kèm tên công cụ vi phạm.
+
+Ngay cả khi đã bật cờ, công cụ vẫn bị loại khỏi kênh khách hàng nếu nó đồng thời có cờ cần duyệt.
+
+7.3 Ai sửa được công cụ dùng chung
+
+Chỉ đơn vị sở hữu. Đơn vị khác dùng được, gắn được, chạy thử được, nhưng không sửa và không xoá được. Mở một công cụ ra toàn ngân hàng khác hoàn toàn với giao nó cho người khác.
+
+Hệ quả cần lường trước: đơn vị sở hữu đổi cấu hình hay tắt công cụ thì mọi trợ lý ở mọi đơn vị đang gắn nó đều bị ảnh hưởng ngay. Cột số trợ lý đang dùng trong danh sách giúp bạn biết mức độ ảnh hưởng trước khi sửa.
+
+8. Gọi ra hệ thống nội bộ và bộ chặn địa chỉ
+
+8.1 Bộ chặn mặc định
+
+Trước khi gọi bất kỳ địa chỉ nào, máy chủ kiểm tra địa chỉ đó. Nó từ chối mọi thứ không phải http hoặc https, từ chối tên miền cục bộ cùng các đuôi nội bộ, và phân giải tên miền để từ chối các địa chỉ riêng, địa chỉ vòng lặp, địa chỉ liên kết cục bộ và các dải đặc biệt khác.
+
+Mục đích là chặn kiểu tấn công khiến máy chủ tự gọi vào mạng nội bộ của chính nó. Đây là lớp phòng vệ tiêu chuẩn và không nên tắt đi.
+
+Kiểm tra này chạy cả lúc lưu công cụ, dựa trên phần cố định của địa chỉ, nên bạn biết ngay chứ không phải chờ tới lúc chạy.
+
+8.2 Danh sách host nội bộ được phép
+
+Thực tế trong ngân hàng là công cụ phải gọi được hệ thống nội bộ. Vì vậy có một danh sách ngoại lệ hẹp, khai ở cấu hình máy chủ dưới dạng tên miền hoặc tên miền kèm cổng, phân tách bằng dấu phẩy.
+
+Danh sách này được kiểm tra trước tiên, trước mọi luật chặn khác. Một tên miền nằm trong danh sách thì đi qua, kể cả khi nó phân giải ra địa chỉ nội bộ.
+
+Đây là thay đổi ở mức hệ thống, không phải ở mức đơn vị, nên phải qua quản trị hệ thống. Nguyên tắc khi khai: liệt kê từng host cụ thể, kèm cổng khi có thể, và giữ danh sách càng ngắn càng tốt.
+
+8.3 Khác biệt với node gọi HTTP trong luồng xử lý
+
+Điểm này hay gây mất thời gian, nên nói rõ. Node gọi HTTP trong luồng xử lý có bộ chặn riêng và nó không đọc danh sách host nội bộ được phép. Nó chỉ nới ra khi bật một cờ ở mức toàn hệ thống cho phép địa chỉ riêng, mà cờ đó mở cho mọi luồng cùng lúc.
+
+Vì vậy, muốn gọi hệ thống nội bộ từ trong luồng, hãy tạo công cụ loại API nội bộ rồi dùng node gọi công cụ. Ngoài chuyện qua được bộ chặn, cách này còn có khoá bí mật lưu mã hoá, kiểm tra tham số theo lược đồ, và thời gian chờ đặt riêng.
+
+9. Chạy thử công cụ
+
+Mỗi dòng trong danh sách có thao tác chạy thử. Hộp thoại hiện danh sách tham số theo lược đồ và một ô nhập JSON đã điền sẵn khung mẫu.
+
+Cần nhớ ba điều.
+
+- Nó gọi công cụ thật. Với công cụ ghi dữ liệu, tham số bạn nhập sẽ thực sự thay đổi dữ liệu ở hệ thống đích. Cờ cần duyệt không áp dụng ở đây vì chính bạn là người đang bấm chạy.
+- Với công cụ loại MCP, chạy thử không gọi công cụ nào cả mà liệt kê những công cụ máy chủ đang cung cấp. Nếu danh sách trống thì hoặc không kết nối được, hoặc máy chủ không có công cụ nào.
+- Công cụ dùng chung của đơn vị khác chạy thử được, vì bạn sẽ gắn nó cho trợ lý của mình và cần biết nó hoạt động ra sao. Nhưng bạn không sửa được nó.
+
+Tham số sai trả về câu tiếng Việt nói tham số không hợp lệ kèm vị trí sai. Đây cũng chính là câu mà mô hình sẽ nhận, nên chạy thử là cách tốt để kiểm tra chất lượng lược đồ.
+
+10. Giới hạn và hạn mức
+
+- Mỗi đơn vị tối đa 50 công cụ.
+- Mỗi trợ lý gắn tối đa 20 công cụ.
+- Lược đồ tham số tối đa 20 tham số.
+- Thời gian chờ từ 1 đến 60 giây.
+- Kết quả trả về cho mô hình tối đa 4000 ký tự.
+- Slug duy nhất trong một đơn vị, tối đa 64 ký tự.
+
+Con số 20 công cụ cho một trợ lý nghe rộng rãi nhưng thực tế nên dùng ít hơn nhiều. Mỗi công cụ là một mô tả nữa nhét vào prompt, và càng nhiều lựa chọn thì mô hình càng dễ chọn nhầm. Năm tới bảy công cụ có mô tả rõ ràng thường tốt hơn mười lăm công cụ mô tả mơ hồ.
+
+11. Quy tắc thiết kế công cụ trong môi trường ngân hàng
+
+Có một ràng buộc chi phối toàn bộ thiết kế công cụ ở đây: bước che dữ liệu cá nhân chạy trên mọi câu hỏi trước khi câu hỏi tới tay mô hình. Số căn cước, số tài khoản, mã khách hàng, số điện thoại và mã OTP bị thay bằng chỗ giữ chỗ.
+
+Điều đó nghĩa là mô hình không bao giờ nhìn thấy các giá trị đó, nên nó cũng không thể đưa chúng vào tham số công cụ. Một công cụ tra cứu theo số tài khoản sẽ không bao giờ chạy đúng qua đường hội thoại.
+
+Vì vậy hãy thiết kế công cụ quanh các mã nghiệp vụ không nhạy cảm: mã hồ sơ, mã giao dịch, mã phí, mã ngoại tệ, mã chi nhánh. Dữ liệu demo trong hệ thống cố ý đánh khoá theo mã hồ sơ đúng vì lý do này.
+
+Khi nghiệp vụ bắt buộc phải xử lý dữ liệu cá nhân thật, đừng dùng hội thoại. Hãy dùng biểu mẫu nghiệp vụ, nơi trường đánh dấu nhạy cảm đi thẳng từ bàn phím hoặc từ hệ thống lõi vào tài liệu mà không đi qua mô hình.
+
+12. Câu hỏi thường gặp
+
+Hỏi: Tôi đã gắn công cụ cho trợ lý nhưng nó không bao giờ gọi, vì sao?
+Đáp: Trước hết kiểm tra công tắc cho phép trợ lý gọi công cụ trên tab Công cụ. Đây là nguyên nhân của phần lớn trường hợp. Nếu công tắc đã bật, kiểm tra tiếp mô tả công cụ có đủ rõ để mô hình biết khi nào nên gọi hay không, và công cụ có đang ở trạng thái bật hay không.
+
+Hỏi: Vì sao trợ lý khách hàng của tôi không gắn được công cụ này?
+Đáp: Công cụ chưa bật cờ cho phép kênh khách hàng, hoặc nó có cờ cần duyệt. Cả hai trường hợp đều bị loại khỏi kênh khách hàng. Chỉ chủ đơn vị mới bật được cờ cho phép kênh khách hàng.
+
+Hỏi: Địa chỉ nội bộ của tôi bị từ chối khi lưu công cụ, phải làm sao?
+Đáp: Host đó chưa nằm trong danh sách host nội bộ được phép của máy chủ. Liên hệ quản trị hệ thống để bổ sung host, kèm cổng nếu có. Đây là cấu hình mức hệ thống chứ không phải mức đơn vị.
+
+Hỏi: Công cụ loại báo cáo có bật cờ cần duyệt được không?
+Đáp: Về mặt kỹ thuật bật được, nhưng bên trong luồng báo cáo thì mọi công cụ cần duyệt đều bị từ chối. Nếu báo cáo của bạn cần một thao tác ghi, hãy tách thao tác đó ra thành một công cụ riêng và để cán bộ gọi trong hội thoại.
+
+Hỏi: Làm sao thay khoá bí mật mà không làm gián đoạn trợ lý?
+Đáp: Mở công cụ, nhập khoá mới vào ô khoá bí mật, lưu lại, rồi chạy thử để xác nhận. Trợ lý đang gắn không cần chỉnh gì và không có thời gian gián đoạn đáng kể.
+
+Hỏi: Máy chủ MCP của tôi tắt thì chuyện gì xảy ra?
+Đáp: Hệ thống ghi cảnh báo kỹ thuật và không nạp công cụ nào của máy chủ đó. Trợ lý vẫn trả lời nhưng không tra cứu được, và thường sẽ nói là chưa tra được. Dùng chức năng chạy thử để xác nhận, vì với loại MCP nó liệt kê đúng những gì máy chủ đang cung cấp.
+
+Hỏi: Tôi xoá một công cụ đang được trợ lý khác dùng thì sao?
+Đáp: Hộp thoại xác nhận nói rõ các trợ lý đang gắn sẽ mất công cụ này. Cột số trợ lý đang dùng trong danh sách cho bạn biết ảnh hưởng trước khi xoá. Nếu chỉ muốn tạm dừng, hãy chuyển công cụ sang trạng thái tắt thay vì xoá.
+
+Hỏi: Kết quả công cụ dài quá bị cắt mất, xử lý thế nào?
+Đáp: Kết quả bị cắt còn 4000 ký tự trước khi tới mô hình. Hãy dùng đường dẫn kết quả trong cấu hình để chỉ lấy đúng nhánh dữ liệu cần thiết, hoặc thêm tham số lọc cho endpoint để nó trả về ít dòng hơn.

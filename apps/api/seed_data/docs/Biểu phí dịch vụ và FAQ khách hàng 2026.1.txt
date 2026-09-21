@@ -1,0 +1,72 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB)
+BIỂU PHÍ DỊCH VỤ KHÁCH HÀNG CÁ NHÂN VÀ GIẢI ĐÁP CÂU HỎI THƯỜNG GẶP
+Số hiệu: BP.KH.06 — Phiên bản: 2026.1 — Hiệu lực từ: 01/07/2026
+Phân loại: Tài liệu công khai
+Phí chưa bao gồm thuế giá trị gia tăng (VAT) trừ khi ghi rõ.
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI BIỂU PHÍ CHÍNH THỨC CỦA MSB. Mọi con số là giả định. ***
+
+PHẦN A. BIỂU PHÍ DỊCH VỤ
+
+Điều 1. Tài khoản thanh toán
+1. Mở tài khoản thanh toán (tại quầy hoặc online eKYC): miễn phí.
+2. Phí quản lý tài khoản: miễn phí nếu số dư bình quân tháng từ 2.000.000 đồng; 11.000 đồng/tháng (đã gồm VAT) nếu dưới mức này. Tài khoản nhận lương qua MSB được miễn phí quản lý.
+3. Số dư tối thiểu duy trì: 50.000 đồng.
+4. Phí đóng tài khoản trong 12 tháng đầu kể từ ngày mở: 50.000 đồng; sau 12 tháng: miễn phí.
+5. Số tài khoản số đẹp theo yêu cầu: từ 500.000 đồng đến 5.000.000 đồng tuỳ loại số.
+
+Điều 2. Chuyển tiền trong nước
+1. Chuyển khoản trên ứng dụng MSB mBank và Internet Banking (nội bộ và liên ngân hàng qua Napas, Citad): miễn phí không giới hạn số lần.
+2. Chuyển khoản tại quầy trong hệ thống MSB: 10.000 đồng/giao dịch.
+3. Chuyển khoản tại quầy ra ngân hàng khác: 0,02% số tiền, tối thiểu 10.000 đồng, tối đa 1.000.000 đồng/giao dịch.
+4. Nộp tiền mặt vào tài khoản người khác tại quầy: 0,03% số tiền, tối thiểu 10.000 đồng.
+5. Chuyển tiền quốc tế đi: theo Hướng dẫn HD.TTQT.04 — phí chuyển 0,20% (tối thiểu 10 USD, tối đa 300 USD), điện phí 5 USD, phí OUR 25 USD nếu chọn người chuyển chịu toàn bộ phí.
+
+Điều 3. Thẻ ghi nợ nội địa và quốc tế
+1. Phí phát hành thẻ ghi nợ nội địa: miễn phí. Thẻ ghi nợ quốc tế (Visa/Mastercard Debit): 100.000 đồng, miễn phí khi mở online.
+2. Phí thường niên: thẻ nội địa 60.000 đồng/năm; thẻ quốc tế 120.000 đồng/năm; miễn phí năm đầu.
+3. Rút tiền tại ATM MSB: miễn phí. Rút tại ATM ngân hàng khác trong nước: 3.300 đồng/giao dịch (đã gồm VAT). Rút tiền tại ATM nước ngoài: 4% số tiền, tối thiểu 50.000 đồng.
+4. Phí chuyển đổi ngoại tệ khi thanh toán thẻ quốc tế ở nước ngoài: 2,5% giá trị giao dịch.
+5. Phát hành lại thẻ do mất, hỏng: 50.000 đồng. Cấp lại mã PIN: miễn phí trên ứng dụng.
+6. Hạn mức rút tiền mặt ATM: 20.000.000 đồng/ngày; hạn mức thanh toán: 100.000.000 đồng/ngày, khách hàng tự điều chỉnh trên ứng dụng.
+
+Điều 4. Dịch vụ ngân hàng điện tử
+1. Đăng ký và sử dụng ứng dụng MSB mBank: miễn phí.
+2. SMS Banking thông báo biến động số dư: 11.000 đồng/tháng (đã gồm VAT); thông báo qua ứng dụng (OTT): miễn phí.
+3. Xác thực giao dịch Smart OTP: miễn phí; thiết bị Token vật lý: 300.000 đồng/thiết bị.
+4. Hạn mức chuyển khoản online: tối đa 1.000.000.000 đồng/ngày với xác thực Smart OTP kết hợp sinh trắc học; 100.000.000 đồng/ngày với SMS OTP.
+
+Điều 5. Dịch vụ khác
+1. Sao kê tài khoản trên ứng dụng: miễn phí. Sao kê in tại quầy: 20.000 đồng/bản đối với 12 tháng gần nhất; 50.000 đồng/bản đối với dữ liệu cũ hơn.
+2. Xác nhận số dư, xác nhận tài khoản bằng văn bản (tiếng Việt): 50.000 đồng/bản; song ngữ: 100.000 đồng/bản.
+3. Tra soát giao dịch chuyển khoản trong nước theo yêu cầu khách hàng: 20.000 đồng/lần; miễn phí nếu lỗi do MSB.
+4. Kiểm đếm tiền mặt nộp vào tài khoản trên 300 triệu đồng: 0,03% số tiền vượt.
+5. Thuê ngăn tủ sắt an toàn: từ 1.500.000 đồng/năm tuỳ kích cỡ.
+
+PHẦN B. CÂU HỎI THƯỜNG GẶP (FAQ)
+
+Điều 6. Tài khoản và ứng dụng
+1. Quên mật khẩu đăng nhập ứng dụng MSB mBank thì làm thế nào? Chọn "Quên mật khẩu" trên màn hình đăng nhập, xác thực bằng số điện thoại đăng ký, căn cước và khuôn mặt; mật khẩu mới có hiệu lực ngay, không mất phí.
+2. Bị khoá đăng nhập do nhập sai quá 5 lần? Tài khoản tự mở khoá sau 30 phút, hoặc khách hàng gọi tổng đài để mở khoá ngay sau khi xác thực thông tin.
+3. Có mở tài khoản online được không? Được. Khách hàng từ 18 tuổi có căn cước công dân gắn chip mở tài khoản qua eKYC trên ứng dụng trong khoảng 5 phút; hạn mức giao dịch đầy đủ sau khi xác thực tại quầy hoặc qua NFC.
+4. Đổi số điện thoại nhận OTP? Thực hiện tại quầy với căn cước bản chính, hoặc trên ứng dụng bằng xác thực NFC căn cước gắn chip và khuôn mặt.
+
+Điều 7. Thẻ
+1. Thẻ bị nuốt tại ATM hoặc bị mất? Khoá thẻ ngay trên ứng dụng (mục Thẻ → Khoá thẻ) hoặc gọi tổng đài 24/7; phát hành lại thẻ mới trong 5 đến 7 ngày làm việc.
+2. Giao dịch thẻ bị trừ tiền nhưng không nhận được hàng/tiền? Gửi yêu cầu tra soát trên ứng dụng hoặc tại quầy; thời gian xử lý 5 đến 7 ngày làm việc với giao dịch trong nước, 45 đến 60 ngày với giao dịch quốc tế theo quy định tổ chức thẻ.
+3. Thẻ bị từ chối khi thanh toán ở nước ngoài? Kiểm tra đã bật tính năng thanh toán quốc tế và hạn mức trên ứng dụng; một số quốc gia bị hạn chế theo quy định.
+
+Điều 8. Chuyển tiền
+1. Chuyển nhầm tài khoản thì lấy lại được không? Liên hệ tổng đài ngay để MSB gửi tra soát đến ngân hàng nhận; việc hoàn tiền phụ thuộc sự đồng ý của người nhận, thời gian phản hồi 3 đến 5 ngày làm việc.
+2. Chuyển khoản liên ngân hàng bao lâu thì nhận được? Qua Napas 24/7: gần như tức thời; qua Citad: trong ngày làm việc nếu chuyển trước 16h00.
+3. Chuyển tiền quốc tế mất bao lâu? Thông thường 1 đến 3 ngày làm việc tuỳ quốc gia và ngân hàng trung gian.
+
+Điều 9. Vay vốn và tiết kiệm
+1. Muốn vay mua nhà cần chuẩn bị gì? Xem Cẩm nang sản phẩm SP.RB.05: căn cước, chứng minh thu nhập, hồ sơ tài sản bảo đảm và hợp đồng mua bán. Khách hàng có thể đăng ký online để được tư vấn viên liên hệ.
+2. Trả nợ trước hạn có mất phí không? Có, 2% số tiền trả trước trong 2 năm đầu, 1% năm thứ 3, miễn phí từ năm thứ 4 (trừ thấu chi và vay cầm cố sổ tiết kiệm).
+3. Rút tiết kiệm trước hạn thì tính lãi thế nào? Áp dụng lãi suất không kỳ hạn tại thời điểm rút cho số ngày thực gửi; khách hàng có thể rút một phần với sổ tiết kiệm linh hoạt.
+
+Điều 10. Liên hệ và giờ làm việc
+1. Tổng đài chăm sóc khách hàng 24/7: 1900 6083 (mô phỏng). Email: cskh@msb-demo.vn (mô phỏng).
+2. Giờ giao dịch tại quầy: thứ Hai đến thứ Sáu 8h00 đến 17h00, nghỉ trưa 12h00 đến 13h00; một số chi nhánh mở cửa sáng thứ Bảy 8h00 đến 12h00.
+3. Khách hàng không cung cấp mật khẩu, mã OTP hoặc số thẻ đầy đủ cho bất kỳ ai, kể cả người tự nhận là nhân viên MSB. MSB không bao giờ yêu cầu khách hàng cung cấp OTP qua điện thoại.

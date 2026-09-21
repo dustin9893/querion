@@ -1,0 +1,9 @@
+{
+  "title": "Workflows",
+  "description": "Build and manage your AI workflows with a visual canvas.",
+  "createWorkflow": "New Workflow",
+  "empty": {
+    "title": "No workflows yet",
+    "description": "Create your first workflow to start orchestrating AI tasks."
+  }
+}

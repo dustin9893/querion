@@ -1,0 +1,9 @@
+{
+  "title": "Trợ lý",
+  "description": "Mỗi trợ lý gắn với một kho tri thức (hoặc luồng xử lý) và phục vụ cán bộ nội bộ hoặc khách hàng.",
+  "createApp": "Trợ lý mới",
+  "empty": {
+    "title": "Chưa có trợ lý nào",
+    "description": "Tạo trợ lý, gắn kho tri thức rồi công bố để cán bộ hoặc khách hàng sử dụng."
+  }
+}

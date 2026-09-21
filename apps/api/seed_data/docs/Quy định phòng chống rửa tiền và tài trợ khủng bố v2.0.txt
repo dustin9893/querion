@@ -1,0 +1,90 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI PHÁP CHẾ VÀ TUÂN THỦ
+QUY ĐỊNH PHÒNG CHỐNG RỬA TIỀN VÀ TÀI TRỢ KHỦNG BỐ
+Số hiệu: QĐ.AML.11 — Phiên bản: 2.0 — Hiệu lực từ: 01/01/2026
+Đơn vị ban hành: Khối Pháp chế và Tuân thủ — Phòng Phòng chống rửa tiền (AML)
+Áp dụng: Toàn bộ Đơn vị kinh doanh, Trung tâm Thanh toán quốc tế, Trung tâm Xử lý tín dụng tập trung và các đơn vị có giao dịch với khách hàng
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Mục đích và phạm vi
+1. Quy định này thiết lập khuôn khổ phòng, chống rửa tiền (AML) và tài trợ khủng bố (CFT) tại MSB theo Luật Phòng, chống rửa tiền, các văn bản hướng dẫn của Ngân hàng Nhà nước và thông lệ quốc tế (FATF).
+2. Áp dụng cho toàn bộ hoạt động nhận biết khách hàng, giám sát giao dịch, sàng lọc danh sách cấm vận, báo cáo giao dịch đáng ngờ đối với khách hàng cá nhân và doanh nghiệp.
+
+Điều 2. Giải thích từ ngữ
+1. KYC (Know Your Customer): quy trình nhận biết khách hàng khi thiết lập quan hệ.
+2. CDD (Customer Due Diligence): biện pháp nhận biết khách hàng ở mức thông thường.
+3. EDD (Enhanced Due Diligence): biện pháp tăng cường áp dụng cho khách hàng rủi ro cao.
+4. PEP (Politically Exposed Person): cá nhân có ảnh hưởng chính trị (đang hoặc đã từng giữ chức vụ công quan trọng) và người thân, người liên quan.
+5. STR (Suspicious Transaction Report): báo cáo giao dịch đáng ngờ gửi cơ quan phòng, chống rửa tiền.
+6. Tipping-off: hành vi tiết lộ cho khách hàng hoặc bên liên quan biết việc giao dịch của họ đang bị nghi ngờ, xác minh hoặc báo cáo, bị nghiêm cấm.
+7. Sàng lọc danh sách: đối chiếu thông tin khách hàng, đối tác giao dịch với danh sách cấm vận OFAC (Hoa Kỳ), EU, UN và danh sách cảnh báo AML nội bộ của MSB.
+
+CHƯƠNG II. NHẬN BIẾT KHÁCH HÀNG
+
+Điều 3. Phân loại rủi ro khách hàng
+1. Rủi ro thấp: khách hàng cá nhân, tổ chức có hồ sơ minh bạch, hoạt động tại Việt Nam, không thuộc nhóm ngành nghề hoặc quốc gia rủi ro; áp dụng CDD cơ bản khi mở quan hệ, rà soát lại 3 năm/lần.
+2. Rủi ro trung bình: doanh nghiệp có giao dịch quốc tế thường xuyên, khách hàng cá nhân có thu nhập từ kinh doanh tiền mặt quy mô vừa; áp dụng CDD tiêu chuẩn, rà soát lại 2 năm/lần.
+3. Rủi ro cao: khách hàng thuộc Điều 4; áp dụng EDD, phê duyệt thiết lập quan hệ bởi cấp quản lý từ Giám đốc ĐVKD trở lên, rà soát lại tối thiểu hàng năm.
+4. Việc xếp hạng rủi ro thực hiện tự động trên hệ thống chấm điểm AML khi mở tài khoản và cập nhật lại khi có thay đổi thông tin hoặc hành vi giao dịch bất thường.
+
+Điều 4. Khách hàng rủi ro cao
+1. Cá nhân là PEP trong nước hoặc nước ngoài, và người thân (vợ/chồng, con, cha mẹ), người có quan hệ kinh doanh mật thiết với PEP.
+2. Khách hàng cư trú hoặc có giao dịch phát sinh từ quốc gia, vùng lãnh thổ có rủi ro rửa tiền cao theo danh sách công bố của Ngân hàng Nhà nước và FATF.
+3. Khách hàng hoạt động trong ngành nghề có rủi ro tiền mặt lớn: kinh doanh vàng bạc đá quý, casino, dịch vụ đổi tiền, kinh doanh bất động sản với thanh toán tiền mặt lớn, kinh doanh tiền ảo/tài sản số.
+4. Tổ chức phi lợi nhuận có nguồn quỹ hoặc điểm đến tài trợ không rõ ràng, giao dịch với khu vực có xung đột hoặc rủi ro tài trợ khủng bố.
+5. Đối với khách hàng rủi ro cao, EDD bao gồm: xác minh nguồn gốc tài sản/thu nhập, phê duyệt cấp cao khi thiết lập quan hệ, giám sát giao dịch tần suất cao hơn (theo thời gian thực đối với PEP).
+
+CHƯƠNG III. SÀNG LỌC VÀ GIÁM SÁT GIAO DỊCH
+
+Điều 5. Sàng lọc danh sách cấm vận và cảnh báo AML nội bộ
+1. Mọi khách hàng khi mở quan hệ, và mọi giao dịch chuyển tiền trong nước giá trị lớn, chuyển tiền quốc tế đều được sàng lọc tự động qua hệ thống sàng lọc tập trung đối chiếu danh sách cấm vận OFAC, EU, UN và danh sách cảnh báo AML nội bộ MSB.
+2. Khi hệ thống báo trùng khớp (hit), giao dịch hoặc việc mở tài khoản tạm dừng cho đến khi Phòng AML xác nhận là trùng khớp thật (true match) hay trùng khớp giả (false positive).
+3. Thời hạn xác nhận trùng khớp: trong vòng 1 ngày làm việc kể từ khi ĐVKD hoặc TTQT chuyển hồ sơ; trường hợp phức tạp cần xin ý kiến pháp lý, gia hạn tối đa 2 ngày làm việc và phải thông báo ĐVKD lý do gia hạn.
+4. Trường hợp xác định là true match với danh sách cấm vận, MSB từ chối thiết lập quan hệ hoặc thực hiện giao dịch, phong toả tài sản liên quan (nếu có) theo quy định pháp luật hiện hành và báo cáo cơ quan có thẩm quyền.
+5. Đối với giao dịch quốc tế, việc sàng lọc theo Điều 5 này thực hiện song song, không thay thế bước sàng lọc riêng tại Điều 3 khoản 1 Hướng dẫn HD.TTQT.04.
+
+Điều 6. Ngưỡng báo cáo giao dịch giá trị lớn và chuyển tiền quốc tế
+1. Giao dịch tiền mặt (nộp, rút, chuyển đổi) từ 400.000.000 đồng trở lên phải được ghi nhận và báo cáo giao dịch giá trị lớn theo quy định của Ngân hàng Nhà nước; hệ thống core tự động gắn cờ giao dịch đạt ngưỡng, không cho phép GDV hoặc KSV huỷ cờ.
+2. Chuyển tiền điện tử quốc tế (đi hoặc đến) từ 1.000 USD trở lên (hoặc ngoại tệ khác quy đổi tương đương) phải thu thập đầy đủ thông tin người chuyển và người thụ hưởng (họ tên, địa chỉ hoặc số định danh, số tài khoản) để phục vụ báo cáo và truy vết theo chuẩn quốc tế (Travel Rule).
+3. Giao dịch dưới ngưỡng tại khoản 1, khoản 2 nhưng có dấu hiệu chia nhỏ để né báo cáo (structuring) vẫn phải được ghi nhận là dấu hiệu đáng ngờ theo Điều 7.
+4. Danh sách giao dịch đạt ngưỡng được Phòng AML tổng hợp và báo cáo Ngân hàng Nhà nước theo định kỳ quy định của pháp luật hiện hành.
+
+Điều 7. Dấu hiệu giao dịch đáng ngờ
+1. Giao dịch chia nhỏ nhiều lần trong thời gian ngắn để tránh ngưỡng báo cáo (structuring), đặc biệt khi thực hiện tại nhiều ĐVKD hoặc nhiều kênh khác nhau trong cùng ngày.
+2. Giao dịch lòng vòng: tiền được chuyển qua nhiều tài khoản trung gian trong thời gian ngắn rồi quay lại người chuyển ban đầu hoặc chuyển ra nước ngoài không rõ mục đích kinh tế.
+3. Giao dịch không phù hợp với hồ sơ, ngành nghề hoặc quy mô kinh doanh đã khai báo của khách hàng (ví dụ cá nhân không có hoạt động kinh doanh nhận nhiều khoản chuyển tiền lớn từ nhiều nguồn không liên quan).
+4. Khách hàng từ chối cung cấp hoặc cung cấp thông tin không nhất quán về mục đích, nguồn gốc tiền khi được hỏi, hoặc tỏ ra bất thường khi bị hỏi thêm thông tin.
+5. Giao dịch liên quan quốc gia, vùng lãnh thổ rủi ro cao hoặc đối tác không có hoạt động kinh tế thực (công ty vỏ bọc).
+6. Khi phát hiện dấu hiệu tại khoản 1 đến khoản 5, cán bộ lập Phiếu ghi nhận dấu hiệu đáng ngờ (mẫu MB-AML03) gửi Phòng AML trong ngày làm việc phát hiện.
+
+CHƯƠNG IV. BÁO CÁO VÀ LƯU TRỮ
+
+Điều 8. Báo cáo giao dịch đáng ngờ và nguyên tắc không tiết lộ (tipping-off)
+1. Phòng AML thẩm định Phiếu ghi nhận dấu hiệu đáng ngờ, quyết định lập Báo cáo giao dịch đáng ngờ (STR) gửi cơ quan phòng, chống rửa tiền có thẩm quyền trong thời hạn 3 ngày làm việc kể từ khi phát sinh nghi ngờ hoặc có đủ cơ sở nghi ngờ.
+2. Trong quá trình xác minh và sau khi gửi STR, cán bộ liên quan tuyệt đối không được thông báo cho khách hàng hoặc bất kỳ bên nào biết về việc giao dịch đang bị nghi ngờ, xác minh hoặc đã bị báo cáo (nguyên tắc tipping-off); vi phạm bị xử lý kỷ luật nghiêm khắc và có thể vi phạm pháp luật hình sự.
+3. Việc từ chối thực hiện giao dịch, tạm dừng giao dịch để xác minh phải được thông báo cho khách hàng bằng lý do nghiệp vụ trung tính (ví dụ "cần bổ sung thông tin theo quy định"), không đề cập đến nghi ngờ rửa tiền.
+4. Trong thời gian chờ xác minh, hồ sơ và trao đổi liên quan STR được bảo mật ở mức Tối mật theo phân loại tại Quy định QĐ.TT.07, chỉ chia sẻ trong phạm vi cần biết.
+
+Điều 9. Lưu trữ hồ sơ và đào tạo
+1. Hồ sơ nhận biết khách hàng, giao dịch giá trị lớn, Phiếu ghi nhận dấu hiệu đáng ngờ và Báo cáo giao dịch đáng ngờ được lưu trữ tối thiểu 5 năm kể từ ngày kết thúc quan hệ với khách hàng hoặc ngày báo cáo, tuỳ thời điểm nào muộn hơn.
+2. Toàn thể cán bộ có tiếp xúc khách hàng hoặc xử lý giao dịch phải hoàn thành đào tạo AML/CFT hàng năm và đạt bài kiểm tra tối thiểu 80 điểm; cán bộ mới phải hoàn thành đào tạo trong 30 ngày kể từ ngày nhận việc.
+3. Phòng AML cập nhật danh sách cấm vận và danh sách cảnh báo nội bộ ngay khi có thông báo mới từ cơ quan có thẩm quyền, tối thiểu rà soát toàn bộ cơ sở khách hàng hiện hữu theo danh sách mới trong 5 ngày làm việc.
+
+CHƯƠNG V. TRÁCH NHIỆM VÀ CHẾ TÀI
+
+Điều 10. Trách nhiệm các cấp
+1. GDV, RM: nhận biết khách hàng ban đầu, phát hiện và báo cáo dấu hiệu đáng ngờ theo Điều 7, không tiết lộ thông tin theo Điều 8 khoản 2.
+2. KSV, Giám đốc ĐVKD: kiểm soát tuân thủ tại đơn vị, phê duyệt thiết lập quan hệ với khách hàng rủi ro cao theo Điều 3 khoản 3.
+3. Phòng AML thuộc Khối Pháp chế và Tuân thủ: đầu mối sàng lọc, thẩm định dấu hiệu đáng ngờ, lập và gửi STR, cập nhật danh sách cấm vận, tổ chức đào tạo toàn hàng.
+4. Cán bộ phụ trách tuân thủ AML (AML Compliance Officer) chịu trách nhiệm báo cáo Ban điều hành và Hội đồng Quản trị định kỳ về tình hình rủi ro rửa tiền của MSB.
+
+Điều 11. Chế tài vi phạm
+1. Không thực hiện sàng lọc hoặc bỏ qua cảnh báo trùng khớp: khiển trách, đào tạo lại; tái phạm hoặc gây hậu quả: cảnh cáo đến chấm dứt hợp đồng lao động.
+2. Vi phạm nguyên tắc tipping-off: xử lý kỷ luật ở mức cao nhất (chấm dứt hợp đồng lao động), có thể bị truy cứu trách nhiệm hình sự theo quy định pháp luật.
+3. Cố ý tiếp tay, che giấu giao dịch rửa tiền: chuyển hồ sơ cơ quan điều tra, đồng thời chấm dứt hợp đồng lao động ngay.
+
+Điều 12. Hiệu lực thi hành
+1. Quy định có hiệu lực từ ngày 01/01/2026, thay thế phiên bản 1.3.
+2. Thay đổi chính so với phiên bản 1.3: hạ ngưỡng báo cáo giao dịch giá trị lớn từ 500 triệu xuống 400 triệu đồng; bổ sung ngưỡng Travel Rule 1.000 USD cho chuyển tiền quốc tế; rút ngắn thời hạn xác nhận trùng khớp danh sách cấm vận từ 2 ngày xuống 1 ngày làm việc; rút ngắn thời hạn báo cáo STR từ 5 ngày xuống 3 ngày làm việc.

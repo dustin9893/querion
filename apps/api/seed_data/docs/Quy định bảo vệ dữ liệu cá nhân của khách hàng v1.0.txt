@@ -1,0 +1,92 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI PHÁP CHẾ VÀ TUÂN THỦ, TRUNG TÂM AN TOÀN THÔNG TIN
+QUY ĐỊNH BẢO VỆ DỮ LIỆU CÁ NHÂN CỦA KHÁCH HÀNG
+Số hiệu: QĐ.BVDL.14 — Phiên bản: 1.0 — Hiệu lực từ: 01/01/2026
+Đơn vị ban hành: Khối Pháp chế và Tuân thủ, phối hợp Trung tâm An toàn thông tin
+Áp dụng: Toàn bộ cán bộ, đơn vị của MSB có xử lý dữ liệu cá nhân của khách hàng, đối tác là cá nhân
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Căn cứ pháp lý và mục đích
+1. Quy định này được ban hành trên cơ sở Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 (có hiệu lực từ 01/01/2026), Luật Các tổ chức tín dụng, Luật An toàn thông tin mạng và các văn bản hướng dẫn liên quan.
+2. Mục đích: cụ thể hoá trách nhiệm của MSB với vai trò Bên Kiểm soát dữ liệu cá nhân và Bên Xử lý dữ liệu cá nhân, bảo đảm quyền của chủ thể dữ liệu và hạn chế rủi ro vi phạm pháp luật về bảo vệ dữ liệu cá nhân.
+3. Quy định này áp dụng cùng với Quy định về bảo mật thông tin khách hàng QĐ.TT.07; khi có mâu thuẫn về nội dung bảo vệ dữ liệu cá nhân, quy định này được ưu tiên áp dụng.
+
+Điều 2. Phân loại dữ liệu cá nhân
+1. Dữ liệu cá nhân cơ bản: họ tên, ngày sinh, giới tính, quốc tịch, số CCCD/hộ chiếu, địa chỉ, số điện thoại, email, ảnh chân dung, tình trạng hôn nhân, nghề nghiệp.
+2. Dữ liệu cá nhân nhạy cảm: dữ liệu tài chính (số dư, lịch sử giao dịch, thu nhập, xếp hạng tín dụng, thông tin vay/nợ), dữ liệu sinh trắc học (khuôn mặt, vân tay dùng để xác thực), dữ liệu về tôn giáo, tình trạng sức khoẻ, dữ liệu định vị và các dữ liệu khác pháp luật xác định là nhạy cảm.
+3. Dữ liệu tài chính và sinh trắc học của khách hàng được xử lý tại MSB mặc định là dữ liệu nhạy cảm, áp dụng biện pháp bảo vệ tăng cường theo Điều 4.
+
+Điều 3. Nguyên tắc xử lý dữ liệu cá nhân
+1. Nguyên tắc mục đích: chỉ thu thập, xử lý dữ liệu cá nhân cho mục đích đã thông báo cho chủ thể dữ liệu (mở tài khoản, cấp tín dụng, phòng chống rửa tiền, chăm sóc khách hàng), không sử dụng cho mục đích khác nếu chưa có sự đồng ý bổ sung.
+2. Nguyên tắc tối thiểu: chỉ thu thập dữ liệu cần thiết, tương xứng với mục đích xử lý; không thu thập dữ liệu nhạy cảm khi không thực sự cần thiết cho nghiệp vụ.
+3. Nguyên tắc đồng ý: việc xử lý dữ liệu cá nhân của khách hàng phải dựa trên sự đồng ý được thể hiện rõ ràng, trừ trường hợp pháp luật cho phép xử lý không cần đồng ý (nghĩa vụ pháp lý về phòng chống rửa tiền, yêu cầu của cơ quan có thẩm quyền).
+4. Nguyên tắc minh bạch: khách hàng được thông báo về mục đích, phạm vi, thời gian lưu trữ dữ liệu và quyền của mình trước hoặc tại thời điểm thu thập dữ liệu.
+5. Nguyên tắc chính xác và cập nhật: dữ liệu cá nhân phải được cập nhật khi có thay đổi và khách hàng có quyền yêu cầu chỉnh sửa theo Điều 5.
+
+CHƯƠNG II. QUYỀN CỦA CHỦ THỂ DỮ LIỆU
+
+Điều 4. Các quyền của chủ thể dữ liệu và thời hạn phản hồi
+1. Quyền được biết: khách hàng có quyền biết MSB xử lý dữ liệu của mình cho mục đích gì, MSB phản hồi yêu cầu cung cấp thông tin xử lý dữ liệu trong tối đa 72 giờ kể từ khi tiếp nhận yêu cầu hợp lệ.
+2. Quyền truy cập: khách hàng có quyền yêu cầu xem lại dữ liệu cá nhân MSB đang lưu giữ; MSB phản hồi trong tối đa 72 giờ đối với yêu cầu qua kênh điện tử đã xác thực, tối đa 5 ngày làm việc đối với yêu cầu bằng văn bản tại quầy.
+3. Quyền chỉnh sửa: khách hàng có quyền yêu cầu chỉnh sửa dữ liệu không chính xác; MSB xử lý và phản hồi trong tối đa 5 ngày làm việc kể từ khi xác minh yêu cầu.
+4. Quyền xoá dữ liệu: khách hàng có quyền yêu cầu xoá dữ liệu cá nhân khi không còn cơ sở pháp lý để xử lý (đã tất toán toàn bộ quan hệ, hết thời hạn lưu trữ bắt buộc); MSB xem xét và phản hồi trong tối đa 10 ngày làm việc, có thể từ chối nếu dữ liệu còn phải lưu trữ theo nghĩa vụ pháp luật (kế toán, phòng chống rửa tiền).
+5. Quyền rút lại sự đồng ý: khách hàng có quyền rút lại sự đồng ý đã cấp đối với các mục đích xử lý không bắt buộc (ví dụ nhận thông tin tiếp thị); việc rút đồng ý không ảnh hưởng đến tính hợp pháp của việc xử lý đã thực hiện trước đó.
+6. Quyền phản đối xử lý: khách hàng có quyền phản đối việc xử lý dữ liệu cho mục đích tiếp thị trực tiếp; MSB dừng xử lý cho mục đích đó trong tối đa 3 ngày làm việc kể từ khi nhận yêu cầu.
+7. Từ chối thực hiện quyền tại khoản 1 đến 6 phải được lập bằng văn bản, nêu rõ căn cứ pháp lý và gửi cho khách hàng trong cùng thời hạn phản hồi quy định tại khoản tương ứng.
+
+Điều 5. Quy trình tiếp nhận yêu cầu của khách hàng
+1. Kênh tiếp nhận: tại quầy giao dịch, qua tổng đài Trung tâm Dịch vụ khách hàng, qua ứng dụng MSB mBank (mục Bảo vệ dữ liệu cá nhân) hoặc văn bản gửi trực tiếp đến Khối Pháp chế và Tuân thủ.
+2. Xác thực: cán bộ tiếp nhận phải xác thực đúng chủ thể dữ liệu bằng CCCD gắn chip hoặc sinh trắc học trước khi tiếp nhận yêu cầu liên quan đến quyền truy cập, chỉnh sửa, xoá dữ liệu; không tiếp nhận yêu cầu từ người không xác thực được danh tính hoặc không có uỷ quyền hợp lệ.
+3. Mẫu yêu cầu: sử dụng mẫu "Yêu cầu thực hiện quyền của chủ thể dữ liệu" (Mẫu BVDL-01), ghi rõ loại quyền yêu cầu, phạm vi dữ liệu liên quan, thông tin liên hệ phản hồi.
+4. Toàn bộ yêu cầu tiếp nhận tại ĐVKD phải chuyển về Khối Pháp chế và Tuân thủ trong vòng 1 ngày làm việc để xử lý tập trung, bảo đảm áp dụng thống nhất thời hạn tại Điều 4.
+5. Yêu cầu không đủ thông tin xác thực hoặc không rõ ràng được phản hồi trong 2 ngày làm việc để khách hàng bổ sung; thời hạn xử lý chính thức được tính lại từ khi nhận đủ thông tin.
+
+CHƯƠNG III. CHUYỂN DỮ LIỆU VÀ BÊN THỨ BA
+
+Điều 6. Chuyển dữ liệu cá nhân ra nước ngoài
+1. MSB chỉ chuyển dữ liệu cá nhân của khách hàng ra nước ngoài khi cần thiết cho việc thực hiện giao dịch của khách hàng (ví dụ điện chuyển tiền quốc tế qua SWIFT gửi ngân hàng trung gian, ngân hàng thụ hưởng ở nước ngoài) hoặc khi có sự đồng ý của khách hàng.
+2. Việc chuyển dữ liệu ra nước ngoài phải đánh giá tác động theo hướng dẫn của cơ quan quản lý và có hồ sơ đánh giá tác động chuyển dữ liệu cá nhân ra nước ngoài (nếu thuộc trường hợp phải lập theo quy định pháp luật).
+3. Hợp đồng, thoả thuận với đối tác nước ngoài nhận dữ liệu phải có điều khoản bảo vệ dữ liệu cá nhân tương đương hoặc cao hơn quy định của MSB.
+
+Điều 7. Bên thứ ba xử lý dữ liệu (Bên Xử lý)
+1. Khi thuê ngoài một phần xử lý dữ liệu cá nhân (ví dụ đối tác chấm điểm tín dụng, đối tác gửi SMS/email marketing, đối tác thu hồi nợ), MSB phải ký hợp đồng xử lý dữ liệu cá nhân quy định rõ phạm vi, mục đích, thời hạn xử lý, biện pháp bảo mật và trách nhiệm khi xảy ra vi phạm.
+2. Đơn vị đề xuất thuê ngoài phải phối hợp Trung tâm An toàn thông tin đánh giá năng lực bảo mật của đối tác trước khi ký hợp đồng và định kỳ hàng năm trong quá trình hợp tác.
+3. Bên thứ ba chỉ được xử lý dữ liệu trong phạm vi hợp đồng, không được chuyển tiếp cho bên khác khi chưa có sự chấp thuận bằng văn bản của MSB.
+4. MSB có quyền yêu cầu bên thứ ba xoá hoặc trả lại toàn bộ dữ liệu cá nhân khi chấm dứt hợp đồng, có xác nhận bằng văn bản.
+
+Điều 8. Thời gian lưu trữ dữ liệu
+1. Dữ liệu định danh khách hàng (KYC) và hồ sơ mở tài khoản: lưu trữ tối thiểu 5 năm kể từ khi chấm dứt quan hệ theo quy định về phòng, chống rửa tiền.
+2. Dữ liệu giao dịch, chứng từ kế toán: lưu trữ theo thời hạn quy định của pháp luật về kế toán, tối thiểu 10 năm.
+3. Dữ liệu phục vụ tiếp thị, chăm sóc khách hàng dựa trên sự đồng ý riêng: lưu trữ đến khi khách hàng rút lại sự đồng ý hoặc tối đa 3 năm kể từ giao dịch gần nhất nếu khách hàng không có phản hồi.
+4. Hết thời hạn lưu trữ, dữ liệu phải được xoá hoặc ẩn danh hoá theo quy trình kỹ thuật của Trung tâm An toàn thông tin, có biên bản xác nhận.
+
+CHƯƠNG IV. SỰ CỐ, ĐÁNH GIÁ TÁC ĐỘNG VÀ CHẾ TÀI
+
+Điều 9. Thông báo vi phạm dữ liệu cá nhân
+1. Khi phát hiện sự cố vi phạm quy định về bảo vệ dữ liệu cá nhân (lộ lọt, truy cập trái phép, mất dữ liệu), cán bộ báo cáo Trung tâm An toàn thông tin trong 2 giờ theo Điều 7 QĐ.TT.07.
+2. Trung tâm An toàn thông tin phối hợp Khối Pháp chế và Tuân thủ đánh giá mức độ nghiêm trọng; nếu sự cố có khả năng gây thiệt hại đến quyền và lợi ích của chủ thể dữ liệu, MSB thông báo cho cơ quan quản lý nhà nước có thẩm quyền trong tối đa 72 giờ kể từ khi phát hiện.
+3. Trường hợp sự cố có nguy cơ cao ảnh hưởng đến chủ thể dữ liệu (ví dụ lộ dữ liệu tài chính, sinh trắc học trên diện rộng), MSB thông báo cho khách hàng bị ảnh hưởng qua kênh phù hợp (SMS, email, ứng dụng) trong thời gian sớm nhất có thể, không muộn hơn thông báo cho cơ quan quản lý.
+4. Hồ sơ sự cố và biện pháp khắc phục phải lưu trữ tối thiểu 3 năm phục vụ thanh tra, kiểm tra.
+
+Điều 10. Đánh giá tác động bảo vệ dữ liệu cá nhân (DPIA)
+1. Mọi hệ thống, sản phẩm, dịch vụ mới có xử lý dữ liệu cá nhân ở quy mô lớn hoặc dữ liệu nhạy cảm (bao gồm trợ lý trí tuệ nhân tạo phục vụ khách hàng) phải thực hiện đánh giá tác động bảo vệ dữ liệu cá nhân trước khi triển khai chính thức.
+2. DPIA đánh giá: loại dữ liệu xử lý, mục đích, rủi ro đối với chủ thể dữ liệu, biện pháp giảm thiểu rủi ro và biện pháp bảo mật kỹ thuật, tổ chức áp dụng.
+3. Kết quả DPIA phải được Khối Pháp chế và Tuân thủ phê duyệt trước khi hệ thống được đưa vào vận hành; hệ thống có rủi ro cao chưa khắc phục không được triển khai.
+4. Đối với trợ lý AI phục vụ khách hàng không có tài khoản đăng nhập (khách hàng ẩn danh qua trang công khai hoặc widget nhúng), hệ thống không được lưu trữ bộ nhớ cá nhân dài hạn về khách hàng đó, vì khách hàng ẩn danh không có cơ chế xác thực để thực hiện các quyền tại Điều 4; ngữ cảnh hội thoại chỉ lưu trong phạm vi phiên làm việc theo chính sách log thông thường, không xây dựng thành hồ sơ hành vi lâu dài gắn với một cá nhân cụ thể.
+5. Trợ lý AI phục vụ cán bộ có thể lưu bộ nhớ cá nhân về cách làm việc của chính cán bộ đó (không phải về khách hàng), theo cơ chế riêng do Khối Công nghệ thiết kế và phải qua DPIA trước khi bật cho từng đơn vị.
+
+Điều 11. Mối quan hệ với các quy định khác
+1. Việc bảo mật thông tin khách hàng nói chung tiếp tục thực hiện theo QĐ.TT.07; quy định này bổ sung các quyền và thời hạn cụ thể theo Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15.
+2. Việc cung cấp dữ liệu cá nhân cho cơ quan nhà nước có thẩm quyền hoặc bên thứ ba theo yêu cầu pháp lý thực hiện theo Hướng dẫn cung cấp thông tin cho cơ quan nhà nước và bên thứ ba HD.CCTT.PC.15.
+
+Điều 12. Chế tài
+1. Cán bộ vi phạm nguyên tắc xử lý dữ liệu cá nhân (thu thập vượt mục đích, không xác thực chủ thể dữ liệu trước khi cung cấp thông tin) lần đầu không gây thiệt hại: khiển trách, đào tạo lại.
+2. Vi phạm gây ảnh hưởng đến quyền của chủ thể dữ liệu hoặc tái phạm: cảnh cáo, hạ bậc lương hoặc chấm dứt hợp đồng lao động tuỳ mức độ.
+3. Vi phạm có dấu hiệu vi phạm pháp luật về bảo vệ dữ liệu cá nhân được chuyển cơ quan có thẩm quyền xử lý theo Luật số 91/2025/QH15 và pháp luật liên quan.
+
+Điều 13. Hiệu lực thi hành
+1. Quy định có hiệu lực từ ngày 01/01/2026, cùng thời điểm Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 có hiệu lực.
+2. Đây là văn bản ban hành lần đầu (phiên bản 1.0), cụ thể hoá các quyền của chủ thể dữ liệu chưa được quy định chi tiết tại QĐ.TT.07.
+3. Các đơn vị có trách nhiệm phổ biến quy định này đến toàn thể cán bộ; vướng mắc phản ánh về Khối Pháp chế và Tuân thủ.

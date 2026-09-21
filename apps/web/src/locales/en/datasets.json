@@ -1,0 +1,89 @@
+{
+  "title": "Knowledge Bases",
+  "description": "Manage collections of business documents (processes, policies, products, fee schedules) used by assistants.",
+  "createDataset": "Create knowledge base",
+  "empty": {
+    "title": "No knowledge bases yet",
+    "description": "Create your first knowledge base and upload documents to get started."
+  },
+  "modal": {
+    "title": "Create knowledge base",
+    "nameLabel": "Name",
+    "namePlaceholder": "e.g. Corporate credit processes & policies",
+    "descLabel": "Description",
+    "descPlaceholder": "Short description of the documents in this knowledge base",
+    "visibilityLabel": "Visibility",
+    "cancel": "Cancel",
+    "create": "Create",
+    "creating": "Creating..."
+  },
+  "visibility": {
+    "label": "Visibility",
+    "internal": "Internal",
+    "internalHint": "Staff only; cannot back a customer-facing assistant",
+    "public": "Public",
+    "publicHint": "Usable by customer-facing assistants (fees, products, FAQ)"
+  },
+  "docType": {
+    "quy_trinh": "Process",
+    "quy_dinh": "Policy",
+    "huong_dan": "Guideline",
+    "san_pham": "Product",
+    "bieu_phi": "Fee schedule",
+    "mau_bieu": "Template / form",
+    "faq": "FAQ"
+  },
+  "table": {
+    "name": "Name",
+    "documents": "Documents",
+    "visibility": "Visibility",
+    "created": "Created",
+    "actions": "Actions"
+  },
+  "detail": {
+    "documents": "documents",
+    "upload": "Upload documents",
+    "noDocuments": "No documents yet. Upload files to start indexing.",
+    "filename": "Document",
+    "meta": "Type · Version · Effective",
+    "size": "Size",
+    "status": "Status",
+    "uploadedAt": "Uploaded",
+    "actions": "Actions",
+    "deleteConfirm": "Delete this document? Its index will be removed.",
+    "index": "Index",
+    "toggleVisibility": "Toggle visibility",
+    "chat": "Test chat",
+    "enabled": "Used by AI",
+    "enabledHint": "Turn off so assistants stop retrieving this document. The file and index are kept; turning it back on takes effect immediately.",
+    "enable": "Turn on for AI retrieval",
+    "disable": "Turn off: AI stops retrieving this document",
+    "disabled": "Disabled",
+    "disabledAt": "Disabled at",
+    "disabledCount": "disabled",
+    "enableFailed": "Could not change the document status"
+  },
+  "chunks": {
+    "title": "Chunk preview",
+    "empty": "No chunks found",
+    "prev": "Prev",
+    "next": "Next"
+  },
+  "upload": {
+    "title": "Drag & drop files or click to upload",
+    "subtitle": "PDF, DOCX, TXT up to 50MB. Files are split by clause (Điều/Khoản) and indexed automatically.",
+    "uploading": "Uploading...",
+    "docTypeLabel": "Document type",
+    "versionLabel": "Version",
+    "effectiveLabel": "Effective from",
+    "metaHint": "Shown in answer citations; applies to every file in this upload batch."
+  },
+  "status": {
+    "uploaded": "Uploaded",
+    "indexing": "Indexing",
+    "ready": "Ready",
+    "failed": "Failed"
+  },
+  "deleteConfirm": "Delete this knowledge base? All documents and indexes will be removed.",
+  "deleted": "Knowledge base deleted"
+}

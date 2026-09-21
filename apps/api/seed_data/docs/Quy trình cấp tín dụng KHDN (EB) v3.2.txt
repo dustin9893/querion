@@ -1,0 +1,93 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG DOANH NGHIỆP
+QUY TRÌNH CẤP TÍN DỤNG KHÁCH HÀNG DOANH NGHIỆP (EB)
+Số hiệu: QT.TD.EB.01 — Phiên bản: 3.2 — Hiệu lực từ: 01/03/2026
+Đơn vị ban hành: Khối Khách hàng Doanh nghiệp, phối hợp Khối Quản trị Rủi ro
+Thay thế: QT.TD.EB.01 phiên bản 3.1 (hiệu lực 01/09/2025)
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Phạm vi và đối tượng áp dụng
+1. Quy trình này quy định trình tự khởi tạo, thẩm định, phê duyệt, soạn thảo hợp đồng, giải ngân và kiểm soát sau cho vay đối với khách hàng doanh nghiệp (phân khúc EB) tại MSB, bao gồm các phân khúc SME, M.SME, FDI và khách hàng chiến lược (KHCL).
+2. Áp dụng cho các sản phẩm: cho vay từng lần, cho vay theo hạn mức tín dụng, thấu chi doanh nghiệp, bảo lãnh và phát hành L/C.
+3. Không áp dụng cho khách hàng cá nhân (phân khúc RB) và các khoản cấp tín dụng cho định chế tài chính.
+
+Điều 2. Giải thích từ ngữ
+1. RM (Relationship Manager): Chuyên viên quan hệ khách hàng tại Đơn vị kinh doanh (ĐVKD), chịu trách nhiệm tiếp nhận nhu cầu, thu thập hồ sơ và lập đề xuất cấp tín dụng.
+2. CA (Credit Analyst): Chuyên viên thẩm định tín dụng, độc lập với ĐVKD, thực hiện phân tích tài chính và đánh giá rủi ro.
+3. CCO1, CCO2 (Chief Credit Officer cấp 1, cấp 2): Các cấp phê duyệt tín dụng theo phân quyền. CCO1 phê duyệt khoản cấp tín dụng đến 20 tỷ đồng; CCO2 phê duyệt trên 20 tỷ đến 80 tỷ đồng; trên 80 tỷ đồng trình Hội đồng Tín dụng (HĐTD).
+4. TSBĐ: Tài sản bảo đảm cho nghĩa vụ trả nợ của khách hàng, quy định chi tiết tại Quy định QĐ.TSBĐ.02.
+5. Hồ sơ ECM: Bộ hồ sơ điện tử lưu trữ trên hệ thống quản lý nội dung (ECM), được phân loại theo nhóm mã như HSTTKH (thông tin khách hàng), HSTDTC (tài chính), HSTSDB (tài sản bảo đảm), HSPD (phê duyệt), HSST (soạn thảo), HSGN (giải ngân), HSKSS (kiểm soát sau).
+6. Trạng thái STEB: Mã trạng thái hồ sơ tín dụng EB trên hệ thống BPM, quy định tại Điều 9.
+7. Luồng nhanh (FAST) và luồng thường (NORMAL): Hai biến thể xử lý hồ sơ theo mức độ rủi ro và giá trị khoản cấp tín dụng, quy định tại Điều 4 khoản 4.
+
+CHƯƠNG II. TRÌNH TỰ CẤP TÍN DỤNG
+
+Điều 3. Khởi tạo hồ sơ
+1. RM tiếp nhận nhu cầu của khách hàng, kiểm tra điều kiện sơ bộ: doanh nghiệp hoạt động tối thiểu 24 tháng, không có nợ nhóm 2 trở lên tại MSB và các tổ chức tín dụng khác theo tra cứu CIC trong 12 tháng gần nhất, ngành nghề không thuộc danh mục hạn chế cấp tín dụng.
+2. RM thu thập bộ hồ sơ pháp lý (giấy chứng nhận đăng ký doanh nghiệp, điều lệ, quyết định bổ nhiệm người đại diện), hồ sơ tài chính (báo cáo tài chính 2 năm gần nhất, tờ khai thuế, sao kê tài khoản 12 tháng) và hồ sơ phương án vay vốn (HSPAVV).
+3. RM khởi tạo hồ sơ trên hệ thống BPM, đính kèm chứng từ theo checklist rule ST-EB tương ứng với sản phẩm và phân khúc. Hệ thống tự động gán trạng thái STEB02 "Gửi yêu cầu".
+4. Thời gian hoàn thiện khởi tạo: không quá 3 ngày làm việc kể từ khi nhận đủ hồ sơ từ khách hàng.
+
+Điều 4. Thẩm định tín dụng
+1. CA tiếp nhận hồ sơ từ RM, thực hiện thẩm định trên các nội dung: năng lực pháp lý, tình hình tài chính, hiệu quả phương án vay vốn, nguồn trả nợ, tài sản bảo đảm và lịch sử tín dụng.
+2. CA lập Tờ trình thẩm định theo mẫu MB09, chấm điểm xếp hạng tín dụng nội bộ (XHTD) và đề xuất mức cấp tín dụng, thời hạn, lãi suất, điều kiện kèm theo.
+3. Trường hợp hồ sơ thiếu chứng từ, CA chuyển trạng thái STEB07 "Chờ bổ sung" và ghi rõ danh mục cần bổ sung. RM phải bổ sung trong 5 ngày làm việc; quá hạn hệ thống tự động chuyển STEB12 "Hủy".
+4. Phân luồng xử lý:
+a) Luồng nhanh (FAST): áp dụng cho khoản cấp tín dụng đến 5 tỷ đồng, có TSBĐ là bất động sản hoặc tiền gửi tại MSB, XHTD từ hạng A trở lên. Thời gian thẩm định tối đa 2 ngày làm việc.
+b) Luồng thường (NORMAL): các trường hợp còn lại. Thời gian thẩm định tối đa 5 ngày làm việc.
+5. Khoản cấp tín dụng có TSBĐ là bất động sản phải có kết quả xác minh thực địa (HSXMTD) trước khi trình phê duyệt; trạng thái hồ sơ trong thời gian này là STEB01_0 "Chờ xác minh thực địa".
+
+Điều 5. Phê duyệt tín dụng
+1. Hồ sơ sau thẩm định được chuyển phê duyệt theo phân quyền tại Điều 2 khoản 3. Trạng thái hồ sơ khi trình là STEB03 "Chuyển duyệt".
+2. Cấp phê duyệt xem xét Tờ trình thẩm định và ra một trong các quyết định: phê duyệt, phê duyệt có điều kiện, yêu cầu bổ sung (STEB08 "Cần bổ sung"), yêu cầu soạn lại tờ trình (STEB09 "Soạn lại") hoặc từ chối (STEB14 "Hủy do từ chối").
+3. Kết quả phê duyệt được lập thành Biên bản phê duyệt tín dụng theo mẫu MB10A (phê duyệt mới) hoặc MB10B (phê duyệt điều chỉnh). Hồ sơ chuyển trạng thái STEB01 "Hoàn thành phê duyệt".
+4. Thời hạn hiệu lực của phê duyệt là 90 ngày kể từ ngày ký Biên bản phê duyệt. Quá thời hạn mà chưa giải ngân, RM phải trình điều chỉnh phê duyệt (STEB23 "Điều chỉnh phê duyệt").
+5. Nguyên tắc bốn mắt: người thẩm định (CA) không đồng thời là người phê duyệt; RM không được tham gia phê duyệt hồ sơ do mình khởi tạo.
+
+Điều 6. Soạn thảo hợp đồng và văn kiện tín dụng
+1. Sau khi có Biên bản phê duyệt, bộ phận Soạn thảo tại Trung tâm Xử lý tín dụng tập trung (CPC) lập bộ văn kiện tín dụng gồm: Hợp đồng tín dụng (hoặc Hợp đồng tín dụng hạn mức), Hợp đồng thế chấp/cầm cố, Giấy nhận nợ và các phụ lục.
+2. Mẫu biểu được hệ thống sinh tự động từ rule chọn template theo loại TSBĐ và sản phẩm: EB_CO_TS (có TSBĐ), EB_KHONG_TS (không TSBĐ), EB_SME_TDLH_ECS và EB_SME_TDLH_EGD (sản phẩm Tín dụng linh hoạt). Trạng thái hồ sơ trong giai đoạn này là STEB20 "Đang soạn thảo".
+3. Hợp đồng thế chấp bất động sản phải được công chứng và đăng ký giao dịch bảo đảm theo Điều 6 Quy định QĐ.TSBĐ.02 trước khi giải ngân.
+4. Hồ sơ soạn thảo lưu nhóm HSST trên ECM. Thời gian soạn thảo tối đa 2 ngày làm việc kể từ khi nhận đủ thông tin.
+
+Điều 7. Giải ngân
+1. Điều kiện, checklist chứng từ và luồng xử lý giải ngân thực hiện theo Hướng dẫn HD.GN.03. Hồ sơ giải ngân lưu nhóm HSGN.
+2. Giải ngân chỉ được thực hiện khi hồ sơ ở trạng thái STEB01 "Hoàn thành phê duyệt" hoặc STEB10 "Hoàn thành", các điều kiện tiên quyết trong Biên bản phê duyệt đã được đáp ứng và văn kiện tín dụng đã ký đầy đủ.
+3. Sau lần giải ngân cuối cùng của khoản vay từng lần, hồ sơ chuyển trạng thái STEB10 "Hoàn thành".
+
+Điều 8. Kiểm soát sau cho vay
+1. RM kiểm tra mục đích sử dụng vốn trong 30 ngày kể từ ngày giải ngân và định kỳ 6 tháng một lần đối với khoản vay còn dư nợ; đối với khoản vay có dấu hiệu cảnh báo sớm (HSCBS), tần suất kiểm tra là hàng tháng.
+2. Biên bản kiểm tra sử dụng vốn và báo cáo kiểm soát sau lưu nhóm HSKSS trên ECM.
+3. Trường hợp phát hiện khách hàng sử dụng vốn sai mục đích, RM báo cáo Giám đốc ĐVKD và bộ phận Quản lý nợ trong 1 ngày làm việc để thu hồi nợ trước hạn theo hợp đồng.
+
+CHƯƠNG III. TRẠNG THÁI HỒ SƠ VÀ THỜI GIAN XỬ LÝ
+
+Điều 9. Bảng trạng thái hồ sơ STEB
+1. STEB00: Nháp — RM đang khởi tạo, chưa gửi.
+2. STEB02: Gửi yêu cầu — hồ sơ đã gửi sang thẩm định.
+3. STEB01_0: Chờ xác minh thực địa — chờ kết quả HSXMTD.
+4. STEB07: Chờ bổ sung — CA yêu cầu RM bổ sung chứng từ.
+5. STEB03: Chuyển duyệt — đang chờ cấp phê duyệt.
+6. STEB08: Cần bổ sung — cấp phê duyệt yêu cầu bổ sung.
+7. STEB09: Soạn lại — cấp phê duyệt yêu cầu soạn lại tờ trình; hồ sơ quay về CA, giữ nguyên số hồ sơ và lịch sử.
+8. STEB01: Hoàn thành phê duyệt — đã có Biên bản phê duyệt.
+9. STEB20: Đang soạn thảo — CPC đang lập văn kiện.
+10. STEB23: Điều chỉnh phê duyệt — đang trình điều chỉnh nội dung đã phê duyệt.
+11. STEB10: Hoàn thành — đã giải ngân xong hoặc hạn mức đã mở.
+12. STEB12: Hủy — quá hạn bổ sung hoặc khách hàng rút yêu cầu.
+13. STEB14: Hủy do từ chối — cấp phê duyệt từ chối.
+14. STEB13: Đóng — khoản vay đã tất toán.
+
+Điều 10. Cam kết thời gian xử lý (SLA)
+1. Tổng thời gian từ khi nhận đủ hồ sơ đến khi có kết quả phê duyệt: luồng FAST tối đa 5 ngày làm việc; luồng NORMAL tối đa 10 ngày làm việc; hồ sơ trình HĐTD tối đa 15 ngày làm việc.
+2. Thời gian tính SLA không bao gồm thời gian hồ sơ ở trạng thái chờ bổ sung (STEB07, STEB08) do lỗi của khách hàng.
+3. Hệ thống BPM tự động cảnh báo qua email khi hồ sơ vượt 80% SLA của từng bước.
+
+CHƯƠNG IV. TỔ CHỨC THỰC HIỆN
+
+Điều 11. Hiệu lực thi hành
+1. Quy trình này có hiệu lực từ ngày 01/03/2026 và thay thế phiên bản 3.1.
+2. Điểm thay đổi chính so với phiên bản 3.1: nâng ngưỡng luồng FAST từ 3 tỷ lên 5 tỷ đồng; bổ sung trạng thái STEB01_0 và yêu cầu xác minh thực địa bắt buộc với TSBĐ là bất động sản; rút ngắn thời gian soạn thảo từ 3 xuống 2 ngày làm việc.
+3. Các đơn vị liên quan có trách nhiệm phổ biến và tổ chức thực hiện. Vướng mắc phản ánh về Phòng Chính sách tín dụng doanh nghiệp.

@@ -1,0 +1,81 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI PHÁP CHẾ VÀ TUÂN THỦ
+HƯỚNG DẪN CUNG CẤP THÔNG TIN CHO CƠ QUAN NHÀ NƯỚC VÀ BÊN THỨ BA
+Số hiệu: HD.CCTT.PC.15 — Phiên bản: 1.1 — Hiệu lực từ: 01/03/2026
+Đơn vị ban hành: Khối Pháp chế và Tuân thủ
+Áp dụng: Toàn bộ Đơn vị kinh doanh, Khối Pháp chế và Tuân thủ, các đơn vị tiếp nhận yêu cầu cung cấp thông tin khách hàng
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Mục đích và nguyên tắc bảo mật
+1. Hướng dẫn này quy định trình tự tiếp nhận, thẩm định và cung cấp thông tin khách hàng cho cơ quan nhà nước có thẩm quyền và bên thứ ba, bảo đảm tuân thủ nguyên tắc bảo mật thông tin khách hàng theo Luật Các tổ chức tín dụng.
+2. Nguyên tắc chung: MSB giữ bí mật thông tin khách hàng và chỉ cung cấp khi có căn cứ pháp lý rõ ràng; mọi trường hợp cung cấp đều phải được ghi nhận, lưu vết và chịu trách nhiệm giải trình khi cần.
+3. Đơn vị kinh doanh không tự ý cung cấp thông tin khách hàng cho bất kỳ tổ chức, cá nhân bên ngoài nào mà không qua thẩm định của Khối Pháp chế và Tuân thủ, trừ trường hợp có hướng dẫn cụ thể khác bằng văn bản của Ban điều hành.
+
+Điều 2. Các cơ quan có quyền yêu cầu cung cấp thông tin
+1. Cơ quan điều tra (Công an các cấp, Cơ quan Cảnh sát điều tra) khi có quyết định khởi tố vụ án, khởi tố bị can hoặc văn bản yêu cầu phục vụ điều tra theo thẩm quyền.
+2. Toà án nhân dân các cấp khi giải quyết vụ án dân sự, hình sự, kinh tế có liên quan đến khách hàng.
+3. Cơ quan thi hành án dân sự khi thực hiện quyết định, bản án đã có hiệu lực pháp luật liên quan đến tài sản, tài khoản của khách hàng.
+4. Cơ quan thuế khi thực hiện thanh tra, kiểm tra thuế theo quy định của Luật Quản lý thuế.
+5. Thanh tra, giám sát Ngân hàng Nhà nước khi thực hiện chức năng thanh tra, giám sát hoạt động của MSB.
+6. Các cơ quan khác có thẩm quyền theo quy định của pháp luật chuyên ngành (Kiểm toán Nhà nước, Uỷ ban Chứng khoán Nhà nước đối với nghiệp vụ liên quan).
+
+Điều 3. Yêu cầu về hình thức văn bản
+1. Yêu cầu cung cấp thông tin khách hàng phải bằng văn bản (bản giấy có chữ ký, con dấu hợp lệ hoặc văn bản điện tử có chữ ký số hợp lệ), nêu rõ căn cứ pháp lý, phạm vi thông tin cần cung cấp và mục đích sử dụng.
+2. Không tiếp nhận và không xử lý yêu cầu qua điện thoại, email cá nhân, tin nhắn hoặc yêu cầu bằng văn bản không xác định được nguồn gốc, không có căn cứ pháp lý cụ thể.
+3. Trường hợp yêu cầu quá khẩn cấp không thể chờ văn bản chính thức (ví dụ nguy cơ tẩu tán tài sản trong án hình sự nghiêm trọng), cơ quan yêu cầu phải gửi văn bản chính thức bổ sung trong vòng 3 ngày làm việc kể từ khi có yêu cầu ban đầu; MSB ghi nhận và xử lý theo Điều 5 khoản 4 về trường hợp khẩn.
+
+CHƯƠNG II. QUY TRÌNH TIẾP NHẬN VÀ THẨM ĐỊNH
+
+Điều 4. Tiếp nhận tại Đơn vị kinh doanh
+1. Khi cơ quan nhà nước hoặc bên thứ ba đến trực tiếp yêu cầu cung cấp thông tin khách hàng, Đơn vị kinh doanh (ĐVKD) tiếp nhận văn bản, không tự trả lời hoặc cung cấp bất kỳ thông tin nào tại chỗ.
+2. ĐVKD scan/chuyển bản gốc văn bản yêu cầu về Khối Pháp chế và Tuân thủ trong tối đa 1 ngày làm việc kể từ khi tiếp nhận, kèm biên bản ghi nhận thông tin người đến làm việc (họ tên, chức danh, đơn vị công tác, giấy tờ chứng minh).
+3. ĐVKD không xác nhận hay phủ nhận việc khách hàng có quan hệ với MSB cho bất kỳ ai đến hỏi trực tiếp mà chưa qua quy trình thẩm định này.
+
+Điều 5. Thẩm định và cung cấp thông tin
+1. Khối Pháp chế và Tuân thủ thẩm định tính hợp pháp của yêu cầu: đúng thẩm quyền cơ quan ban hành, đúng căn cứ pháp lý, phạm vi yêu cầu phù hợp với mục đích nêu.
+2. Thời hạn xử lý và phản hồi thông thường: tối đa 5 ngày làm việc kể từ khi Khối Pháp chế và Tuân thủ nhận đủ hồ sơ hợp lệ.
+3. Thời hạn xử lý khẩn cấp (yêu cầu ghi rõ tính chất khẩn, có nguy cơ tẩu tán tài sản hoặc phục vụ điều tra án nghiêm trọng): tối đa 24 giờ kể từ khi nhận yêu cầu hợp lệ, có thể cung cấp trước và hoàn thiện hồ sơ đầy đủ sau theo Điều 3 khoản 3.
+4. Yêu cầu không đủ căn cứ pháp lý hoặc vượt phạm vi thẩm quyền của cơ quan yêu cầu bị từ chối bằng văn bản, nêu rõ lý do và hướng dẫn bổ sung nếu có thể.
+5. Việc cung cấp thông tin phải lập biên bản giao nhận, ghi rõ danh mục tài liệu/thông tin đã cung cấp, có chữ ký của đại diện hai bên hoặc xác nhận giao nhận điện tử.
+
+Điều 6. Phạm vi cung cấp thông tin tối thiểu
+1. Chỉ cung cấp đúng phạm vi thông tin được yêu cầu và cần thiết cho mục đích nêu trong văn bản, không cung cấp thừa thông tin không liên quan.
+2. Trường hợp văn bản yêu cầu chung chung, không xác định rõ phạm vi, Khối Pháp chế và Tuân thủ liên hệ cơ quan yêu cầu để làm rõ trước khi cung cấp, tránh cung cấp vượt mức cần thiết.
+3. Thông tin cung cấp cho cơ quan thuế, thanh tra Ngân hàng Nhà nước giới hạn trong phạm vi thẩm quyền thanh tra, kiểm tra được nêu trong quyết định thanh tra, kiểm tra tương ứng.
+
+CHƯƠNG III. PHONG TOẢ, TRÍCH TIỀN VÀ CÁC TRƯỜNG HỢP TỪ CHỐI
+
+Điều 7. Phong toả và trích tiền theo quyết định của cơ quan có thẩm quyền
+1. MSB thực hiện phong toả tài khoản, trích tiền chuyển cho cơ quan thi hành án hoặc cơ quan có thẩm quyền khác khi có quyết định, bản án đã có hiệu lực pháp luật hoặc văn bản yêu cầu đúng thẩm quyền theo quy định pháp luật thi hành án, tố tụng.
+2. Thời hạn thực hiện phong toả/trích tiền: trong ngày làm việc nhận được quyết định hợp lệ đối với trường hợp khẩn, tối đa 1 ngày làm việc đối với trường hợp thông thường.
+3. Khối Pháp chế và Tuân thủ chịu trách nhiệm rà soát tính hợp lệ của quyết định trước khi chuyển ĐVKD hoặc Trung tâm Xử lý giao dịch tập trung thực hiện thao tác nghiệp vụ; ĐVKD không tự ý thực hiện phong toả/trích tiền khi chưa có xác nhận của Khối Pháp chế và Tuân thủ, trừ quyết định gửi trực tiếp có đóng dấu hoả tốc kèm hướng dẫn xử lý riêng.
+
+Điều 8. Yêu cầu từ luật sư, người thân, công ty đòi nợ
+1. Yêu cầu cung cấp thông tin từ luật sư đại diện khách hàng chỉ được xử lý khi có văn bản uỷ quyền hợp lệ của khách hàng (có công chứng hoặc xác thực tại MSB) xác định rõ phạm vi uỷ quyền.
+2. Yêu cầu từ người thân của khách hàng (vợ/chồng, con, cha mẹ) không đương nhiên được cung cấp thông tin tài khoản, giao dịch của khách hàng, trừ trường hợp có uỷ quyền hợp lệ, là người giám hộ hợp pháp theo quy định, hoặc khách hàng đã qua đời và người thân xuất trình đủ giấy tờ thừa kế theo hướng dẫn riêng về tài khoản người đã mất.
+3. Yêu cầu từ công ty mua bán nợ, công ty đòi nợ thuê không có hợp đồng hợp tác chính thức với MSB hoặc không có uỷ quyền hợp lệ của khách hàng: từ chối cung cấp mọi thông tin.
+4. Mọi trường hợp từ chối theo Điều này phải thông báo bằng văn bản cho bên yêu cầu, nêu rõ lý do và căn cứ.
+
+Điều 9. Kênh cung cấp và lưu trữ hồ sơ
+1. Không cung cấp thông tin khách hàng qua điện thoại, email cá nhân, ứng dụng nhắn tin cá nhân dưới bất kỳ hình thức nào, kể cả khi người yêu cầu tự xưng là cán bộ cơ quan nhà nước.
+2. Việc cung cấp chỉ thực hiện qua văn bản giấy có đóng dấu, hệ thống trao đổi văn bản điện tử liên thông với cơ quan nhà nước (nếu có), hoặc kênh do Khối Pháp chế và Tuân thủ chỉ định cho từng trường hợp.
+3. Hồ sơ tiếp nhận, thẩm định và cung cấp thông tin (bao gồm văn bản yêu cầu, biên bản giao nhận, văn bản từ chối nếu có) được lưu trữ tối thiểu 10 năm tại Khối Pháp chế và Tuân thủ.
+
+CHƯƠNG IV. PHÁT NGÔN VÀ CHẾ TÀI
+
+Điều 10. Phát ngôn với báo chí và truyền thông
+1. Chỉ Khối Pháp chế và Tuân thủ hoặc người được Ban điều hành uỷ quyền mới được phát ngôn chính thức với báo chí về các vụ việc liên quan đến khách hàng, tranh chấp, sự cố.
+2. Cán bộ, ĐVKD không tự ý trả lời phỏng vấn, cung cấp thông tin, hình ảnh, tài liệu liên quan đến khách hàng hoặc vụ việc đang xử lý cho báo chí dưới bất kỳ hình thức nào; mọi liên hệ từ báo chí được chuyển ngay về Khối Pháp chế và Tuân thủ.
+3. Vi phạm khoản 2 bị xử lý theo Điều 11, kể cả khi thông tin cung cấp là đúng sự thật, do vi phạm nguyên tắc phát ngôn thống nhất và bảo mật thông tin khách hàng.
+
+Điều 11. Chế tài
+1. Cung cấp thông tin khách hàng không đúng thẩm quyền, không qua thẩm định của Khối Pháp chế và Tuân thủ: khiển trách đến cảnh cáo tuỳ mức độ, kể cả khi bên nhận thông tin có vẻ hợp pháp.
+2. Cung cấp thông tin cho bên không có quyền (công ty đòi nợ không hợp lệ, người thân không có uỷ quyền, báo chí không qua Khối Pháp chế và Tuân thủ) gây thiệt hại cho khách hàng: cảnh cáo đến chấm dứt hợp đồng lao động, đồng thời MSB xem xét trách nhiệm bồi thường theo hợp đồng khách hàng.
+3. Cố ý làm lộ thông tin phục vụ mục đích cá nhân hoặc trục lợi: chuyển cơ quan điều tra xử lý theo pháp luật.
+
+Điều 12. Hiệu lực thi hành
+1. Hướng dẫn có hiệu lực từ ngày 01/03/2026, thay thế phiên bản 1.0.
+2. Thay đổi chính so với phiên bản 1.0: bổ sung Điều 5 khoản 3 về thời hạn xử lý khẩn cấp 24 giờ; bổ sung Điều 8 về yêu cầu từ luật sư, người thân, công ty đòi nợ; làm rõ mối quan hệ với Quy định bảo vệ dữ liệu cá nhân QĐ.BVDL.14 tại các trường hợp phong toả, trích tiền.
+3. Các đơn vị có trách nhiệm phổ biến hướng dẫn này đến toàn thể cán bộ liên quan; vướng mắc phản ánh về Khối Pháp chế và Tuân thủ.

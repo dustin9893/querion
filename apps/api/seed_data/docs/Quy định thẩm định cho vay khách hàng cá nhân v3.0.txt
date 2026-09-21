@@ -1,0 +1,93 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG CÁ NHÂN
+QUY ĐỊNH THẨM ĐỊNH CHO VAY KHÁCH HÀNG CÁ NHÂN (RB)
+Số hiệu: QĐ.TĐ.RB.03 — Phiên bản: 3.0 — Hiệu lực từ: 01/04/2026
+Đơn vị ban hành: Khối Khách hàng Cá nhân, phối hợp Khối Quản trị Rủi ro
+Phân loại: Tài liệu nội bộ — không cung cấp cho khách hàng
+Văn bản liên quan: SP.RB.05 (Cẩm nang sản phẩm cho vay KHCN), QĐ.TSBĐ.02 (Quy định TSBĐ)
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Phạm vi áp dụng
+1. Quy định này quy định nội dung, phương pháp thẩm định và thẩm quyền phê duyệt đối với các khoản cho vay khách hàng cá nhân (RB) tại MSB, áp dụng cho các sản phẩm quy định tại Cẩm nang SP.RB.05.
+2. Đây là tài liệu nội bộ dùng cho CA/RM và cấp phê duyệt; không cung cấp, trích dẫn cho khách hàng dưới bất kỳ hình thức nào.
+3. Không áp dụng cho khách hàng doanh nghiệp (EB); thẩm định khách hàng doanh nghiệp thực hiện theo HD.TĐ.EB.05.
+
+Điều 2. Nguồn thu nhập được chấp nhận và hệ số quy đổi
+1. Thu nhập từ lương chuyển khoản qua tài khoản MSB hoặc tổ chức tín dụng khác, có sao kê tối thiểu 3 tháng gần nhất: hệ số quy đổi 100%.
+2. Thu nhập từ lương/thù lao nhận tiền mặt, có xác nhận của đơn vị chi trả: hệ số quy đổi 70%.
+3. Thu nhập từ cho thuê tài sản (nhà, đất, phương tiện) có hợp đồng thuê còn hiệu lực tối thiểu 6 tháng và chứng từ nhận tiền: hệ số quy đổi 70%.
+4. Thu nhập từ hoạt động kinh doanh cá thể, hộ kinh doanh (căn cứ sổ sách, hoá đơn, sao kê tài khoản kinh doanh 6 tháng gần nhất): hệ số quy đổi 50%.
+5. Thu nhập từ cổ tức, lãi tiền gửi định kỳ: hệ số quy đổi 80% nếu có lịch sử nhận ổn định tối thiểu 12 tháng.
+6. Không chấp nhận thu nhập không có căn cứ chứng minh hoặc do khách hàng tự kê khai mà không kèm chứng từ.
+
+CHƯƠNG II. CHỈ SỐ THẨM ĐỊNH
+
+Điều 3. Cách tính DTI (Debt to Income)
+1. DTI = Tổng nghĩa vụ trả nợ hàng tháng (gồm khoản vay đề nghị và các khoản vay, thẻ tín dụng hiện có tại mọi tổ chức tín dụng) / Tổng thu nhập ròng đã quy đổi theo Điều 2.
+2. Ngưỡng DTI tối đa: 70% đối với khoản vay có tài sản bảo đảm; 60% đối với khoản vay tín chấp (M-Cash, thấu chi không tài sản bảo đảm).
+3. Nghĩa vụ trả nợ thẻ tín dụng được tính bằng 5% dư nợ thẻ tại thời điểm tra cứu CIC gần nhất nếu khách hàng không cung cấp lịch trả nợ cụ thể.
+4. Vượt ngưỡng DTI không quá 5 điểm phần trăm chỉ được xem xét khi khách hàng có tài sản tích luỹ (tiền gửi, chứng khoán) tối thiểu bằng 6 tháng nghĩa vụ trả nợ và được cấp phê duyệt chấp thuận bằng văn bản.
+
+Điều 4. Tỷ lệ cho vay trên giá trị tài sản bảo đảm (LTV)
+1. Nhà ở, căn hộ chung cư tại đô thị: tối đa 80% giá trị định giá, thống nhất với mức tối đa tại Điều 2 khoản 2 Cẩm nang SP.RB.05.
+2. Đất nền chưa xây dựng: tối đa 60% giá trị định giá.
+3. Ô tô mới (chưa đăng ký lần đầu quá 6 tháng): tối đa 75% giá trị xe.
+4. Ô tô đã qua sử dụng (không quá 5 năm tính đến thời điểm nhận bảo đảm): tối đa 60% giá trị định giá.
+5. Sổ tiết kiệm, chứng chỉ tiền gửi do MSB phát hành: tối đa 90% giá trị gốc cộng lãi dự thu, thống nhất với Điều 4 QĐ.TSBĐ.02.
+
+Điều 5. Tra cứu CIC và điều kiện nợ nhóm 2
+1. CA bắt buộc tra cứu Trung tâm Thông tin tín dụng quốc gia (CIC) trước khi lập kết luận thẩm định, kết quả tra cứu không quá 15 ngày tính đến ngày phê duyệt.
+2. Khách hàng đang có nợ nhóm 2 tại bất kỳ tổ chức tín dụng nào: không đủ điều kiện vay tín chấp (M-Cash); được xem xét vay có tài sản bảo đảm với điều kiện nợ nhóm 2 đã tất toán tối thiểu 6 tháng trước ngày đề nghị và LTV giảm 10 điểm phần trăm so với Điều 4.
+3. Khách hàng có nợ nhóm 3 trở lên trong 24 tháng gần nhất tại bất kỳ tổ chức tín dụng nào: từ chối cấp tín dụng mới, không phân biệt sản phẩm.
+4. Khách hàng có quá 3 lần chậm trả thẻ tín dụng trong 12 tháng gần nhất, dù chưa chuyển nhóm nợ: CA phải nêu rõ trong Tờ trình và có thể đề xuất giảm hạn mức đề nghị.
+
+Điều 6. Chấm điểm tín dụng cá nhân
+1. Hệ thống chấm điểm tín dụng cá nhân (Scorecard RB) trên thang 850 điểm, kết hợp lịch sử tín dụng CIC (40%), thông tin nhân khẩu học và nghề nghiệp (25%), thu nhập và DTI (25%), quan hệ giao dịch với MSB (10%).
+2. Bảng mapping điểm số — hạng:
+a) Từ 750 đến 850 điểm: hạng 1 — rủi ro thấp, ưu tiên lãi suất tốt nhất theo SP.RB.05;
+b) Từ 650 đến dưới 750 điểm: hạng 2 — rủi ro trung bình thấp;
+c) Từ 550 đến dưới 650 điểm: hạng 3 — rủi ro trung bình, yêu cầu tài sản bảo đảm hoặc giảm LTV 5 điểm phần trăm;
+d) Từ 450 đến dưới 550 điểm: hạng 4 — rủi ro cao, chỉ xem xét vay có tài sản bảo đảm đầy đủ, không cấp M-Cash;
+e) Dưới 450 điểm: hạng 5 — từ chối cấp tín dụng.
+3. Điểm số có hiệu lực 6 tháng kể từ ngày chấm; chấm lại khi khách hàng vay thêm sản phẩm mới hoặc có thay đổi thông tin CIC.
+
+CHƯƠNG III. PHÂN QUYỀN VÀ THỜI GIAN XỬ LÝ
+
+Điều 7. Phân quyền phê duyệt RB
+1. Trưởng Đơn vị kinh doanh (ĐVKD): phê duyệt khoản vay đến 2 tỷ đồng.
+2. Giám đốc vùng: phê duyệt khoản vay trên 2 tỷ đến 5 tỷ đồng.
+3. CCO RB (Chief Credit Officer khối Khách hàng Cá nhân): phê duyệt khoản vay trên 5 tỷ đồng.
+4. Khoản vay thuộc hạng 4, hạng 5 theo Điều 6 hoặc có dấu hiệu gian lận theo Điều 10, dù trong hạn mức của Trưởng ĐVKD, phải trình lên cấp phê duyệt cao hơn liền kề.
+
+Điều 8. Thời hạn thẩm định
+1. Khoản vay tín chấp (M-Cash, thấu chi không tài sản bảo đảm): tối đa 1 ngày làm việc kể từ khi nhận đủ hồ sơ.
+2. Khoản vay có tài sản bảo đảm (M-Home, M-Car, M-Business, M-Deposit Loan): tối đa 3 ngày làm việc kể từ khi nhận đủ hồ sơ, không tính thời gian định giá tài sản bảo đảm bất động sản theo QĐ.TSBĐ.02.
+3. Hồ sơ tối thiểu để bắt đầu tính thời hạn thẩm định: căn cước công dân/giấy tờ tuỳ thân hợp lệ, chứng từ chứng minh thu nhập theo Điều 2, kết quả tra cứu CIC, hồ sơ mục đích vay và hồ sơ tài sản bảo đảm (nếu có).
+4. Quá thời hạn tại khoản 1, khoản 2 do lỗi hệ thống hoặc chờ khách hàng bổ sung hồ sơ không tính vào SLA; CA phải ghi nhận lý do trên hệ thống.
+
+Điều 9. Kiểm tra sau giải ngân và tái thẩm định
+1. RM kiểm tra mục đích sử dụng vốn trong 30 ngày kể từ ngày giải ngân đối với khoản vay có tài sản bảo đảm; đối với M-Business, kiểm tra bổ sung theo tiến độ giải ngân từng lần nếu vay theo hạn mức.
+2. Khoản vay tín chấp (M-Cash) không yêu cầu kiểm tra mục đích sử dụng vốn sau giải ngân do đặc thù sản phẩm tiêu dùng, nhưng vẫn theo dõi lịch sử trả nợ qua CIC định kỳ 6 tháng một lần trong suốt thời hạn vay.
+3. Tái thẩm định bắt buộc khi khách hàng đề nghị điều chỉnh tăng số tiền vay, gia hạn thời hạn trả nợ, hoặc khi phát hiện dấu hiệu gian lận theo Điều 10; hồ sơ tái thẩm định sử dụng kết quả tra cứu CIC và chứng minh thu nhập cập nhật không quá 30 ngày.
+4. Khoản vay có tài sản bảo đảm là bất động sản: định giá lại theo chu kỳ tại Điều 5 QĐ.TSBĐ.02; khi giá trị định giá lại làm LTV thực tế vượt ngưỡng Điều 4, CA lập đề xuất yêu cầu khách hàng bổ sung tài sản bảo đảm hoặc trả nợ trước hạn phần vượt.
+
+CHƯƠNG IV. DẤU HIỆU GIAN LẬN VÀ LƯU TRỮ
+
+Điều 10. Dấu hiệu gian lận hồ sơ
+1. Sao kê tài khoản có dấu hiệu chỉnh sửa: font chữ, cỡ chữ không đồng nhất, số dư không khớp giao dịch logic, con dấu/mộc ngân hàng mờ hoặc sai định dạng.
+2. Hợp đồng lao động, quyết định lương không khớp với thông tin bảo hiểm xã hội tra cứu được, hoặc thông tin đơn vị chi trả không xác minh được qua điện thoại/website chính thức.
+3. Nhiều khách hàng khác nhau nộp hồ sơ có cùng số điện thoại liên hệ hoặc cùng địa chỉ email trong thời gian ngắn — dấu hiệu môi giới tín dụng làm giả hồ sơ.
+4. Giá trị tài sản bảo đảm trên hợp đồng mua bán chênh lệch bất thường so với giá thị trường khu vực theo dữ liệu định giá nội bộ.
+5. Khi phát hiện dấu hiệu gian lận, CA từ chối hồ sơ, ghi nhận trên hệ thống và báo cáo Khối Quản trị Rủi ro trong 1 ngày làm việc; khách hàng liên quan bị đưa vào danh sách theo dõi nội bộ tối thiểu 24 tháng.
+
+Điều 11. Lưu trữ hồ sơ
+1. Toàn bộ hồ sơ thẩm định, kết quả chấm điểm, kết quả tra cứu CIC lưu nhóm hồ sơ cá nhân (HSCN) trên hệ thống ECM theo mã khách hàng.
+2. Thời hạn lưu trữ: tối thiểu 10 năm kể từ ngày tất toán khoản vay, hoặc theo thời hạn dài hơn nếu có yêu cầu của cơ quan nhà nước có thẩm quyền.
+3. Hồ sơ liên quan đến dấu hiệu gian lận theo Điều 10 lưu trữ vĩnh viễn, không áp dụng thời hạn huỷ tại khoản 2.
+
+Điều 12. Hiệu lực thi hành
+1. Quy định có hiệu lực từ ngày 01/04/2026, thay thế phiên bản 2.4.
+2. Thay đổi chính so với phiên bản 2.4: bổ sung Điều 6 về chấm điểm tín dụng cá nhân và bảng mapping hạng; điều chỉnh ngưỡng DTI vay tín chấp từ 55% lên 60%; bổ sung Điều 9 về kiểm tra sau giải ngân và tái thẩm định; bổ sung Điều 10 về dấu hiệu gian lận hồ sơ.
+3. Vướng mắc phản ánh về Phòng Chính sách tín dụng cá nhân, Khối Khách hàng Cá nhân.

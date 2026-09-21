@@ -1,0 +1,88 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI VẬN HÀNH VÀ TRUNG TÂM THẺ
+HƯỚNG DẪN VẬN HÀNH ATM, POS VÀ XỬ LÝ SỰ CỐ THẺ
+Số hiệu: HD.ATM.VH.11 — Phiên bản: 1.4 — Hiệu lực từ: 01/05/2026
+Đơn vị ban hành: Khối Vận hành, phối hợp Trung tâm Thẻ
+Áp dụng: Cán bộ tiếp quỹ, Kiểm soát viên, Trung tâm Thẻ, Trung tâm Dịch vụ khách hàng, Đơn vị kinh doanh có quản lý máy ATM/POS
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Mục đích và phạm vi
+1. Hướng dẫn này quy định trình tự tiếp quỹ, đối chiếu, xử lý sự cố kỹ thuật và sự cố nghi gian lận đối với hệ thống máy giao dịch tự động (ATM) và máy chấp nhận thẻ (POS) thuộc quản lý của MSB.
+2. Áp dụng cho toàn bộ ATM tự quản, ATM thuê ngoài do MSB vận hành thương hiệu, và POS lắp đặt tại đơn vị chấp nhận thẻ (merchant) ký hợp đồng với MSB.
+3. Không áp dụng cho máy POS/ATM của ngân hàng khác mà MSB chỉ tham gia kết nối qua Napas; các trường hợp đó xử lý theo thoả thuận liên ngân hàng và Điều 8 của hướng dẫn này về tra soát liên ngân hàng.
+
+Điều 2. Giải thích từ ngữ
+1. Nhật ký ATM (EJ — Electronic Journal): bản ghi điện tử toàn bộ giao dịch và trạng thái phần cứng của máy ATM trong ngày.
+2. Tiếp quỹ: hoạt động nạp tiền mặt vào các hộc (cassette) của máy ATM.
+3. Ngưỡng tồn quỹ tối thiểu: mức tiền còn lại trong cassette so với sức chứa tối đa, dưới ngưỡng này phải tiếp quỹ trong phiên gần nhất.
+4. Settlement: phiên đối soát và chốt số liệu giao dịch POS cuối ngày giữa MSB, tổ chức thẻ quốc tế (Visa/Mastercard/JCB) và merchant.
+5. Giao dịch test (test transaction): giao dịch giá trị rất nhỏ dùng để kiểm tra thẻ giả hoặc thẻ đánh cắp còn hoạt động trước khi thực hiện giao dịch lớn.
+
+CHƯƠNG II. TIẾP QUỸ VÀ ĐỐI CHIẾU ATM
+
+Điều 3. Định kỳ và ngưỡng tiếp quỹ
+1. Tiếp quỹ định kỳ theo lịch của từng máy dựa trên doanh số rút tiền bình quân, tối thiểu 2 lần/tuần đối với ATM tại khu vực đông giao dịch, tối thiểu 1 lần/tuần đối với ATM còn lại.
+2. Ngưỡng tồn quỹ tối thiểu là 30% sức chứa cassette; hệ thống giám sát ATM cảnh báo tự động khi tồn quỹ xuống dưới ngưỡng, cán bộ phụ trách phải lên lịch tiếp quỹ trong vòng 1 ngày làm việc kể từ cảnh báo.
+3. Việc tiếp quỹ phải do hai người thực hiện (nguyên tắc bốn mắt): một người vận chuyển và nạp tiền, một người giám sát và đối chiếu; cả hai cùng ký biên bản tiếp quỹ ghi rõ số seri niêm phong, số lượng và mệnh giá từng cassette.
+4. Tiền nạp vào ATM phải là tiền đã qua máy đếm, phân loại, không nạp tiền nghi giả hoặc không đủ tiêu chuẩn lưu thông; áp dụng theo Điều 6 Quy định quản lý tiền mặt và an toàn kho quỹ QĐ.KQ.VH.12.
+5. Sau khi tiếp quỹ, cán bộ giám sát nhập số liệu tồn quỹ mới vào hệ thống quản lý ATM và đối chiếu khớp với số lượng thực nạp trước khi đóng máy.
+
+Điều 4. Đối chiếu nhật ký ATM cuối ngày
+1. Trung tâm Thẻ thực hiện đối chiếu tự động giữa nhật ký ATM (EJ), dữ liệu core banking và dữ liệu chuyển mạch Napas vào cuối mỗi ngày làm việc, chốt trước 22h00.
+2. Chênh lệch phát hiện qua đối chiếu (giao dịch có trên EJ nhưng không hạch toán, hoặc ngược lại) được ghi nhận vào danh sách chênh lệch chờ xử lý và phân loại theo nguyên nhân: lỗi truyền tin, lỗi phần cứng, nghi gian lận.
+3. Chênh lệch không xác định được nguyên nhân trong 2 ngày làm việc phải báo cáo Giám đốc Trung tâm Thẻ và trích xuất camera giám sát khu vực ATM tương ứng để xác minh.
+4. Camera tại khu vực đặt ATM lưu hình tối thiểu 90 ngày theo Điều 9 QĐ.KQ.VH.12, phục vụ tra soát khi có khiếu nại hoặc chênh lệch.
+
+CHƯƠNG III. XỬ LÝ SỰ CỐ ATM
+
+Điều 5. ATM nuốt thẻ
+1. Khi ATM nuốt thẻ do lỗi thao tác của khách hàng (nhập sai PIN quá số lần cho phép, rút thẻ chậm), máy tự động giữ thẻ và ghi nhận trên nhật ký EJ kèm mã giao dịch.
+2. Cán bộ ĐVKD quản lý máy kiểm tra khoang giữ thẻ trong ngày làm việc kế tiếp, đối chiếu thẻ thu được với danh sách trên EJ trước khi xử lý trả hoặc huỷ.
+3. Trả thẻ cho khách hàng trong tối đa 2 ngày làm việc kể từ khi khách hàng yêu cầu, sau khi xác thực CCCD gắn chip khớp với chủ thẻ; nếu khách hàng không đến nhận trong 30 ngày, thẻ được huỷ theo quy trình an toàn của Trung tâm Thẻ.
+4. Không trả thẻ qua người được uỷ quyền bằng miệng; chỉ chấp nhận uỷ quyền có văn bản công chứng hoặc uỷ quyền lập tại quầy MSB có xác thực hai bên.
+5. Trường hợp máy báo nuốt thẻ trên hệ thống nhưng kiểm tra khoang giữ thẻ không thấy thẻ vật lý, lập biên bản ngay và báo cáo mã sự cố ATM-E05 (xem Điều 7) để Trung tâm Thẻ điều tra, đồng thời khoá thẻ tạm thời để phòng ngừa gian lận.
+
+Điều 6. ATM không chi tiền nhưng tài khoản bị trừ
+1. Khi khách hàng phản ánh máy không nhả tiền nhưng tài khoản báo trừ tiền, cán bộ tiếp nhận lập yêu cầu tra soát ngay, không yêu cầu khách hàng tự liên hệ ngân hàng phát hành thẻ (nếu là thẻ MSB) hay chờ đối soát toàn bộ.
+2. Trung tâm Thẻ tra cứu nhật ký EJ của máy tại đúng thời điểm giao dịch: nếu EJ xác nhận máy không xuất tiền (trạng thái "no dispense" hoặc tiền bị giữ lại trong máy), xác định lỗi do MSB.
+3. Đối với giao dịch trên ATM của chính MSB (thẻ MSB rút tại ATM MSB): hoàn tiền vào tài khoản khách hàng trong tối đa 3 ngày làm việc kể từ khi EJ xác nhận lỗi máy, không cần chờ đối soát Napas.
+4. Đối với giao dịch liên ngân hàng qua Napas (thẻ MSB rút tại ATM ngân hàng khác hoặc ngược lại): thời gian xử lý tối đa 5 ngày làm việc theo thoả thuận tra soát liên ngân hàng Napas, thực hiện theo Điều 8.
+5. Nếu EJ không xác định được lỗi rõ ràng, chuyển hồ sơ tra soát mở rộng theo Hướng dẫn tra soát và xử lý khiếu nại giao dịch HD.TS.VH.10, cấp mã khiếu nại KN-YYYY-xxxx cho khách hàng.
+
+Điều 7. Mã lỗi máy ATM và xử lý
+1. ATM-E01 — Lỗi kết nối mạng/chuyển mạch: máy tự chuyển trạng thái ngừng phục vụ, Trung tâm Thẻ khôi phục kết nối từ xa; nếu quá 30 phút chưa khôi phục, cử kỹ thuật đến hiện trường.
+2. ATM-E02 — Kẹt tiền tại bộ phận nhả tiền (jam): máy dừng giao dịch, hiển thị màn hình bảo trì; kỹ thuật kiểm tra và đối chiếu số tiền còn kẹt trong máy với chênh lệch phát sinh trước khi đưa máy hoạt động lại.
+3. ATM-E03 — Cassette hết tiền một hoặc nhiều mệnh giá: máy tự động ngừng chi mệnh giá hết, tiếp tục phục vụ mệnh giá còn lại nếu có; ưu tiên tiếp quỹ trong phiên gần nhất.
+4. ATM-E04 — Lỗi đầu đọc thẻ/khe cắm thẻ: ngừng máy, dán thông báo "Tạm ngừng phục vụ", báo kỹ thuật xử lý trong ngày.
+5. ATM-E05 — Nghi giữ thẻ bất thường không khớp nhật ký (xem Điều 5 khoản 5): tạm khoá thẻ liên quan, điều tra camera và nhật ký.
+6. ATM-E06 — Lỗi máy in hoá đơn giao dịch: không ảnh hưởng giao dịch tiền, khách hàng vẫn nhận đủ tiền; ghi nhận và sửa chữa theo lịch bảo trì định kỳ, không cần dừng máy khẩn cấp.
+7. ATM-E07 — Nghi thiết bị gắn lén (skimming) trên khe đọc thẻ hoặc bàn phím: dừng máy ngay lập tức, niêm phong hiện trường, báo cáo Trung tâm Thẻ và Phòng Phòng chống gian lận trong 1 giờ, không tự tháo gỡ thiết bị nghi vấn để giữ nguyên chứng cứ.
+8. ATM-E08 — Mất kết nối nguồn điện/UPS: chuyển máy về trạng thái an toàn tự động; kỹ thuật kiểm tra nguồn điện tại chỗ, báo cáo nếu quá 4 giờ chưa khôi phục để cân nhắc điều chuyển khách hàng sang ATM lân cận.
+
+CHƯƠNG IV. VẬN HÀNH POS VÀ XỬ LÝ GIAN LẬN
+
+Điều 8. Lắp đặt và vận hành máy POS
+1. Máy POS chỉ được lắp đặt tại đơn vị chấp nhận thẻ (merchant) đã ký hợp đồng và hoàn tất thẩm định theo quy trình mở merchant của Trung tâm Thẻ.
+2. Hoá đơn giao dịch POS phải lưu bản giấy hoặc điện tử tối thiểu 18 tháng tại merchant để phục vụ tra soát tranh chấp (chargeback).
+3. Hoàn huỷ giao dịch (void) trong cùng ngày giao dịch chỉ cần merchant xác nhận trên máy POS bằng mã merchant và không cần chứng từ bổ sung; hoàn tiền (refund) cho giao dịch đã settlement phải lập hồ sơ hoàn tiền riêng, tối đa bằng giá trị giao dịch gốc.
+4. Settlement giao dịch POS thực hiện cuối mỗi ngày làm việc, chốt lúc 21h00; giao dịch phát sinh sau giờ chốt được tính vào settlement ngày làm việc kế tiếp.
+5. Mỗi merchant được cấp hạn mức giao dịch/ngày theo hồ sơ thẩm định; giao dịch vượt hạn mức bị hệ thống tạm giữ chờ Trung tâm Thẻ phê duyệt thủ công trước khi settlement.
+
+Điều 9. Giao dịch POS nghi gian lận
+1. Dấu hiệu thẻ giả: nhiều giao dịch liên tiếp trong thời gian ngắn tại cùng một POS với các số thẻ khác nhau, hoặc thẻ có dải từ không khớp dữ liệu chip.
+2. Dấu hiệu giao dịch test: một hoặc nhiều giao dịch giá trị rất nhỏ (dưới 50.000 đồng) thực hiện liên tiếp trên cùng một thẻ hoặc dải số thẻ gần nhau trong thời gian ngắn, thường là bước thăm dò trước giao dịch lớn.
+3. Hệ thống giám sát gian lận thẻ (Fraud Monitoring) tự động tạm giữ giao dịch nghi vấn theo khoản 1, 2 để xác minh trước khi settlement; Trung tâm Thẻ liên hệ chủ thẻ qua số điện thoại đăng ký để xác nhận trong vòng 4 giờ làm việc.
+4. Không xác nhận được chủ thẻ hoặc chủ thẻ phủ nhận giao dịch: huỷ giao dịch, khoá thẻ tạm thời, lập hồ sơ nghi gian lận báo cáo Phòng Phòng chống gian lận theo mã sự cố SC-GD-01 hoặc SC-GD-04 tuỳ tính chất (theo Điều 6 QĐ.KS.VH.09).
+5. Merchant có tỷ lệ giao dịch nghi gian lận hoặc chargeback vượt 1% tổng doanh số trong một quý bị đưa vào diện giám sát tăng cường, có thể bị tạm dừng hoặc chấm dứt hợp đồng chấp nhận thẻ.
+
+Điều 10. Báo cáo sự cố và phối hợp
+1. Mọi sự cố ATM/POS ảnh hưởng đến khách hàng (nuốt thẻ, không chi tiền, gian lận nghi vấn) phải được ghi nhận trên hệ thống quản lý sự cố của Trung tâm Thẻ trong ngày phát sinh.
+2. Sự cố kỹ thuật lặp lại từ 3 lần trở lên trong 30 ngày trên cùng một máy phải lập báo cáo đánh giá nguyên nhân gốc và đề xuất bảo trì hoặc thay thế thiết bị.
+3. Trung tâm Thẻ tổng hợp báo cáo tuần về số lượng sự cố, thời gian xử lý bình quân, gửi Khối Vận hành để theo dõi chất lượng dịch vụ.
+
+Điều 11. Hiệu lực thi hành
+1. Hướng dẫn có hiệu lực từ ngày 01/05/2026, thay thế phiên bản 1.3.
+2. Thay đổi chính so với phiên bản 1.3: bổ sung mã lỗi ATM-E07 (nghi thiết bị gắn lén) và ATM-E08 (mất nguồn điện); rút ngắn thời gian hoàn tiền nội bộ do lỗi máy ATM từ 5 ngày xuống 3 ngày làm việc; bổ sung Điều 9 khoản 5 về ngưỡng giám sát merchant.
+3. Các đơn vị quản lý ATM/POS có trách nhiệm phổ biến hướng dẫn này đến toàn thể cán bộ liên quan; vướng mắc phản ánh về Trung tâm Thẻ.

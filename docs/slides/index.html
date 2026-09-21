@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSB Knowledge Assistant Pitch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #f3f5f8; --paper-2: #e8ecf2; --ink: #14233a; --ink-2: #4a5872; --ink-3: #8592a8;
+    --line: rgba(20, 35, 58, 0.14); --navy-deep: #14233a; --accent: #ee6d1f; --accent-ink: #fff;
+    --teal: #0f8b8d; --danger: #b8432f; --panel: #ffffff; --panel-dark: #1a2b46; --panel-dark-ink: #e9eef6;
+    --shadow: 0 18px 50px rgba(20, 35, 58, 0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0f1826; --paper-2: #16233a; --ink: #e9eef6; --ink-2: #b4bfd2; --ink-3: #7d8aa3;
+      --line: rgba(233, 238, 246, 0.14); --panel: #172640; --panel-dark: #0b1220; --navy-deep: #0b1220;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0f1826; --paper-2: #16233a; --ink: #e9eef6; --ink-2: #b4bfd2; --ink-3: #7d8aa3;
+    --line: rgba(233, 238, 246, 0.14); --panel: #172640; --panel-dark: #0b1220; --navy-deep: #0b1220;
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Be Vietnam Pro", "Segoe UI", Roboto, system-ui, sans-serif; font-size: 16px; line-height: 1.45; overflow: hidden; }
+  .mono { font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace; }
+
+  #deck { position: relative; height: 100%; width: 100%; }
+  .slide { position: absolute; inset: 0; display: none; flex-direction: column; padding: clamp(22px, 4vh, 48px) clamp(20px, 5.5vw, 88px) clamp(52px, 8vh, 76px); overflow: auto; background: var(--paper); }
+  .slide.active { display: flex; }
+  .slide > .inner { margin: auto 0; width: 100%; max-width: 1240px; align-self: center; }
+  .eyebrow { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; color: var(--accent); display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .eyebrow::before { content: ""; width: 26px; height: 3px; background: var(--accent); border-radius: 2px; }
+  h1, h2, h3 { margin: 0; text-wrap: balance; line-height: 1.12; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(34px, 5.4vw, 70px); font-weight: 800; }
+  h2 { font-size: clamp(24px, 3.2vw, 42px); font-weight: 700; }
+  h3 { font-size: clamp(16px, 1.4vw, 20px); font-weight: 700; }
+  p.lead { font-size: clamp(16px, 1.45vw, 21px); color: var(--ink-2); max-width: 64ch; margin: 14px 0 0; }
+  .muted { color: var(--ink-2); } .faint { color: var(--ink-3); }
+  .grid { display: grid; gap: 16px; margin-top: 22px; }
+  .g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  @media (max-width: 860px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } }
+
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+  .panel h3 { margin-bottom: 6px; }
+  .panel p { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+  .panel.dark { background: var(--panel-dark); color: var(--panel-dark-ink); border-color: transparent; }
+  .panel.dark p, .panel.dark .muted { color: rgba(233, 238, 246, 0.78); }
+  .tag { display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-2); }
+  .tag.bad { color: var(--danger); border-color: color-mix(in srgb, var(--danger) 45%, transparent); }
+  .tag.good { color: var(--teal); border-color: color-mix(in srgb, var(--teal) 45%, transparent); }
+  .tag.acc { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 50%, transparent); }
+
+  ul.clean { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 9px; }
+  ul.clean li { padding-left: 22px; position: relative; color: var(--ink-2); font-size: 15px; }
+  ul.clean li b { color: var(--ink); }
+  ul.clean li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  ul.clean.ok li::before { background: var(--teal); }
+
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  .table-wrap { overflow-x: auto; }
+  .num { font-size: clamp(30px, 3.2vw, 42px); font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1; }
+  .num small { font-size: 0.42em; font-weight: 600; color: var(--ink-3); letter-spacing: 0; margin-left: 4px; }
+  .stat .lbl { font-size: 13px; color: var(--ink-2); margin-top: 8px; }
+  .cite { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 12px; padding: 1px 6px; border-radius: 6px; border: 1px solid var(--accent); color: var(--accent); vertical-align: 2px; }
+
+  /* screenshots */
+  .shot { margin: 0; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--panel); }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot figcaption { font-size: 12.5px; color: var(--ink-3); padding: 8px 12px; border-top: 1px solid var(--line); background: var(--panel); }
+  .split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px; align-items: center; margin-top: 22px; }
+  .split.rev { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  .split .shot img { max-height: 62vh; object-fit: cover; object-position: top; }
+  @media (max-width: 900px) { .split, .split.rev { grid-template-columns: 1fr; } .split .shot img { max-height: none; } }
+
+  /* flow */
+  .flow { display: grid; grid-template-columns: 1.1fr 0.9fr 1.3fr 1.1fr; gap: 12px; align-items: stretch; margin-top: 20px; }
+  .flow .col { display: grid; gap: 8px; align-content: center; }
+  .flow .box { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; font-size: 13.5px; font-weight: 500; }
+  .flow .box.core { background: var(--panel-dark); color: var(--panel-dark-ink); border-color: transparent; padding: 12px 14px; }
+  .flow .box.core small { display: block; color: rgba(233, 238, 246, 0.7); font-weight: 400; margin-top: 3px; font-size: 12.5px; }
+  .flow .box.guard { border-color: var(--teal); color: var(--teal); font-weight: 600; text-align: center; }
+  .flow .box.out { border-left: 4px solid var(--accent); }
+  .flow .arrow { display: flex; align-items: center; justify-content: center; color: var(--ink-3); font-size: 22px; }
+  @media (max-width: 860px) { .flow { grid-template-columns: 1fr; } .flow .arrow { transform: rotate(90deg); } }
+  .pillars { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+  .pillar { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .pillar .k { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--accent); font-weight: 500; }
+  .pillar h3 { font-size: 14.5px; margin: 4px 0 4px; }
+  .pillar p { margin: 0; font-size: 12.5px; color: var(--ink-2); }
+  @media (max-width: 1000px) { .pillars { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .pillars { grid-template-columns: 1fr; } }
+
+  .compare { display: grid; grid-template-columns: 1fr 1fr; margin-top: 22px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .compare > div { padding: 20px 22px; }
+  .compare .have { background: var(--panel); }
+  .compare .lack { background: var(--panel-dark); color: var(--panel-dark-ink); }
+  .compare .lack ul.clean li { color: rgba(233, 238, 246, 0.85); }
+  .compare .lack ul.clean li b { color: #fff; }
+  .compare .lack ul.clean li::before { background: var(--accent); }
+  @media (max-width: 860px) { .compare { grid-template-columns: 1fr; } }
+
+  .timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 22px; }
+  .timeline .t { border-top: 3px solid var(--line); padding-top: 10px; }
+  .timeline .t.now { border-top-color: var(--accent); }
+  .timeline .t .when { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--accent); }
+  .timeline .t h3 { font-size: 15px; margin: 6px 0 4px; }
+  .timeline .t p { margin: 0; font-size: 13px; color: var(--ink-2); }
+  @media (max-width: 860px) { .timeline { grid-template-columns: 1fr 1fr; } }
+
+  .slide.title, .slide.close { background: var(--navy-deep); color: #e9eef6; }
+  .slide.title .eyebrow, .slide.close .eyebrow { color: #ffb27a; }
+  .slide.title .eyebrow::before, .slide.close .eyebrow::before { background: #ffb27a; }
+  .slide.title h1, .slide.close h2 { color: #fff; }
+  .slide.title p.lead, .slide.close p.lead, .slide.close .muted { color: rgba(233, 238, 246, 0.82); }
+  .slide.title .meta { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 28px; color: rgba(233, 238, 246, 0.75); font-size: 14px; }
+  .slide.title .meta b { color: #fff; font-weight: 600; }
+  .slide.title .mark { width: 54px; height: 54px; border-radius: 12px; background: var(--accent); display: grid; place-items: center; margin-bottom: 24px; }
+  .slide.title .mark span { width: 22px; height: 22px; border: 3px solid #fff; border-radius: 6px; display: block; }
+
+  #bar { position: fixed; left: 0; top: env(safe-area-inset-top, 0px); height: 3px; background: var(--accent); width: 0; transition: width .25s ease; z-index: 10; }
+  #hud { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px clamp(16px, 4vw, 40px) calc(10px + env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 12.5px; color: var(--ink-3); z-index: 10; pointer-events: none; }
+  #hud > * { pointer-events: auto; }
+  #hud .keys { display: flex; gap: 8px; flex-wrap: wrap; }
+  #hud kbd { font-family: "IBM Plex Mono", monospace; font-size: 11px; border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; color: var(--ink-2); }
+  #hud button { font: inherit; font-size: 12.5px; background: var(--panel); border: 1px solid var(--line); color: var(--ink-2); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
+  #hud button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  #notes { position: fixed; right: 0; top: env(safe-area-inset-top, 0px); bottom: 0; width: min(420px, 92vw); background: var(--panel); color: var(--ink); border-left: 1px solid var(--line); box-shadow: var(--shadow); padding: 22px 22px calc(22px + env(safe-area-inset-bottom, 0px)); overflow: auto; z-index: 20; transform: translateX(105%); transition: transform .25s ease; font-size: 15px; line-height: 1.55; }
+  #notes.open { transform: none; }
+  #notes h4 { margin: 0 0 8px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  #notes .n { display: none; } #notes .n.active { display: block; }
+  #notes .n p { margin: 0 0 12px; color: var(--ink-2); }
+  #notes .time { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--ink-3); margin-bottom: 14px; }
+  @media (prefers-reduced-motion: reduce) { #bar, #notes { transition: none; } }
+  /* In ra PDF: mỗi slide đúng một trang 16:9.
+     break-inside: avoid là mấu chốt — thiếu nó Chrome cắt đôi slide cao hơn trang thành hai trang. */
+  @page { size: 1600px 900px; margin: 0; }
+  @media print {
+    html, body { height: auto !important; overflow: visible !important; background: #fff; }
+    #deck { height: auto !important; position: static; }
+    .slide {
+      position: relative !important; display: flex !important;
+      width: 1600px !important; height: 900px !important; min-height: 900px; max-height: 900px;
+      overflow: hidden !important;
+      break-inside: avoid; page-break-inside: avoid;
+      break-after: page; page-break-after: always;
+      padding: 48px 88px;
+    }
+    .slide:last-child { break-after: auto; page-break-after: auto; }
+    .slide > .inner { max-width: 1240px; }
+    #hud, #bar, #notes { display: none !important; }
+    .split .shot img { max-height: 470px; }
+    .shot { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div id="deck">
+
+<!-- 1 -->
+<section class="slide title active" data-notes="n1">
+  <div class="inner">
+    <div class="mark" aria-hidden="true"><span></span></div>
+  <div class="eyebrow">MSB AI Hackathon · Đội Querion</div>
+    <h1>MSB Knowledge Assistant</h1>
+    <p class="lead">Đưa AI vào công việc hằng ngày của ngân hàng theo cách <b>quản trị được</b>: trả lời có trích dẫn Điều khoản, phân quyền theo khối, che dữ liệu khách hàng, hành động chờ người duyệt, và để lại vết cho Compliance.</p>
+    <div class="meta">
+      <div>Demo đang chạy<br><b class="mono">59-153-246-116.sslip.io</b></div>
+      <div>Mô hình<br><b>GreenNode MaaS · VNG Cloud</b></div>
+      <div>Dữ liệu<br><b>100% mô phỏng, không dùng dữ liệu thật</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide" data-notes="n2">
+  <div class="inner">
+    <div class="eyebrow">Bối cảnh</div>
+    <h2>Ngân hàng đã có AI trong tay. Cách dùng thì chưa.</h2>
+    <p class="lead">Mô hình ngôn ngữ đã đủ tốt để đọc quy trình, soạn thông báo, tính lịch trả nợ. Nhưng hôm nay mỗi cán bộ dùng nó theo một cách riêng, ngoài mọi quy trình và ngoài mọi kiểm soát.</p>
+    <div class="grid g3">
+      <div class="panel">
+        <span class="tag bad">Quy trình</span>
+        <h3 style="margin-top:10px">Mỗi khối một kiểu</h3>
+        <p>KHDN thử ChatGPT, Vận hành dùng Copilot, Pháp chế cấm hẳn. Cùng một câu hỏi nghiệp vụ, ba câu trả lời khác nhau, không ai chịu trách nhiệm cho câu nào.</p>
+      </div>
+      <div class="panel">
+        <span class="tag bad">Dữ liệu</span>
+        <h3 style="margin-top:10px">Data governance bị bỏ qua</h3>
+        <p>Cán bộ dán tên khách hàng, CCCD, số tài khoản vào công cụ công cộng để "hỏi cho nhanh". Văn bản nội bộ tồn tại ba phiên bản, không ai chắc bản nào còn hiệu lực.</p>
+      </div>
+      <div class="panel">
+        <span class="tag bad">Kiểm toán</span>
+        <h3 style="margin-top:10px">Không có vết</h3>
+        <p>Câu trả lời không có nguồn. Compliance không biết ai đã hỏi gì, máy đã trả lời gì, dựa trên văn bản nào. Sai một điều kiện giải ngân là rủi ro tín dụng thật.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="slide" data-notes="n3">
+  <div class="inner">
+    <div class="eyebrow">Khoảng cách</div>
+    <h2>Năng lực AI đã có. Nền quản trị để dùng nó thì thiếu.</h2>
+    <div class="compare">
+      <div class="have">
+        <h3><span class="tag good">Đã có</span></h3>
+        <ul class="clean ok">
+          <li>Mô hình tiếng Việt chạy trên hạ tầng trong nước (GreenNode MaaS)</li>
+          <li>Kho văn bản nghiệp vụ đầy đủ: quy trình, quy định, hướng dẫn, biểu phí</li>
+          <li>Hệ thống lõi, BPM, kho dữ liệu báo cáo đều có API</li>
+          <li>Cán bộ muốn dùng, và đang dùng, mỗi ngày</li>
+        </ul>
+      </div>
+      <div class="lack">
+        <h3><span class="tag acc">Chưa có</span></h3>
+        <ul class="clean">
+          <li><b>Một nền tảng dùng chung</b>, nơi mỗi khối quản lý tri thức và trợ lý của mình</li>
+          <li><b>Ranh giới dữ liệu</b>: văn bản KHDN không rò sang Vận hành, khách hàng chỉ đọc kho công khai</li>
+          <li><b>Lớp che dữ liệu cá nhân</b> đứng trước mô hình, không phụ thuộc mô hình "ngoan"</li>
+          <li><b>Cách làm được duyệt</b> và phiên bản hoá, thay cho cách hỏi của từng người</li>
+          <li><b>Nhật ký</b>: ai hỏi, máy trả lời gì, dựa trên Điều nào, tốn bao nhiêu token</li>
+        </ul>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:20px">Sản phẩm này lấp đúng cột bên phải. Mô hình có thể đổi, luật chơi thì không.</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide" data-notes="n4">
+  <div class="inner">
+    <div class="eyebrow">Giải pháp</div>
+    <h2>Năm mặt tiếp xúc, một lõi, một nhật ký — và năm lớp quản trị</h2>
+    <div class="flow">
+      <div class="col">
+        <div class="box">Cán bộ · cổng nội bộ</div>
+        <div class="box">Khách hàng · trang công khai</div>
+        <div class="box">Website · bong bóng nhúng</div>
+        <div class="box">Chrome extension</div>
+        <div class="box">Quản trị viên · trợ lý vận hành</div>
+      </div>
+      <div class="col">
+        <div class="arrow" aria-hidden="true">→</div>
+        <div class="box guard">Che PII<br><small style="font-weight:400">Presidio · nhận dạng tiếng Việt</small></div>
+        <div class="box guard">Phân quyền theo khối</div>
+        <div class="arrow" aria-hidden="true">→</div>
+      </div>
+      <div class="col">
+        <div class="box core">RAG có trích dẫn<small>Văn bản cắt theo Chương / Mục / Điều → pgvector</small></div>
+        <div class="box core">Luồng xử lý<small>Canvas kéo thả, rẽ nhánh, báo cáo theo lịch</small></div>
+        <div class="box core">Agent có công cụ<small>API lõi, MCP, tính toán · dừng chờ duyệt</small></div>
+      </div>
+      <div class="col">
+        <div class="box out">Câu trả lời + <span class="cite">#3</span> Điều, phiên bản, hiệu lực</div>
+        <div class="box out">Tệp Excel / Word có biểu đồ</div>
+        <div class="box out">Thẻ duyệt thao tác</div>
+        <div class="box out">Nhật ký truy vấn · token · 👍👎</div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><div class="k">01</div><h3>Tri thức có quản trị</h3><p>Kho theo đơn vị, phiên bản, hiệu lực, trích dẫn tới Điều.</p></div>
+      <div class="pillar"><div class="k">02</div><h3>Dữ liệu được che</h3><p>PII không tới mô hình; công cụ đi bằng mã nghiệp vụ.</p></div>
+      <div class="pillar"><div class="k">03</div><h3>Quy trình đồng bộ</h3><p>Luồng, kỹ năng, báo cáo, biểu mẫu được duyệt và dùng chung.</p></div>
+      <div class="pillar"><div class="k">04</div><h3>Hành động có kiểm soát</h3><p>Chạm hệ thống thật; thao tác ghi chờ người duyệt.</p></div>
+      <div class="pillar"><div class="k">05</div><h3>Vết và chi phí</h3><p>Nhật ký từng lượt hỏi, phản hồi, token theo khối.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="slide" data-notes="n5">
+  <div class="inner">
+    <div class="eyebrow">Lớp 01 · Tri thức có quản trị</div>
+    <h2>Không trả lời "theo tài liệu". Trả lời "theo Điều 2, bản v1.4, hiệu lực 01/02/2026".</h2>
+    <div class="split">
+      <div>
+        <ul class="clean">
+          <li><b>Kho tri thức thuộc đơn vị.</b> Bốn khối tự tải văn bản, tự công bố trợ lý; kho công khai tách khỏi kho nội bộ.</li>
+          <li><b>Mỗi văn bản có loại, phiên bản, ngày hiệu lực.</b> Bản cũ tắt một nút là mọi đường trả lời ngừng dùng ngay.</li>
+          <li><b>Cắt đoạn theo cấu trúc pháp lý.</b> Văn bản Việt Nam có sẵn cây Chương → Mục → Điều; mỗi đoạn mang breadcrumb, truy hồi đọc ngược ra để dựng trích dẫn.</li>
+          <li><b>Không có trong văn bản thì nói không có.</b> Hỏi lãi suất hôm nay khi kho chỉ có quy trình, trợ lý trả lời "tài liệu hiện có chưa đề cập".</li>
+        </ul>
+      </div>
+      <figure class="shot">
+        <img src="img/citations.png" alt="Cán bộ hỏi điều kiện giải ngân; trợ lý trả lời theo từng mục, mỗi mục gắn số trích dẫn, bên dưới là năm nguồn ghi tên văn bản, phiên bản, ngày hiệu lực và Điều">
+        <figcaption>Cổng cán bộ · RM Khối KHDN hỏi điều kiện giải ngân · mỗi nguồn ghi văn bản, phiên bản, hiệu lực, Điều</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="slide" data-notes="n6">
+  <div class="inner">
+    <div class="eyebrow">Lớp 02 · Dữ liệu được che</div>
+    <h2>Dữ liệu khách hàng không bao giờ tới mô hình</h2>
+    <div class="split">
+      <div>
+        <ul class="clean">
+          <li><b>Che PII trước mọi thứ.</b> Microsoft Presidio với bộ nhận dạng tiếng Việt: CCCD, số tài khoản, CIF, OTP, số thẻ. Chạy trước khi câu hỏi tới mô hình, tới bộ nhớ, tới nhật ký. Số tiền và ngày tháng giữ nguyên.</li>
+          <li><b>Không quyết định thay người.</b> Hỏi "có nên duyệt 5 tỷ không", trợ lý nêu điều kiện cần kiểm tra có trích dẫn, không ra phán quyết.</li>
+          <li><b>Công cụ đi bằng mã nghiệp vụ.</b> Vì CIF đã bị che, mọi công cụ nhận mã hồ sơ, mã giao dịch, mã khiếu nại.</li>
+          <li><b>Bộ nhớ có ranh giới.</b> Trợ lý nhớ cách một cán bộ làm việc, không nhớ khách hàng, không nhớ con số quy định. Khách hàng ẩn danh không có bộ nhớ, theo Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15.</li>
+        </ul>
+      </div>
+      <figure class="shot">
+        <img src="img/pii.png" alt="Cán bộ gõ câu hỏi chứa CIF và CCCD; trợ lý từ chối quyết định thay cấp phê duyệt, nêu điều kiện có trích dẫn; dòng khoá cho biết mã khách hàng và số CCCD đã được ẩn trước khi xử lý">
+        <figcaption>Câu hỏi chứa CIF và CCCD · dòng 🔒 xác nhận đã ẩn trước khi xử lý · trợ lý không ra quyết định thay cấp phê duyệt</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="slide" data-notes="n7">
+  <div class="inner">
+    <div class="eyebrow">Lớp 03 · Quy trình đồng bộ</div>
+    <h2>Cách làm được duyệt, không phải cách hỏi của từng người</h2>
+    <figure class="shot" style="margin-top:18px">
+      <img src="img/workflow.png" alt="Canvas luồng xử lý: câu hỏi cán bộ → trích tham số phân loại ý định → rẽ nhánh tín dụng hoặc vận hành → tra đúng kho tri thức → soạn prompt → sinh câu trả lời">
+      <figcaption>Canvas luồng xử lý · định tuyến câu hỏi: phân loại ý định → rẽ nhánh → tra đúng kho tri thức → trả lời có trích dẫn</figcaption>
+    </figure>
+    <div class="grid g4" style="margin-top:16px">
+      <div class="panel"><h3>Luồng xử lý</h3><p>Kéo thả, rẽ nhánh, gọi công cụ, xuất tài liệu. Ví dụ: phân mức sự cố tuân thủ, khẩn thì nhận các bước làm ngay.</p></div>
+      <div class="panel"><h3>Kỹ năng</h3><p>Bí kíp nghiệp vụ có phiên bản và người duyệt, theo chuẩn mở Agent Skills, chỉ nạp khi câu hỏi khớp. Cố ý không chứa con số quy định.</p></div>
+      <div class="panel"><h3>Báo cáo theo lịch</h3><p>Excel có biểu đồ thật, chạy cron theo giờ Việt Nam, gửi đúng chức danh. Năm báo cáo cho bốn khối.</p></div>
+      <div class="panel"><h3>Biểu mẫu</h3><p>Điền sẵn từ hệ thống lõi, AI soạn phần tự luận, xuất Word. Trường nhạy cảm đi thẳng vào tệp, không qua mô hình.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="slide" data-notes="n8">
+  <div class="inner">
+    <div class="eyebrow">Lớp 04 · Hành động có kiểm soát</div>
+    <h2>Trợ lý chạm được hệ thống thật. Thao tác ghi thì dừng chờ người.</h2>
+    <div class="split">
+      <div>
+        <ul class="clean">
+          <li><b>API lõi</b>: hồ sơ, hạn mức, hồ sơ vay cá nhân, điện SWIFT gpi, khiếu nại, lãi suất, điểm giao dịch.</li>
+          <li><b>MCP server</b>: hệ thống quản trị rủi ro (xếp hạng, cảnh báo sớm, sàng lọc cấm vận), kho dữ liệu báo cáo.</li>
+          <li><b>Tính toán nghiệp vụ</b>: lịch trả nợ, DTI, phí, ngày làm việc, lãi tiền gửi.</li>
+          <li><b>Kết quả công cụ là dữ liệu, không phải lệnh.</b> Endpoint bị chiếm cũng không điều khiển được trợ lý.</li>
+          <li><b>Thao tác ghi dừng lại.</b> Trợ lý hiện đúng tham số, cán bộ bấm duyệt hoặc từ chối; lượt hỏi nằm ở trạng thái "chờ duyệt" trong nhật ký.</li>
+        </ul>
+      </div>
+      <figure class="shot">
+        <img src="img/approval.png" alt="Kiểm soát viên hỏi khiếu nại nào quá hạn, trợ lý tra hệ thống và liệt kê; sau đó yêu cầu phân công khiếu nại, trợ lý dừng lại với thẻ Cần anh/chị xác nhận thao tác kèm tham số và hai nút Duyệt và chạy, Từ chối">
+        <figcaption>Trợ lý Khiếu nại · tra hệ thống lõi rồi dừng ở thẻ xác nhận trước khi ghi phân công</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="slide" data-notes="n9">
+  <div class="inner">
+    <div class="eyebrow">Lớp 05 · Vết và chi phí</div>
+    <h2>Compliance mở lại được đúng thứ cán bộ đã thấy</h2>
+    <div class="split rev">
+      <figure class="shot">
+        <img src="img/audit.png" alt="Trang nhật ký truy vấn với ngăn chi tiết một lượt hỏi: trợ lý, thời điểm, người hỏi kèm mã cán bộ và chức danh, câu hỏi, câu trả lời đầy đủ và danh sách nguồn trích dẫn">
+        <figcaption>Nhật ký truy vấn · một lượt hỏi của cán bộ Pháp chế với luồng phân mức sự cố · người hỏi, câu trả lời, nguồn</figcaption>
+      </figure>
+      <div>
+        <ul class="clean">
+          <li><b>Mỗi lượt hỏi là một bản ghi</b>: kênh, khối, mã cán bộ, câu hỏi đã che, câu trả lời, đoạn văn bản đã dùng, từng bước công cụ, kỹ năng đã nạp, độ trễ.</li>
+          <li><b>Phản hồi có lý do.</b> Cán bộ bấm 👎 kèm lý do; Compliance lọc đúng các lượt bị chê để sửa văn bản hoặc kỹ năng, thay vì sửa mô hình.</li>
+          <li><b>Token theo thành phần.</b> Mỗi lần gọi mô hình ghi một dòng; nhìn được chi phí theo khối, trợ lý, ngày.</li>
+          <li><b>Phân quyền ở máy chủ.</b> Chủ đơn vị chỉ thấy nhật ký khối mình. Không có nút "ẩn" nào đóng vai hàng rào.</li>
+          <li><b>Red team: 22 kịch bản, chặn 22.</b> Tiêm prompt qua văn bản và công cụ, đòi lộ system prompt, SSRF, vượt bước duyệt, rò dữ liệu sang khối khác.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide" data-notes="n10">
+  <div class="inner">
+    <div class="eyebrow">Từ câu trả lời tới thứ dùng được</div>
+    <h2>Biểu đồ vẽ ngay trong chat. Excel mở lên là tính được.</h2>
+    <div class="grid g2" style="align-items:start">
+      <figure class="shot">
+        <img src="img/chart.png" alt="Trợ lý liệt kê lãi suất tiết kiệm theo kỳ hạn rồi vẽ biểu đồ cột tám kỳ hạn ngay trong câu trả lời, kèm nguồn trích dẫn">
+        <figcaption>Cán bộ KHCN hỏi lãi suất và yêu cầu vẽ · trợ lý gọi hệ thống lõi rồi vẽ biểu đồ cột trong câu trả lời</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/export.png" alt="Cán bộ nói xuất bảng này ra Excel kèm biểu đồ cột; trợ lý trả về tệp xlsx với nút Tải về ngay dưới câu trả lời">
+        <figcaption>"Xuất ra Excel kèm biểu đồ" · tệp .xlsx với bảng và biểu đồ Excel thật, tải ngay dưới câu trả lời</figcaption>
+      </figure>
+    </div>
+    <div class="grid g3" style="margin-top:16px">
+      <div class="panel"><h3>Không phải ảnh</h3><p>Biểu đồ trong chat là dữ liệu có cấu trúc do mô hình sinh, giao diện tự vẽ. Không tải gì từ ngoài, Compliance mở lại thấy đúng biểu đồ.</p></div>
+      <div class="panel"><h3>Số liệu thật từ hệ thống</h3><p>Lãi suất, hồ sơ, điện SWIFT, khiếu nại lấy từ hệ thống lõi qua công cụ; trợ lý nói rõ số liệu lấy từ đâu.</p></div>
+      <div class="panel"><h3>Cùng một hộp tệp</h3><p>Tệp xuất từ chat, báo cáo theo lịch và biểu mẫu đều nằm trong "Báo cáo của tôi" của đúng cán bộ đó.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="slide" data-notes="n11">
+  <div class="inner">
+    <div class="eyebrow">Gặp trợ lý ở nơi đang làm việc</div>
+    <h2>Khách hàng trên website, cán bộ trong trình duyệt, quản trị viên ngay trong trang quản trị</h2>
+    <div class="grid g3" style="align-items:start">
+      <figure class="shot">
+        <img src="img/widget.png" alt="Bong bóng chat trợ lý MSB trên website ngân hàng: khách hỏi phí chuyển khoản liên ngân hàng, trợ lý trả lời miễn phí kèm trích dẫn và kỹ năng giải thích biểu phí">
+        <figcaption>Website: một dòng script · khách hàng hỏi phí, trợ lý trả lời từ biểu phí công khai</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="img/ops.png" alt="Bong bóng Trợ lý Vận hành trong trang quản trị: sau khi quản trị viên mô tả bằng tiếng Việt, trợ lý liệt kê bản nháp luồng bốn bước và nút Tạo luồng">
+        <figcaption>Trang quản trị: mô tả một câu, trợ lý dựng nháp luồng; người bấm "Tạo luồng"</figcaption>
+      </figure>
+      <div>
+        <ul class="clean">
+          <li><b>Cổng cán bộ</b> với trích dẫn, biểu đồ, Báo cáo của tôi, Biểu mẫu, "Trợ lý nhớ gì về tôi".</li>
+          <li><b>Trang công khai</b> cho khách hàng, không cần tài khoản, chỉ đọc kho công khai.</li>
+          <li><b>Bong bóng nhúng</b>: trình duyệt cưỡng chế danh sách website được phép bằng CSP.</li>
+          <li><b>Chrome extension</b>: bong bóng trên mọi trang nội bộ, chọn đoạn văn bản để hỏi, phân phối bằng chính sách doanh nghiệp.</li>
+          <li><b>Trợ lý vận hành</b>: trả lời cách vận hành từ cẩm nang 15 bài, tra trạng thái thật, dựng nháp luồng. Không tự lưu gì.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="slide" data-notes="n12">
+  <div class="inner">
+    <div class="eyebrow">Kết quả và kiến trúc</div>
+    <h2>Đang chạy trên server, mỗi khối một bộ trọn vẹn</h2>
+    <div class="grid g4" style="margin-top:18px">
+      <div class="panel stat"><div class="num">19<small>bộ</small></div><div class="lbl">kiểm thử API chạy thật, 0 lỗi; 16 bộ chạy thẳng vào bản deploy</div></div>
+      <div class="panel stat"><div class="num">67<small>/67</small></div><div class="lbl">kịch bản đầu cuối: cán bộ, khách hàng, nhúng, định tuyến, nhật ký</div></div>
+      <div class="panel stat"><div class="num">22<small>/22</small></div><div class="lbl">kịch bản tấn công đối kháng bị chặn</div></div>
+      <div class="panel stat"><div class="num">174</div><div class="lbl">kiểm thử đơn vị · 7 kịch bản trình duyệt, gồm nạp Chrome extension thật</div></div>
+    </div>
+    <div class="grid g2" style="margin-top:16px; align-items:start">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Dữ liệu demo</th><th>KHDN</th><th>KHCN</th><th>Vận hành</th><th>Pháp chế</th></tr></thead>
+          <tbody>
+            <tr><td>Văn bản mô phỏng</td><td>8</td><td>8</td><td>7</td><td>7</td></tr>
+            <tr><td>Trợ lý</td><td>4</td><td>2</td><td>3</td><td>3</td></tr>
+            <tr><td>Báo cáo có biểu đồ</td><td>2</td><td>1</td><td>2</td><td>—</td></tr>
+            <tr><td>Biểu mẫu · Kỹ năng</td><td>1 · 3</td><td>1 · 2</td><td>1 · 3</td><td>1 · 1</td></tr>
+          </tbody>
+        </table>
+        <p class="faint" style="margin:10px 0 0; font-size:13px">25 công cụ · 5 lịch chạy · toàn bộ văn bản và số liệu là mô phỏng.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <tbody>
+            <tr><td>Mô hình</td><td><b>GreenNode MaaS (VNG Cloud)</b> · Gemma 4 31B cho hỏi đáp, GLM 5.2 cho dựng luồng · lớp provider chuẩn OpenAI, đổi model bằng một dòng cấu hình</td></tr>
+            <tr><td>Tri thức</td><td>Postgres + pgvector · ranh giới dữ liệu là bảng và khoá ngoại, một truy vấn lọc cả đơn vị và trạng thái văn bản</td></tr>
+            <tr><td>Agent</td><td>LangGraph có checkpoint trong Postgres · dừng giữa chừng chờ duyệt, tiếp tục đúng chỗ</td></tr>
+            <tr><td>Nền</td><td>FastAPI · Next.js · Redis + RQ (lập chỉ mục, báo cáo, lịch cron) · Presidio</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="slide close" data-notes="n13">
+  <div class="inner">
+    <div class="eyebrow">Lộ trình và lời kết</div>
+    <h2>AI trong ngân hàng không thiếu năng lực. Nó thiếu một khung để dùng chung, dùng an toàn, và để lại vết.</h2>
+    <div class="timeline">
+      <div class="t now"><div class="when">Hôm nay</div><h3 style="color:#fff">Bản chạy được</h3><p style="color:rgba(233,238,246,.78)">4 khối, 5 mặt tiếp xúc, 5 lớp quản trị, kiểm thử chạy thật trên server.</p></div>
+      <div class="t"><div class="when">Tháng 1–2</div><h3 style="color:#fff">Thí điểm một khối</h3><p style="color:rgba(233,238,246,.78)">Văn bản thật của một khối, SSO nội bộ, bộ câu hỏi vàng đo tỉ lệ trích dẫn đúng Điều.</p></div>
+      <div class="t"><div class="when">Tháng 3–4</div><h3 style="color:#fff">Mở rộng theo khối</h3><p style="color:rgba(233,238,246,.78)">Mỗi khối tự tạo kho, trợ lý, kỹ năng; nối API lõi và BPM thật; gửi báo cáo qua email.</p></div>
+      <div class="t"><div class="when">Tiếp theo</div><h3 style="color:#fff">Hỏi kèm ảnh chứng từ</h3><p style="color:rgba(233,238,246,.78)">Gemma trên GreenNode đã đọc được ảnh; cần lớp che PII cho ảnh trước khi mở.</p></div>
+    </div>
+    <div class="grid g3" style="margin-top:34px">
+      <div><div class="faint" style="font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:rgba(233,238,246,.55)">Demo</div><div class="mono" style="font-size:15px; margin-top:6px">59-153-246-116.sslip.io</div></div>
+      <div><div class="faint" style="font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:rgba(233,238,246,.55)">Mã nguồn</div><div style="margin-top:6px">Gửi kèm hồ sơ cùng hướng dẫn chạy và tài khoản demo</div></div>
+      <div><div class="faint" style="font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:rgba(233,238,246,.55)">Dữ liệu</div><div style="margin-top:6px">100% mô phỏng · không dùng dữ liệu thật của MSB, TNTalent, TNEX</div></div>
+    </div>
+    <p style="margin-top:30px; font-size:18px">Xin cảm ơn.</p>
+  </div>
+</section>
+
+</div>
+
+<aside id="notes" aria-label="Lời dẫn cho người nói">
+  <h4>Lời dẫn</h4>
+  <div class="n" id="n1"><div class="time">~30 giây</div><p>Một câu giới thiệu: chúng tôi làm một nền tảng trợ lý tri thức cho ngân hàng. Điểm nhấn không phải "có AI" mà là "dùng AI theo cách quản trị được".</p></div>
+  <div class="n" id="n2"><div class="time">~60 giây</div><p>Mở bằng thực tế ai cũng thấy: mô hình đã đủ tốt, cán bộ đã dùng, nhưng dùng ngoài quy trình. Đi qua ba nỗi đau theo thứ tự quy trình → dữ liệu → kiểm toán. Nhấn "sai một điều kiện giải ngân là rủi ro tín dụng thật".</p></div>
+  <div class="n" id="n3"><div class="time">~45 giây</div><p>Slide lập luận: năng lực có sẵn, cái thiếu là nền quản trị. Kết bằng "mô hình có thể đổi, luật chơi thì không" để dẫn sang năm lớp.</p></div>
+  <div class="n" id="n4"><div class="time">~60 giây</div><p>Đọc hình từ trái sang phải: năm kênh, hai lớp chặn, ba cách trả lời, bốn thứ đầu ra. Dưới là năm lớp quản trị, mỗi lớp một slide tiếp theo. Chốt: thêm kênh không thêm lỗ hổng.</p></div>
+  <div class="n" id="n5"><div class="time">~60 giây</div><p>Chỉ vào ảnh: mỗi mục có số trích dẫn, dưới là năm nguồn ghi tên văn bản, phiên bản, ngày hiệu lực, Điều. Chi tiết kỹ thuật quyết định việc cán bộ có dám dùng: cắt đoạn theo Điều, không theo độ dài.</p></div>
+  <div class="n" id="n6"><div class="time">~60 giây</div><p>Chỉ vào câu hỏi có CIF và CCCD, rồi dòng khoá ở dưới: đã ẩn trước khi xử lý. Trợ lý không ra phán quyết duyệt hay từ chối. Nhắc bộ nhớ không nhớ khách hàng theo Luật 91/2025.</p></div>
+  <div class="n" id="n7"><div class="time">~60 giây</div><p>Canvas là cách quy trình được vẽ ra, duyệt và dùng chung. Bốn cơ chế bên dưới: luồng, kỹ năng, báo cáo theo lịch, biểu mẫu. Dừng ở kỹ năng: cố ý không chứa con số quy định để không lệch âm thầm khi văn bản đổi.</p></div>
+  <div class="n" id="n8"><div class="time">~60 giây</div><p>Điều kiện để đưa vào ngân hàng: AI không tự ghi. Chỉ vào thẻ: đúng tham số, hai nút. Nhắc kết quả công cụ là dữ liệu, không phải lệnh.</p></div>
+  <div class="n" id="n9"><div class="time">~60 giây</div><p>Slide muốn ban giám khảo nhớ nhất. Ngăn chi tiết cho thấy ai hỏi, hỏi gì, máy trả lời gì, dựa trên nguồn nào. Red team 22 kịch bản, chặn 22.</p></div>
+  <div class="n" id="n10"><div class="time">~45 giây</div><p>Biểu đồ trong chat là dữ liệu có cấu trúc, giao diện tự vẽ, không tải ảnh. Excel là tệp thật có biểu đồ sửa được, nằm trong hộp tệp của đúng cán bộ.</p></div>
+  <div class="n" id="n11"><div class="time">~45 giây</div><p>Hai ảnh: khách hàng trên website và quản trị viên với trợ lý vận hành. Nhấn: trợ lý vận hành chỉ dựng nháp, người bấm tạo bằng quyền của họ.</p></div>
+  <div class="n" id="n12"><div class="time">~45 giây</div><p>Mọi con số chạy trên bản deploy. Bảng trái cho thấy mỗi khối có trọn bộ. Bảng phải: mô hình trên GreenNode theo quy định, đổi model là đổi cấu hình.</p></div>
+  <div class="n" id="n13"><div class="time">~40 giây</div><p>Lộ trình thực tế rồi câu chốt. Mời bấm link demo, chuyển sang demo trực tiếp.</p></div>
+</aside>
+
+<div id="hud">
+  <div id="counter" class="mono">1 / 13</div>
+  <div class="keys">
+    <span><kbd>←</kbd> <kbd>→</kbd> chuyển slide</span>
+    <span><kbd>N</kbd> lời dẫn</span>
+    <span><kbd>F</kbd> toàn màn hình</span>
+    <span><kbd>Ctrl/⌘ P</kbd> in PDF</span>
+  </div>
+  <button type="button" id="notesBtn" aria-pressed="false">Lời dẫn</button>
+</div>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var notes = document.getElementById('notes');
+  var counter = document.getElementById('counter');
+  var bar = document.getElementById('bar');
+  var btn = document.getElementById('notesBtn');
+  var i = 0;
+  try { var h = parseInt((location.hash || '').replace('#', ''), 10); if (h >= 1 && h <= slides.length) i = h - 1; } catch (e) {}
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('active', k === i); });
+    var noteId = slides[i].getAttribute('data-notes');
+    Array.prototype.forEach.call(notes.querySelectorAll('.n'), function (el) { el.classList.toggle('active', el.id === noteId); });
+    counter.textContent = (i + 1) + ' / ' + slides.length;
+    bar.style.width = ((i + 1) / slides.length * 100) + '%';
+    try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+  }
+  function toggleNotes() { var open = notes.classList.toggle('open'); btn.setAttribute('aria-pressed', open ? 'true' : 'false'); }
+  btn.addEventListener('click', toggleNotes);
+  document.addEventListener('keydown', function (e) {
+    if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+    switch (e.key) {
+      case 'ArrowRight': case 'PageDown': case ' ': e.preventDefault(); show(i + 1); break;
+      case 'ArrowLeft': case 'PageUp': e.preventDefault(); show(i - 1); break;
+      case 'Home': show(0); break;
+      case 'End': show(slides.length - 1); break;
+      case 'n': case 'N': toggleNotes(); break;
+      case 'f': case 'F':
+        if (document.fullscreenElement) { document.exitFullscreen && document.exitFullscreen(); }
+        else if (document.documentElement.requestFullscreen) { document.documentElement.requestFullscreen(); }
+        break;
+    }
+  });
+  document.getElementById('deck').addEventListener('click', function (e) {
+    if (e.target.closest('a, button, figure')) return;
+    var x = e.clientX / window.innerWidth;
+    if (x > 0.66) show(i + 1); else if (x < 0.2) show(i - 1);
+  });
+  var tx = null;
+  document.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (tx === null) return;
+    var dx = e.changedTouches[0].clientX - tx; tx = null;
+    if (Math.abs(dx) > 60) show(dx < 0 ? i + 1 : i - 1);
+  });
+  show(i);
+})();
+</script>
+
+</body>
+</html>

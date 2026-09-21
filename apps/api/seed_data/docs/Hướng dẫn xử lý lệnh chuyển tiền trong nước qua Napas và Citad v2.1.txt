@@ -1,0 +1,79 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI VẬN HÀNH
+HƯỚNG DẪN XỬ LÝ LỆNH CHUYỂN TIỀN TRONG NƯỚC QUA NAPAS VÀ CITAD
+Số hiệu: HD.CTTN.VH.13 — Phiên bản: 2.1 — Hiệu lực từ: 15/04/2026
+Đơn vị ban hành: Khối Vận hành
+Áp dụng: Giao dịch viên, Kiểm soát viên tại Đơn vị kinh doanh, Trung tâm Xử lý giao dịch tập trung
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Mục đích và phạm vi
+1. Hướng dẫn này quy định trình tự xử lý lệnh chuyển tiền trong nước bằng đồng Việt Nam qua các kênh nội bộ MSB, hệ thống chuyển mạch tài chính quốc gia Napas và hệ thống thanh toán điện tử liên ngân hàng Citad (do Ngân hàng Nhà nước vận hành).
+2. Áp dụng cho giao dịch chuyển tiền tại quầy, qua ứng dụng MSB mBank và các kênh khác do MSB cung cấp.
+
+Điều 2. Giải thích từ ngữ
+1. Napas 24/7: hệ thống chuyển tiền nhanh liên ngân hàng hoạt động liên tục, xử lý gần như tức thời.
+2. Citad: hệ thống thanh toán điện tử liên ngân hàng của Ngân hàng Nhà nước, xử lý theo phiên trong giờ làm việc, thường dùng cho lệnh giá trị lớn hoặc không đủ điều kiện qua Napas 24/7.
+3. Cut-off: thời điểm chốt nhận lệnh trong ngày làm việc của một kênh thanh toán; lệnh nộp sau cut-off được xử lý vào ngày làm việc kế tiếp.
+4. Lệnh treo: lệnh chuyển tiền đã được khởi tạo nhưng chưa hoàn tất xử lý do lỗi kỹ thuật, thiếu thông tin hoặc chờ đối chiếu.
+
+CHƯƠNG II. KÊNH CHUYỂN TIỀN VÀ HẠN MỨC
+
+Điều 3. Lựa chọn kênh chuyển tiền
+1. Chuyển khoản nội bộ giữa hai tài khoản MSB: xử lý tức thời trên core banking, không giới hạn hạn mức theo kênh (áp dụng hạn mức phê duyệt giao dịch viên tại Điều 4).
+2. Chuyển tiền liên ngân hàng giá trị đến 500 triệu đồng/giao dịch: xử lý qua Napas 24/7, thời gian ghi có tài khoản người hưởng trong vòng vài phút kể từ khi lệnh được xác nhận.
+3. Chuyển tiền liên ngân hàng giá trị trên 500 triệu đồng/giao dịch hoặc theo yêu cầu riêng của khách hàng: xử lý qua Citad, tuân thủ giờ làm việc và cut-off tại Điều 5.
+4. Hệ thống tự động định tuyến lệnh qua Napas hoặc Citad theo giá trị giao dịch; cán bộ không tự ý chọn kênh khác với định tuyến mặc định trừ khi có yêu cầu đặc biệt được KSV phê duyệt.
+
+Điều 4. Hạn mức khách hàng theo phương thức xác thực
+1. Giao dịch chuyển tiền từ 10 triệu đồng trở lên trên ứng dụng MSB mBank bắt buộc xác thực sinh trắc học (khớp khuôn mặt với dữ liệu CCCD gắn chip) theo quy định của Ngân hàng Nhà nước về giao dịch trực tuyến.
+2. Giao dịch dưới 10 triệu đồng có thể xác thực bằng Smart OTP; từ 10 triệu đồng trở lên bắt buộc kết hợp sinh trắc học, không chấp nhận chỉ dùng OTP qua SMS.
+3. Hạn mức chuyển tiền/ngày trên ứng dụng theo phân khúc khách hàng: khách hàng cá nhân thông thường tối đa 1 tỷ đồng/ngày, khách hàng ưu tiên tối đa 3 tỷ đồng/ngày, có thể điều chỉnh theo hồ sơ rủi ro từng khách hàng.
+4. Tại quầy giao dịch, hạn mức phê duyệt của GDV áp dụng theo Điều 3 QĐ.KS.VH.09 (GDV tự duyệt chuyển khoản đến 500 triệu đồng, trên 500 triệu đến 1 tỷ đồng cần KSV phê duyệt, trên 1 tỷ đồng cần Giám đốc ĐVKD phê duyệt).
+
+Điều 5. Thời điểm cắt lệnh (cut-off)
+1. Citad nhận lệnh trong giờ làm việc, cut-off 15h30 cùng ngày làm việc; lệnh nộp sau 15h30 được xử lý vào phiên Citad của ngày làm việc kế tiếp.
+2. Napas 24/7 không áp dụng cut-off theo ngày làm việc, hoạt động liên tục kể cả ngày nghỉ, ngày lễ, trừ thời gian bảo trì hệ thống được thông báo trước.
+3. Lệnh chuyển tiền theo lô (bảng kê nhiều giao dịch) phải nộp trước 14h00 để kịp xử lý và đối chiếu trong ngày; lô nộp sau 14h00 xử lý vào ngày làm việc kế tiếp.
+4. Lệnh nộp đúng hạn nhưng hệ thống Citad hoặc Napas gặp sự cố kỹ thuật ngoài kiểm soát của MSB được xử lý ngay khi hệ thống khôi phục, không tính là vi phạm cut-off.
+
+CHƯƠNG III. KIỂM TRA VÀ XỬ LÝ LỆNH
+
+Điều 6. Kiểm tra tên người hưởng
+1. Trước khi xác nhận lệnh chuyển tiền liên ngân hàng, hệ thống thực hiện tra cứu và hiển thị tên chủ tài khoản người hưởng theo dữ liệu của ngân hàng thụ hưởng (qua dịch vụ tra cứu tên tài khoản Napas) để khách hàng đối chiếu trước khi xác nhận.
+2. Trường hợp hệ thống không tra cứu được tên người hưởng (ngân hàng thụ hưởng không hỗ trợ), GDV nhắc khách hàng kiểm tra kỹ số tài khoản/số thẻ và tên người hưởng trước khi xác nhận, không tự ý xác nhận thay khách hàng.
+3. Không thực hiện lệnh khi tên người hưởng do hệ thống trả về khác với tên khách hàng cung cấp mà khách hàng không giải thích được lý do hợp lý (ví dụ tài khoản mượn danh).
+
+Điều 7. Lệnh lỗi và hoàn trả
+1. Lệnh bị từ chối bởi ngân hàng thụ hưởng do sai thông tin (tài khoản không tồn tại, tài khoản đóng, thông tin không khớp) được Napas hoặc Citad trả về mã lỗi tương ứng; hệ thống MSB tự động huỷ lệnh và hoàn tiền vào tài khoản người chuyển.
+2. Thời hạn hoàn tiền đối với lệnh bị từ chối: tối đa 1 ngày làm việc đối với lệnh qua Napas 24/7, tối đa 3 ngày làm việc đối với lệnh qua Citad do phụ thuộc phiên đối chiếu liên ngân hàng.
+3. Lệnh treo do lỗi kỹ thuật (không nhận được phản hồi từ ngân hàng thụ hưởng trong thời gian chờ chuẩn) được đưa vào danh sách theo dõi, Trung tâm Xử lý giao dịch tập trung tra soát chủ động với ngân hàng thụ hưởng, không chờ khách hàng phản ánh.
+4. Lệnh treo quá 3 ngày làm việc chưa có phản hồi từ ngân hàng thụ hưởng phải báo cáo Khối Vận hành để xử lý theo quy trình tra soát liên ngân hàng.
+
+Điều 8. Tra soát chuyển tiền nhầm
+1. Khách hàng chuyển nhầm tài khoản (nhập sai số tài khoản nhưng lệnh đã được thực hiện thành công) phải lập yêu cầu tra soát theo Hướng dẫn tra soát và xử lý khiếu nại giao dịch HD.TS.VH.10, cấp mã khiếu nại KN-YYYY-xxxx.
+2. MSB không được tự ý trích tiền từ tài khoản người nhận để hoàn trả cho người chuyển khi chưa có sự đồng ý bằng văn bản hoặc xác nhận điện tử của người nhận, trừ khi có quyết định phong toả/thu hồi của cơ quan có thẩm quyền.
+3. Trường hợp người nhận đồng ý hoàn trả, thời gian xử lý theo SLA tại HD.TS.VH.10; trường hợp người nhận không hợp tác hoặc không liên hệ được, hướng dẫn khách hàng chuyển yêu cầu can thiệp đến cơ quan có thẩm quyền (công an, toà án) theo Điều 8 Hướng dẫn cung cấp thông tin cho cơ quan nhà nước và bên thứ ba HD.CCTT.PC.15.
+
+CHƯƠNG IV. NGHIỆP VỤ ĐẶC THÙ
+
+Điều 9. Phí chuyển tiền
+1. Phí chuyển tiền nội bộ MSB: miễn phí đối với giao dịch trên ứng dụng, thu phí theo biểu phí hiện hành đối với giao dịch tại quầy.
+2. Phí chuyển tiền liên ngân hàng qua Napas và Citad áp dụng theo biểu phí dịch vụ hiện hành của MSB, có thể khác nhau theo kênh (quầy/ứng dụng) và theo hạng khách hàng.
+3. Trường hợp thu phí sai hoặc thu trùng, hoàn trả theo Điều 4 khoản 6 HD.TS.VH.10.
+
+Điều 10. Chuyển tiền theo lô lương
+1. Doanh nghiệp có nhu cầu chi lương hàng loạt nộp bảng kê chuyển tiền theo lô qua kênh doanh nghiệp hoặc tại quầy, kèm uỷ nhiệm chi hoặc yêu cầu chuyển tiền có chữ ký hợp lệ của người đại diện.
+2. Bảng kê lô lương được kiểm tra khớp tổng số tiền với số dư tài khoản doanh nghiệp trước khi xử lý; GDV không tách lệnh nhỏ hơn để né hạn mức phê duyệt.
+3. Lệnh lô lương nộp đúng hạn theo Điều 5 khoản 3 được xử lý và ghi có cho toàn bộ người nhận trong cùng ngày làm việc, trừ trường hợp có tài khoản lỗi (đóng, sai thông tin) được tách ra xử lý riêng và thông báo lại cho doanh nghiệp.
+
+Điều 11. Lệnh treo cuối ngày và đối chiếu, hạch toán
+1. Cuối mỗi ngày làm việc, Trung tâm Xử lý giao dịch tập trung rà soát toàn bộ lệnh treo phát sinh trong ngày, phân loại theo nguyên nhân và thời gian tồn đọng.
+2. Đối chiếu số liệu giao dịch giữa core banking, Napas và Citad thực hiện hàng ngày; chênh lệch phát hiện được xử lý theo nguyên tắc tại Điều 7.
+3. Báo cáo tổng hợp lệnh treo, tỷ lệ xử lý đúng hạn được gửi Khối Vận hành hàng tuần để theo dõi chất lượng dịch vụ chuyển tiền.
+
+Điều 12. Hiệu lực thi hành
+1. Hướng dẫn có hiệu lực từ ngày 15/04/2026, thay thế phiên bản 2.0.
+2. Thay đổi chính so với phiên bản 2.0: cập nhật ngưỡng bắt buộc xác thực sinh trắc học từ 20 triệu xuống 10 triệu đồng theo quy định mới của Ngân hàng Nhà nước; bổ sung Điều 8 khoản 3 dẫn chiếu Hướng dẫn cung cấp thông tin cho cơ quan nhà nước và bên thứ ba HD.CCTT.PC.15.
+3. Các đơn vị liên quan có trách nhiệm phổ biến hướng dẫn này đến toàn thể GDV, KSV; vướng mắc phản ánh về Khối Vận hành.

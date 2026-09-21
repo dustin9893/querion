@@ -1,0 +1,310 @@
+CẨM NANG VẬN HÀNH — NHÚNG WEBSITE, CHROME EXTENSION VÀ SỰ CỐ THƯỜNG GẶP
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Bốn bề mặt đưa trợ lý tới người dùng
+
+Một trợ lý sau khi công bố có thể xuất hiện ở bốn nơi khác nhau. Hiểu rõ bốn nơi này giúp bạn chọn đúng cách triển khai và dò lỗi nhanh hơn.
+
+- Cổng cán bộ: trang nội bộ, cán bộ đăng nhập rồi chọn trợ lý trong danh sách.
+- Trang khách hàng: một địa chỉ công khai của riêng trợ lý đó, không cần đăng nhập.
+- Bong bóng nhúng: một đoạn mã dán vào website khác, bong bóng hiện ở góc trang.
+- Bong bóng của tiện ích trình duyệt: cán bộ cài tiện ích, bong bóng đi theo họ trên mọi trang nội bộ.
+
+Tài liệu này nói về hai bề mặt cuối, và kết thúc bằng danh sách sự cố thường gặp của toàn hệ thống.
+
+2. Bong bóng nhúng vào website
+
+2.1 Đoạn mã nhúng
+
+Đoạn mã là một thẻ script duy nhất, dán trước thẻ đóng body của website đích. Thẻ mang hai thuộc tính dữ liệu: mã trợ lý và khoá công khai của trợ lý.
+
+Đoạn mã đã dựng sẵn nằm ở tab nhúng trên màn hình chi tiết trợ lý, có nút sao chép. Đừng tự gõ lại, vì sai một ký tự trong khoá thì bong bóng im lặng không hiện.
+
+Khoá trong đoạn mã là khoá công khai, thiết kế để lộ ra trong mã nguồn trang web. Nó không phải mật khẩu. Thứ bảo vệ hệ thống là danh sách website được phép, không phải việc giấu khoá.
+
+2.2 Vì sao khung chat chạy trên tên miền của hệ thống
+
+Đoạn mã chỉ vẽ nút bấm và khung ngoài. Bản thân cuộc hội thoại chạy trong một khung nhúng trỏ về trang của hệ thống, không phải chạy trên tên miền của đối tác.
+
+Cách làm này có ba cái lợi thực tế. Thứ nhất, máy chủ không cần mở quyền gọi chéo tên miền cho từng website đối tác. Thứ hai, mã của website đối tác không đọc được nội dung hội thoại vì nó nằm trong một khung khác nguồn gốc. Thứ ba, khi cần sửa giao diện chat, chỉ cần cập nhật ở hệ thống, đối tác không phải dán lại đoạn mã.
+
+2.3 Cả hai đối tượng đều nhúng được
+
+Trợ lý khách hàng nhúng lên website công khai và trò chuyện bằng khoá công khai.
+
+Trợ lý cán bộ cũng nhúng được, thường là lên một trang nội bộ. Trường hợp này khung chat hiện biểu mẫu đăng nhập ngay bên trong khung, xem mục 6.
+
+3. Danh sách website được phép
+
+3.1 Origin là gì
+
+Origin là giao thức cộng tên miền cộng cổng nếu có. Không có đường dẫn, không có tham số truy vấn, không có dấu sao đại diện.
+
+Điểm hay nhầm nhất: mỗi tên miền con là một origin riêng. Cho phép tên miền chính không tự động cho phép tên miền con, và ngược lại. Hệ thống chưa hỗ trợ dấu sao đại diện ở đây, phải nhập từng origin cụ thể.
+
+Cổng mặc định được lược bỏ khi lưu, nên một địa chỉ https với cổng 443 và cùng địa chỉ đó không ghi cổng là một.
+
+3.2 Giới hạn và các lỗi hay gặp khi nhập
+
+Tối đa hai mươi origin cho mỗi trợ lý.
+
+Hệ thống từ chối và giải thích bằng tiếng Việt trong bốn trường hợp: địa chỉ không đúng dạng, địa chỉ có chứa đường dẫn hoặc tham số hoặc thông tin đăng nhập, địa chỉ dùng dấu sao đại diện, và danh sách vượt quá hai mươi mục.
+
+Nếu thông báo nói dạng đúng là kiểu địa chỉ có giao thức và tên miền thì gần như chắc chắn bạn đã dán cả đường dẫn của trang, thí dụ dán nguyên địa chỉ trang liên hệ thay vì chỉ phần tên miền.
+
+3.3 Không bật được nhúng khi danh sách rỗng
+
+Công tắc bật nhúng bị chặn khi chưa có origin nào, và máy chủ trả về thông báo yêu cầu thêm ít nhất một website được phép trước khi bật.
+
+Đây là chặn có chủ ý. Một trợ lý bật nhúng với danh sách rỗng sẽ không dùng được ở đâu cả, nhưng lại tạo cảm giác đã cấu hình xong. Bắt buộc có origin trước khiến sai sót lộ ra ngay lúc cấu hình.
+
+4. Ba lớp kiểm soát và vì sao trình duyệt tự cưỡng chế
+
+Danh sách website được phép không chỉ là một dòng ghi chú. Nó được cưỡng chế ở ba nơi độc lập, để một sai sót ở một lớp không mở toang cánh cửa.
+
+4.1 Lớp một là trình duyệt chặn bằng chính sách nội dung
+
+Khi phục vụ trang nhúng, máy chủ gắn kèm một chính sách nội dung liệt kê đích danh những trang cha được phép đặt khung. Danh sách này lấy từ chính danh sách origin của trợ lý và được lưu tạm trong thời gian ngắn.
+
+Trình duyệt của người xem là bên thi hành. Một website không nằm trong danh sách thì khung trắng, hội thoại không bao giờ tải, và trang đối tác không làm gì được để vượt qua. Nếu không tra được trợ lý, hệ thống chỉ cho phép chính nó đặt khung.
+
+Mọi trang khác của ứng dụng đều từ chối bị đặt trong khung, không có ngoại lệ. Nghĩa là chỉ đúng trang nhúng mới nhúng được, không ai lồng được màn hình quản trị vào một trang lạ.
+
+4.2 Lớp hai là trang nhúng tự kiểm tra trang cha
+
+Sau khi tải, trang nhúng tự đối chiếu nguồn gốc của trang cha với danh sách được phép mà nó lấy từ máy chủ. Nếu không khớp, nó không hoạt động.
+
+Trao đổi thông điệp giữa trang cha và khung nhúng luôn nêu đích danh nguồn gốc ở cả hai chiều, không bao giờ dùng ký tự đại diện. Nhờ vậy một trang thứ ba không nghe lén hay chen thông điệp vào giữa được.
+
+4.3 Lớp ba là máy chủ kiểm tra origin khai báo
+
+Mỗi lời gọi hội thoại từ bản nhúng mang theo nguồn gốc của trang chứa nó. Máy chủ từ chối với mã 403 trong hai trường hợp: nguồn gốc không nằm trong danh sách, hoặc trợ lý đang tắt công tắc nhúng.
+
+Nguồn gốc này cũng được ghi vào nhật ký truy vấn, nên sau này bạn biết câu hỏi đến từ trang nào.
+
+Lớp một và lớp hai chạy trên máy người dùng. Lớp ba chạy trên máy chủ và là lớp cuối cùng không thể bỏ qua. Đó là lý do tắt công tắc nhúng có hiệu lực tức thì kể cả khi đoạn mã vẫn còn nằm trên website đối tác.
+
+5. Giới hạn tần suất trên kênh công khai
+
+Kênh khách hàng và kênh nhúng đi qua một bộ đếm tần suất theo cửa sổ thời gian cố định.
+
+- Giới hạn theo cặp trợ lý và địa chỉ máy khách trong một cửa sổ vài phút.
+- Giới hạn tổng số câu hỏi cho mỗi trợ lý trong một ngày.
+- Cán bộ đã đăng nhập có một mức nới hơn, nhằm chặn vòng lặp tự động chứ không nhằm chặn người.
+
+Khi chạm giới hạn theo máy khách, người hỏi nhận thông báo tiếng Việt báo gửi quá nhiều câu hỏi và mời thử lại sau vài phút. Khi chạm hạn mức ngày của trợ lý, thông báo nói trợ lý đã đạt hạn mức sử dụng trong ngày và mời liên hệ tổng đài.
+
+Điểm quan trọng về vận hành: bộ đếm cố ý thả lỏng khi hạ tầng đếm không sẵn sàng. Nếu Redis chết, câu hỏi vẫn được trả lời và hệ thống chỉ ghi cảnh báo. Lý do là một trợ lý phục vụ khách hàng không được phép ngừng hoạt động chỉ vì bộ đếm hỏng. Hệ quả cần biết: trong lúc Redis chết, giới hạn tần suất coi như không có.
+
+Khi khách hàng phàn nàn bị chặn oan, hãy nhớ giới hạn tính theo địa chỉ máy khách. Nhiều người sau cùng một đường ra Internet của doanh nghiệp sẽ dùng chung một địa chỉ.
+
+6. Trợ lý cán bộ trong bong bóng nhúng
+
+Bong bóng đặt trên trang nội bộ có thể phục vụ một trợ lý cán bộ. Khi đó khung chat hiện biểu mẫu đăng nhập ngay bên trong khung.
+
+Sau khi đăng nhập, thẻ truy cập nằm trong vùng lưu trữ của chính khung, tức là thuộc tên miền của hệ thống chứ không thuộc trang nội bộ. Trang nội bộ không đọc được thẻ đó.
+
+Vì sao làm như vậy: một trang nội bộ có thể mang trợ lý mà không phải xử lý bất kỳ thông tin đăng nhập nào, cũng không cần tích hợp gì thêm. Đội vận hành trang nội bộ dán một dòng mã là xong, phần định danh do hệ thống lo.
+
+Lời gọi hội thoại từ khung vẫn phải khai nguồn gốc trang và vẫn bị kiểm tra theo danh sách được phép, nên trang nội bộ cũng phải có trong danh sách.
+
+7. Giao diện bong bóng
+
+Cấu hình giao diện nằm cùng tab với danh sách website được phép, gồm:
+
+- Tiêu đề, mặc định là tên trợ lý.
+- Dòng phụ dưới tiêu đề.
+- Lời chào hiện khi mở khung.
+- Màu chủ đạo, nhập theo mã màu sáu ký tự.
+- Vị trí bong bóng ở góc phải hoặc góc trái.
+- Giao diện sáng, tối hoặc theo hệ thống.
+- Nhãn chữ trên nút bong bóng.
+- Tối đa bốn câu hỏi gợi ý.
+- Công tắc hiển thị dòng ghi nguồn ở chân khung.
+
+Mỗi trường có giới hạn độ dài riêng và máy chủ từ chối khi vượt, nên đừng dán cả đoạn văn vào ô lời chào.
+
+Điều gây bất ngờ nhất, cần nhớ: lời chào và các câu hỏi gợi ý ở đây cũng chính là lời chào và các chip gợi ý mà cán bộ nhìn thấy trên cổng nội bộ. Chúng không chỉ dành cho bản nhúng. Nếu bạn muốn sửa lời chào trên cổng cán bộ, hãy tìm ở tab nhúng chứ không phải tab cấu hình.
+
+8. Tiện ích Chrome cho cán bộ
+
+8.1 Tiện ích thêm được gì
+
+Tiện ích đặt một bong bóng nổi, kéo thả được, trên mọi trang mà cán bộ đang xem. Nó là bề mặt thứ tư bên cạnh cổng nội bộ, bản nhúng và trang khách hàng.
+
+Khác biệt so với bản nhúng: bản nhúng do chủ website quyết định đặt hay không, còn tiện ích đi theo người dùng. Một cán bộ cài tiện ích có trợ lý ở mọi hệ thống nội bộ mà họ mở, kể cả những hệ thống cũ không ai chịu sửa mã nguồn để dán đoạn nhúng. Đây chính là lý do tiện ích tồn tại.
+
+Bong bóng và ô cấu hình chạy trong một trang riêng của tiện ích, nên chính sách nội dung của trang chủ nhà không áp lên nó, và thẻ đăng nhập của cán bộ không bao giờ chạm vào trang đang mở.
+
+8.2 Bật theo từng trợ lý
+
+Tiện ích không tự hiện mọi trợ lý. Mỗi trợ lý có một công tắc riêng, mặc định tắt. Quản trị viên bật thủ công cho trợ lý nào muốn đưa lên bong bóng.
+
+Trợ lý đối tượng khách hàng không bật được, máy chủ trả về thông báo tiếng Việt nói trợ lý khách hàng không dùng được trong tiện ích của cán bộ. Đổi đối tượng trợ lý sang khách hàng cũng tự tắt công tắc này.
+
+8.3 Danh sách tên miền và cách khớp
+
+Bên cạnh công tắc là danh sách tên miền nội bộ, mỗi dòng một tên.
+
+Định dạng cho phép: tên miền thuần, hoặc dấu sao và dấu chấm đứng trước tên miền để khớp tên miền con, kèm số cổng nếu cần. Không có giao thức, không có đường dẫn. Tối đa hai mươi tên miền.
+
+Quy tắc khớp:
+
+- Mẫu không ghi cổng thì khớp với mọi cổng.
+- Mẫu có ghi cổng thì phải khớp đúng cổng đó.
+- Mẫu bắt đầu bằng dấu sao và dấu chấm khớp với các tên miền con, nhưng không khớp với chính tên miền gốc.
+
+Danh sách này dùng để làm gì: khi cán bộ mở một trang nội bộ, bong bóng tự chọn sẵn trợ lý có tên miền khớp với trang đó. Nếu không trang nào khớp, bong bóng lấy trợ lý dùng lần trước, hoặc trợ lý duy nhất có sẵn, hoặc mở bảng chọn.
+
+Nói cách khác, danh sách tên miền là cách bạn ghép đúng trợ lý với đúng màn hình nghiệp vụ, chứ không phải cách chặn truy cập.
+
+8.4 Phiên tiện ích được phân biệt thế nào
+
+Khi đăng nhập, bề mặt sử dụng được đóng dấu thẳng vào thẻ truy cập và thẻ làm mới, chứ không gửi kèm theo từng lời gọi dưới dạng tiêu đề.
+
+Lý do: nếu bề mặt do phía máy khách khai báo theo từng lời gọi thì nó có thể bị sửa. Đóng dấu vào thẻ nghĩa là máy chủ quyết định phiên này thuộc bề mặt nào, và quyết định đó giữ nguyên suốt vòng đời thẻ, kể cả sau khi làm mới.
+
+Hệ quả: một phiên mở từ tiện ích chỉ liệt kê những trợ lý đã bật công tắc, và nếu cố trò chuyện với một trợ lý chưa bật thì máy chủ trả về 403. Lượt hỏi được ghi nhật ký với kênh riêng, kèm địa chỉ trang mà cán bộ đang xem.
+
+Địa chỉ trang đang xem chỉ dùng để ghi nhật ký. Nó không bao giờ tham gia vào quyết định cho phép hay không.
+
+8.5 Đây là kiểm soát sản phẩm, không phải hàng rào an ninh
+
+Cần nói thẳng để tránh hiểu sai khi đánh giá rủi ro.
+
+Công tắc tiện ích và danh sách tên miền là công cụ quản lý sản phẩm và phục vụ truy vết. Chúng không phải hàng rào chống lại chính cán bộ đang dùng, vì người đó đã có thẻ đăng nhập hợp lệ và hoàn toàn có thể vào cổng nội bộ để hỏi cùng trợ lý đó.
+
+Hàng rào thật vẫn là ba thứ cũ: trợ lý phải được công bố, cán bộ phải thuộc đơn vị sở hữu trợ lý hoặc trợ lý phải được mở toàn ngân hàng, và trợ lý khách hàng không nằm trên kênh cán bộ. Khi cần hạn chế thật sự ai dùng được gì, hãy chỉnh ba thứ đó chứ đừng dựa vào công tắc tiện ích.
+
+8.6 Cài đặt và cấu hình trong ngân hàng
+
+Tiện ích đọc cấu hình theo thứ tự ưu tiên sau.
+
+- Chính sách doanh nghiệp đẩy xuống máy trạm thắng tất cả. Chính sách khai được địa chỉ máy chủ, tên thương hiệu và danh sách tên miền cấm hiện bong bóng.
+- Trang tuỳ chọn của tiện ích chỉ sửa được địa chỉ máy chủ, và chỉ khi không có chính sách nào đang áp.
+- Nếu không có cả hai, tiện ích dùng giá trị mặc định nhúng sẵn lúc đóng gói.
+
+Cách phân phối trong ngân hàng là cài cưỡng bức qua chính sách doanh nghiệp. Bản tự lưu trữ đòi máy trạm gia nhập miền, nên phối hợp với bộ phận quản trị máy trạm trước khi triển khai diện rộng.
+
+8.7 Bong bóng và bảng bên loại trừ nhau
+
+Tiện ích không vẽ được lên phần khung của trình duyệt, cũng không chạy được trên các trang nội bộ của trình duyệt như trang tab mới. Vì vậy ngoài bong bóng còn có một bảng bên gắn cố định, mở từ biểu tượng trên thanh công cụ, và bảng đó tồn tại trên mọi tab.
+
+Hai chế độ loại trừ nhau. Khi bảng bên đang mở, mọi bong bóng tự ẩn; khi bảng bên đóng, bong bóng hiện lại. Nhờ vậy màn hình không bao giờ có hai khung chat cùng lúc.
+
+Ở chế độ bảng bên, ngữ cảnh trang lấy từ tab đang xem thay vì từ trang chứa bong bóng, và trợ lý mặc định chỉ được chọn sau khi tiện ích nhìn thấy tab đầu tiên.
+
+Khi bong bóng bị tắt trên một trang, biểu tượng trên thanh công cụ hiện một dấu hiệu kèm lý do. Ba lý do thường gặp: trang nằm trong danh sách cấm của chính sách, trang đã có sẵn bong bóng nhúng nên tiện ích nhường chỗ, hoặc trang thuộc chính ứng dụng quản trị.
+
+9. Mười sự cố thường gặp
+
+9.1 Màn hình báo chưa chọn đơn vị làm việc
+
+Biểu hiện: mọi thao tác trả về thông báo chưa chọn đơn vị làm việc.
+
+Nguyên nhân: mọi màn hình gắn với đơn vị đều làm việc theo đơn vị đang chọn ở thanh trên. Tài khoản quản trị hệ thống thường không thuộc đơn vị nào nên không có đơn vị mặc định.
+
+Xử lý: chọn đơn vị ở thanh trên rồi thao tác lại. Nếu bộ chọn trống, tài khoản chưa được gán vào đơn vị nào, nhờ quản trị hệ thống gán.
+
+9.2 Văn bản dừng mãi ở trạng thái Đã tải
+
+Biểu hiện: tải tệp lên xong, trạng thái không tự chuyển sang Đang lập chỉ mục.
+
+Nguyên nhân: hệ thống không đẩy được công việc vào hàng đợi, thường vì Redis không sẵn sàng. Khi đó hệ thống cố ý giữ nguyên trạng thái Đã tải để người dùng còn chạy lại được.
+
+Xử lý: kiểm tra dịch vụ hàng đợi, sau đó bấm lập chỉ mục lại trên chính dòng văn bản đó. Nếu trạng thái chuyển sang Đang lập chỉ mục rồi đứng yên rất lâu thì hàng đợi chạy nhưng tiến trình xử lý chưa bật.
+
+9.3 Văn bản chuyển sang Lỗi vì không trích xuất được nội dung
+
+Biểu hiện: trạng thái Lỗi, thông báo nói không trích xuất được nội dung văn bản.
+
+Nguyên nhân: tệp là bản quét ảnh, không có lớp văn bản. Hệ thống không có bước nhận dạng ký tự.
+
+Xử lý: nhận dạng ký tự cho tệp bằng công cụ bên ngoài rồi tải lại bản có lớp văn bản. Nếu văn bản gốc là tệp Word thì tải bản Word thay vì bản in ra rồi quét.
+
+9.4 Câu trả lời không có trích dẫn nào
+
+Biểu hiện: trợ lý trả lời trôi chảy nhưng không có nguồn, hoặc nói tài liệu chưa đề cập dù bạn biết tài liệu có.
+
+Nguyên nhân, kiểm tra theo thứ tự này: trợ lý chưa gắn kho tri thức nào; văn bản đang tắt cờ dùng cho AI; văn bản chưa ở trạng thái Sẵn sàng; chưa có nhà cung cấp nhúng nào đang bật nên tra cứu trả về rỗng một cách im lặng; hoặc trợ lý chạy qua luồng xử lý mà node tra kho chưa chọn kho.
+
+Xử lý: mở nhật ký truy vấn, xem bước tra cứu trong ngăn chi tiết. Nếu bước đó trả về không đoạn nào thì vấn đề nằm ở bốn nguyên nhân đầu, không phải ở mô hình.
+
+9.5 Công cụ đã gắn nhưng trợ lý không bao giờ gọi
+
+Biểu hiện: trợ lý bảo không tra được, dù công cụ đã tích chọn và chạy thử thành công.
+
+Nguyên nhân phổ biến nhất: công tắc cho phép trợ lý gọi công cụ đang tắt. Công cụ gắn khi công tắc tắt thì không bao giờ được nạp, và triệu chứng giống hệt công cụ hỏng.
+
+Nguyên nhân khác: công cụ đang tắt hoạt động; công cụ thuộc đơn vị khác và chưa mở toàn ngân hàng; trợ lý là trợ lý khách hàng còn công cụ chưa mở cho kênh khách hàng; hoặc mô tả công cụ quá mơ hồ nên mô hình không nhận ra lúc nào nên gọi.
+
+Xử lý: bật công tắc rồi lưu. Màn hình có cảnh báo màu đỏ khi đã chọn công cụ mà công tắc còn tắt, đọc kỹ cảnh báo đó. Nếu vẫn không gọi, viết lại mô tả công cụ cho cụ thể, nêu rõ dùng khi nào và tham số là gì.
+
+9.6 Báo cáo nằm mãi ở trạng thái Đang chờ chạy
+
+Biểu hiện: xếp hàng đợi xong, dòng nhật ký ở trạng thái đang chờ và không bao giờ đổi.
+
+Nguyên nhân: tiến trình xử lý việc nền chưa chạy. Hệ thống tạo dòng nhật ký trước khi xếp hàng đợi, nên bạn thấy lượt đó tồn tại dù không ai xử lý.
+
+Xử lý: bật tiến trình xử lý việc nền. Nếu việc xếp hàng đợi thất bại ngay thì lời gọi trả về lỗi dịch vụ và dòng nhật ký được đánh dấu thất bại, đó là dấu hiệu Redis chứ không phải tiến trình nền.
+
+9.7 Lịch chạy không bao giờ kích hoạt
+
+Biểu hiện: lịch bật, thời điểm kế tiếp trôi qua, không có lượt chạy nào.
+
+Nguyên nhân: tiến trình lập lịch chưa chạy. Màn hình lịch chạy hiện cảnh báo khi tiến trình này không còn gửi tín hiệu sống.
+
+Xử lý: bật tiến trình lập lịch. Lưu ý các mốc đã lỡ trong lúc tiến trình nghỉ sẽ bị bỏ qua chứ không chạy bù, đây là hành vi có chủ ý để tránh chạy dồn hàng chục báo cáo cùng lúc. Muốn có báo cáo cho khoảng đã lỡ, dùng chạy ngay.
+
+9.8 Bong bóng không hiện trên website đối tác
+
+Biểu hiện: đã dán đoạn mã nhưng không thấy nút bấm, hoặc bấm vào thì khung trắng.
+
+Nguyên nhân, kiểm tra theo thứ tự: trợ lý chưa công bố; công tắc nhúng đang tắt; origin của trang chưa có trong danh sách; hoặc origin có nhưng khác tên miền con, khác giao thức hoặc khác cổng so với địa chỉ thật của trang.
+
+Xử lý: mở đúng trang đó, xem thanh địa chỉ, lấy chính xác phần giao thức cộng tên miền cộng cổng rồi thêm vào danh sách. Nhớ rằng bản thử nghiệm và bản chính thức là hai origin khác nhau, phải khai cả hai.
+
+9.9 Bong bóng của tiện ích không hiện trên trang nội bộ
+
+Biểu hiện: cán bộ đã cài tiện ích nhưng không thấy bong bóng trên một trang cụ thể.
+
+Nguyên nhân: trang nằm trong danh sách cấm do chính sách doanh nghiệp đẩy xuống; trang đã có sẵn bong bóng nhúng nên tiện ích nhường chỗ; bảng bên đang mở nên bong bóng tự ẩn; trang thuộc chính ứng dụng quản trị; hoặc đây là trang nội bộ của trình duyệt mà tiện ích không chạy được.
+
+Xử lý: nhìn dấu hiệu trên biểu tượng của tiện ích ở thanh công cụ, nó nói rõ lý do. Nếu là trang trình duyệt không chạy được thì dùng bảng bên.
+
+Trường hợp bong bóng hiện nhưng danh sách trợ lý trống: phiên đó mở từ tiện ích nên chỉ liệt kê trợ lý đã bật công tắc tiện ích, và cán bộ chỉ thấy trợ lý của đơn vị mình cộng trợ lý mở toàn ngân hàng.
+
+9.10 Một lượt trả lời bị đánh dấu Bị chặn
+
+Biểu hiện: người dùng nhận thông báo lỗi chung, nhật ký ghi trạng thái bị chặn.
+
+Nguyên nhân: bộ lọc đầu ra thấy câu trả lời có dấu hiệu lộ bộ nguyên tắc hệ thống nên cắt luồng trước khi người dùng đọc được.
+
+Xử lý: mở ngăn chi tiết xem câu hỏi. Nếu là câu dò hỏi về hướng dẫn hệ thống thì đây là hành vi đúng, không cần làm gì. Nếu là câu hỏi nghiệp vụ bình thường bị chặn nhầm, khả năng cao có một văn bản trong kho chứa đoạn văn giống bộ nguyên tắc, hãy tìm và sửa văn bản đó. Đừng nới lỏng bộ lọc.
+
+10. Câu hỏi thường gặp
+
+Hỏi: Khoá trong đoạn mã nhúng lộ ra ngoài có sao không?
+Đáp: Không. Đó là khoá công khai, thiết kế để nằm trong mã nguồn trang web. Thứ bảo vệ là danh sách website được phép và công tắc nhúng. Nếu nghi ngờ khoá bị lạm dụng, tạo lại khoá, nhưng nhớ mọi bản nhúng và link khách hàng cũ sẽ ngừng hoạt động.
+
+Hỏi: Tôi muốn cho phép mọi tên miền con của ngân hàng, nhập dấu sao được không?
+Đáp: Với danh sách website nhúng thì không, phải nhập từng origin cụ thể. Với danh sách tên miền của tiện ích thì được, dùng dấu sao và dấu chấm đứng trước tên miền, nhưng mẫu đó không khớp với chính tên miền gốc.
+
+Hỏi: Tắt công tắc nhúng có cần gỡ đoạn mã trên website đối tác không?
+Đáp: Không bắt buộc. Máy chủ từ chối ngay khi công tắc tắt, nên bong bóng ngừng hoạt động lập tức. Gỡ đoạn mã chỉ để trang gọn hơn.
+
+Hỏi: Bật tiện ích cho một trợ lý có làm cán bộ đơn vị khác nhìn thấy nó không?
+Đáp: Không. Công tắc tiện ích chỉ quyết định trợ lý có xuất hiện trên bề mặt đó hay không. Ai nhìn thấy trợ lý vẫn do việc công bố và phạm vi hiển thị quyết định.
+
+Hỏi: Vì sao sửa lời chào ở tab cấu hình mà cổng cán bộ không đổi?
+Đáp: Lời chào và câu hỏi gợi ý nằm trong phần giao diện bong bóng ở tab nhúng, và cổng cán bộ dùng chung giá trị đó. Sửa ở tab nhúng rồi lưu.
+
+Hỏi: Khách hàng báo bị chặn dù mới hỏi vài câu?
+Đáp: Giới hạn tính theo cặp trợ lý và địa chỉ máy khách. Nhiều người dùng chung một đường ra Internet sẽ chia nhau cùng một hạn mức. Kiểm tra thêm hạn mức ngày của trợ lý.
+
+Hỏi: Cán bộ dùng tiện ích thì câu hỏi có được ghi nhật ký không?
+Đáp: Có, với kênh riêng và kèm địa chỉ trang đang xem. Lưu ý bảng nhật ký hiện chưa có nhãn tiếng Việt cho kênh này nên nó hiển thị nguyên chuỗi kỹ thuật.
+
+Hỏi: Có cần mở quyền gọi chéo tên miền cho từng website đối tác không?
+Đáp: Không. Khung chat chạy trên tên miền của hệ thống, nên trình duyệt coi mọi lời gọi là cùng nguồn gốc. Đây là lý do kiến trúc chọn cách nhúng bằng khung thay vì cho đối tác gọi thẳng máy chủ.

@@ -1,0 +1,92 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI PHÁP CHẾ VÀ TUÂN THỦ
+FAQ TUÂN THỦ DÀNH CHO CÁN BỘ
+Số hiệu: FAQ.TT.2026.1 — Phiên bản: 2026.1 — Hiệu lực từ: 01/07/2026
+Đơn vị ban hành: Khối Pháp chế và Tuân thủ
+Đối tượng: Toàn thể cán bộ, nhân viên MSB
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+MỤC I. BẢO MẬT & DỮ LIỆU CÁ NHÂN
+
+Câu hỏi 1: Khách hàng gọi điện tự xưng và hỏi số dư tài khoản của người khác, xử lý sao?
+Trả lời: Từ chối cung cấp qua điện thoại trong mọi trường hợp theo Điều 3 QĐ.TT.07; hướng dẫn đến quầy xác thực CCCD gắn chip, hoặc gửi văn bản theo kênh chính thức tại Điều 5 HD.CCTT.PC.15 nếu là bên có thẩm quyền.
+
+Câu hỏi 2: Khách hàng yêu cầu xem lại dữ liệu cá nhân MSB đang lưu về mình, phản hồi trong bao lâu?
+Trả lời: Tối đa 72 giờ qua kênh điện tử đã xác thực, tối đa 5 ngày làm việc nếu bằng văn bản tại quầy, theo Điều 4 khoản 2 QĐ.BVDL.14.
+
+Câu hỏi 3: Khách hàng đã tất toán toàn bộ quan hệ, yêu cầu xoá hết dữ liệu cá nhân, MSB có phải xoá ngay không?
+Trả lời: Không nhất thiết ngay; xem xét trong tối đa 10 ngày làm việc theo Điều 4 khoản 4 QĐ.BVDL.14, có thể từ chối phần dữ liệu còn nghĩa vụ lưu trữ bắt buộc (kế toán, phòng chống rửa tiền).
+
+Câu hỏi 4: Trợ lý AI có được lưu thông tin cá nhân của khách hàng ẩn danh chat qua trang công khai để "nhớ" cho lần sau không?
+Trả lời: Không. Theo Điều 10 khoản 4 QĐ.BVDL.14, khách hàng ẩn danh không có cơ chế xác thực để thực hiện quyền truy cập, chỉnh sửa, xoá dữ liệu nên hệ thống không được xây dựng bộ nhớ cá nhân dài hạn về họ.
+
+Câu hỏi 5: Cán bộ có được nhập số CCCD đầy đủ của khách hàng vào trợ lý AI nội bộ để hỏi tư vấn nghiệp vụ không?
+Trả lời: Không. Theo Điều 5 khoản 2 QĐ.TT.07, không nhập thông tin Mật/Tối mật như CCCD đầy đủ, số tài khoản, OTP vào công cụ AI; mô tả tình huống bằng thông tin đã ẩn danh.
+
+Câu hỏi 6: Khách hàng phàn nàn bị gọi mời mua bảo hiểm dù đã từ chối nhận tiếp thị trước đó, xử lý ra sao?
+Trả lời: Vi phạm quyền phản đối xử lý dữ liệu cho tiếp thị tại Điều 4 khoản 6 QĐ.BVDL.14 (phải dừng trong 3 ngày làm việc kể từ khi khách hàng phản đối); báo Khối Pháp chế và Tuân thủ rà soát lại danh sách loại trừ.
+
+MỤC II. PHÒNG CHỐNG RỬA TIỀN
+
+Câu hỏi 7: Khách hàng nộp tiền mặt 450 triệu đồng một lần, GDV có phải báo cáo gì đặc biệt không?
+Trả lời: Có. Giao dịch tiền mặt từ 400 triệu đồng trở lên thuộc ngưỡng báo cáo theo QĐ.AML.11; hệ thống tự động đưa vào báo cáo giao dịch giá trị lớn, GDV khai đầy đủ mục đích giao dịch.
+
+Câu hỏi 8: Khách hàng chuyển tiền quốc tế 1.200 USD không giải thích rõ mục đích, có đáng ngờ không?
+Trả lời: Cần lưu ý vì vượt ngưỡng giám sát chuyển tiền điện tử quốc tế 1.000 USD theo QĐ.AML.11; nếu thêm dấu hiệu bất thường, lập nghi vấn để bộ phận AML xem xét báo cáo giao dịch đáng ngờ (STR).
+
+Câu hỏi 9: Sau khi lập báo cáo giao dịch đáng ngờ, MSB có bao nhiêu ngày làm việc để gửi STR cho cơ quan phòng, chống rửa tiền?
+Trả lời: Tối đa 3 ngày làm việc kể từ khi phát sinh nghi ngờ hoặc có căn cứ hợp lý để nghi ngờ, theo QĐ.AML.11.
+
+Câu hỏi 10: Cán bộ có được tiết lộ cho khách hàng biết giao dịch của họ đang bị báo cáo đáng ngờ không?
+Trả lời: Tuyệt đối không. Đây là hành vi tipping-off bị nghiêm cấm theo Điều 2 khoản 6 QĐ.AML.11, có thể bị xử lý kỷ luật nghiêm khắc và truy cứu trách nhiệm pháp lý.
+
+Câu hỏi 11: Khách hàng là người có ảnh hưởng chính trị (PEP) mở tài khoản mới, phê duyệt khác gì khách hàng thường?
+Trả lời: Áp dụng biện pháp tăng cường (EDD): xác minh nguồn gốc tài sản, phê duyệt từ Giám đốc ĐVKD trở lên, giám sát theo thời gian thực, theo Điều 3, Điều 4 QĐ.AML.11.
+
+Câu hỏi 12: Khách hàng nộp nhiều giao dịch tiền mặt nhỏ liên tiếp trong ngày để né ngưỡng báo cáo, đây có phải structuring không?
+Trả lời: Đúng, dấu hiệu chia nhỏ giao dịch (structuring) ghi nhận mã sự cố SC-GD-04 theo QĐ.KS.VH.09; GDV báo cáo KSV và Phòng Phòng chống gian lận, không tự ý xử lý.
+
+MỤC III. ỨNG XỬ & QUÀ TẶNG
+
+Câu hỏi 13: Khách hàng tặng cán bộ hộp quà trị giá khoảng 3 triệu đồng để cảm ơn, cán bộ có được nhận không?
+Trả lời: Được nhận nhưng phải khai báo vì giá trị từ 2 triệu đồng trở lên theo QĐ.ĐĐ.13; tuyệt đối không nhận nếu là tiền mặt dưới bất kỳ hình thức nào.
+
+Câu hỏi 14: Cán bộ tín dụng có người thân nộp hồ sơ vay tại chính chi nhánh mình làm việc, có được trực tiếp thẩm định không?
+Trả lời: Không. Đây là xung đột lợi ích phải khai báo theo Điều 2 QĐ.ĐĐ.13; hồ sơ chuyển cho cán bộ khác không có quan hệ thân nhân xử lý.
+
+Câu hỏi 15: Nhân viên có được nhận hoa hồng riêng từ đối tác cung cấp dịch vụ định giá tài sản bảo đảm không?
+Trả lời: Không. Đây là trục lợi cá nhân từ vị trí công tác, vi phạm nghiêm trọng QĐ.ĐĐ.13, có thể bị xử lý kỷ luật đến chấm dứt hợp đồng lao động.
+
+Câu hỏi 16: Phát hiện đồng nghiệp thường xuyên tra cứu thông tin khách hàng không thuộc hồ sơ mình phụ trách, có bắt buộc phải báo cáo không?
+Trả lời: Có. Đây là vi phạm nguyên tắc cần biết tại Điều 3 QĐ.TT.07; báo cáo qua kênh tố giác nội bộ theo QĐ.ĐĐ.13, người phản ánh được bảo vệ danh tính.
+
+MỤC IV. KHIẾU NẠI & PHÁT NGÔN
+
+Câu hỏi 17: Khách hàng khiếu nại bị trừ tiền nhưng ATM không nhả tiền, cấp mã khiếu nại theo hướng dẫn nào?
+Trả lời: Cấp mã KN-YYYY-xxxx theo Điều 2 HD.TS.VH.10; nếu là ATM MSB lỗi máy xác nhận qua nhật ký EJ, hoàn tiền trong 3 ngày làm việc theo Điều 6 HD.ATM.VH.11.
+
+Câu hỏi 18: Nhà báo gọi điện hỏi về một vụ khiếu nại đang xử lý, cán bộ chi nhánh có được trả lời sơ bộ không?
+Trả lời: Không. Chỉ Khối Pháp chế và Tuân thủ hoặc người được Ban điều hành uỷ quyền mới được phát ngôn với báo chí theo Điều 10 HD.CCTT.PC.15; mọi liên hệ báo chí chuyển ngay về Khối Pháp chế và Tuân thủ.
+
+Câu hỏi 19: Khách hàng khiếu nại thái độ phục vụ của một giao dịch viên khác, cán bộ tiếp nhận xử lý thế nào?
+Trả lời: Đây là khiếu nại về thái độ phục vụ, không phải tra soát giao dịch; hướng dẫn khách hàng theo kênh tại Điều 2 HD.KN.PC.12, không tự ý giải quyết hoặc bao che cho đồng nghiệp.
+
+Câu hỏi 20: Luật sư đại diện khách hàng đến chi nhánh xin sao kê tài khoản, cán bộ có được cung cấp ngay không?
+Trả lời: Chỉ cung cấp khi có văn bản uỷ quyền hợp lệ (công chứng hoặc xác thực tại MSB) theo Điều 8 khoản 1 HD.CCTT.PC.15; không có uỷ quyền hợp lệ thì từ chối và hướng dẫn bổ sung.
+
+Câu hỏi 21: Công ty đòi nợ tự xưng được khách hàng "uỷ quyền miệng" yêu cầu cung cấp thông tin dư nợ, xử lý sao?
+Trả lời: Từ chối cung cấp. Theo Điều 8 khoản 3 HD.CCTT.PC.15, công ty đòi nợ không có hợp đồng hợp tác chính thức hoặc uỷ quyền hợp lệ bằng văn bản của khách hàng không được cung cấp bất kỳ thông tin nào.
+
+MỤC V. SỬ DỤNG AI VÀ CÔNG CỤ SỐ
+
+Câu hỏi 22: Cán bộ có được dùng công cụ AI công cộng bên ngoài (không do MSB triển khai) để tóm tắt một quy định nội bộ không?
+Trả lời: Không. Điều 5 khoản 3 QĐ.TT.07 nghiêm cấm dùng AI công cộng bên ngoài để xử lý thông tin Nội bộ, Mật hoặc Tối mật, kể cả khi mục đích chỉ là tóm tắt.
+
+Câu hỏi 23: Trợ lý AI nội bộ trả lời một câu hỏi nghiệp vụ, cán bộ có thể áp dụng ngay vào hồ sơ khách hàng mà không kiểm tra lại không?
+Trả lời: Không. Theo Điều 5 khoản 4 QĐ.TT.07, câu trả lời AI chỉ có giá trị tham khảo; cán bộ phải đối chiếu văn bản gốc còn hiệu lực trước khi áp dụng, trách nhiệm quyết định thuộc về cán bộ và cấp phê duyệt.
+
+Câu hỏi 24: Trợ lý AI có được dùng để tự động phê duyệt hoặc từ chối một hồ sơ vay không?
+Trả lời: Không. Điều 5 khoản 5 QĐ.TT.07 nghiêm cấm dùng AI để ra quyết định tự động về phê duyệt tín dụng, mở tài khoản hoặc thực hiện giao dịch cho khách hàng cụ thể.
+
+Câu hỏi 25: Toàn bộ câu hỏi cán bộ đặt ra cho trợ lý AI nội bộ có bị ghi lại không?
+Trả lời: Có. Theo Điều 5 khoản 6 QĐ.TT.07, mọi câu hỏi và câu trả lời trên trợ lý AI nội bộ được ghi nhật ký phục vụ kiểm soát tuân thủ; cán bộ vẫn phải tuân thủ nguyên tắc không nhập thông tin Mật/Tối mật dù biết có ghi log.

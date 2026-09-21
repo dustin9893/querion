@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSB Intranet — Cổng thông tin cán bộ (demo)</title>
+<style>
+  :root{--navy:#1f3a5f;--orange:#ee6d1f;--ink:#0f172a;--muted:#64748b;--bg:#f3f4f6;--border:rgba(15,23,42,.08)}
+  *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+  .top{background:var(--navy);color:#fff;height:56px;display:flex;align-items:center}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px;width:100%}
+  .top .wrap{display:flex;justify-content:space-between;align-items:center}
+  .top b{letter-spacing:.5px}.top span{font-size:13px;opacity:.85}
+  .layout{display:grid;grid-template-columns:240px 1fr;gap:20px;padding:24px 0}
+  aside{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px}
+  aside a{display:block;padding:9px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:14px}
+  aside a:hover{background:#f1f5f9}aside .h{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin:10px 10px 6px}
+  .card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px}
+  .card h2{margin:0 0 6px;font-size:18px}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+  .news li{margin:6px 0;font-size:14px}.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:rgba(238,109,31,.12);color:#9a4410;margin-left:6px}
+  .kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+  .kpi div{background:#fff;border:1px solid var(--border);border-radius:14px;padding:14px}.kpi b{display:block;font-size:22px}.kpi span{font-size:12px;color:var(--muted)}
+  .note{background:#eef4fb;border:1px dashed var(--navy);color:var(--navy);border-radius:12px;padding:12px 16px;font-size:13px}
+  @media(max-width:760px){.layout{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><b>MSB INTRANET <span>· cổng thông tin cán bộ (mô phỏng)</span></b><span>Xin chào, cán bộ chi nhánh</span></div></div>
+<div class="wrap layout">
+  <aside>
+    <div class="h">Hệ thống</div>
+    <a href="#">BPM — Hồ sơ tín dụng</a><a href="#">ECM — Kho hồ sơ</a><a href="#">T24 — Core banking</a><a href="#">Checklist chứng từ</a>
+    <div class="h">Văn bản</div>
+    <a href="#">Quy trình cấp tín dụng KHDN v3.2</a><a href="#">Quy định TSBĐ v2.1</a><a href="#">Hướng dẫn giải ngân v1.4</a><a href="#">Hướng dẫn TTR v2.0</a>
+    <div class="h">Khác</div><a href="index.html">↗ Website khách hàng</a>
+  </aside>
+  <main>
+    <div class="kpi">
+      <div><b>128</b><span>Hồ sơ đang xử lý</span></div>
+      <div><b>23</b><span>Chờ bổ sung (STEB07)</span></div>
+      <div><b>9</b><span>Chờ phê duyệt (STEB03)</span></div>
+      <div><b>4,2 ngày</b><span>SLA trung bình</span></div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h2>Thông báo nghiệp vụ</h2>
+      <ul class="news">
+        <li>Ban hành Quy trình cấp tín dụng KHDN phiên bản 3.2, hiệu lực 01/03/2026 <span class="tag">Mới</span></li>
+        <li>Nâng ngưỡng luồng FAST từ 3 tỷ lên 5 tỷ đồng; bổ sung trạng thái STEB01_0 xác minh thực địa</li>
+        <li>Hướng dẫn giải ngân v1.4: ngưỡng chuyển khoản bắt buộc 100 triệu, luồng giải ngân nhanh IBCorp</li>
+        <li>Hướng dẫn TTR v2.0: chuẩn ISO 20022, FEETTR01 tối đa 300 USD, gọi xác nhận giao dịch trên 100.000 USD</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2>Trợ lý Tín dụng KHDN ngay trên portal</h2>
+      <p>Bong bóng chat ở góc phải là trợ lý cán bộ được nhúng. Cán bộ đăng nhập bằng tài khoản nội bộ ngay trong khung chat, hỏi về quy trình, TSBĐ, giải ngân và nhận câu trả lời có trích dẫn Điều/Khoản. Mọi lượt hỏi được ghi nhật ký cho Tuân thủ.</p>
+      <p style="margin-top:8px"><a href="#" onclick="window.MSBAssistant&&MSBAssistant.open();return false;" style="color:var(--orange);font-weight:600">Mở trợ lý →</a></p>
+    </div>
+    <div class="note">Tài khoản demo: rm.an@msb-demo.vn / demo123. Đây là portal mô phỏng phục vụ MSB AI Hackathon; không có dữ liệu thật.</div>
+  </main>
+</div>
+<script src="config.js"></script>
+<script src="embed.js" data-assistant="staff"></script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+CẨM NANG VẬN HÀNH — LUỒNG XỬ LÝ, CÔNG THỨC THƯỜNG DÙNG
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Cách đọc tài liệu này
+
+Tài liệu này đưa bốn công thức dựng luồng đã chạy thật trong hệ thống. Mỗi công thức mô tả thứ tự node và nội dung cấu hình từng node bằng lời, để bạn dựng lại trên màn hình sơ đồ mà không cần đọc dữ liệu thô.
+
+Ý nghĩa từng loại node, danh sách trường cấu hình và các quy tắc bắt buộc nằm ở tài liệu về các loại node. Ở đây chỉ nói cách ghép chúng lại.
+
+1.1 Nguyên tắc chung khi dựng luồng
+
+Dựng từ trái sang phải, mỗi node một việc. Đặt tên node bằng tiếng Việt mô tả việc nó làm, vì tên đó hiện trong nhật ký từng bước và đó là thứ bạn đọc khi đi dò lỗi sau này.
+
+Chạy thử sau mỗi hai hoặc ba node thay vì dựng hết rồi mới chạy. Luồng sai một chỗ thì mọi thứ phía sau đều sai theo, và tìm ngược rất mất thời gian.
+
+Đặt nhiệt độ thấp cho mọi node sinh văn bản trong báo cáo và phân loại. Giá trị 0.2 là lựa chọn mặc định hợp lý; các luồng mẫu đều dùng con số này.
+
+1.2 Khi nào không cần luồng xử lý
+
+Nếu trợ lý chỉ cần tra một hoặc vài kho tri thức rồi trả lời, đừng dựng luồng. Gắn thẳng kho vào trợ lý là đủ. Cách đó chạy nhanh hơn, chữ hiện dần ra thay vì hiện một khối, và hệ thống tự lo phần prompt bảo vệ.
+
+Chỉ dựng luồng khi có bước quyết định ở giữa: phân loại rồi mới chọn kho, gọi hệ thống lấy số rồi mới viết, hoặc phải sinh ra tệp.
+
+2. Công thức một, hỏi đáp trên một kho tri thức
+
+Đây là công thức nền. Nó không mang lại gì hơn so với việc gắn thẳng kho vào trợ lý, nhưng là bộ khung mà ba công thức sau đều dựa vào, nên dựng một lần cho quen tay.
+
+2.1 Thứ tự node
+
+Đầu vào, tra kho tri thức, soạn prompt, sinh câu trả lời, trả lời, đầu ra. Sáu node nối thành một chuỗi thẳng, mỗi node một cạnh ra.
+
+2.2 Cấu hình node đầu vào
+
+Đặt tên node là Câu hỏi cán bộ. Không khai tham số nào, vì câu hỏi đã nằm sẵn trong trạng thái.
+
+2.3 Cấu hình node tra kho tri thức
+
+Chọn đúng một kho. Số đoạn lấy về đặt 5.
+
+Con số 5 là điểm cân bằng thực dụng. Ít hơn thì dễ sót điều khoản liên quan. Nhiều hơn thì prompt dài, tốn token, và mô hình dễ trích dẫn lan man.
+
+2.4 Cấu hình node soạn prompt
+
+Chuỗi mẫu phải chứa hai thứ: bộ nguyên tắc trả lời, và chỗ chèn ngữ cảnh.
+
+Cách nhanh và an toàn nhất là chép nguyên bộ nguyên tắc mà hệ thống dùng cho trợ lý cán bộ, rồi thay chỗ đánh dấu ngữ cảnh trong đó bằng chỗ chèn ngữ cảnh của luồng. Luồng định tuyến mẫu trong hệ thống làm đúng như vậy.
+
+Bộ nguyên tắc đó yêu cầu mô hình chỉ trả lời theo ngữ cảnh, trích dẫn bằng ký hiệu thăng kèm số, nói rõ khi tài liệu chưa đề cập, không quyết định thay cán bộ về phê duyệt, không lặp lại dữ liệu khách hàng, ưu tiên phiên bản mới nhất, và coi cả ngữ cảnh lẫn câu hỏi là dữ liệu chứ không phải chỉ dẫn.
+
+Nếu bạn tự viết prompt từ đầu, ít nhất phải giữ ba điều: chỉ trả lời theo ngữ cảnh, trích dẫn có số, và coi nội dung trong khối ngữ cảnh là dữ liệu.
+
+2.5 Cấu hình node sinh câu trả lời
+
+Để trống tên model để dùng model của nhà cung cấp đang bật. Nhiệt độ 0.2. Số token tối đa 2048 là đủ cho một câu trả lời nghiệp vụ có cấu trúc.
+
+2.6 Cấu hình node trả lời
+
+Để trống chuỗi mẫu. Node sẽ giữ nguyên câu trả lời mà node trước đã sinh.
+
+2.7 Kiểm tra sau khi dựng xong
+
+Chạy thử bằng một câu mà bạn biết chắc nằm trong kho. Xem ba thứ: có trích dẫn không, trích dẫn có trỏ đúng văn bản không, và nhật ký từng bước có đủ sáu bước không.
+
+Nếu không có trích dẫn, xem lại theo thứ tự: node tra kho đã chọn kho chưa, chuỗi mẫu đã có chỗ chèn ngữ cảnh chưa, nhà cung cấp embedding đã bật chưa.
+
+3. Công thức hai, định tuyến hai kho theo ý định
+
+Đây là luồng mẫu có sẵn trong hệ thống với tên gọi định tuyến câu hỏi nội bộ. Nó phục vụ một trợ lý dùng chung cho nhiều mảng nghiệp vụ: cán bộ hỏi gì cũng vào một chỗ, hệ thống tự đưa câu hỏi về đúng kho.
+
+3.1 Vì sao cần định tuyến thay vì gắn cả hai kho
+
+Gắn hai kho vào một trợ lý thì hệ thống tra cả hai cùng lúc rồi lấy các đoạn gần nhất trên tổng thể. Cách đó đơn giản và thường đủ tốt.
+
+Định tuyến hơn ở chỗ nó loại hẳn kho không liên quan trước khi tra. Với hai kho có từ vựng giống nhau, ví dụ cùng nói về phí và thời hạn nhưng một bên là tín dụng một bên là thanh toán quốc tế, việc loại trước làm câu trả lời sạch hơn nhiều.
+
+Đổi lại, định tuyến tốn thêm một lượt gọi mô hình cho bước phân loại, và có thêm một điểm có thể sai.
+
+3.2 Thứ tự node
+
+Đầu vào, trích tham số, rẽ nhánh, rồi tách hai đường. Đường thứ nhất là tra kho tín dụng. Đường thứ hai là tra kho vận hành. Hai đường nhập lại ở node soạn prompt, rồi sinh câu trả lời, trả lời, đầu ra.
+
+Tổng cộng chín node và chín cạnh.
+
+3.3 Cấu hình node trích tham số
+
+Khai đúng một trường tên intent.
+
+Mô tả của trường chính là chỉ dẫn gửi cho mô hình, nên viết thật cụ thể. Luồng mẫu viết đại ý: phân loại câu hỏi vào đúng một giá trị, giá trị tin_dung nếu hỏi về cấp tín dụng, thẩm định, phê duyệt, tài sản bảo đảm, giải ngân, hạn mức, trạng thái hồ sơ; giá trị van_hanh nếu hỏi về chuyển tiền quốc tế, điện SWIFT, phí giao dịch, giao dịch viên, tỷ giá, tra soát; chỉ trả về một trong hai giá trị đó.
+
+Ba điểm làm nên chất lượng của mô tả này. Nó nêu đúng hai giá trị được phép. Nó liệt kê từ khoá nghiệp vụ thật thay vì nói chung chung. Nó nhắc lại ở cuối rằng không được trả lời gì khác.
+
+3.4 Cấu hình node rẽ nhánh
+
+Đường dẫn biến là extracted_params.intent. Phép so sánh là bằng. Giá trị đem so là tin_dung.
+
+So sánh này phân biệt hoa thường, nên giá trị trong mô tả trường và giá trị ở đây phải viết giống hệt nhau.
+
+3.5 Nối hai cạnh ra cho đúng thứ tự
+
+Đây là bước duy nhất của công thức này mà sai là hỏng, và sai rất kín đáo.
+
+Vẽ cạnh sang node tra kho tín dụng trước. Vẽ cạnh sang node tra kho vận hành sau. Hệ thống lấy cạnh thứ nhất làm nhánh đúng và cạnh thứ hai làm nhánh sai, bất kể nhãn bạn đặt là gì.
+
+Nếu sau này bạn xoá rồi vẽ lại một trong hai cạnh, cạnh mới rơi xuống cuối danh sách và hai nhánh đổi chỗ. Trợ lý vẫn trả lời, vẫn có trích dẫn, nhưng trích từ kho sai. Sau mỗi lần sửa cạnh, hãy chạy thử lại một câu tín dụng và một câu vận hành rồi mở nhật ký từng bước xem node tra kho nào đã chạy.
+
+3.6 Cấu hình hai node tra kho
+
+Mỗi node chọn đúng một kho, số đoạn 5. Đặt tên node theo tên kho để nhật ký đọc được ngay, ví dụ Tra kho Tín dụng KHDN và Tra kho Vận hành và TTQT.
+
+3.7 Cấu hình node soạn prompt dùng chung cho hai nhánh
+
+Chỉ cần một node soạn prompt cho cả hai nhánh, vì cả hai đều ghi kết quả vào cùng một chỗ trong trạng thái. Nội dung chuỗi mẫu giống công thức một.
+
+Đây cũng là lý do hai nhánh phải nhập lại trước khi soạn prompt chứ không phải mỗi nhánh một prompt riêng. Ít node hơn thì ít chỗ sai hơn.
+
+3.8 Những gì có thể sai và dấu hiệu nhận biết
+
+Mô hình trả về giá trị ngoài hai giá trị cho phép. Dấu hiệu: một loại câu hỏi luôn rơi vào cùng một nhánh. Cách xử lý: viết lại mô tả trường cho chặt hơn, thêm câu chỉ trả về một trong hai giá trị.
+
+Mô hình trả về thứ không phải JSON. Dấu hiệu: trong nhật ký, các tham số đã bóc chỉ có một trường tên bắt đầu bằng gạch dưới. Khi đó node rẽ nhánh luôn đi nhánh sai vì trường intent không tồn tại.
+
+Không có nhà cung cấp mô hình nào đang bật. Dấu hiệu: các tham số đã bóc rỗng hoàn toàn, và node sinh câu trả lời trả về một dòng tiếng Anh báo chưa cấu hình nhà cung cấp.
+
+4. Công thức ba, báo cáo gọi công cụ rồi xuất tài liệu
+
+Đây là công thức của các luồng kiểu báo cáo. Hệ thống có hai luồng mẫu theo công thức này, một luồng xuất Markdown và DOCX, một luồng xuất Excel nhiều sheet.
+
+Điểm khác biệt lớn nhất so với hai công thức trên: luồng này không trả lời ai cả, nó sinh ra tệp. Vì vậy nó chạy nền, có tham số đầu vào, và kết thúc bằng một hoặc nhiều node xuất tài liệu.
+
+4.1 Thứ tự node của biến thể một tệp
+
+Đầu vào có khai tham số, gọi công cụ, tra kho tri thức, soạn prompt, sinh câu trả lời, xuất tài liệu Markdown, xuất tài liệu DOCX, đầu ra.
+
+Node tra kho tri thức nằm giữa báo cáo là chi tiết đáng chú ý. Số liệu đến từ hệ thống lõi, nhưng phần nhận định phải bám vào quy định nội bộ, nên luồng tra thêm vài đoạn quy trình rồi đưa cả hai vào prompt.
+
+4.2 Cấu hình node đầu vào
+
+Khai các tham số mà người chạy cần điền. Luồng mẫu về hồ sơ quá hạn khai hai tham số: chi nhánh kiểu chuỗi, không bắt buộc, mặc định để trống, mô tả nói rằng để trống là lấy toàn khối; và chỉ hồ sơ quá hạn kiểu đúng sai, không bắt buộc, mặc định đúng.
+
+Hãy dành thời gian cho phần mô tả của từng tham số. Nó xuất hiện trong hộp thoại chạy thử, trong trình soạn lịch chạy, và nếu bạn bọc luồng này thành công cụ báo cáo thì nó chính là thứ mô hình đọc để biết điền gì.
+
+Đặt giá trị mặc định cho mọi tham số không bắt buộc. Lịch chạy tự động sẽ dùng đúng các giá trị này nếu người soạn lịch không điền.
+
+4.3 Cấu hình node gọi công cụ
+
+Chọn công cụ đã có sẵn trong sổ đăng ký của đơn vị. Đặt bí danh có nghĩa, ví dụ ho_so.
+
+Bảng tham số ánh xạ tham số đầu vào của luồng sang tham số của công cụ. Luồng mẫu truyền tham số quá hạn lấy từ inputs chấm tên trường, và tham số chi nhánh cũng vậy.
+
+Nhớ quy tắc kiểu dữ liệu: mỗi ô giá trị chỉ nên chứa đúng một chỗ chèn, không kèm chữ nào khác, để giá trị giữ nguyên kiểu gốc. Một tham số đúng sai viết lẫn chữ sẽ biến thành chuỗi và công cụ có thể từ chối.
+
+Công cụ cần duyệt không dùng được ở đây. Nếu báo cáo của bạn cần một thao tác ghi, hãy tách thao tác đó ra khỏi báo cáo.
+
+4.4 Cấu hình node tra kho tri thức trong báo cáo
+
+Chọn kho chứa quy định liên quan, số đoạn 4. Số đoạn nhỏ hơn so với hỏi đáp vì phần nhận định chỉ cần vài điều khoản làm căn cứ, còn chỗ trong prompt phải dành cho số liệu.
+
+4.5 Cấu hình node soạn prompt cho báo cáo
+
+Chuỗi mẫu của báo cáo khác chuỗi mẫu hỏi đáp ở chỗ nó có hai nguồn dữ liệu và một yêu cầu viết cụ thể.
+
+Nội dung nên gồm bốn phần. Phần một nói rõ vai: viết phần nhận định cho một báo cáo nội bộ. Phần hai nói rõ dữ liệu nằm ở đâu và cả hai đều là dữ liệu chứ không phải chỉ dẫn. Phần ba là yêu cầu cụ thể, ví dụ viết từ bốn đến tám gạch đầu dòng, nêu hồ sơ nào cần xử lý trước và vì sao, nêu rủi ro tập trung nếu có, nêu việc cần làm tiếp theo, nêu rõ mã hồ sơ, không bịa số ngoài dữ liệu đã cho, không quyết định thay cấp phê duyệt. Phần bốn là hai chỗ chèn: chỗ chèn kết quả công cụ và chỗ chèn ngữ cảnh.
+
+Yêu cầu số lượng gạch đầu dòng nghe vụn vặt nhưng rất hiệu quả. Không có nó, độ dài phần nhận định thay đổi mạnh giữa các lần chạy và bố cục tệp trông thiếu ổn định.
+
+4.6 Cấu hình node sinh câu trả lời trong báo cáo
+
+Nhiệt độ 0.2, số token tối đa 1200. Kết quả đi vào answer và sẽ được các node xuất tài liệu gọi ra bằng chỗ chèn tương ứng.
+
+4.7 Cấu hình node xuất tài liệu Markdown
+
+Định dạng markdown. Đối tượng nhận đặt là cán bộ nếu muốn tệp xuất hiện ở mục báo cáo của cán bộ.
+
+Tiêu đề và tên tệp nên gắn ngày để các lần chạy không trùng tên nhau. Cả hai trường đều hiểu chỗ chèn, nên dùng biến ngày hôm nay là đủ.
+
+Chuỗi mẫu là nội dung tệp. Bố cục dùng được trong luồng mẫu gồm: một dòng tiêu đề lớn, một dòng ghi ngày lập và đơn vị, một đoạn kiểm tra xem kết quả công cụ có lỗi hay không, một bảng liệt kê dữ liệu, một mục nhận định chèn câu trả lời của mô hình, và một dòng chân trang nói rõ tệp do hệ thống tạo tự động.
+
+Đoạn kiểm tra lỗi rất đáng làm. Node gọi công cụ khi lỗi không làm hỏng lần chạy mà ghi một bản ghi chỉ có trường tên loi. Mẫu kiểm tra trường đó rồi in một dòng cảnh báo sẽ giúp người nhận tệp hiểu ngay vì sao bảng trống.
+
+Trong bảng, dùng bộ lọc tiền cho các cột số tiền để số hiện theo cách viết Việt Nam.
+
+4.8 Cấu hình node xuất tài liệu DOCX
+
+Định dạng docx. Chọn khoá mẫu là tệp docx đã tải lên từ trước.
+
+Bảng biến phụ là chỗ bạn đặt tên ngắn cho dữ liệu sâu trong trạng thái. Luồng mẫu đặt ba biến: một biến danh sách trỏ tới danh sách hồ sơ trong kết quả công cụ, một biến tổng số trỏ tới trường tổng số, và một biến nhận định trỏ tới câu trả lời của mô hình.
+
+Tệp mẫu docx phải chứa đúng các tên biến này. Khi tải mẫu lên, hệ thống đọc mẫu và trả về danh sách biến mà mẫu đang cần, nên đối chiếu ngay lúc đó thay vì chờ chạy mới phát hiện thiếu.
+
+Trong mẫu docx, danh sách được in bằng cú pháp lặp theo hàng bảng: một hàng mở vòng lặp, một hàng chứa các ô là các chỗ chèn của từng phần tử, một hàng đóng vòng lặp.
+
+4.9 Thứ tự hai node xuất tài liệu
+
+Hai node xuất tài liệu nối tiếp nhau, không song song, vì mỗi node chỉ có một cạnh ra.
+
+Có một tác dụng phụ cần biết. Node xuất Markdown theo mặc định ghi nội dung Markdown vừa dựng đè lên answer. Nếu node xuất DOCX đứng sau và lấy nhận định từ answer, nó sẽ nhận nguyên khối Markdown chứ không phải phần nhận định gốc.
+
+Luồng mẫu tránh bẫy này bằng cách đặt node xuất DOCX đọc biến phụ đã trỏ sẵn tới answer. Nếu bạn muốn chắc chắn hơn, đặt node xuất DOCX trước node xuất Markdown, hoặc tắt hành vi ghi đè ở node Markdown.
+
+4.10 Biến thể xuất Excel nhiều sheet
+
+Luồng mẫu thứ hai lấy số liệu từ một máy chủ MCP của kho dữ liệu báo cáo và xuất một tệp Excel ba sheet kèm một tệp tóm tắt Markdown.
+
+Thứ tự node: đầu vào, gọi công cụ lần một, gọi công cụ lần hai, gọi công cụ lần ba, soạn prompt, sinh câu trả lời, xuất Excel, xuất Markdown, đầu ra.
+
+Ba node gọi công cụ nối tiếp nhau, cùng trỏ vào một dòng công cụ MCP nhưng khác tên công cụ con và khác bí danh. Bí danh trong luồng mẫu là doanh_so, no_qua_han và kpi. Mỗi node truyền tham số tháng lấy từ tham số đầu vào.
+
+Node đầu vào khai đúng một tham số tháng, kiểu chuỗi, bắt buộc, có giá trị mặc định và có mô tả nói rõ kho dữ liệu hiện có những tháng nào. Mô tả kiểu này tiết kiệm rất nhiều lần chạy hỏng.
+
+Node xuất Excel khai ba sheet. Mỗi sheet gồm tên sheet, tiêu đề, phần dòng dữ liệu trỏ tới danh sách trong kết quả công cụ tương ứng, danh sách cột, và với hai sheet đầu là vài dòng tóm tắt đặt phía trên bảng.
+
+Mỗi cột khai tiêu đề cột, tên trường, định dạng và cờ cộng tổng. Cột tiền dùng định dạng tiền và bật cộng tổng. Cột đếm dùng định dạng số nguyên và bật cộng tổng. Cột tỷ lệ dùng định dạng phần trăm, và dữ liệu phải là số thập phân chứ không phải số đã nhân trăm.
+
+Điểm dễ sai nhất ở đây là phần dòng dữ liệu. Nó phải là đúng một chỗ chèn trỏ tới danh sách, không kèm chữ nào. Viết lẫn chữ thì giá trị thành chuỗi và sheet chỉ có tiêu đề.
+
+Điểm dễ sai thứ hai là tên sheet. Tên có dấu gạch chéo, dấu hai chấm hoặc dấu ngoặc vuông sẽ bị hệ thống viết lại thay vì làm hỏng tệp, nhưng tên hiện ra sẽ khác tên bạn gõ. Tránh gõ tháng theo kiểu có dấu gạch chéo trong tên sheet.
+
+4.11 Chạy và đặt lịch
+
+Luồng báo cáo không chạy trong lúc người dùng chờ. Bạn xếp nó vào hàng đợi và theo dõi ở danh sách các lần chạy của luồng, hoặc tạo một lịch chạy để nó tự chạy theo giờ.
+
+Nếu muốn cán bộ hỏi trợ lý một câu là có báo cáo, hãy tạo một công cụ loại báo cáo trỏ tới luồng này rồi gắn công cụ cho trợ lý. Tham số của công cụ được sinh tự động từ chính các tham số đầu vào của luồng.
+
+5. Công thức bốn, gọi hệ thống ngoài qua HTTP
+
+Công thức này dùng khi luồng cần đẩy dữ liệu sang một dịch vụ khác hoặc lấy về một mẩu thông tin, mà dịch vụ đó là dịch vụ công khai trên Internet.
+
+5.1 Đọc kỹ trước khi chọn công thức này
+
+Với hệ thống nội bộ của ngân hàng, đây không phải lựa chọn đúng. Node gọi HTTP có bộ chặn địa chỉ nội bộ riêng và nó không đọc danh sách host nội bộ được phép mà bạn khai cho công cụ. Muốn nới, phải bật một cờ ở mức toàn hệ thống, mà cờ đó mở cho mọi luồng cùng lúc.
+
+Cách đúng với hệ thống nội bộ là tạo một công cụ loại http trong sổ đăng ký rồi dùng node gọi công cụ. Công cụ có khoá bí mật lưu mã hoá và tự chèn vào header, có kiểm tra tham số theo lược đồ, có thời gian chờ cấu hình được, và có danh sách host nội bộ được phép áp riêng cho nó.
+
+Phần còn lại của mục này dành cho trường hợp thật sự cần gọi một dịch vụ công khai.
+
+5.2 Thứ tự node
+
+Đầu vào, trích tham số, gọi HTTP, trả lời, đầu ra.
+
+Node trích tham số có mặt vì thân yêu cầu HTTP chỉ chèn được câu hỏi, câu trả lời hiện tại và các trường trong tham số đã bóc. Muốn gửi đi một mã số nằm trong câu hỏi tự do thì phải bóc nó ra trước.
+
+5.3 Cấu hình node trích tham số
+
+Khai các trường cần gửi đi, mỗi trường một dòng mô tả rõ ràng. Ví dụ một trường mã giao dịch với mô tả nêu đúng định dạng mã và một ví dụ.
+
+Luôn tính đến khả năng mô hình trả về null khi câu hỏi không chứa thông tin đó. Prompt trích tham số đã nói rõ với mô hình rằng trường không xác định được thì để null.
+
+5.4 Cấu hình node gọi HTTP
+
+Điền địa chỉ đầy đủ bắt đầu bằng https. Chọn phương thức. Khai các header cần thiết.
+
+Chuỗi mẫu thân yêu cầu viết như một khối JSON, trong đó các giá trị là chỗ chèn theo tên trường đã bóc.
+
+Với phương thức GET và DELETE, phần thân không được gửi đi, nên mọi tham số phải nằm trong địa chỉ.
+
+Thời gian chờ cố định 30 giây và không đổi được ở node này.
+
+5.5 Xử lý kết quả
+
+Kết quả nằm trong trạng thái dưới tên http_response, gồm mã trạng thái và phần thân đã cắt còn 2000 ký tự.
+
+Khi bị bộ chặn từ chối hoặc khi lỗi mạng, mã trạng thái là 0 và phần thân chứa lý do. Node không ném lỗi, luồng vẫn đi tiếp, nên bạn phải tự kiểm tra.
+
+Cách kiểm tra đơn giản nhất là thêm một node rẽ nhánh sau node gọi HTTP, so sánh biến http_response chấm status với giá trị 200, nhánh đúng đi tiếp, nhánh sai đi tới một node trả lời in ra câu thông báo không gọi được hệ thống.
+
+5.6 Cấu hình node trả lời
+
+Chuỗi mẫu của node trả lời chèn được mã trạng thái HTTP, nên dùng nó để in kết quả cho người dùng. Ví dụ một câu xác nhận đã gửi kèm mã trạng thái, hoặc một câu báo chưa gửi được.
+
+Node trả lời không đọc được phần thân của kết quả HTTP. Nếu cần đưa nội dung trả về vào câu trả lời, phải đi qua node soạn prompt và node sinh câu trả lời, hoặc chuyển hẳn sang dùng công cụ trong sổ đăng ký.
+
+6. Bảng tra nhanh, chọn công thức nào
+
+Cán bộ hỏi, tài liệu trả lời, một kho. Không cần luồng, gắn kho thẳng vào trợ lý.
+
+Cán bộ hỏi, tài liệu trả lời, nhiều kho cùng chủ đề. Không cần luồng, gắn nhiều kho vào trợ lý.
+
+Cán bộ hỏi, tài liệu trả lời, nhiều kho khác hẳn nhau về nghiệp vụ. Công thức hai.
+
+Cán bộ hỏi, cần số liệu thật từ hệ thống. Không cần luồng, tạo công cụ và bật công tắc agent cho trợ lý.
+
+Cần một tệp định kỳ gửi cho một nhóm chức danh. Công thức ba cộng một lịch chạy.
+
+Cần một tệp theo yêu cầu ngay trong hội thoại. Công thức ba cộng một công cụ loại báo cáo.
+
+Cần xuất ra Excel những gì vừa trao đổi trong hội thoại, không theo khuôn nào. Không cần luồng, dùng công cụ xuất Excel dùng chung.
+
+Cần đẩy dữ liệu sang một dịch vụ công khai. Công thức bốn.
+
+Cần gọi một hệ thống nội bộ. Tạo công cụ loại http, rồi dùng node gọi công cụ trong công thức ba.
+
+7. Danh sách kiểm tra trước khi đưa luồng vào dùng
+
+7.1 Kiểm tra cấu trúc
+
+Đúng một node đầu vào và một node đầu ra. Node đầu vào không có cạnh nào trỏ vào. Node đầu ra đến được từ node đầu vào. Không node nào có quá một cạnh ra, trừ node rẽ nhánh.
+
+Với node rẽ nhánh, chạy thử một câu thuộc nhánh đúng và một câu thuộc nhánh sai, rồi mở nhật ký từng bước xác nhận node nào đã chạy. Đây là bước không được bỏ qua sau mỗi lần sửa cạnh.
+
+7.2 Kiểm tra nội dung trả lời
+
+Câu trả lời có trích dẫn không. Trích dẫn trỏ đúng văn bản không. Hỏi một câu chắc chắn nằm ngoài phạm vi tài liệu thì trợ lý có nói rõ là tài liệu chưa đề cập, hay nó bịa ra một câu trả lời nghe hợp lý.
+
+Câu thử thứ ba quan trọng nhất. Một luồng trả lời tốt các câu dễ nhưng bịa khi gặp câu khó là luồng nguy hiểm hơn một luồng trả lời kém đều.
+
+7.3 Kiểm tra quyền và phạm vi
+
+Kho tri thức mà node tra cứu có thuộc đúng đơn vị không. Công cụ mà node gọi có thuộc đơn vị hoặc đã chia sẻ toàn ngân hàng không. Nếu luồng sinh ra tệp thì đối tượng nhận đã đặt đúng chưa.
+
+Với trợ lý dành cho khách hàng, nhớ rằng mọi kho mà luồng tra đều trở thành nội dung công khai trên thực tế, dù ràng buộc kho công khai chỉ áp cho kho gắn thẳng vào trợ lý.
+
+7.4 Kiểm tra vận hành
+
+Với luồng báo cáo, xếp một lần chạy nền và xác nhận nó kết thúc chứ không nằm mãi ở trạng thái chờ. Nếu nó nằm mãi ở trạng thái chờ thì tiến trình chạy việc nền chưa bật.
+
+Mở tệp kết quả ra xem. Một tệp Excel chỉ có tiêu đề cột, hoặc một tệp Word có ô trống ở chỗ đáng lẽ có số, đều là lỗi chỉ phát hiện được bằng mắt.
+
+8. Bảo trì luồng theo thời gian
+
+8.1 Đặt tên node và luồng
+
+Đặt tên node bằng tiếng Việt mô tả việc nó làm. Tên đó hiện trong nhật ký từng bước, và nhật ký là thứ bạn đọc sáu tháng sau khi không còn nhớ mình đã dựng gì.
+
+Đặt bí danh cho node gọi công cụ theo nội dung dữ liệu chứ không theo tên công cụ. Bí danh doanh_so nói lên nhiều hơn bí danh ket_qua_1.
+
+8.2 Khi kho tri thức bị đổi hoặc xoá
+
+Node tra kho giữ mã kho chứ không giữ tên. Đổi tên kho không ảnh hưởng gì. Xoá kho thì node vẫn giữ mã cũ, và lúc chạy nó không tìm được gì, nên trả về danh sách rỗng mà không báo lỗi.
+
+Dấu hiệu là câu trả lời đột nhiên không còn trích dẫn. Khi xoá một kho, hãy rà lại các luồng của đơn vị xem node nào đang trỏ vào nó.
+
+8.3 Khi công cụ bị đổi hoặc xoá
+
+Node gọi công cụ giữ mã công cụ. Nếu công cụ bị xoá hoặc bị tắt, node ghi vào kết quả một bản ghi lỗi nói rằng công cụ không tồn tại, đã tắt, hoặc không thuộc đơn vị này.
+
+Nếu bảng tham số của công cụ đổi, node vẫn gửi tham số cũ và bị từ chối với thông báo tham số không hợp lệ. Sau mỗi lần sửa lược đồ tham số của một công cụ, hãy chạy thử các luồng đang dùng nó.
+
+8.4 Khi đổi model hoặc nhà cung cấp
+
+Các node gọi mô hình không giữ khoá cũng không giữ địa chỉ; chúng lấy từ nhà cung cấp đang bật. Đổi nhà cung cấp là đổi cho mọi luồng cùng lúc.
+
+Nếu một node có ghi rõ tên model, tên đó phải là model mà nhà cung cấp mới phục vụ được. Sau khi đổi nhà cung cấp, hãy rà các node có ghi tên model và chạy thử lại.
+
+Đổi mô hình embedding là việc nặng hơn nhiều. Các đoạn văn bản cũ không được lập chỉ mục lại, nên câu hỏi và văn bản bị đo bằng hai thước khác nhau và chất lượng tra cứu giảm. Đổi thì phải lập chỉ mục lại toàn bộ.
+
+9. Câu hỏi thường gặp
+
+Hỏi: Tôi muốn định tuyến ba kho thay vì hai, làm thế nào?
+Đáp: Nối tiếp hai node rẽ nhánh. Node thứ nhất tách kho thứ nhất ra khỏi phần còn lại, nhánh sai của nó đi tới node rẽ nhánh thứ hai để tách hai kho còn lại. Nhớ thứ tự cạnh ở cả hai node.
+
+Hỏi: Báo cáo của tôi chạy xong nhưng bảng không có dòng nào?
+Đáp: Kiểm tra hai chỗ. Thứ nhất, phần dòng dữ liệu có phải đúng một chỗ chèn không. Thứ hai, mở nhật ký xem kết quả công cụ có phải là bản ghi lỗi chỉ gồm một trường tên loi không.
+
+Hỏi: Tôi cần báo cáo vừa gửi cho cán bộ vừa giữ riêng cho quản trị?
+Đáp: Dùng hai node xuất tài liệu nối tiếp, một node đặt đối tượng nhận là cán bộ, một node để mặc định. Chúng tạo ra hai tệp riêng biệt.
+
+Hỏi: Phần nhận định trong tệp DOCX của tôi lại là nguyên khối Markdown?
+Đáp: Node xuất Markdown đứng trước đã ghi đè lên câu trả lời. Hãy đổi thứ tự hai node, hoặc tắt hành vi ghi đè ở node Markdown.
+
+Hỏi: Chạy thử thì ra kết quả, đặt lịch thì báo thiếu tham số?
+Đáp: Lịch chạy dùng đúng bảng tham số bạn đã lưu trong lịch. Tham số bắt buộc mà lịch không điền thì lần chạy dừng ngay từ đầu. Hãy đặt giá trị mặc định cho tham số hoặc điền đủ trong lịch.
+
+Hỏi: Có cách nào xem mô hình đã nhận prompt như thế nào không?
+Đáp: Không có màn hình hiển thị nguyên văn prompt. Cách gần nhất là mở nhật ký từng bước để biết node tra kho lấy được bao nhiêu đoạn và node nào đã chạy, rồi đối chiếu với chuỗi mẫu của node soạn prompt.

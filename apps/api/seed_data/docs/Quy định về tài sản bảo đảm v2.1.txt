@@ -1,0 +1,70 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI QUẢN TRỊ RỦI RO
+QUY ĐỊNH VỀ NHẬN VÀ QUẢN LÝ TÀI SẢN BẢO ĐẢM
+Số hiệu: QĐ.TSBĐ.02 — Phiên bản: 2.1 — Hiệu lực từ: 15/01/2026
+Đơn vị ban hành: Khối Quản trị Rủi ro
+Áp dụng cho: Khách hàng doanh nghiệp (EB) và khách hàng cá nhân (RB)
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Mục đích và phạm vi
+1. Quy định này thiết lập nguyên tắc nhận, định giá, quản lý và xử lý tài sản bảo đảm (TSBĐ) cho các nghĩa vụ tín dụng tại MSB.
+2. Áp dụng cho toàn bộ Đơn vị kinh doanh, Trung tâm Xử lý tín dụng tập trung (CPC), bộ phận Định giá và bộ phận Quản lý TSBĐ.
+
+Điều 2. Nguyên tắc chung
+1. TSBĐ phải thuộc sở hữu hợp pháp của bên bảo đảm, không có tranh chấp, không bị kê biên và được phép giao dịch theo quy định pháp luật.
+2. Một tài sản có thể bảo đảm cho nhiều nghĩa vụ tại MSB nhưng tổng giá trị nghĩa vụ được bảo đảm không vượt quá giá trị cho vay tối đa của tài sản theo Điều 4.
+3. Không nhận TSBĐ của bên thứ ba là cá nhân trên 70 tuổi, trừ trường hợp có người thừa kế đồng ký cam kết.
+
+CHƯƠNG II. DANH MỤC VÀ TỶ LỆ CHO VAY
+
+Điều 3. Danh mục tài sản bảo đảm được nhận
+1. Nhóm 01 — Quyền sử dụng đất và tài sản gắn liền với đất: đất ở, đất thương mại dịch vụ, nhà ở, công trình xây dựng có giấy chứng nhận hợp lệ. Không nhận đất nông nghiệp thuần, đất thuê trả tiền hàng năm.
+2. Nhóm 02 — Phương tiện giao thông: ô tô, xe tải, tàu biển có đăng ký và bảo hiểm vật chất toàn bộ trong thời hạn vay.
+3. Nhóm 03 — Giấy tờ có giá: sổ tiết kiệm, chứng chỉ tiền gửi, hợp đồng tiền gửi do MSB hoặc tổ chức tín dụng khác phát hành; trái phiếu Chính phủ; tín phiếu, kỳ phiếu.
+4. Nhóm 04 — Chứng khoán: cổ phiếu niêm yết trên HOSE/HNX thuộc danh mục MSB chấp nhận, cập nhật hàng quý.
+5. Nhóm 05 — Máy móc thiết bị, dây chuyền sản xuất có hoá đơn, chứng từ nhập khẩu hoặc hợp đồng mua bán hợp lệ, thời gian sử dụng còn lại tối thiểu bằng 1,5 lần thời hạn vay.
+6. Nhóm 06 — Hàng hoá, nguyên nhiên vật liệu luân chuyển trong kho có bên thứ ba quản lý kho hoặc kho do MSB giám sát.
+7. Nhóm 07 — Quyền đòi nợ, quyền nhận tiền bảo hiểm, quyền tài sản phát sinh từ hợp đồng.
+8. Nhóm 08 — Kim khí quý, đá quý có giám định của đơn vị được MSB chấp thuận.
+
+Điều 4. Tỷ lệ cho vay tối đa trên giá trị định giá
+1. Bất động sản là đất ở, nhà ở tại đô thị: tối đa 70% giá trị định giá. Bất động sản thương mại, dịch vụ: tối đa 60%.
+2. Phương tiện giao thông mới (chưa đăng ký lần đầu quá 6 tháng): tối đa 60%. Phương tiện đã qua sử dụng: tối đa 50% và thời gian sử dụng không quá 5 năm tính đến thời điểm nhận bảo đảm.
+3. Giấy tờ có giá do MSB phát hành: tối đa 100% giá trị gốc cộng lãi dự thu đến ngày đến hạn. Giấy tờ có giá do tổ chức tín dụng khác phát hành: tối đa 90%.
+4. Cổ phiếu niêm yết trong danh mục chấp nhận: tối đa 40% giá trị thị trường bình quân 20 phiên gần nhất. Áp dụng ngưỡng bổ sung ký quỹ khi giá giảm 15% và ngưỡng xử lý khi giảm 25%.
+5. Máy móc thiết bị, dây chuyền sản xuất: tối đa 50%. Hàng hoá, nguyên vật liệu luân chuyển: tối đa 50% giá trị hàng tồn kho bình quân.
+6. Quyền đòi nợ: tối đa 70% giá trị khoản phải thu từ bên có nghĩa vụ trả nợ được MSB đánh giá xếp hạng từ BBB trở lên.
+7. Kim khí quý, đá quý: tối đa 80% giá trị giám định.
+
+CHƯƠNG III. ĐỊNH GIÁ, CÔNG CHỨNG VÀ ĐĂNG KÝ
+
+Điều 5. Định giá tài sản bảo đảm
+1. Bất động sản có giá trị dự kiến trên 20 tỷ đồng, tài sản là máy móc thiết bị và dây chuyền sản xuất phải được định giá bởi đơn vị định giá độc lập trong danh sách MSB chấp thuận. Các trường hợp còn lại do bộ phận Định giá nội bộ thực hiện.
+2. Kết quả định giá được lập thành Chứng thư định giá hoặc Thông báo định giá và lưu nhóm hồ sơ HSTSDB trên ECM. Chứng thư có hiệu lực 6 tháng kể từ ngày phát hành.
+3. Định giá lại định kỳ: bất động sản 12 tháng một lần; phương tiện giao thông, máy móc thiết bị 6 tháng một lần; hàng hoá luân chuyển hàng tháng; cổ phiếu theo giá thị trường hàng ngày.
+4. Khi giá trị định giá lại giảm làm tỷ lệ dư nợ trên giá trị TSBĐ vượt ngưỡng tại Điều 4, khách hàng phải bổ sung TSBĐ hoặc trả nợ trước hạn phần vượt trong 30 ngày.
+
+Điều 6. Công chứng và đăng ký giao dịch bảo đảm
+1. Hợp đồng thế chấp bất động sản phải được công chứng tại tổ chức hành nghề công chứng và đăng ký biện pháp bảo đảm tại Văn phòng đăng ký đất đai trong 5 ngày làm việc kể từ ngày ký. Hồ sơ lưu nhóm HSTSDB.
+2. Hợp đồng thế chấp phương tiện giao thông, máy móc thiết bị, quyền đòi nợ phải đăng ký tại Trung tâm Đăng ký giao dịch, tài sản trong 3 ngày làm việc kể từ ngày ký.
+3. Cầm cố giấy tờ có giá do MSB phát hành thực hiện phong toả trên hệ thống T24, không bắt buộc công chứng.
+4. Đối với bất động sản, MSB giữ bản chính Giấy chứng nhận quyền sử dụng đất; đối với phương tiện giao thông, MSB giữ bản chính Giấy đăng ký xe và cấp bản sao có xác nhận cho khách hàng lưu hành.
+5. Không được giải ngân trước khi hoàn tất công chứng và đăng ký biện pháp bảo đảm, trừ trường hợp được cấp phê duyệt cho phép giải ngân trước với điều kiện hoàn thiện trong 7 ngày làm việc và tỷ lệ cho vay không vượt 50%.
+
+CHƯƠNG IV. QUẢN LÝ VÀ GIẢI CHẤP
+
+Điều 7. Quản lý tài sản bảo đảm sau khi nhận
+1. Bộ phận Quản lý TSBĐ theo dõi thời hạn bảo hiểm, thời hạn định giá lại và tình trạng pháp lý của tài sản trên hệ thống quản lý TSBĐ (bpm-collateral).
+2. RM kiểm tra thực tế tài sản định kỳ 12 tháng đối với bất động sản, 6 tháng đối với động sản, lập biên bản kiểm tra và lưu ECM.
+3. Bên bảo đảm không được cho thuê, cho mượn, góp vốn hoặc thay đổi hiện trạng tài sản khi chưa có văn bản chấp thuận của MSB.
+
+Điều 8. Giải chấp tài sản bảo đảm
+1. TSBĐ được giải chấp khi khách hàng đã hoàn thành toàn bộ nghĩa vụ được bảo đảm hoặc thay thế bằng TSBĐ khác được MSB chấp thuận.
+2. Hồ sơ giải chấp gồm: đề nghị giải chấp của khách hàng, xác nhận tất toán từ hệ thống T24, phê duyệt giải chấp của Giám đốc ĐVKD (hoặc cấp phê duyệt ban đầu nếu giải chấp một phần).
+3. Thời gian hoàn trả bản chính giấy tờ TSBĐ cho khách hàng: 3 ngày làm việc kể từ ngày nhận đủ hồ sơ giải chấp, thực hiện qua quy trình trả chứng từ (document-return).
+
+Điều 9. Hiệu lực thi hành
+1. Quy định có hiệu lực từ ngày 15/01/2026, thay thế phiên bản 2.0.
+2. Thay đổi chính so với phiên bản 2.0: giảm tỷ lệ cho vay tối đa trên phương tiện đã qua sử dụng từ 60% xuống 50%; bổ sung yêu cầu định giá độc lập cho bất động sản trên 20 tỷ đồng; quy định rõ điều kiện giải ngân trước khi hoàn tất đăng ký bảo đảm.

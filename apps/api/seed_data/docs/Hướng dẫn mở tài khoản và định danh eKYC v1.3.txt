@@ -1,0 +1,79 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG CÁ NHÂN, KHỐI VẬN HÀNH
+HƯỚNG DẪN MỞ TÀI KHOẢN VÀ ĐỊNH DANH ĐIỆN TỬ (eKYC)
+Số hiệu: HD.TK.RB.08 — Phiên bản: 1.3 — Hiệu lực từ: 01/03/2026
+Đơn vị ban hành: Khối Khách hàng Cá nhân, phối hợp Khối Vận hành
+Đối tượng: Giao dịch viên (GDV), Kiểm soát viên (KSV), bộ phận Vận hành số
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Phạm vi và kênh mở tài khoản
+1. Hướng dẫn này quy định trình tự mở tài khoản thanh toán cho khách hàng cá nhân qua hai kênh: tại quầy giao dịch và định danh điện tử (eKYC) trên ứng dụng MSB mBank.
+2. Không áp dụng cho mở tài khoản doanh nghiệp, tài khoản định chế tài chính hoặc tài khoản cho người chưa thành niên; các trường hợp này thực hiện theo hướng dẫn riêng.
+3. Việc mở tài khoản gắn với đăng ký dịch vụ ngân hàng điện tử MSB mBank và Internet Banking được thực hiện đồng thời trong cùng một phiên giao dịch, cả tại quầy và qua eKYC, trừ khi khách hàng từ chối.
+
+Điều 2. Giấy tờ tuỳ thân chấp nhận
+1. Công dân Việt Nam: Căn cước công dân (CCCD) gắn chip còn hiệu lực. Chứng minh nhân dân 9 số hoặc CCCD không gắn chip chỉ chấp nhận tại quầy, không dùng cho eKYC.
+2. Người Việt Nam định cư ở nước ngoài còn quốc tịch Việt Nam: hộ chiếu Việt Nam còn hiệu lực kèm giấy tờ chứng minh nơi cư trú.
+3. Người nước ngoài: hộ chiếu còn hiệu lực tối thiểu 6 tháng kèm thị thực hợp lệ hoặc thẻ tạm trú/thẻ thường trú; chỉ mở tài khoản tại quầy, không áp dụng eKYC.
+4. Giấy tờ đã hết hạn, rách, mờ không đọc được thông tin hoặc ảnh không khớp với người xuất trình: từ chối tiếp nhận.
+5. Đối với mở tài khoản tại quầy, GDV đối chiếu giấy tờ bản chính với người xuất trình, chụp lưu ảnh giấy tờ và ảnh khách hàng tại quầy vào hồ sơ; không chấp nhận bản photo hoặc bản chụp qua thiết bị di động thay cho giấy tờ bản chính.
+
+CHƯƠNG II. QUY TRÌNH ĐỊNH DANH ĐIỆN TỬ (eKYC)
+
+Điều 3. Các bước thực hiện eKYC trên MSB mBank
+1. Bước 1 — Chụp giấy tờ: khách hàng chụp mặt trước và mặt sau CCCD gắn chip; hệ thống trích xuất thông tin bằng OCR và kiểm tra tính toàn vẹn của ảnh (không chụp qua màn hình, không chỉnh sửa).
+2. Bước 2 — Đọc chip NFC: khách hàng đưa CCCD áp sát mặt sau điện thoại có hỗ trợ NFC để đọc dữ liệu sinh trắc học và chữ ký số lưu trên chip do Bộ Công an cấp; đối chiếu dữ liệu chip với dữ liệu OCR ở Bước 1.
+3. Bước 3 — Xác thực khuôn mặt (liveness và face-match): khách hàng thực hiện các động tác theo yêu cầu ngẫu nhiên của hệ thống (quay trái, quay phải, chớp mắt) để chống giả mạo bằng ảnh tĩnh hoặc video; hệ thống so khớp khuôn mặt trực tiếp với ảnh trên chip, ngưỡng chấp nhận tối thiểu độ tương đồng 90%.
+4. Bước 4 — Xác nhận thông tin và ký hợp đồng mở tài khoản điện tử: khách hàng xác nhận thông tin cá nhân, mục đích mở tài khoản, ký bằng chữ ký điện tử (e-signature).
+5. Toàn bộ quy trình eKYC hoàn tất trong khoảng 5 phút; hệ thống tự động từ chối và yêu cầu ra quầy nếu quá 3 lần thất bại ở Bước 2 hoặc Bước 3 trong một phiên.
+6. Trường hợp thiết bị không hỗ trợ NFC: chỉ được mở tài khoản hạn chế theo Điều 4 khoản 1, phải hoàn tất xác thực tại quầy hoặc qua thiết bị có NFC trong thời hạn tại Điều 4 khoản 2 để nâng hạn mức.
+7. Video xác thực khuôn mặt (liveness) tại Bước 3 được lưu tối thiểu 12 tháng phục vụ tra soát khiếu nại và kiểm tra nội bộ, tách biệt với dữ liệu sinh trắc học trên chip theo nguyên tắc tối thiểu hoá tại QĐ.TT.07.
+
+Điều 4. Hạn mức tài khoản mở qua eKYC chưa xác thực đầy đủ
+1. Tài khoản mở qua eKYC nhưng chưa hoàn tất đọc chip NFC (áp dụng ngoại lệ thiết bị không hỗ trợ, chỉ xác thực bằng OCR và khuôn mặt): tổng giá trị giao dịch (nhận và chuyển) không vượt quá 100.000.000 đồng/tháng và số dư tài khoản không vượt quá 20.000.000 đồng tại mọi thời điểm.
+2. Hạn mức tại khoản 1 áp dụng tối đa 30 ngày kể từ ngày mở tài khoản; quá thời hạn mà chưa xác thực bổ sung, tài khoản bị tạm khoá chiều chuyển đi cho đến khi khách hàng hoàn tất xác thực tại quầy (đối chiếu CCCD bản chính và khuôn mặt trực tiếp) hoặc qua chip NFC trên ứng dụng.
+3. Tài khoản đã xác thực đầy đủ cả OCR, chip NFC và khuôn mặt được áp dụng hạn mức giao dịch đầy đủ theo Biểu phí BP.KH.06 và chính sách hạn mức hiện hành, không giới hạn riêng theo Điều này.
+4. Tài khoản mở qua eKYC không được đăng ký hạn mức chuyển khoản online cao (trên 100.000.000 đồng/ngày theo Biểu phí BP.KH.06) cho đến khi hoàn tất xác thực đầy đủ theo khoản 3, kể cả khi khách hàng có nhu cầu và đã bật Smart OTP kết hợp sinh trắc học.
+
+Điều 5. Trường hợp phải từ chối mở tài khoản
+1. Giấy tờ tuỳ thân không hợp lệ theo Điều 2 hoặc nghi ngờ giả mạo (ảnh trên chip không khớp OCR, dữ liệu chip không xác thực được chữ ký số của Bộ Công an).
+2. Kết quả liveness cho thấy dấu hiệu giả mạo (ảnh tĩnh, video phát lại, mặt nạ, deepfake) theo cảnh báo của hệ thống chống gian lận.
+3. Khách hàng trùng khớp với Danh sách cảnh báo (watchlist) nội bộ về phòng chống rửa tiền, danh sách cấm vận hoặc danh sách gian lận đã ghi nhận tại MSB hoặc liên ngân hàng.
+4. Khách hàng dưới 18 tuổi không có người giám hộ hợp pháp đồng thực hiện theo quy định riêng.
+5. Số điện thoại đăng ký đã được sử dụng để mở quá 3 tài khoản eKYC trong 12 tháng tại MSB mà chưa hoàn tất xác thực đầy đủ.
+6. Thiết bị (nhận diện qua mã thiết bị) đã thực hiện quá 5 phiên eKYC thất bại liên tiếp trong 24 giờ, không phân biệt số điện thoại hay giấy tờ sử dụng — dấu hiệu tấn công tự động.
+
+Điều 6. Xử lý trùng khớp danh sách cảnh báo
+1. Khi hệ thống sàng lọc phát hiện trùng khớp tên, ngày sinh hoặc số giấy tờ với Danh sách cảnh báo, hồ sơ eKYC tự động chuyển trạng thái "Chờ xác minh thủ công" và tạm dừng cấp tài khoản.
+2. Bộ phận Vận hành số đối chiếu thông tin trong 4 giờ làm việc; nếu xác định trùng khớp giả (false positive, khác người), tài khoản được mở tiếp; nếu nghi ngờ đúng đối tượng, hồ sơ chuyển Khối Pháp chế và Tuân thủ xử lý theo QĐ.TT.07 và từ chối mở tài khoản.
+3. Mọi trường hợp trùng khớp đều được lưu vết trên hệ thống, không thông báo lý do từ chối cụ thể cho khách hàng ngoài nội dung mẫu chuẩn.
+
+CHƯƠNG III. CẬP NHẬT, ĐÓNG TÀI KHOẢN VÀ TRÁCH NHIỆM
+
+Điều 7. Cập nhật thông tin định danh
+1. Khách hàng phải cập nhật thông tin khi giấy tờ tuỳ thân hết hạn, thay đổi số CCCD, thay đổi số điện thoại đăng ký hoặc theo yêu cầu định kỳ rà soát của MSB (tối thiểu 3 năm một lần đối với khách hàng thông thường, 1 năm một lần đối với khách hàng thuộc nhóm rủi ro cao).
+2. Cập nhật CCCD gắn chip mới có thể thực hiện qua eKYC (lặp lại quy trình Điều 3) hoặc tại quầy.
+3. Tài khoản chưa cập nhật giấy tờ hết hạn quá 60 ngày bị hạn chế giao dịch chiều rút/chuyển đi cho đến khi hoàn tất cập nhật.
+
+Điều 8. Đóng tài khoản
+1. Khách hàng có thể yêu cầu đóng tài khoản tại quầy hoặc trên ứng dụng đối với tài khoản không còn số dư và không có giao dịch treo.
+2. GDV kiểm tra không còn nghĩa vụ liên kết (thẻ, dịch vụ tự động trích nợ, hạn mức thấu chi) trước khi xử lý đóng tài khoản.
+3. Tài khoản không phát sinh giao dịch và số dư bằng 0 liên tục 24 tháng được MSB chủ động chuyển trạng thái không hoạt động (dormant) và thông báo cho khách hàng trước khi đóng theo quy định nội bộ về quản lý tài khoản.
+
+Điều 9. Trách nhiệm của GDV và KSV
+1. GDV chịu trách nhiệm đối chiếu giấy tờ bản chính với người xuất trình khi mở tài khoản tại quầy hoặc xác thực bổ sung cho tài khoản eKYC; không mở tài khoản khi có nghi ngờ về danh tính mà chưa xác minh rõ.
+2. KSV kiểm soát lại toàn bộ hồ sơ mở tài khoản trước khi kích hoạt, đặc biệt các trường hợp có cảnh báo tại Điều 6 hoặc hồ sơ do GDV mới thực hiện dưới 6 tháng.
+3. Hồ sơ mở tài khoản (bản scan giấy tờ, kết quả eKYC, video liveness) lưu trên hệ thống lưu trữ định danh điện tử tối thiểu 10 năm kể từ ngày đóng tài khoản.
+4. Bộ phận Vận hành số chịu trách nhiệm vận hành hệ thống sàng lọc danh sách cảnh báo, đảm bảo dữ liệu Danh sách cảnh báo được cập nhật tối thiểu hằng tuần từ nguồn của Khối Pháp chế và Tuân thủ; sự cố cập nhật chậm phải báo cáo Trung tâm An toàn thông tin trong ngày phát hiện.
+
+Điều 10. Thời hạn xử lý
+1. Mở tài khoản tại quầy: hoàn tất trong 15 phút kể từ khi tiếp nhận đủ hồ sơ hợp lệ.
+2. Mở tài khoản qua eKYC: hoàn tất trong 5 phút theo Điều 3 khoản 5, trừ trường hợp chuyển xác minh thủ công theo Điều 6 (xử lý trong 4 giờ làm việc).
+3. Yêu cầu cập nhật thông tin hoặc đóng tài khoản tại quầy: hoàn tất trong 30 phút kể từ khi tiếp nhận đủ hồ sơ.
+
+Điều 11. Hiệu lực thi hành
+1. Hướng dẫn có hiệu lực từ ngày 01/03/2026, thay thế phiên bản 1.2.
+2. Thay đổi chính so với phiên bản 1.2: bổ sung Điều 6 về xử lý trùng khớp danh sách cảnh báo; điều chỉnh hạn mức eKYC chưa xác thực NFC từ 50 triệu lên 100 triệu đồng/tháng; rút ngắn thời hạn xác minh thủ công từ 8 giờ xuống 4 giờ làm việc.
+3. Vướng mắc phản ánh về Bộ phận Vận hành số, Khối Vận hành.

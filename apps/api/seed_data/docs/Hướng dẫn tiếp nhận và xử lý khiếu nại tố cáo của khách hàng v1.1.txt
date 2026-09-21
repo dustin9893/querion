@@ -1,0 +1,67 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI PHÁP CHẾ VÀ TUÂN THỦ — TRUNG TÂM DỊCH VỤ KHÁCH HÀNG
+HƯỚNG DẪN TIẾP NHẬN VÀ XỬ LÝ KHIẾU NẠI, TỐ CÁO CỦA KHÁCH HÀNG
+Số hiệu: HD.KN.PC.12 — Phiên bản: 1.1 — Hiệu lực từ: 01/02/2026
+Đơn vị ban hành: Khối Pháp chế và Tuân thủ, phối hợp Trung tâm Dịch vụ khách hàng
+Đối tượng: Toàn thể cán bộ tiếp xúc khách hàng, cán bộ quản lý các cấp
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+Điều 1. Phạm vi và phân biệt khiếu nại, tố cáo, phản ánh
+1. Hướng dẫn áp dụng cho khiếu nại về thái độ phục vụ, chất lượng sản phẩm dịch vụ, chính sách phí, tố cáo hành vi vi phạm của cán bộ MSB và các phản ánh khác của khách hàng không liên quan trực tiếp đến tra soát giao dịch tài chính (thực hiện theo HD.TS.VH.10).
+2. Phản ánh: ý kiến của khách hàng về trải nghiệm dịch vụ, không yêu cầu MSB phải trả lời bằng văn bản, nhưng vẫn được ghi nhận để cải thiện dịch vụ.
+3. Khiếu nại: yêu cầu của khách hàng về việc xem xét lại hành vi, quyết định của MSB hoặc cán bộ MSB mà khách hàng cho là gây thiệt hại hoặc không thoả đáng, yêu cầu có văn bản trả lời.
+4. Tố cáo: thông tin về hành vi vi phạm pháp luật, vi phạm đạo đức nghề nghiệp của cán bộ MSB (nhũng nhiễu, gợi ý nhận tiền, thái độ xúc phạm, tiết lộ thông tin khách hàng) cần được xác minh và xử lý kỷ luật nếu có căn cứ.
+
+Điều 2. Kênh tiếp nhận
+1. Tổng đài chăm sóc khách hàng 24/7, hộp thư góp ý tại quầy giao dịch, ứng dụng MSB mBank (mục Phản ánh - Khiếu nại), email khieunai@msb-demo.vn (mô phỏng), văn bản gửi trực tiếp đến chi nhánh hoặc Trụ sở chính.
+2. Khiếu nại, tố cáo qua mạng xã hội hoặc gửi đến cơ quan báo chí, Ngân hàng Nhà nước phải được chuyển ngay về Khối Pháp chế và Tuân thủ để phối hợp xử lý theo Điều 8, không tự ý phản hồi trên kênh đó.
+3. Tố cáo có thể được gửi ẩn danh; trường hợp này cán bộ tiếp nhận vẫn phải ghi nhận đầy đủ nội dung và xác minh trên cơ sở thông tin, chứng cứ hiện có, không được từ chối xử lý chỉ vì người tố cáo không nêu danh tính.
+4. Mọi kênh tiếp nhận đều phải ghi nhận đầy đủ thông tin khách hàng, nội dung, thời gian phát sinh lên hệ thống quản lý khiếu nại CRM-KN, cấp mã theo dõi.
+5. Cán bộ tiếp nhận không được từ chối ghi nhận với lý do "không thuộc thẩm quyền của tôi"; mọi khiếu nại, tố cáo dù thuộc đơn vị nào cũng phải được nhập hệ thống trong ngày làm việc và chuyển đúng đầu mối xử lý theo Điều 3.
+
+Điều 3. Phân mức nghiêm trọng và đơn vị xử lý
+1. Mức 1 (nhẹ): phản ánh về thời gian chờ, thái độ phục vụ đơn lẻ, không có yếu tố thiệt hại tài chính; do Giám đốc ĐVKD hoặc Trưởng bộ phận trực tiếp xử lý.
+2. Mức 2 (trung bình): khiếu nại về phí, sản phẩm, quy trình gây bất tiện đáng kể hoặc tái diễn nhiều lần với cùng khách hàng; do Trung tâm Dịch vụ khách hàng phối hợp ĐVKD xử lý, có sự giám sát của Khối Pháp chế và Tuân thủ.
+3. Mức 3 (nghiêm trọng): tố cáo cán bộ có dấu hiệu vi phạm đạo đức, nhũng nhiễu, gợi ý nhận tiền; khiếu nại có nguy cơ khởi kiện, ảnh hưởng uy tín MSB trên truyền thông, hoặc khiếu nại gửi đồng thời đến Ngân hàng Nhà nước; do Khối Pháp chế và Tuân thủ trực tiếp chủ trì, báo cáo Ban điều hành.
+4. Việc phân mức do cán bộ tiếp nhận đề xuất ban đầu và được Trung tâm Dịch vụ khách hàng xác nhận trong vòng 2 giờ làm việc; mức phân loại có thể nâng lên trong quá trình xử lý nếu phát sinh tình tiết mới.
+
+Điều 4. Cam kết thời gian phản hồi (SLA)
+1. Mức 1: phản hồi ban đầu trong 4 giờ làm việc, giải quyết dứt điểm trong 3 ngày làm việc.
+2. Mức 2: phản hồi ban đầu trong 8 giờ làm việc, giải quyết dứt điểm trong 7 ngày làm việc; trường hợp cần xác minh nhiều bên có thể gia hạn một lần tối đa 5 ngày làm việc, phải thông báo khách hàng lý do.
+3. Mức 3: phản hồi ban đầu trong 2 giờ làm việc kể từ khi tiếp nhận hoặc phát hiện qua kênh truyền thông/mạng xã hội; thời gian giải quyết theo tính chất vụ việc nhưng phải báo cáo tiến độ cho khách hàng và Ban điều hành tối thiểu mỗi 3 ngày làm việc.
+4. Không đạt SLA phải báo cáo giải trình nguyên nhân lên cấp quản lý trực tiếp và Khối Pháp chế và Tuân thủ.
+
+Điều 5. Quy trình xác minh
+1. Cán bộ được phân công xác minh thu thập chứng cứ: ghi âm cuộc gọi (nếu có), camera giám sát, chứng từ giao dịch liên quan, lời trình bày của khách hàng và cán bộ bị phản ánh.
+2. Đối với tố cáo cán bộ, phải thu thập ý kiến bằng văn bản của cán bộ bị tố cáo, đảm bảo nguyên tắc suy đoán vô tội cho đến khi có kết luận xác minh.
+3. Không được để cán bộ bị tố cáo tham gia trực tiếp vào quá trình xác minh hoặc tiếp cận chứng cứ trước khi hoàn tất; trường hợp cần thiết, tạm thời chuyển công việc khác trong thời gian xác minh.
+4. Thời gian xác minh tối đa 10 ngày làm việc đối với mức 2, 15 ngày làm việc đối với mức 3; quá thời hạn mà chưa có kết luận, người phụ trách xác minh phải báo cáo giải trình cho Khối Pháp chế và Tuân thủ và xin gia hạn bằng văn bản.
+
+Điều 6. Họp giải quyết và văn bản trả lời
+1. Đối với khiếu nại mức 2, mức 3, tổ chức họp giải quyết với sự tham gia của các bên liên quan trong 5 ngày làm việc kể từ khi có đủ kết quả xác minh; biên bản họp ghi rõ kết luận và hướng xử lý.
+2. Văn bản trả lời khách hàng theo mẫu MB-KN10, nêu rõ nội dung tiếp nhận, kết quả xác minh, kết luận và biện pháp khắc phục (nếu có); gửi trong thời hạn SLA tại Điều 4.
+3. Trường hợp khiếu nại không có cơ sở, văn bản trả lời phải nêu rõ căn cứ từ chối và không mang tính chất đối đầu, giữ thái độ tôn trọng khách hàng.
+
+Điều 7. Bảo vệ người tố cáo
+1. Danh tính người tố cáo (khách hàng hoặc cán bộ nội bộ phản ánh vi phạm) được bảo mật tuyệt đối, chỉ những người trực tiếp xác minh được biết thông tin theo nguyên tắc cần biết.
+2. Nghiêm cấm mọi hành vi trả đũa, gây khó khăn cho người tố cáo trung thực; cán bộ bị tố cáo không được biết danh tính người tố cáo trong quá trình xác minh trừ khi pháp luật yêu cầu công khai.
+3. Tố cáo sai sự thật nhằm mục đích hãm hại người khác vẫn được xác minh khách quan; nếu có căn cứ tố cáo sai sự thật, xử lý theo quy định pháp luật và nội quy lao động.
+
+Điều 8. Khiếu nại có yếu tố pháp lý hoặc truyền thông
+1. Khiếu nại có dấu hiệu khách hàng chuẩn bị khởi kiện, đã gửi đơn đến Ngân hàng Nhà nước, cơ quan báo chí hoặc đăng tải công khai trên mạng xã hội phải được báo cáo ngay (trong 2 giờ) cho Khối Pháp chế và Tuân thủ và Ban Truyền thông.
+2. Chỉ Khối Pháp chế và Tuân thủ hoặc người được Ban điều hành uỷ quyền mới được phát ngôn chính thức với báo chí hoặc cơ quan quản lý; ĐVKD và cán bộ khác không tự ý trả lời phỏng vấn hoặc bình luận công khai.
+3. Trường hợp có yếu tố pháp lý phức tạp, Khối Pháp chế và Tuân thủ phối hợp bộ phận Pháp lý để đánh giá rủi ro tố tụng trước khi đưa ra phương án trả lời khách hàng.
+
+Điều 9. Thống kê, báo cáo và bài học kinh nghiệm
+1. Trung tâm Dịch vụ khách hàng lập báo cáo tháng về số lượng khiếu nại, tố cáo theo mức độ, đơn vị liên quan, tỷ lệ tuân thủ SLA, gửi Khối Pháp chế và Tuân thủ và Ban điều hành.
+2. Các vụ việc mức 3 sau khi kết thúc phải được tổng hợp thành bài học kinh nghiệm, phổ biến (ẩn danh khách hàng) cho các ĐVKD để phòng ngừa tái diễn.
+3. Vụ việc liên quan lỗi quy trình lặp lại phải được kiến nghị sửa đổi quy trình, chuyển đơn vị ban hành quy trình liên quan xem xét.
+
+Điều 10. Đào tạo và kỹ năng xử lý khiếu nại
+1. Cán bộ tiếp xúc khách hàng (GDV, tổng đài viên, RM) được đào tạo kỹ năng tiếp nhận và xoa dịu khiếu nại tối thiểu 1 lần/năm, bao gồm cách phân biệt phản ánh, khiếu nại và tố cáo theo Điều 1.
+2. Trưởng bộ phận xử lý khiếu nại mức 2, mức 3 được đào tạo bổ sung về kỹ năng làm việc với báo chí, cơ quan quản lý và xử lý khủng hoảng truyền thông cơ bản.
+3. Nội dung đào tạo được cập nhật hàng năm dựa trên các bài học kinh nghiệm tổng hợp tại Điều 9 khoản 2.
+
+Điều 11. Hiệu lực thi hành
+1. Hướng dẫn có hiệu lực từ ngày 01/02/2026, thay thế phiên bản 1.0.
+2. Thay đổi chính: rút ngắn SLA phản hồi ban đầu mức 3 từ 4 giờ xuống 2 giờ; bổ sung Điều 8 về khiếu nại có yếu tố pháp lý, truyền thông; bổ sung Điều 7 khoản 3 về xử lý tố cáo sai sự thật; bổ sung Điều 10 về đào tạo kỹ năng xử lý khiếu nại.

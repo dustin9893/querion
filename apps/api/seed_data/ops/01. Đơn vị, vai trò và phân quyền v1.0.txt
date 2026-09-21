@@ -1,0 +1,334 @@
+CẨM NANG VẬN HÀNH — ĐƠN VỊ, VAI TRÒ VÀ PHÂN QUYỀN
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Đơn vị là gì trong hệ thống
+
+Đơn vị là đơn vị kinh doanh hoặc khối nghiệp vụ của ngân hàng. Trong hệ thống, đơn vị là ranh giới dữ liệu. Mọi tài nguyên đều thuộc về đúng một đơn vị, và người dùng chỉ làm việc được với tài nguyên của đơn vị mà họ có quyền.
+
+Đây là nguyên tắc nền. Nếu hiểu sai chỗ này thì hầu hết các lỗi phân quyền về sau đều khó giải thích.
+
+1.1 Những thứ thuộc về một đơn vị
+
+Các tài nguyên sau đều mang mã đơn vị và bị giới hạn theo đơn vị:
+
+- Kho tri thức và toàn bộ văn bản, đoạn văn bản bên trong.
+- Luồng xử lý.
+- Trợ lý.
+- Công cụ.
+- Biểu mẫu.
+- Lịch chạy.
+- Tệp kết quả do báo cáo và biểu mẫu sinh ra.
+- Hội thoại và bản ghi nhật ký của từng lượt hỏi.
+- Bản ghi đo token.
+
+Cán bộ cũng được gán vào một đơn vị. Đây là điểm quan trọng nhất về nghiệp vụ, vì đơn vị của cán bộ quyết định họ nhìn thấy trợ lý nào.
+
+1.2 Đơn vị đang chọn quyết định mọi thao tác
+
+Ở thanh trên cùng của giao diện quản trị có ô chọn đơn vị làm việc. Mọi màn hình nghiệp vụ đều hiểu ngầm rằng bạn đang làm việc trong đơn vị đó.
+
+Khi bạn mở trang Kho tri thức, bạn thấy kho của đơn vị đang chọn chứ không phải toàn bộ kho trong ngân hàng. Khi bạn tạo một trợ lý, trợ lý đó thuộc về đơn vị đang chọn. Khi bạn xem danh sách công cụ, bạn thấy công cụ của đơn vị đang chọn cộng với các công cụ mà đơn vị khác đã mở cho toàn ngân hàng.
+
+Về mặt kỹ thuật, trình duyệt gửi kèm mã đơn vị trong một header của mỗi lần gọi. Bạn không cần quan tâm chi tiết đó, chỉ cần nhớ một điều: đổi đơn vị ở thanh trên là đổi toàn bộ ngữ cảnh làm việc.
+
+1.3 Lỗi hay gặp khi chưa chọn đơn vị
+
+Nếu chưa có đơn vị nào được chọn, hệ thống trả về lỗi 400 với nội dung báo rằng chưa chọn đơn vị làm việc và nhắc bạn chọn đơn vị ở thanh bên.
+
+Tình huống này hay xảy ra với tài khoản super admin mới tạo, vì super admin thường không thuộc đơn vị nào. Giao diện xử lý bằng cách tự chọn đơn vị đầu tiên trong danh sách ngay sau khi đăng nhập. Nếu hệ thống chưa có đơn vị nào thì không có gì để chọn, và mọi màn hình nghiệp vụ đều báo lỗi cho tới khi bạn tạo đơn vị đầu tiên.
+
+Cách xử lý: tạo ít nhất một đơn vị trước khi làm bất cứ việc gì khác, rồi tải lại trang.
+
+2. Ba tầng danh tính
+
+Hệ thống có ba loại người dùng hoàn toàn tách biệt. Họ đăng nhập ở nơi khác nhau, lưu ở bảng khác nhau, và có quyền khác nhau.
+
+2.1 Người quản trị
+
+Người quản trị đăng nhập ở trang đăng nhập của khu quản trị. Tài khoản gồm email, họ tên, mật khẩu và một vai trò hệ thống là super admin hoặc admin.
+
+Người quản trị là người cấu hình hệ thống: tạo kho tri thức, tải văn bản, dựng trợ lý, tạo công cụ, dựng luồng xử lý, đặt lịch chạy, xem nhật ký.
+
+2.2 Cán bộ
+
+Cán bộ là nhân sự ngân hàng dùng trợ lý để tra cứu. Họ đăng nhập ở cổng cán bộ, hoàn toàn tách khỏi khu quản trị.
+
+Hồ sơ cán bộ gồm email, họ tên, mã cán bộ, chi nhánh, phòng hoặc khối, chức danh và đơn vị. Chức danh nhận một trong các giá trị RM, CA, GDV, OPS, CCO, KSV. Khi tạo thủ công trên giao diện còn có thêm lựa chọn Other cho các trường hợp không xếp được.
+
+Cán bộ không có bất kỳ quyền quản trị nào. Họ không mở được màn hình cấu hình, không thấy kho tri thức, không sửa được trợ lý. Họ chỉ hỏi đáp, xem báo cáo dành cho mình và lập biểu mẫu.
+
+2.3 Khách hàng
+
+Khách hàng không có tài khoản. Một trợ lý được công bố cho đối tượng khách hàng sẽ có một đường dẫn công khai, và khoá truy cập nằm ở phần sau dấu thăng của đường dẫn.
+
+Phần sau dấu thăng không được trình duyệt gửi lên máy chủ, nên khoá không rơi vào nhật ký truy cập của máy chủ hay của thiết bị trung gian. Trang web đọc khoá đó rồi gửi lại trong một header riêng khi gọi API.
+
+Đây là lý do khi chia sẻ đường dẫn cho khách hàng, phải chia sẻ nguyên vẹn cả phần sau dấu thăng. Cắt mất phần đó thì trang không hoạt động.
+
+2.4 Vì sao tách bảng người quản trị và bảng cán bộ
+
+Câu hỏi này hay được đặt ra, vì thoạt nhìn gộp một bảng có vẻ gọn hơn. Có bốn lý do thực tế.
+
+Thứ nhất là vòng đời khác nhau. Cán bộ được nhập hàng loạt từ danh sách nhân sự, thay đổi theo luân chuyển, số lượng hàng nghìn. Người quản trị được tạo từng người một, số lượng vài chục.
+
+Thứ hai là bề mặt đăng nhập khác nhau. Hai cổng đăng nhập riêng, hai loại thẻ phiên riêng. Một sự cố ở cổng cán bộ không kéo theo rủi ro cho khu quản trị.
+
+Thứ ba là ngăn leo thang quyền. Vì cán bộ nằm ở bảng khác và thẻ phiên của họ mang vai trò riêng, không có đường nào để một tài khoản cán bộ vô tình nhận được quyền quản trị.
+
+Thứ tư là phục vụ kiểm soát tuân thủ. Nhật ký truy vấn ghi rõ lượt hỏi đến từ cán bộ nào, quản trị viên nào hay từ khách hàng ẩn danh. Nếu gộp một bảng thì thông tin này mờ đi.
+
+3. Vai trò hệ thống của người quản trị
+
+Vai trò hệ thống chỉ có hai giá trị và nằm ở mức toàn hệ thống, khác với phân quyền trong từng đơn vị.
+
+3.1 Super admin
+
+Super admin bỏ qua mọi kiểm tra thành viên đơn vị. Chọn đơn vị nào thì làm việc được với đơn vị đó, kể cả khi không phải thành viên.
+
+Super admin là vai trò duy nhất mở được ba màn hình: quản lý người dùng quản trị, quản lý đơn vị, và cài đặt nhà cung cấp AI. Nhà cung cấp AI là cấu hình toàn hệ thống nên chỉ super admin đụng tới được.
+
+Tài khoản super admin đầu tiên được tạo tự động khi khởi động máy chủ, lấy thông tin từ biến môi trường. Đổi mật khẩu mặc định của tài khoản này là việc đầu tiên phải làm khi đưa hệ thống vào dùng thật.
+
+3.2 Admin
+
+Admin không có quyền gì nếu chưa được gán vào đơn vị. Quyền thực sự của một admin đến từ vai trò của họ trong từng đơn vị.
+
+Một admin có thể là chủ ở đơn vị này, biên tập ở đơn vị kia, và không có mặt ở các đơn vị còn lại.
+
+3.3 Vì sao super admin thường không thuộc đơn vị nào
+
+Vì super admin đã có toàn quyền, việc gán thêm vào đơn vị không mang lại quyền mới. Hệ quả là super admin không có đơn vị mặc định, và giao diện phải tự chọn giúp một đơn vị sau khi đăng nhập.
+
+Nếu thấy super admin đang thao tác nhầm đơn vị, nguyên nhân gần như luôn là ô chọn đơn vị ở thanh trên đang trỏ vào đơn vị khác.
+
+4. Ba mức phân quyền trong đơn vị
+
+Trong mỗi đơn vị, một người quản trị nhận đúng một trong ba mức. Ba mức xếp tăng dần, mức cao bao gồm toàn bộ quyền của mức thấp hơn.
+
+Giao diện gọi ba mức này là Chỉ xem, Biên tập và Chủ đơn vị.
+
+4.1 Chỉ xem
+
+Đọc mọi thứ trong đơn vị. Xem kho tri thức, xem văn bản, xem cấu hình trợ lý, xem luồng xử lý, xem danh sách công cụ, xem lịch chạy, xem tệp kết quả.
+
+Không tạo, không sửa, không xoá. Mức này hợp với người kiểm soát nội bộ hoặc người mới cần làm quen trước khi được giao quyền sửa.
+
+Mức Chỉ xem cũng đủ để chạy thử một luồng xử lý và để dùng màn hình thử nghiệm hỏi đáp, vì hai việc đó không thay đổi cấu hình.
+
+4.2 Biên tập
+
+Toàn bộ công việc hàng ngày nằm ở mức này. Biên tập tạo và sửa kho tri thức, tải và xoá văn bản, bật tắt văn bản cho AI, sửa nội dung đoạn, tạo và sửa trợ lý, công bố trợ lý, tải logo, dựng và sửa luồng xử lý, tạo và sửa công cụ, chạy thử công cụ, tạo và sửa biểu mẫu, tải mẫu Word, tạo và sửa lịch chạy, xếp báo cáo vào hàng đợi, xoá tệp kết quả.
+
+Đây là mức mặc định nên cấp cho người phụ trách nội dung của đơn vị.
+
+4.3 Chủ đơn vị
+
+Chủ đơn vị có thêm những quyền mà hệ quả vượt ra ngoài phạm vi đơn vị. Đó là lý do chúng được tách riêng.
+
+Cụ thể, chỉ chủ đơn vị mới được:
+
+- Đổi phạm vi hiển thị của một trợ lý từ chỉ đơn vị này sang toàn ngân hàng.
+- Mở một công cụ cho toàn ngân hàng dùng.
+- Cho phép một công cụ được gọi ở kênh khách hàng.
+- Mở một biểu mẫu cho toàn ngân hàng.
+- Quản lý cán bộ của các đơn vị mà mình làm chủ.
+- Xem nhật ký truy vấn và số liệu token của các đơn vị mà mình làm chủ.
+
+Điểm chung của sáu việc trên: chúng đều đưa một thứ của đơn vị này ra ngoài đơn vị, hoặc chạm vào dữ liệu con người. Người phê duyệt phải là người chịu trách nhiệm về đơn vị.
+
+4.4 Bảng tóm tắt việc nào cần mức nào
+
+- Đọc mọi thứ trong đơn vị: Chỉ xem.
+- Tạo và sửa nội dung, trợ lý, luồng, công cụ, biểu mẫu, lịch chạy: Biên tập.
+- Mở ra ngoài đơn vị và quản lý cán bộ: Chủ đơn vị.
+- Quản lý người dùng quản trị, tạo đơn vị, cấu hình nhà cung cấp AI: super admin.
+
+4.5 Thông báo khi thiếu quyền
+
+Khi mức quyền không đủ, API trả về lỗi 403 kèm câu nêu rõ cần mức nào trở lên. Khi bạn không phải thành viên của đơn vị đang chọn, lỗi 403 nói rằng bạn không phải thành viên của đơn vị này.
+
+Riêng các thao tác dành cho chủ đơn vị, thông báo viết bằng tiếng Việt và nói thẳng rằng chỉ chủ đơn vị mới được làm việc đó. Ví dụ khi đổi phạm vi hiển thị của trợ lý, khi mở công cụ cho toàn ngân hàng, khi cho phép kênh khách hàng dùng công cụ.
+
+Với các ô cấu hình chỉ dành cho chủ đơn vị, giao diện khoá sẵn và hiển thị dòng giải thích, nên bạn biết trước thay vì bấm lưu rồi mới nhận lỗi.
+
+5. Gán người quản trị vào đơn vị
+
+5.1 Màn hình quản lý người dùng quản trị
+
+Màn hình này chỉ super admin mở được. Tại đây bạn tạo tài khoản quản trị mới, gán tài khoản vào đơn vị kèm vai trò, đổi vai trò, gỡ khỏi đơn vị, vô hiệu hoá và kích hoạt lại tài khoản.
+
+Khi tạo tài khoản, bạn gán luôn một đơn vị và một vai trò, hoặc để trống rồi gán sau.
+
+Một điểm cần biết khi thao tác: việc gán thành viên tác động lên đơn vị đích chứ không phải đơn vị bạn đang chọn ở thanh trên. Giao diện tự gửi đúng đơn vị đích, nên bạn không cần đổi ô chọn đơn vị trước khi gán.
+
+5.2 Một người quản trị nhiều đơn vị
+
+Một tài khoản admin được gán vào bao nhiêu đơn vị cũng được, mỗi đơn vị một vai trò riêng. Danh sách người dùng hiển thị từng dòng thành viên kèm tên đơn vị và vai trò tương ứng.
+
+Người đó đăng nhập một lần, rồi chuyển qua lại giữa các đơn vị bằng ô chọn đơn vị ở thanh trên. Quyền thay đổi theo đơn vị đang chọn.
+
+Đây là mô hình đúng cho một người phụ trách hai khối nghiệp vụ. Đừng tạo hai tài khoản cho cùng một người.
+
+5.3 Gỡ khỏi đơn vị
+
+Gỡ thành viên khỏi đơn vị chỉ xoá quan hệ thành viên, không xoá tài khoản và không xoá dữ liệu mà người đó đã tạo. Kho tri thức, trợ lý, luồng xử lý vẫn thuộc về đơn vị.
+
+Khi một người nghỉ việc, nên vô hiệu hoá tài khoản thay vì xoá, để dấu vết trong nhật ký vẫn đọc được tên người thực hiện.
+
+6. Menu hiện ra khác nhau theo quyền
+
+Nhiều câu hỏi hỗ trợ bắt đầu bằng câu tôi không thấy mục đó ở đâu. Nguyên nhân gần như luôn là quyền.
+
+6.1 Nhóm chức năng nghiệp vụ
+
+Nhóm trên của thanh menu bên trái gồm sáu mục theo đúng thứ tự: Kho tri thức, Luồng xử lý, Trợ lý, Công cụ, Biểu mẫu, Thử nghiệm hỏi đáp. Mọi người quản trị đã vào được khu quản trị đều thấy sáu mục này. Quyền được kiểm tra khi thao tác chứ không phải khi hiển thị menu.
+
+6.2 Nhóm quản trị
+
+Nhóm dưới có tiêu đề Quản trị, gồm tám mục: Người dùng quản trị, Đơn vị, Cài đặt AI, Trợ lý Vận hành, Nhật ký truy vấn, Lịch chạy, Token sử dụng, Cán bộ.
+
+Super admin thấy cả bảy mục.
+
+Một admin là chủ đơn vị chỉ thấy bốn mục: Nhật ký truy vấn, Lịch chạy, Token sử dụng, Cán bộ.
+
+Bốn mục Người dùng quản trị, Đơn vị, Cài đặt AI và Trợ lý Vận hành chỉ dành cho super admin.
+
+Một admin ở mức Biên tập hoặc Chỉ xem không thấy nhóm Quản trị.
+
+6.3 Vì sao đồng nghiệp của bạn không thấy một mục menu
+
+Kiểm tra theo thứ tự. Người đó có phải super admin không. Nếu không, người đó có phải chủ của đơn vị đang chọn không. Nếu vẫn không, đó là lý do.
+
+Lưu ý một nhầm lẫn hay gặp: vai trò được xét theo đơn vị đang chọn ở thanh trên. Một người là chủ của đơn vị A nhưng đang chọn đơn vị B sẽ không thấy nhóm Quản trị, dù họ đúng là chủ đơn vị ở nơi khác.
+
+7. Quản lý cán bộ
+
+7.1 Ai được quản lý cán bộ của đơn vị nào
+
+Quy tắc được kiểm tra ở máy chủ, không phụ thuộc giao diện.
+
+Super admin quản lý được cán bộ của mọi đơn vị. Màn hình có thêm ô lọc theo đơn vị, với lựa chọn đầu tiên là tất cả đơn vị.
+
+Chủ đơn vị chỉ quản lý được cán bộ của những đơn vị mà mình làm chủ. Muốn xem danh sách, phải đang chọn một đơn vị; nếu không, hệ thống báo lỗi 400 yêu cầu chọn đơn vị. Cán bộ thuộc đơn vị khác trả về 404 chứ không phải 403, nghĩa là người đó thậm chí không biết cán bộ đó tồn tại. Tạo cán bộ vào đơn vị khác hoặc chuyển cán bộ sang đơn vị khác trả về 403.
+
+Người ở mức Biên tập hoặc Chỉ xem nhận lỗi 403 và không mở được màn hình.
+
+7.2 Tạo cán bộ thủ công
+
+Bắt buộc có email và họ tên. Các trường còn lại là mã cán bộ, chức danh, phòng hoặc khối, chi nhánh, và đơn vị.
+
+Với super admin, ô đơn vị là một danh sách chọn và có lựa chọn để trống. Với chủ đơn vị, đơn vị được ấn định là đơn vị đang chọn và không đổi được.
+
+Email trùng với một cán bộ đã có sẽ bị từ chối với lỗi 409.
+
+7.3 Nhập cán bộ từ tệp CSV
+
+Tệp CSV dùng các cột sau, theo đúng tên này: email, name, employee_code, branch, department, position, unit.
+
+Cột unit là tên đơn vị. Nếu để trống, cán bộ được gán vào đơn vị đang chọn của người thực hiện việc nhập. Nếu người thực hiện là chủ đơn vị và dòng CSV ghi tên một đơn vị khác, dòng đó bị từ chối.
+
+Sau khi nhập, hệ thống báo số dòng tạo mới và số dòng bỏ qua vì trùng email. Việc nhập không cập nhật cán bộ đã có, chỉ tạo mới.
+
+Trong mã nguồn có sẵn một tệp mẫu để đối chiếu định dạng.
+
+7.4 Mật khẩu mặc định và lần đăng nhập đầu
+
+Cán bộ tạo mới nhận mật khẩu mặc định msb@123 nếu bạn không đặt mật khẩu khác. Tài khoản được đánh dấu phải đổi mật khẩu, nên lần đăng nhập đầu tiên cổng cán bộ bắt buộc chuyển sang màn hình đổi mật khẩu.
+
+Mật khẩu mới tối thiểu 6 ký tự. Đây là ràng buộc kỹ thuật tối thiểu, không phải khuyến nghị chính sách; khi triển khai thật nên đặt yêu cầu mạnh hơn ở quy định nội bộ.
+
+Trạng thái cán bộ trong danh sách phân biệt ba mức: mới, nghĩa là còn đang giữ mật khẩu mặc định; hoạt động; và vô hiệu.
+
+7.5 Chuyển cán bộ sang đơn vị khác
+
+Super admin đổi được đơn vị của cán bộ ngay trên danh sách. Chủ đơn vị không chuyển cán bộ ra khỏi đơn vị của mình, cũng không nhận cán bộ từ đơn vị khác về; cả hai chiều đều trả lỗi 403.
+
+Chuyển đơn vị có hiệu lực ngay ở lần gọi tiếp theo của cán bộ đó. Danh sách trợ lý họ nhìn thấy thay đổi theo. Hội thoại cũ vẫn còn nhưng trợ lý cũ có thể không còn mở được nếu trợ lý đó chỉ dành cho đơn vị cũ.
+
+7.6 Vô hiệu hoá cán bộ
+
+Vô hiệu hoá chặn đăng nhập ngay lập tức. Thẻ phiên đang có cũng mất tác dụng vì mỗi lần gọi đều kiểm tra lại trạng thái tài khoản.
+
+Nên vô hiệu hoá thay vì xoá, để nhật ký truy vấn còn tra ngược được người hỏi.
+
+8. Đơn vị của cán bộ quyết định họ thấy trợ lý nào
+
+8.1 Quy tắc hiển thị
+
+Một cán bộ nhìn thấy một trợ lý khi cả ba điều sau đúng cùng lúc:
+
+- Trợ lý đã được công bố.
+- Trợ lý dành cho đối tượng cán bộ, không phải đối tượng khách hàng.
+- Trợ lý thuộc đơn vị của cán bộ, hoặc chủ đơn vị sở hữu đã mở nó cho toàn ngân hàng.
+
+Quy tắc này được áp cả khi liệt kê danh sách và khi gửi câu hỏi. Biết mã của một trợ lý không thuộc đơn vị mình cũng không hỏi được.
+
+8.2 Cán bộ chưa gán đơn vị
+
+Cán bộ chưa có đơn vị chỉ thấy các trợ lý đã mở cho toàn ngân hàng. Nếu ngân hàng chưa mở trợ lý nào như vậy, danh sách của họ trống.
+
+Đây là nguyên nhân số một của khiếu nại tôi đăng nhập được nhưng không thấy trợ lý nào. Kiểm tra cột đơn vị của cán bộ đó trước tiên.
+
+Cán bộ chưa có đơn vị cũng không thấy báo cáo và không thấy biểu mẫu, vì cả hai đều lọc theo đơn vị.
+
+8.3 Chức danh dùng để làm gì
+
+Chức danh không phải là quyền. Nó không mở thêm hay đóng bớt trợ lý nào.
+
+Chức danh có đúng một tác dụng nghiệp vụ: lịch chạy báo cáo chọn được danh sách chức danh nhận báo cáo. Để trống danh sách đó nghĩa là gửi cho mọi cán bộ trong đơn vị.
+
+Chức danh cũng hiển thị trong nhật ký truy vấn cùng mã cán bộ và chi nhánh, giúp người kiểm soát đọc nhanh bối cảnh câu hỏi.
+
+9. Quyền xem nhật ký và số liệu token
+
+Hai màn hình Nhật ký truy vấn và Token sử dụng dùng chung một quy tắc.
+
+Super admin xem được toàn bộ hệ thống, mọi đơn vị.
+
+Một admin chỉ xem được các đơn vị mà mình là chủ. Không phải đơn vị mình là biên tập, mà đúng là đơn vị mình làm chủ. Nếu một admin không làm chủ đơn vị nào, hai màn hình này trả về danh sách rỗng.
+
+Lý do đặt ngưỡng ở mức chủ đơn vị: nhật ký chứa nguyên văn câu hỏi của cán bộ và câu trả lời của trợ lý. Đó là dữ liệu nhạy cảm về con người, không phải dữ liệu cấu hình.
+
+10. Khách hàng và kênh công khai
+
+Trợ lý dành cho khách hàng không đi qua cơ chế đơn vị của cán bộ, vì khách hàng không đăng nhập. Thay vào đó có ba lớp kiểm soát khác.
+
+Thứ nhất, trợ lý phải được công bố, nếu không đường dẫn không hoạt động.
+
+Thứ hai, trợ lý khách hàng chỉ gắn được kho tri thức có phạm vi công khai. Ràng buộc này được kiểm tra khi tạo và khi sửa trợ lý.
+
+Thứ ba, trợ lý khách hàng chỉ gọi được những công cụ đã được chủ đơn vị cho phép ở kênh khách hàng, và các công cụ cần duyệt thì không bao giờ được đưa ra ở kênh này vì không có cán bộ nào để bấm duyệt.
+
+Trong nhật ký, lượt hỏi từ kênh khách hàng được ghi là khách hàng ẩn danh.
+
+11. Những điểm cần lưu ý khi vận hành
+
+Màn hình quản lý đơn vị hiện vẫn hiển thị nội dung bằng tiếng Anh, dù mục menu dẫn vào nó mang tên tiếng Việt là Đơn vị. Màn hình cài đặt nhà cung cấp AI cũng còn nhiều nhãn tiếng Anh. Đây là hạn chế đã biết của bản hiện tại, không phải dấu hiệu lỗi.
+
+Xoá một đơn vị là thao tác nặng. Kho tri thức, văn bản, đoạn văn bản, trợ lý, công cụ và luồng xử lý của đơn vị đó bị xoá theo. Ngược lại, tệp kết quả và bản ghi đo token được thiết kế không ràng buộc khoá ngoại với đơn vị, nên chúng vẫn tồn tại sau khi đơn vị bị xoá. Lựa chọn này là cố ý, để lịch sử chi phí và các tệp đã phát hành không biến mất khi cơ cấu tổ chức thay đổi.
+
+Trước khi xoá một đơn vị, hãy chuyển cán bộ sang đơn vị khác. Cán bộ mất đơn vị sẽ chỉ còn thấy trợ lý toàn ngân hàng.
+
+12. Câu hỏi thường gặp
+
+Hỏi: Màn hình báo chưa chọn đơn vị làm việc, phải làm gì?
+Đáp: Chọn đơn vị ở ô chọn đơn vị trên thanh trên cùng rồi tải lại trang. Nếu danh sách trống thì hệ thống chưa có đơn vị nào hoặc tài khoản của bạn chưa được gán vào đơn vị nào.
+
+Hỏi: Tôi là admin của đơn vị nhưng không đổi được phạm vi hiển thị của trợ lý?
+Đáp: Việc đó dành riêng cho chủ đơn vị, vì nó mở trợ lý ra ngoài phạm vi đơn vị. Nhờ super admin nâng vai trò của bạn trong đơn vị đó lên Chủ đơn vị.
+
+Hỏi: Cán bộ mới đăng nhập được nhưng không thấy trợ lý nào?
+Đáp: Gần như chắc chắn cán bộ đó chưa được gán đơn vị, hoặc đơn vị của họ chưa công bố trợ lý nào. Kiểm tra cột đơn vị trong danh sách cán bộ, rồi kiểm tra trạng thái công bố của trợ lý.
+
+Hỏi: Một người có quản trị được nhiều đơn vị không?
+Đáp: Có. Gán cùng một tài khoản vào nhiều đơn vị, mỗi nơi một vai trò. Người đó chuyển đơn vị bằng ô chọn ở thanh trên, và quyền đổi theo đơn vị đang chọn.
+
+Hỏi: Xoá đơn vị thì mất những gì?
+Đáp: Mất kho tri thức, văn bản, đoạn văn bản, trợ lý, công cụ và luồng xử lý của đơn vị đó. Tệp kết quả và bản ghi đo token vẫn còn, vì chúng được thiết kế để tồn tại độc lập phục vụ lưu vết và hạch toán chi phí.
+
+Hỏi: Vì sao cán bộ không dùng chung tài khoản với quản trị viên?
+Đáp: Vì hai nhóm có vòng đời, số lượng và rủi ro khác nhau. Tách bảng và tách cổng đăng nhập giúp cán bộ không bao giờ vô tình nhận quyền quản trị, và giúp nhật ký phân biệt rõ ai đã hỏi.
+
+Hỏi: Nên vô hiệu hoá hay xoá tài khoản của người đã nghỉ việc?
+Đáp: Vô hiệu hoá. Việc đăng nhập bị chặn ngay, còn nhật ký truy vấn vẫn tra ngược được tên người đã hỏi, phục vụ kiểm soát tuân thủ về sau.

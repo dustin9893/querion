@@ -1,0 +1,84 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI VẬN HÀNH — KHỐI QUẢN TRỊ RỦI RO
+QUY ĐỊNH KIỂM SOÁT GIAO DỊCH TẠI QUẦY VÀ PHÒNG CHỐNG GIAN LẬN
+Số hiệu: QĐ.KS.VH.09 — Phiên bản: 1.1 — Hiệu lực từ: 01/02/2026
+Đơn vị ban hành: Khối Vận hành, phối hợp Khối Quản trị Rủi ro
+Áp dụng: Giao dịch viên (GDV), Kiểm soát viên (KSV), Giám đốc Đơn vị kinh doanh (ĐVKD) tại toàn bộ chi nhánh, phòng giao dịch
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Phạm vi và nguyên tắc Maker – Checker
+1. Quy định này áp dụng cho toàn bộ giao dịch thực hiện tại quầy giao dịch của Đơn vị kinh doanh (ĐVKD): nộp/rút tiền mặt, chuyển khoản, thu đổi ngoại tệ, phát hành giấy tờ có giá, dịch vụ ngân quỹ và các nghiệp vụ khác trên hệ thống core T24.
+2. Nguyên tắc Maker – Checker là bắt buộc với mọi giao dịch: Giao dịch viên (GDV) lập và hạch toán giao dịch (Maker); Kiểm soát viên (KSV) kiểm tra chứng từ và phê duyệt trên hệ thống (Checker). Một cán bộ không được vừa là Maker vừa là Checker của cùng một giao dịch.
+3. Trường hợp ĐVKD không bố trí đủ KSV (chi nhánh nhỏ, ngoài giờ), giao dịch vượt hạn mức GDV tự duyệt phải được phê duyệt từ xa bởi KSV khu vực qua hệ thống phê duyệt tập trung (Remote Approval), có ghi âm cuộc gọi xác nhận.
+4. Toàn bộ giao dịch phải phát sinh bút toán tương ứng chứng từ giấy hoặc chứng từ điện tử có chữ ký/xác thực sinh trắc của khách hàng; không hạch toán giao dịch khi chưa có đủ chứng từ hợp lệ.
+
+Điều 2. Xác thực khách hàng tại quầy
+1. Trước khi thực hiện giao dịch, GDV xác thực khách hàng bằng một trong các phương thức: đối chiếu Căn cước công dân (CCCD) gắn chip qua đầu đọc NFC, xác thực sinh trắc học (vân tay hoặc khuôn mặt) trên hệ thống, hoặc đối chiếu mẫu chữ ký đã đăng ký đối với khách hàng chưa cập nhật sinh trắc.
+2. Đối với giao dịch từ 100 triệu đồng trở lên, bắt buộc xác thực sinh trắc học hoặc CCCD gắn chip qua NFC, không chấp nhận đối chiếu chữ ký đơn thuần.
+3. Người được uỷ quyền giao dịch phải xuất trình văn bản uỷ quyền hợp lệ (uỷ quyền công chứng hoặc lập tại quầy MSB) còn hiệu lực và giấy tờ tuỳ thân của cả bên uỷ quyền và bên được uỷ quyền.
+4. GDV từ chối giao dịch khi giấy tờ tuỳ thân hết hạn, có dấu hiệu tẩy xoá, ảnh không khớp hoặc khách hàng không hợp tác xác thực sinh trắc học mà không có lý do chính đáng (băng bó tay, khiếm thị…); trường hợp này báo cáo KSV xử lý theo phương án thay thế.
+
+CHƯƠNG II. HẠN MỨC GIAO DỊCH
+
+Điều 3. Hạn mức Giao dịch viên tự duyệt (Maker only)
+1. Nộp, rút tiền mặt tại quầy: GDV được tự hạch toán và không cần KSV phê duyệt bổ sung đối với giao dịch có giá trị đến 200.000.000 đồng/giao dịch.
+2. Chuyển khoản trong hệ thống MSB và liên ngân hàng qua Napas/Citad tại quầy: GDV tự duyệt đến 500.000.000 đồng/giao dịch.
+3. Thu đổi ngoại tệ mặt (mua của khách hàng) đến giá trị quy đổi 2.000 USD/giao dịch/ngày đối với một khách hàng: GDV tự thực hiện theo hạn mức ngoại tệ được cấp.
+4. Hạn mức tại khoản 1, 2, 3 áp dụng cho một giao dịch; không được phép tách nhỏ một yêu cầu của khách hàng thành nhiều giao dịch để né hạn mức phê duyệt (giao dịch chia nhỏ - structuring), vi phạm bị xử lý theo Điều 10.
+
+Điều 4. Ngưỡng phải Kiểm soát viên hoặc Giám đốc phê duyệt
+1. Giao dịch tiền mặt trên 200.000.000 đồng đến 1.000.000.000 đồng, hoặc chuyển khoản trên 500.000.000 đồng đến 3.000.000.000 đồng: bắt buộc KSV phê duyệt trên hệ thống trước khi hạch toán hoàn tất.
+2. Giao dịch tiền mặt trên 1.000.000.000 đồng, hoặc chuyển khoản trên 3.000.000.000 đồng: bắt buộc Giám đốc ĐVKD (hoặc Phó Giám đốc được uỷ quyền) phê duyệt bổ sung sau KSV.
+3. Giao dịch nộp/rút tiền mặt từ 400.000.000 đồng trở lên phải được lập Báo cáo giao dịch giá trị lớn theo quy định phòng chống rửa tiền (QĐ.AML.11); hệ thống tự động gắn cờ và không cho phép huỷ cờ báo cáo.
+4. Giao dịch chuyển tiền quốc tế đi thực hiện theo hạn mức và phê duyệt riêng tại Hướng dẫn HD.TTQT.04, không áp dụng hạn mức tại Điều 3, Điều 4 của quy định này.
+
+CHƯƠNG III. PHÒNG CHỐNG GIAN LẬN
+
+Điều 5. Dấu hiệu nhận biết gian lận
+1. Giấy tờ tuỳ thân nghi giả: phôi không đúng chuẩn, ảnh bong tróc, mã QR/chip không đọc được hoặc dữ liệu chip không khớp thông tin in trên thẻ; GDV sử dụng máy đọc CCCD và đối chiếu qua Cơ sở dữ liệu quốc gia về dân cư khi nghi ngờ.
+2. Khách hàng bị dẫn dắt qua điện thoại: khách hàng vừa giao dịch vừa nghe điện thoại, làm theo hướng dẫn của người lạ, tỏ ra lo lắng bất thường, yêu cầu chuyển tiền gấp cho "cơ quan chức năng" hoặc để "xác minh tài khoản"; đây là dấu hiệu lừa đảo mạo danh phổ biến.
+3. Rút tiền hoặc chuyển tiền bất thường của người cao tuổi: khách hàng trên 60 tuổi lần đầu rút/chuyển số tiền lớn so với lịch sử giao dịch, không giải thích rõ mục đích hoặc mục đích không hợp lý (đầu tư lợi nhuận cao, mua bán tiền ảo).
+4. Nhiều giao dịch chuyển khoản liên tiếp trong ngày đến cùng một người thụ hưởng lạ, hoặc khách hàng mở tài khoản mới rồi nhận/chuyển số tiền lớn ngay trong ngày đầu.
+5. Khách hàng từ chối xác thực sinh trắc học hoặc yêu cầu GDV bỏ qua bước xác minh với lý do "đang vội".
+
+Điều 6. Quy trình tạm dừng giao dịch nghi ngờ và báo cáo
+1. Khi phát hiện dấu hiệu tại Điều 5, GDV tạm dừng thao tác, mời khách hàng vào khu vực riêng tư để trao đổi, không hạch toán giao dịch cho đến khi loại trừ nghi ngờ.
+2. GDV báo cáo ngay KSV và Giám đốc ĐVKD; trường hợp nghi ngờ cao (khách hàng cao tuổi, số tiền trên 100 triệu đồng, có yếu tố bị dẫn dắt), Giám đốc ĐVKD có quyền từ chối thực hiện giao dịch và lập Biên bản tạm dừng giao dịch nghi ngờ gian lận.
+3. Sự cố được ghi nhận trên hệ thống BPM với mã sự cố: SC-GD-01 (giấy tờ giả), SC-GD-02 (nghi bị lừa đảo qua điện thoại), SC-GD-03 (giao dịch bất thường người cao tuổi), SC-GD-04 (giao dịch chia nhỏ nghi structuring), SC-GD-05 (gian lận nội bộ, cán bộ câu kết).
+4. Trong 24 giờ kể từ khi phát hiện, ĐVKD gửi báo cáo sự cố gian lận (mẫu MB-GL01) về Phòng Phòng chống gian lận thuộc Khối Vận hành; trường hợp nghi có yếu tố hình sự (giấy tờ giả, chiếm đoạt tài sản) phối hợp Khối Pháp chế và Tuân thủ để làm việc với cơ quan công an.
+5. ĐVKD không được thông báo cho khách hàng hoặc người liên quan biết việc giao dịch đang bị nghi ngờ và xác minh nội bộ, tránh làm lộ thông tin điều tra.
+
+CHƯƠNG IV. KIỂM QUỸ VÀ CHỨNG TỪ
+
+Điều 7. Kiểm quỹ cuối ngày và xử lý chênh lệch
+1. Mỗi GDV thực hiện kiểm đếm quỹ tiền mặt cá nhân cuối ngày, đối chiếu số dư trên hệ thống với tiền mặt thực tế, có sự chứng kiến của KSV hoặc thủ quỹ.
+2. Chênh lệch quỹ đến 50.000 đồng: GDV tự nộp bù hoặc rút thừa, ghi nhận vào sổ theo dõi chênh lệch quỹ, không cần lập biên bản.
+3. Chênh lệch quỹ trên 50.000 đồng đến 2.000.000 đồng: lập Biên bản kiểm quỹ, KSV và Giám đốc ĐVKD ký xác nhận, tìm nguyên nhân trong ngày làm việc kế tiếp.
+4. Chênh lệch quỹ trên 2.000.000 đồng hoặc chênh lệch lặp lại từ 2 lần trong tháng đối với cùng một GDV: báo cáo Khối Vận hành và Phòng Phòng chống gian lận, tạm dừng giao dịch tiền mặt của GDV đó cho đến khi có kết luận.
+5. Kho quỹ chi nhánh được kiểm đếm định kỳ đột xuất tối thiểu 1 lần/quý bởi đoàn kiểm tra độc lập của Khối Vận hành.
+
+Điều 8. Camera giám sát và lưu trữ chứng từ
+1. Toàn bộ khu vực quầy giao dịch và kho quỹ phải được lắp camera giám sát hoạt động liên tục 24/7, dữ liệu lưu trữ tối thiểu 90 ngày; khu vực liên quan sự cố gian lận lưu trữ đến khi kết thúc điều tra.
+2. Chứng từ giao dịch giấy (giấy nộp tiền, giấy lĩnh tiền, uỷ nhiệm chi) được lưu tại ĐVKD tối thiểu 5 năm, sau đó chuyển kho lưu trữ tập trung theo lịch của Khối Vận hành.
+3. Chứng từ điện tử và hình ảnh xác thực sinh trắc học lưu trên hệ thống ECM nhóm HSGD (hồ sơ giao dịch), gắn với mã giao dịch trên T24, thời hạn lưu tối thiểu 10 năm.
+4. Không được xoá, chỉnh sửa camera hoặc chứng từ giao dịch dưới bất kỳ hình thức nào; hành vi này bị coi là vi phạm nghiêm trọng theo Điều 10.
+
+CHƯƠNG V. KIỂM TRA VÀ CHẾ TÀI
+
+Điều 9. Kiểm tra chéo định kỳ
+1. Khối Vận hành tổ chức kiểm tra chéo giữa các ĐVKD tối thiểu 2 lần/năm, kiểm tra ngẫu nhiên hồ sơ giao dịch, đối chiếu hạn mức phê duyệt và tuân thủ xác thực khách hàng.
+2. KSV thực hiện tự kiểm tra hồ sơ giao dịch của GDV hàng tuần theo mẫu checklist KT-VH01, báo cáo kết quả cho Giám đốc ĐVKD.
+3. Phát hiện vi phạm qua kiểm tra chéo phải được xử lý trong 5 ngày làm việc và báo cáo Khối Quản trị Rủi ro để cập nhật bản đồ rủi ro vận hành.
+
+Điều 10. Chế tài vi phạm
+1. Vi phạm hạn mức phê duyệt (thực hiện giao dịch vượt hạn mức Maker only mà không có phê duyệt KSV) lần đầu: khiển trách và đào tạo lại; tái phạm: cảnh cáo và tạm đình chỉ quyền giao dịch 30 ngày.
+2. Cố ý chia nhỏ giao dịch để né phê duyệt hoặc né báo cáo giao dịch giá trị lớn: xử lý kỷ luật từ cảnh cáo đến chấm dứt hợp đồng lao động, đồng thời báo cáo Khối Pháp chế và Tuân thủ.
+3. Câu kết với bên ngoài để gian lận, chiếm đoạt tài sản của khách hàng hoặc của MSB: chấm dứt hợp đồng lao động ngay và chuyển hồ sơ cho cơ quan điều tra.
+4. Không báo cáo kịp thời dấu hiệu gian lận theo Điều 6 dẫn đến thiệt hại: xem xét trách nhiệm liên đới của GDV, KSV và Giám đốc ĐVKD theo mức độ.
+
+Điều 11. Hiệu lực thi hành
+1. Quy định có hiệu lực từ ngày 01/02/2026, thay thế phiên bản 1.0.
+2. Thay đổi chính so với phiên bản 1.0: nâng hạn mức GDV tự duyệt chuyển khoản từ 300 triệu lên 500 triệu đồng; bổ sung mã sự cố SC-GD-01 đến SC-GD-05; bổ sung Điều 2 khoản 2 về bắt buộc xác thực sinh trắc học với giao dịch từ 100 triệu đồng.
+3. Các ĐVKD có trách nhiệm phổ biến đến toàn thể GDV, KSV; vướng mắc phản ánh về Khối Vận hành.

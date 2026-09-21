@@ -1,0 +1,76 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG DOANH NGHIỆP
+QUY ĐỊNH HẠN MỨC TÍN DỤNG VÀ GIỚI HẠN TẬP TRUNG
+Số hiệu: QĐ.HM.EB.07 — Phiên bản: 1.2 — Hiệu lực từ: 01/06/2026
+Đơn vị ban hành: Khối Khách hàng Doanh nghiệp, phối hợp Khối Quản trị Rủi ro
+Phân loại: Tài liệu nội bộ — không cung cấp cho khách hàng
+Văn bản liên quan: QT.TD.EB.01 (Quy trình cấp tín dụng KHDN), HD.TĐ.EB.05 (Hướng dẫn thẩm định tài chính doanh nghiệp), QĐ.TSBĐ.02 (Quy định TSBĐ)
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Phạm vi và mục đích
+1. Quy định này quy định các loại hạn mức tín dụng, căn cứ xác định hạn mức, giới hạn tập trung theo khách hàng, nhóm khách hàng liên quan và theo ngành nghề áp dụng đối với khách hàng doanh nghiệp (EB) tại MSB.
+2. Mục đích: bảo đảm dư nợ tín dụng được phân bổ hợp lý, tránh tập trung rủi ro quá mức vào một khách hàng, một nhóm khách hàng hoặc một ngành nghề, tuân thủ khẩu vị rủi ro của MSB từng thời kỳ.
+3. Không áp dụng cho khách hàng cá nhân (RB) và giới hạn cấp tín dụng cho định chế tài chính, quy định tại văn bản riêng của Khối Nguồn vốn và Kinh doanh tiền tệ.
+
+Điều 2. Giải thích từ ngữ
+1. Vốn tự có: là vốn tự có hợp nhất của MSB được xác định theo báo cáo tỷ lệ an toàn vốn (CAR) gần nhất được Ngân hàng Nhà nước xác nhận, dùng làm cơ sở tính các tỷ lệ giới hạn tại Quy định này.
+2. Nhóm khách hàng liên quan: các khách hàng có quan hệ sở hữu, quản lý, kiểm soát lẫn nhau theo quy định của Luật Các tổ chức tín dụng, được Khối Quản trị Rủi ro xác định và cập nhật trên hệ thống quản lý giới hạn tín dụng (LMS).
+3. Hạn mức tín dụng tổng (HMTD tổng): tổng mức dư nợ tối đa mà MSB chấp thuận cấp cho một khách hàng hoặc một nhóm khách hàng liên quan trong một kỳ hạn mức, bao gồm cho vay, bảo lãnh, L/C và các hình thức cấp tín dụng khác quy đổi theo hệ số rủi ro.
+4. Hạn mức từng sản phẩm: mức dư nợ tối đa phân bổ cho từng sản phẩm cụ thể trong phạm vi HMTD tổng, ví dụ hạn mức cho vay vốn lưu động, hạn mức bảo lãnh, hạn mức phát hành L/C.
+5. Mã trạng thái hạn mức (HM01–HM05): trạng thái vòng đời của một hạn mức tín dụng trên hệ thống, quy định chi tiết tại Điều 8.
+
+CHƯƠNG II. LOẠI HẠN MỨC VÀ CĂN CỨ XÁC ĐỊNH
+
+Điều 3. Các loại hạn mức tín dụng
+1. Hạn mức tín dụng tổng: cấp cho một khách hàng, là giới hạn dư nợ cao nhất khách hàng được sử dụng tại một thời điểm, không phân biệt sản phẩm.
+2. Hạn mức từng sản phẩm: phân bổ trong HMTD tổng, dùng để kiểm soát cơ cấu sử dụng vốn theo mục đích (vốn lưu động, đầu tư tài sản cố định, bảo lãnh, tài trợ thương mại).
+3. Hạn mức nhóm khách hàng liên quan: tổng dư nợ của tất cả khách hàng trong cùng một nhóm liên quan, không vượt giới hạn tại Điều 4 khoản 2, kể cả khi từng khách hàng riêng lẻ vẫn trong hạn mức cá nhân.
+4. Hạn mức theo ngành: giới hạn tổng dư nợ toàn hệ thống MSB đối với một ngành nghề, do Hội đồng Quản trị hoặc Ủy ban Quản lý rủi ro phê duyệt hằng năm, quy định tại Điều 5.
+
+Điều 4. Căn cứ xác định hạn mức và giới hạn tập trung theo khách hàng
+1. Hạn mức tín dụng tổng được xác định dựa trên: nhu cầu vốn lưu động theo chu kỳ kinh doanh, vòng quay vốn lưu động bình quân 12 tháng gần nhất, xếp hạng tín dụng nội bộ (XHTD) theo HD.TĐ.EB.05, năng lực tài chính, dòng tiền và giá trị tài sản bảo đảm dự kiến.
+2. Nhu cầu vốn lưu động tối đa được chấp nhận = Doanh thu thuần bình quân tháng × Vòng quay vốn lưu động bình quân ngành, trừ đi vốn tự có tham gia của khách hàng theo tỷ lệ tối thiểu 20%.
+3. Giới hạn tập trung theo một khách hàng: tổng dư nợ cấp tín dụng cho một khách hàng không vượt quá 15% vốn tự có của MSB tại thời điểm phê duyệt; vượt tỷ lệ này phải được Hội đồng Tín dụng (HĐTD) phê duyệt theo cơ chế ngoại lệ và báo cáo Ngân hàng Nhà nước theo quy định.
+4. Giới hạn tập trung theo nhóm khách hàng liên quan: tổng dư nợ cấp tín dụng cho một nhóm khách hàng liên quan không vượt quá 25% vốn tự có của MSB.
+5. Khoản cấp tín dụng có bảo đảm toàn bộ bằng tiền gửi, sổ tiết kiệm hoặc giấy tờ có giá do MSB phát hành không tính vào giới hạn tại khoản 3, khoản 4 khi xác định theo dư nợ thực tế sau khi trừ phần được bảo đảm.
+
+Điều 5. Giới hạn tập trung theo ngành nghề
+1. MSB áp dụng giới hạn tổng dư nợ toàn hệ thống theo nhóm ngành có rủi ro tập trung cao, được rà soát và công bố lại vào tháng 1 hằng năm, gồm tối thiểu các nhóm: bất động sản (kinh doanh và đầu tư), xây dựng và vật liệu xây dựng, thép và kim loại, năng lượng tái tạo, vận tải biển.
+2. Ngành bất động sản: giới hạn tổng dư nợ không vượt quá 22% tổng dư nợ tín dụng khách hàng doanh nghiệp toàn hệ thống MSB tại thời điểm rà soát gần nhất.
+3. Ngành xây dựng: giới hạn tổng dư nợ không vượt quá 15% tổng dư nợ tín dụng khách hàng doanh nghiệp toàn hệ thống.
+4. Ngành thép: giới hạn tổng dư nợ không vượt quá 8% tổng dư nợ tín dụng khách hàng doanh nghiệp toàn hệ thống, do biến động giá nguyên liệu đầu vào cao.
+5. Khi dư nợ một ngành đạt 90% giới hạn tại khoản 2, 3, 4, hệ thống LMS tự động cảnh báo Khối Quản trị Rủi ro; hồ sơ mới thuộc ngành đó phải có ý kiến thẩm định bổ sung của Khối Quản trị Rủi ro trước khi trình phê duyệt.
+6. Khi dư nợ một ngành đạt hoặc vượt giới hạn, MSB tạm dừng cấp tín dụng mới cho ngành đó, trừ cơ cấu lại nợ hiện hữu hoặc khoản cấp tín dụng bảo đảm toàn bộ bằng tiền gửi.
+
+CHƯƠNG III. KỲ HẠN, RÀ SOÁT VÀ ĐIỀU CHỈNH HẠN MỨC
+
+Điều 6. Kỳ hạn hạn mức và rà soát định kỳ
+1. Hạn mức tín dụng tổng và hạn mức từng sản phẩm có kỳ hạn 12 tháng kể từ ngày phê duyệt, trừ trường hợp có thỏa thuận khác được cấp phê duyệt chấp thuận bằng văn bản.
+2. RM trình rà soát hạn mức chậm nhất 30 ngày trước ngày hết hạn; hồ sơ rà soát gồm báo cáo tài chính cập nhật, tình hình sử dụng hạn mức 12 tháng gần nhất, kết quả tra cứu CIC và đánh giá lại XHTD.
+3. Trường hợp không trình rà soát đúng hạn, hạn mức tự động chuyển trạng thái HM04 "Tạm dừng" kể từ ngày hết hạn; khách hàng không được giải ngân mới cho đến khi hoàn tất rà soát.
+4. Rà soát đột xuất được thực hiện khi có dấu hiệu cảnh báo sớm, khách hàng chuyển nhóm nợ, hoặc khi ngành nghề của khách hàng chạm ngưỡng cảnh báo tại Điều 5 khoản 5.
+
+Điều 7. Điều kiện tăng, giảm và tạm dừng hạn mức
+1. Tăng hạn mức: XHTD từ hạng BBB trở lên theo HD.TĐ.EB.05, không có nợ quá hạn trong 12 tháng gần nhất, doanh thu thực tế tăng tối thiểu 15% so với kỳ xác định hạn mức trước.
+2. Giảm hạn mức: doanh thu hoặc dòng tiền suy giảm trên 20% so với kỳ trước, khách hàng chuyển nhóm nợ từ nhóm 2 trở lên, hoặc ngành nghề bị đưa vào diện hạn chế cấp tín dụng.
+3. Tạm dừng hạn mức: phát hiện sử dụng vốn sai mục đích, có dấu hiệu gian lận hồ sơ, hoặc theo yêu cầu cơ quan nhà nước có thẩm quyền; hồ sơ chuyển trạng thái HM04, RM thông báo khách hàng trong 1 ngày làm việc.
+4. Hạn mức sử dụng vượt tạm thời: CCO1 được chấp thuận cho khách hàng sử dụng vượt hạn mức tín dụng tổng đã cấp tối đa 10% giá trị hạn mức, trong thời gian không quá 30 ngày liên tục, áp dụng khi khách hàng có nhu cầu vốn lưu động thời vụ đột biến và có văn bản đề nghị cụ thể; quá 30 ngày chưa được điều chỉnh hạn mức chính thức, phần vượt phải thu hồi ngay.
+5. Mọi thay đổi hạn mức (tăng, giảm, tạm dừng, gia hạn sử dụng vượt) đều phải lập thành Biên bản phê duyệt điều chỉnh hạn mức theo thẩm quyền tại Điều 2 khoản 3 QT.TD.EB.01 và cập nhật ngay trên hệ thống LMS.
+
+CHƯƠNG IV. THEO DÕI VÀ TRẠNG THÁI HẠN MỨC
+
+Điều 8. Theo dõi trên hệ thống và mã trạng thái hạn mức
+1. Toàn bộ hạn mức tín dụng được quản lý tập trung trên hệ thống LMS, liên kết BPM để tự động kiểm tra dư nợ khả dụng trước khi cho phép trình giải ngân mới.
+2. HM01: Đang hiệu lực — hạn mức đã phê duyệt, còn trong kỳ hạn 12 tháng, chưa sử dụng vượt.
+3. HM02: Sắp hết hạn — còn dưới 30 ngày đến ngày hết hạn, hệ thống cảnh báo tự động cho RM và Giám đốc ĐVKD.
+4. HM03: Sử dụng vượt tạm thời — khách hàng đang sử dụng vượt hạn mức tổng trong phạm vi và thời gian được CCO1 chấp thuận theo Điều 7 khoản 4.
+5. HM04: Tạm dừng — do hết hạn chưa rà soát, phát hiện dấu hiệu bất thường, hoặc theo yêu cầu cơ quan có thẩm quyền; không cho phép giải ngân mới.
+6. HM05: Đã đóng — hạn mức hết hiệu lực do khách hàng tất toán toàn bộ dư nợ, hoặc bị thu hồi vĩnh viễn theo quyết định của cấp phê duyệt.
+7. Mọi thay đổi trạng thái được ghi log thời gian, người thực hiện và lý do trên LMS, phục vụ tra soát của Khối Quản trị Rủi ro và kiểm toán nội bộ.
+
+Điều 9. Hiệu lực thi hành
+1. Quy định có hiệu lực từ ngày 01/06/2026, thay thế phiên bản 1.1.
+2. Thay đổi chính so với phiên bản 1.1: bổ sung Điều 7 khoản 4 về hạn mức sử dụng vượt tạm thời và thẩm quyền phê duyệt CCO1; điều chỉnh giới hạn ngành bất động sản từ 20% lên 22% tổng dư nợ khách hàng doanh nghiệp; bổ sung mã trạng thái HM03.
+3. Vướng mắc phản ánh về Phòng Chính sách tín dụng doanh nghiệp, Khối Khách hàng Doanh nghiệp, hoặc Phòng Quản lý giới hạn rủi ro, Khối Quản trị Rủi ro.

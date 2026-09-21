@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "datasets": "Knowledge Bases",
+    "workflows": "Workflows",
+    "apps": "Assistants",
+    "chat": "Test Chat",
+    "tools": "Tools",
+    "skills": "Skills",
+    "forms": "Forms"
+  },
+  "admin": {
+    "section": "Admin",
+    "users": "Admin Users",
+    "workspaces": "Business Units",
+    "settings": "AI Settings",
+    "employees": "Employees",
+    "ops": "Ops Assistant",
+    "audit": "Query Audit Log",
+    "usage": "Token usage",
+    "schedules": "Schedules"
+  },
+  "topbar": {
+    "defaultWorkspace": "Default Unit"
+  },
+  "buttons": {
+    "create": "Create",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "send": "Send",
+    "upload": "Upload"
+  },
+  "theme": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
+  },
+  "language": {
+    "en": "English",
+    "vi": "Tiếng Việt"
+  },
+  "appName": "MSB Knowledge Assistant",
+  "version": "v0.2.0"
+}

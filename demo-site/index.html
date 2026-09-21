@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSB Demo — Ngân hàng số cho mọi nhu cầu</title>
+<style>
+  :root{--orange:#ee6d1f;--navy:#1f3a5f;--ink:#0f172a;--muted:#64748b;--bg:#f7f7f9;--card:#fff;--border:rgba(15,23,42,.08)}
+  *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+  header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--navy);letter-spacing:.5px}
+  .logo i{width:32px;height:32px;border-radius:8px;background:var(--orange);display:inline-block}
+  nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:14px}
+  nav a.cta{background:var(--orange);color:#fff;padding:8px 14px;border-radius:10px;font-weight:600}
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,#2c5282 60%,#3b6fa6 100%);color:#fff;padding:72px 0}
+  .hero h1{font-size:40px;line-height:1.15;margin:0 0 14px;max-width:620px}
+  .hero p{font-size:18px;opacity:.9;max-width:560px;margin:0 0 26px}
+  .hero .btns a{display:inline-block;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:600;margin-right:10px}
+  .hero .btns .p{background:var(--orange);color:#fff}.hero .btns .s{background:rgba(255,255,255,.14);color:#fff}
+  .badge{display:inline-block;background:rgba(255,255,255,.16);padding:4px 10px;border-radius:999px;font-size:12px;margin-bottom:14px}
+  section{padding:56px 0}h2{font-size:26px;margin:0 0 8px}.sub{color:var(--muted);margin:0 0 26px}
+  .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px}
+  .card h3{margin:8px 0 6px;font-size:16px}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+  .card .ic{width:40px;height:40px;border-radius:12px;background:rgba(238,109,31,.12);display:flex;align-items:center;justify-content:center;color:var(--orange);font-weight:800}
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;font-size:14px}
+  th,td{text-align:left;padding:12px 16px;border-top:1px solid var(--border)}th{background:#fafafa;color:var(--muted);font-weight:600;border-top:0}
+  footer{background:#0f172a;color:#cbd5e1;padding:40px 0;font-size:13px}footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .note{background:#fff8f1;border:1px dashed var(--orange);color:#9a4410;border-radius:12px;padding:12px 16px;font-size:13px;margin-top:20px}
+  @media(max-width:640px){.hero h1{font-size:30px}nav a:not(.cta){display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+  <div class="logo"><i></i>MSB <span style="font-weight:400;color:var(--muted)">· Demo</span></div>
+  <div><a href="#products">Sản phẩm</a><a href="#fees">Biểu phí</a><a href="#support">Hỗ trợ</a><a href="intranet.html">Cổng cán bộ</a><a class="cta" href="#">Mở tài khoản</a></div>
+</nav></div></header>
+
+<section class="hero"><div class="wrap">
+  <span class="badge">Website mô phỏng phục vụ demo hackathon</span>
+  <h1>Ngân hàng số cho mọi nhu cầu tài chính của bạn</h1>
+  <p>Mở tài khoản trong 5 phút, chuyển khoản miễn phí, vay mua nhà đến 80% giá trị tài sản. Có thắc mắc? Bấm bong bóng chat ở góc phải — trợ lý trả lời từ biểu phí và cẩm nang sản phẩm chính thức.</p>
+  <div class="btns"><a class="p" href="#">Tải ứng dụng MSB mBank</a><a class="s" href="#" onclick="window.MSBAssistant&&MSBAssistant.open();return false;">Hỏi trợ lý ngay</a></div>
+</div></section>
+
+<section id="products"><div class="wrap">
+  <h2>Sản phẩm nổi bật</h2><p class="sub">Lãi suất tham khảo, kết quả phê duyệt do ngân hàng thẩm định.</p>
+  <div class="grid">
+    <div class="card"><div class="ic">🏠</div><h3>Vay mua nhà M-Home</h3><p>Tối đa 80% giá trị tài sản, thời hạn 35 năm, ưu đãi cố định 12 tháng đầu.</p></div>
+    <div class="card"><div class="ic">🚗</div><h3>Vay mua ô tô M-Car</h3><p>Tối đa 75% giá xe mới, phê duyệt trong 8 giờ làm việc tại đại lý liên kết.</p></div>
+    <div class="card"><div class="ic">💳</div><h3>Thấu chi M-Overdraft</h3><p>Hạn mức đến 5 lần lương chuyển khoản, chỉ tính lãi ngày sử dụng.</p></div>
+    <div class="card"><div class="ic">⚡</div><h3>Vay tiêu dùng M-Cash</h3><p>Không tài sản bảo đảm, đến 500 triệu, duyệt online trong 24 giờ.</p></div>
+  </div>
+</div></section>
+
+<section id="fees" style="background:#fff"><div class="wrap">
+  <h2>Biểu phí thường gặp</h2><p class="sub">Trích Biểu phí dịch vụ 2026.1 (mô phỏng).</p>
+  <table>
+    <tr><th>Dịch vụ</th><th>Phí</th></tr>
+    <tr><td>Chuyển khoản trên ứng dụng (nội bộ và liên ngân hàng)</td><td><strong>Miễn phí</strong></td></tr>
+    <tr><td>Rút tiền ATM ngân hàng khác</td><td>3.300 đ/giao dịch</td></tr>
+    <tr><td>SMS Banking</td><td>11.000 đ/tháng</td></tr>
+    <tr><td>Chuyển tiền quốc tế đi</td><td>0,20% · tối thiểu 10 USD · tối đa 300 USD</td></tr>
+  </table>
+  <div class="note">Trang này là bản mô phỏng cho MSB AI Hackathon. Mọi con số là giả định. Trợ lý chat ở góc phải được nhúng bằng một dòng <code>&lt;script&gt;</code> và chỉ hoạt động trên website được ngân hàng cho phép.</div>
+</div></section>
+
+<section id="support"><div class="wrap">
+  <h2>Hỗ trợ 24/7</h2><p class="sub">Tổng đài 1900 6083 (mô phỏng) · Hoặc hỏi trợ lý ảo ngay trên trang.</p>
+  <div class="grid">
+    <div class="card"><h3>Quên mật khẩu ứng dụng?</h3><p>Chọn "Quên mật khẩu" trên màn hình đăng nhập, xác thực bằng số điện thoại và căn cước gắn chip.</p></div>
+    <div class="card"><h3>Thẻ bị nuốt tại ATM?</h3><p>Khoá thẻ ngay trong ứng dụng, phát hành lại trong 5–7 ngày làm việc.</p></div>
+    <div class="card"><h3>Chuyển nhầm tài khoản?</h3><p>Liên hệ tổng đài để gửi tra soát; hoàn tiền phụ thuộc sự đồng ý của người nhận.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><div>© 2026 MSB Demo — Ngân hàng TMCP Hàng Hải Việt Nam (mô phỏng)</div><div>MSB không bao giờ yêu cầu bạn cung cấp mật khẩu hay mã OTP.</div></div></footer>
+
+<!-- Trợ lý khách hàng: một dòng script từ web app, cấu hình lấy từ config.js do seed_demo sinh -->
+<script src="config.js"></script>
+<script src="embed.js" data-assistant="customer"></script>
+</body>
+</html>

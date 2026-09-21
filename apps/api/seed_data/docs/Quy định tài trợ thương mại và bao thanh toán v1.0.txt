@@ -1,0 +1,80 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG DOANH NGHIỆP
+QUY ĐỊNH TÀI TRỢ THƯƠNG MẠI VÀ BAO THANH TOÁN
+Số hiệu: QĐ.TTTM.EB.09 — Phiên bản: 1.0 — Hiệu lực từ: 01/07/2026
+Đơn vị ban hành: Khối Khách hàng Doanh nghiệp, phối hợp Trung tâm Thanh toán quốc tế
+Phân loại: Tài liệu nội bộ — không cung cấp cho khách hàng
+Văn bản liên quan: QT.TD.EB.01, QĐ.BL.EB.06 (Bảo lãnh và L/C), HD.TTQT.04, QĐ.HM.EB.07
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Phạm vi áp dụng
+1. Quy định này quy định điều kiện, hồ sơ, thẩm quyền phê duyệt và quy trình xử lý các sản phẩm tài trợ thương mại (tài trợ xuất khẩu, chiết khấu bộ chứng từ) và bao thanh toán (nội địa, quốc tế) đối với khách hàng doanh nghiệp (EB) tại MSB.
+2. Không áp dụng cho nghiệp vụ bảo lãnh và phát hành thư tín dụng (L/C) độc lập, được quy định tại QĐ.BL.EB.06; trường hợp L/C là căn cứ phát sinh chiết khấu bộ chứng từ, áp dụng đồng thời cả hai văn bản.
+3. Đối tượng áp dụng: RM, CA phân khúc EB, chuyên viên Trung tâm Thanh toán quốc tế (TTQT), cấp phê duyệt tín dụng theo thẩm quyền tại Điều 8.
+
+Điều 2. Giải thích từ ngữ
+1. Tài trợ xuất khẩu trước giao hàng (Pre-shipment Export Finance): khoản cấp tín dụng giúp khách hàng thu mua nguyên liệu, sản xuất hàng hóa xuất khẩu trước khi giao hàng, căn cứ hợp đồng xuất khẩu hoặc L/C xuất khẩu đã được xác nhận.
+2. Tài trợ xuất khẩu sau giao hàng (Post-shipment Export Finance): khoản cấp tín dụng trên cơ sở bộ chứng từ xuất khẩu đã hoàn tất giao hàng, chờ thanh toán từ bên mua hoặc ngân hàng phát hành L/C.
+3. Chiết khấu bộ chứng từ: MSB ứng trước một phần giá trị bộ chứng từ xuất khẩu hợp lệ cho khách hàng, nhận quyền đòi tiền từ ngân hàng phát hành hoặc bên mua hàng.
+4. Bao thanh toán (Factoring): MSB ứng trước tiền cho bên bán trên cơ sở khoản phải thu phát sinh từ hợp đồng mua bán hàng hóa, dịch vụ, có hoặc không kèm quyền truy đòi bên bán khi bên mua không thanh toán.
+5. Bao thanh toán có truy đòi: MSB có quyền yêu cầu bên bán hoàn trả số tiền đã ứng nếu bên mua không thanh toán khi đến hạn.
+6. Bao thanh toán miễn truy đòi: MSB chịu rủi ro không thu hồi được nợ từ bên mua, không truy đòi bên bán; chỉ áp dụng khi bên mua đáp ứng điều kiện tại Điều 6.
+
+CHƯƠNG II. TÀI TRỢ XUẤT KHẨU VÀ CHIẾT KHẤU BỘ CHỨNG TỪ
+
+Điều 3. Tài trợ xuất khẩu trước giao hàng
+1. Điều kiện: khách hàng có hợp đồng xuất khẩu hoặc L/C xuất khẩu còn hiệu lực tối thiểu 30 ngày kể từ ngày đề nghị tài trợ, hoạt động kinh doanh xuất khẩu tối thiểu 12 tháng, không có nợ nhóm 2 trở lên tại MSB và tổ chức tín dụng khác theo CIC trong 12 tháng gần nhất.
+2. Mức tài trợ: tối đa 80% giá trị hợp đồng xuất khẩu hoặc L/C xuất khẩu, không vượt hạn mức tín dụng đã cấp cho khách hàng theo QĐ.HM.EB.07.
+3. Thời hạn tài trợ tối đa: 120 ngày kể từ ngày giải ngân, không vượt quá thời hạn giao hàng dự kiến ghi trên hợp đồng cộng 15 ngày.
+4. Nguồn trả nợ: tiền thu từ xuất khẩu chuyển về tài khoản tại MSB theo cam kết chuyển tiền về của khách hàng; RM theo dõi tiến độ giao hàng và thu tiền để kiểm soát rủi ro nguồn trả nợ.
+
+Điều 4. Tài trợ xuất khẩu sau giao hàng
+1. Điều kiện: đã hoàn tất giao hàng, có bộ chứng từ xuất khẩu hợp lệ (hóa đơn thương mại, vận đơn, chứng từ bảo hiểm nếu có, giấy chứng nhận xuất xứ khi được yêu cầu).
+2. Mức tài trợ: tối đa 90% giá trị bộ chứng từ với L/C trả ngay có xác nhận của ngân hàng phát hành uy tín theo danh sách MSB công bố; tối đa 85% với L/C trả chậm; tối đa 70% với nhờ thu (D/P, D/A) hoặc chuyển tiền (T/T) không bảo đảm thanh toán từ ngân hàng.
+3. Thời hạn tài trợ tối đa 180 ngày kể từ ngày giải ngân, không vượt thời hạn thanh toán ghi trên chứng từ.
+
+Điều 5. Chiết khấu bộ chứng từ
+1. Tỷ lệ chiết khấu tối đa theo hình thức thanh toán: 95% giá trị bộ chứng từ đối với L/C trả ngay được xác nhận bởi ngân hàng phát hành hạng đầu tư trở lên; 90% đối với L/C trả ngay không xác nhận hạng đầu tư; 85% đối với L/C trả chậm đã được chấp nhận thanh toán (chiết khấu có truy đòi); 75% đối với nhờ thu kèm chứng từ (D/P).
+2. Chiết khấu miễn truy đòi chỉ áp dụng với L/C trả ngay do ngân hàng phát hành thuộc danh sách ngân hàng uy tín được MSB phê duyệt, và phải được CCO2 trở lên phê duyệt riêng cho từng giao dịch.
+3. Chứng từ chiết khấu phải được Trung tâm TTQT kiểm tra tính hợp lệ, phù hợp về mặt bề mặt chứng từ (bộ chứng từ sạch, không có bất đồng) trước khi chuyển RM trình giải ngân.
+4. Phí và lãi: lãi chiết khấu tính trên số tiền ứng trước và số ngày từ ngày chiết khấu đến ngày dự kiến nhận tiền, theo lãi suất tài trợ thương mại công bố từng thời kỳ; phí xử lý chứng từ thu theo Biểu phí BP.KH.06 hiện hành.
+
+CHƯƠNG III. BAO THANH TOÁN
+
+Điều 6. Bao thanh toán nội địa và quốc tế
+1. Đối tượng bên bán: doanh nghiệp có hợp đồng mua bán hàng hóa, cung ứng dịch vụ với bên mua xác định, khoản phải thu chưa đến hạn thanh toán, chưa được chuyển nhượng hoặc cầm cố cho bên thứ ba khác.
+2. Điều kiện bên mua hàng: bên mua phải được MSB thẩm định và cấp hạn mức bao thanh toán riêng (hạn mức xác nhận công nợ), không có nợ xấu tại các tổ chức tín dụng theo tra cứu CIC, có lịch sử thanh toán công nợ đúng hạn tối thiểu 6 tháng gần nhất với bên bán.
+3. Bao thanh toán có truy đòi: áp dụng cho phần lớn giao dịch; mức ứng trước tối đa 80% giá trị khoản phải thu.
+4. Bao thanh toán miễn truy đòi: chỉ áp dụng khi bên mua có xếp hạng tín dụng nội bộ từ hạng A trở lên hoặc là doanh nghiệp niêm yết, doanh nghiệp FDI có báo cáo tài chính được kiểm toán bởi công ty kiểm toán thuộc nhóm Big Four hoặc tương đương; mức ứng trước tối đa 70% giá trị khoản phải thu.
+5. Bao thanh toán quốc tế thực hiện thông qua mạng lưới ngân hàng đại lý hoặc tổ chức bao thanh toán quốc tế mà MSB là thành viên; bên mua ở nước ngoài được thẩm định qua tổ chức bao thanh toán nhập khẩu đối tác.
+6. Hạn mức bao thanh toán được cấp riêng theo từng bên mua (không vượt quá tổng dư nợ khách hàng theo QĐ.HM.EB.07), thời hạn hạn mức 12 tháng, rà soát định kỳ theo QĐ.HM.EB.07.
+7. Thời hạn tài trợ mỗi khoản phải thu: tối đa 180 ngày kể từ ngày ứng trước, không vượt quá thời hạn thanh toán ghi trên hợp đồng mua bán.
+
+Điều 7. Chứng từ, rủi ro và kiểm soát
+1. Hồ sơ bao thanh toán: hợp đồng mua bán hàng hóa/dịch vụ, hóa đơn, biên bản giao nhận hoặc xác nhận công nợ của bên mua, thông báo chuyển nhượng khoản phải thu cho MSB (đối với bao thanh toán có thông báo).
+2. RM và Trung tâm TTQT phối hợp xác minh khoản phải thu có thật, không trùng lặp với khoản đã bao thanh toán tại tổ chức tín dụng khác, qua xác nhận trực tiếp với bên mua trước lần bao thanh toán đầu tiên với mỗi cặp bên bán – bên mua.
+3. Rủi ro gian lận điển hình: hóa đơn khống, giao dịch giữa các bên liên quan không có bản chất thương mại thực; phát hiện thì RM từ chối hồ sơ, báo cáo Khối Quản trị Rủi ro trong 1 ngày làm việc, đưa cặp bên bán – bên mua vào danh sách theo dõi tối thiểu 24 tháng.
+4. Kiểm soát sau: RM theo dõi thanh toán của bên mua theo từng khoản phải thu; quá hạn trên 30 ngày đối với bao thanh toán có truy đòi, MSB truy đòi bên bán ngay, ghi nhận theo HD.KSS.EB.08.
+
+CHƯƠNG IV. THẨM QUYỀN VÀ TRẠNG THÁI
+
+Điều 8. Thẩm quyền phê duyệt
+1. Áp dụng thẩm quyền phê duyệt tín dụng theo giá trị hạn mức hoặc khoản tài trợ như Điều 2 khoản 3 QT.TD.EB.01: CCO1 phê duyệt đến 20 tỷ đồng, CCO2 phê duyệt trên 20 tỷ đến 80 tỷ đồng, trên 80 tỷ đồng trình Hội đồng Tín dụng.
+2. Riêng chiết khấu miễn truy đòi và bao thanh toán miễn truy đòi, không phân biệt giá trị, phải có ý kiến thẩm định độc lập của Khối Quản trị Rủi ro trước khi trình cấp phê duyệt tương ứng tại khoản 1, do rủi ro không truy đòi được bên bán.
+3. Hạn mức bao thanh toán theo bên mua tại Điều 6 khoản 6 được phê duyệt cùng thời điểm với hạn mức tín dụng tổng của bên bán, hoặc phê duyệt riêng nếu bên mua chưa có quan hệ tín dụng với bên bán tại MSB.
+
+Điều 9. Mã trạng thái hồ sơ
+1. TTTM01: Tiếp nhận — hồ sơ tài trợ thương mại hoặc bao thanh toán mới tiếp nhận từ RM.
+2. TTTM02: Đang thẩm định chứng từ — Trung tâm TTQT kiểm tra tính hợp lệ bộ chứng từ hoặc khoản phải thu.
+3. TTTM03: Chuyển phê duyệt — hồ sơ đã thẩm định, chờ cấp có thẩm quyền quyết định.
+4. TTTM04: Đã giải ngân/ứng trước — đã chuyển tiền cho khách hàng.
+5. TTTM05: Chờ thu tiền — đang theo dõi nguồn trả nợ từ bên mua hoặc ngân hàng phát hành.
+6. TTTM06: Đã tất toán — đã thu đủ tiền và đóng khoản tài trợ.
+7. TTTM07: Truy đòi — phát sinh truy đòi bên bán do bên mua không thanh toán (bao thanh toán có truy đòi) hoặc bộ chứng từ bị từ chối thanh toán.
+
+Điều 10. Hiệu lực thi hành
+1. Quy định có hiệu lực từ ngày 01/07/2026.
+2. Đây là văn bản ban hành lần đầu, hợp nhất và thay thế các hướng dẫn nội bộ rời rạc về tài trợ xuất khẩu và bao thanh toán đã áp dụng trước đây tại các đơn vị kinh doanh.
+3. Vướng mắc phản ánh về Phòng Chính sách tín dụng doanh nghiệp, Khối Khách hàng Doanh nghiệp, hoặc Trung tâm Thanh toán quốc tế.

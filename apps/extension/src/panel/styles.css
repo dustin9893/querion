@@ -1,0 +1,11 @@
+@import "tailwindcss";
+/* The chat UI is the web app's component, so Tailwind must see its class names too. */
+@source "../../../web/src/components/chat";
+@source "../../../web/src/components/ui/Markdown.tsx";
+@source "./";
+
+html, body, #root { height: 100%; }
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 14px; }
+/* markdown answers */
+.md-body table td, .md-body table th { border: 1px solid rgba(15, 23, 42, 0.12); padding: 4px 8px; }
+.md-body code { font-size: 0.9em; background: rgba(15, 23, 42, 0.06); padding: 0 4px; border-radius: 4px; }

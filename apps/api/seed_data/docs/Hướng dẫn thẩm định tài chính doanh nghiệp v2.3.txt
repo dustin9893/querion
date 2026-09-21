@@ -1,0 +1,85 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG DOANH NGHIỆP
+HƯỚNG DẪN THẨM ĐỊNH TÀI CHÍNH DOANH NGHIỆP
+Số hiệu: HD.TĐ.EB.05 — Phiên bản: 2.3 — Hiệu lực từ: 15/02/2026
+Đơn vị ban hành: Khối Khách hàng Doanh nghiệp, phối hợp Khối Quản trị Rủi ro
+Văn bản liên quan: QT.TD.EB.01 (Quy trình cấp tín dụng KHDN), QĐ.TSBĐ.02 (Quy định TSBĐ)
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Mục đích và phạm vi áp dụng
+1. Hướng dẫn này quy định nội dung, phương pháp và ngưỡng tham chiếu để Chuyên viên thẩm định tín dụng (CA) thực hiện thẩm định tài chính khách hàng doanh nghiệp (EB) trong quy trình cấp tín dụng theo QT.TD.EB.01.
+2. Áp dụng cho toàn bộ hồ sơ đề xuất cấp tín dụng mới, cấp lại hạn mức và điều chỉnh hạn mức đối với khách hàng doanh nghiệp thuộc các phân khúc SME, M.SME, FDI và khách hàng chiến lược (KHCL).
+3. Không áp dụng cho khách hàng cá nhân (RB); thẩm định khách hàng cá nhân thực hiện theo QĐ.TĐ.RB.03.
+
+Điều 2. Hồ sơ tài chính bắt buộc
+1. Báo cáo tài chính (BCTC) 2 năm gần nhất đối với khách hàng hoạt động dưới 5 năm; 3 năm gần nhất đối với khách hàng hoạt động từ 5 năm trở lên. Khách hàng thuộc diện kiểm toán bắt buộc theo quy định pháp luật phải nộp BCTC đã kiểm toán; các trường hợp khác chấp nhận BCTC nội bộ có xác nhận của người đại diện hợp pháp và kế toán trưởng.
+2. Tờ khai thuế giá trị gia tăng 12 tháng gần nhất hoặc tờ khai quyết toán thuế thu nhập doanh nghiệp năm gần nhất.
+3. Sao kê tài khoản thanh toán tại MSB và các tổ chức tín dụng khác trong 12 tháng gần nhất, thể hiện dòng tiền vào/ra chủ yếu từ hoạt động kinh doanh.
+4. Báo cáo tài chính giữa niên độ (nếu có) khi thời điểm thẩm định cách ngày kết thúc năm tài chính gần nhất trên 6 tháng.
+5. Đối với khách hàng có công ty con, công ty liên kết chiếm trên 20% doanh thu hợp nhất: bổ sung BCTC hợp nhất hoặc thuyết minh giao dịch nội bộ nhóm.
+
+CHƯƠNG II. CHỈ SỐ TÀI CHÍNH VÀ NGƯỠNG THAM CHIẾU
+
+Điều 3. Nhóm chỉ số thanh khoản và cơ cấu vốn
+1. Hệ số thanh toán hiện hành (Tài sản ngắn hạn / Nợ ngắn hạn): ngưỡng tham chiếu tối thiểu 1,0 lần. Dưới ngưỡng này, CA phải phân tích nguyên nhân và khả năng bù đắp từ dòng tiền hoạt động.
+2. Hệ số nợ trên vốn chủ sở hữu (Tổng nợ phải trả / Vốn chủ sở hữu): tối đa 3,0 lần đối với doanh nghiệp sản xuất, dịch vụ; tối đa 4,0 lần đối với doanh nghiệp thương mại do đặc thù vòng quay vốn lưu động nhanh.
+3. Vượt ngưỡng khoản 1, khoản 2 Điều này không đương nhiên bị từ chối, nhưng phải nêu rõ trong Tờ trình thẩm định biện pháp giảm thiểu rủi ro (bổ sung tài sản bảo đảm, bảo lãnh bên thứ ba, giảm hạn mức đề xuất).
+
+Điều 4. Nhóm chỉ số khả năng trả nợ
+1. Hệ số khả năng trả nợ (DSCR — Debt Service Coverage Ratio) = (Lợi nhuận trước thuế, lãi vay và khấu hao – Thuế thực nộp) / (Gốc và lãi vay phải trả trong kỳ): ngưỡng tham chiếu tối thiểu 1,2 lần cho khoản vay trung dài hạn.
+2. DSCR từ 1,0 đến dưới 1,2 lần chỉ được xem xét khi khách hàng có nguồn thu bổ sung ngoài phương án (cho thuê tài sản, cổ tức) được chứng minh bằng hợp đồng hoặc lịch sử chi trả ổn định tối thiểu 12 tháng.
+3. DSCR dưới 1,0 lần: CA từ chối đề xuất, trừ trường hợp có phương án tái cơ cấu được cấp có thẩm quyền phê duyệt riêng.
+4. Vòng quay hàng tồn kho (Giá vốn hàng bán / Hàng tồn kho bình quân): so sánh với trung bình ngành 12 tháng gần nhất do Khối Quản trị Rủi ro công bố định kỳ hằng quý; vòng quay giảm trên 30% so với cùng kỳ năm trước là dấu hiệu cần lưu ý.
+5. Vòng quay khoản phải thu và kỳ thu tiền bình quân: kỳ thu tiền bình quân trên 90 ngày đối với doanh nghiệp thương mại là dấu hiệu cần rà soát chất lượng khách hàng đầu ra.
+
+Điều 5. Nhóm chỉ số hiệu quả hoạt động
+1. ROE (Lợi nhuận sau thuế / Vốn chủ sở hữu bình quân): tham chiếu tối thiểu 8%/năm; doanh nghiệp mới hoạt động dưới 24 tháng hoặc trong giai đoạn đầu tư có thể chấp nhận ROE thấp hơn nếu phương án kinh doanh chứng minh hiệu quả từ năm thứ hai.
+2. Biên lợi nhuận gộp và biên lợi nhuận ròng: so sánh biến động 3 năm liên tiếp; biên lợi nhuận ròng giảm liên tục 2 năm là dấu hiệu phải phân tích nguyên nhân trong Tờ trình.
+3. Doanh thu thuần: so sánh tăng trưởng thực tế với kế hoạch kinh doanh khách hàng cung cấp; chênh lệch trên 20% theo hướng bất lợi phải được giải trình cụ thể.
+
+Điều 6. Phân tích dòng tiền
+1. CA lập bảng cân đối dòng tiền theo 3 nhóm: dòng tiền từ hoạt động kinh doanh, hoạt động đầu tư, hoạt động tài chính, dựa trên sao kê tài khoản và BCTC.
+2. Dòng tiền thuần từ hoạt động kinh doanh phải đủ trang trải nghĩa vụ trả nợ gốc và lãi trong kỳ thẩm định gần nhất; trường hợp âm phải đối chiếu với chu kỳ kinh doanh đặc thù (mùa vụ, dự án dài hạn) và có giải trình cụ thể.
+3. Đối với khách hàng đề nghị cấp hạn mức tín dụng, CA ước tính nhu cầu vốn lưu động ròng theo chu kỳ chuyển đổi tiền mặt (Cash Conversion Cycle) và đối chiếu với hạn mức đề xuất.
+
+CHƯƠNG III. XẾP HẠNG TÍN DỤNG NỘI BỘ VÀ CẢNH BÁO SỚM
+
+Điều 7. Xếp hạng tín dụng nội bộ (XHTD)
+1. Hệ thống XHTD chấm điểm trên thang 100, kết hợp chỉ tiêu tài chính (trọng số 60%) và phi tài chính (trọng số 40%: kinh nghiệm quản trị, uy tín giao dịch, vị thế ngành, triển vọng ngành).
+2. Bảng mapping điểm số — hạng — nhóm nợ tham chiếu — tỷ lệ cho vay tối đa trên phương án:
+a) AAA, AA (từ 90 đến 100 điểm): nhóm nợ tham chiếu 1, tỷ lệ cho vay tối đa 85% nhu cầu vốn hợp lệ;
+b) A, BBB (từ 75 đến dưới 90 điểm): nhóm nợ tham chiếu 1, tỷ lệ cho vay tối đa 80%;
+c) BB (từ 60 đến dưới 75 điểm): nhóm nợ tham chiếu 1 hoặc 2, tỷ lệ cho vay tối đa 70%, thường thuộc luồng NORMAL theo QT.TD.EB.01;
+d) B, CCC (từ 45 đến dưới 60 điểm): nhóm nợ tham chiếu 2, tỷ lệ cho vay tối đa 60%, bắt buộc có tài sản bảo đảm là bất động sản hoặc tiền gửi;
+e) CC, C (từ 30 đến dưới 45 điểm): xem xét hạn chế, chỉ cấp khi có bảo lãnh thanh toán của bên thứ ba xếp hạng từ BBB trở lên;
+f) D (dưới 30 điểm): không cấp tín dụng mới.
+3. Kết quả XHTD có hiệu lực 12 tháng hoặc đến khi có BCTC năm mới, tuỳ thời điểm nào đến trước; chấm lại ngay khi phát hiện dấu hiệu cảnh báo sớm theo Điều 8.
+
+Điều 8. Dấu hiệu cảnh báo sớm (EWS)
+1. Doanh thu giảm trên 20% so với cùng kỳ năm trước trong 2 quý liên tiếp.
+2. Chậm nộp thuế quá 30 ngày hoặc bị cơ quan thuế cưỡng chế hoá đơn.
+3. Phát sinh nợ nhóm 2 trở lên tại bất kỳ tổ chức tín dụng nào theo tra cứu CIC.
+4. Có tranh chấp, kiện tụng dân sự hoặc kinh tế liên quan đến tài sản, hợp đồng trọng yếu của khách hàng hoặc người đại diện hợp pháp.
+5. Séc, uỷ nhiệm chi bị từ chối thanh toán do thiếu số dư từ 3 lần trở lên trong 6 tháng.
+6. Thay đổi người đại diện hợp pháp, cổ đông chi phối hoặc ngành nghề kinh doanh chính mà không thông báo MSB.
+7. Khi phát hiện một trong các dấu hiệu trên, CA lập Báo cáo cảnh báo sớm (HSCBS), đề xuất biện pháp (giảm hạn mức, bổ sung tài sản bảo đảm, tăng tần suất kiểm tra sau vay theo Điều 8 QT.TD.EB.01) trình cấp phê duyệt trong 5 ngày làm việc.
+
+CHƯƠNG IV. KẾT LUẬN THẨM ĐỊNH VÀ TỔ CHỨC THỰC HIỆN
+
+Điều 9. Yêu cầu đối với kết luận Tờ trình thẩm định
+1. Tờ trình thẩm định (mẫu MB09 theo QT.TD.EB.01) phải nêu rõ: tóm tắt tình hình tài chính, kết quả các chỉ số tại Chương II kèm so sánh ngưỡng tham chiếu, kết quả XHTD, dấu hiệu cảnh báo sớm (nếu có), đánh giá tài sản bảo đảm theo QĐ.TSBĐ.02 và kết luận đề xuất (đồng ý/đồng ý có điều kiện/từ chối) kèm lý do cụ thể.
+2. CA không được kết luận "đồng ý" khi có chỉ số thuộc diện từ chối theo Điều 4 khoản 3 mà không có phương án giảm thiểu rủi ro kèm theo.
+3. Thời hạn thẩm định tuân thủ Điều 4 QT.TD.EB.01: luồng FAST tối đa 2 ngày làm việc, luồng NORMAL tối đa 5 ngày làm việc kể từ khi nhận đủ hồ sơ tài chính theo Điều 2.
+
+Điều 10. Tái thẩm định
+1. Tái thẩm định bắt buộc khi: hồ sơ quá thời hạn hiệu lực phê duyệt 90 ngày mà chưa giải ngân hết; khách hàng đề nghị điều chỉnh tăng hạn mức trên 20%; xuất hiện dấu hiệu cảnh báo sớm theo Điều 8; hoặc định kỳ hằng năm đối với hạn mức tín dụng tái cấp.
+2. Hồ sơ tái thẩm định sử dụng BCTC và tờ khai thuế cập nhật gần nhất, không quá 6 tháng tính đến ngày tái thẩm định.
+3. Trường hợp tái thẩm định do cảnh báo sớm, CA phải nêu rõ diễn biến so với lần thẩm định gần nhất và đề xuất điều chỉnh điều kiện cấp tín dụng nếu cần thiết.
+4. Kết quả tái thẩm định được lập thành Tờ trình bổ sung, đính kèm hồ sơ gốc và trình đúng cấp phê duyệt đã ra quyết định lần thẩm định trước, trừ trường hợp hạ bậc XHTD làm thay đổi thẩm quyền theo Điều 7.
+
+Điều 11. Hiệu lực thi hành
+1. Hướng dẫn có hiệu lực từ ngày 15/02/2026, thay thế phiên bản 2.2.
+2. Thay đổi chính so với phiên bản 2.2: điều chỉnh ngưỡng hệ số nợ/vốn chủ sở hữu cho doanh nghiệp thương mại từ 3,5 lên 4,0 lần; bổ sung Điều 6 về phân tích dòng tiền; bổ sung bảng mapping XHTD — tỷ lệ cho vay tối đa tại Điều 7 khoản 2; bổ sung Điều 10 khoản 4 về thẩm quyền phê duyệt tái thẩm định.
+3. Vướng mắc trong quá trình áp dụng phản ánh về Phòng Chính sách tín dụng doanh nghiệp, Khối Quản trị Rủi ro.

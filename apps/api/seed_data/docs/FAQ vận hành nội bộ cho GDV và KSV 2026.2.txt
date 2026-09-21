@@ -1,0 +1,109 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI VẬN HÀNH
+CÂU HỎI THƯỜNG GẶP DÀNH CHO GIAO DỊCH VIÊN VÀ KIỂM SOÁT VIÊN
+Số hiệu: FAQ.VH.2026.2 — Phiên bản: 2026.2 — Hiệu lực từ: 01/07/2026
+Đơn vị ban hành: Khối Vận hành
+Đối tượng: Giao dịch viên (GDV), Kiểm soát viên (KSV) tại Đơn vị kinh doanh
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+MỤC I. TÀI KHOẢN
+
+Câu hỏi 1: Khách hàng yêu cầu đổi số điện thoại nhận OTP nhưng không mang CCCD gắn chip, xử lý thế nào?
+Trả lời: Không thực hiện nếu không xác thực được CCCD gắn chip qua NFC; hướng dẫn khách hàng quay lại với giấy tờ hợp lệ, không dùng ảnh chụp giấy tờ.
+
+Câu hỏi 2: Tài khoản khách hàng bị khoá do nhập sai mật khẩu ứng dụng quá 5 lần, GDV có mở khoá tại quầy được không?
+Trả lời: Được, sau khi xác thực sinh trắc học và CCCD gắn chip; GDV mở khoá trên hệ thống CRM, không cần chờ 30 phút tự mở khoá như trên ứng dụng.
+
+Câu hỏi 3: Khách hàng doanh nghiệp yêu cầu đóng tài khoản thanh toán, cần lưu ý gì?
+Trả lời: Kiểm tra không còn giao dịch treo, séc chưa tất toán, hạn mức thấu chi hoặc khoản vay liên kết tài khoản; nếu còn dư nợ liên kết, không được đóng tài khoản.
+
+Câu hỏi 4: Khách hàng cá nhân trên 70 tuổi muốn uỷ quyền toàn bộ giao dịch tài khoản cho con, GDV hướng dẫn thế nào?
+Trả lời: Hướng dẫn lập văn bản uỷ quyền công chứng hoặc lập tại quầy MSB có xác thực CCCD hai bên; theo Điều 5 khoản 3 QĐ.KS.VH.09, giao dịch giá trị lớn của khách hàng cao tuổi cần thêm bước xác minh do dấu hiệu dẫn dắt.
+
+Câu hỏi 5: Có được mở tài khoản cho khách hàng dưới 18 tuổi không?
+Trả lời: Được mở tài khoản giám hộ với người đại diện theo pháp luật đứng tên đồng sở hữu hoặc giám hộ, hồ sơ theo hướng dẫn riêng của sản phẩm tài khoản trẻ em.
+
+MỤC II. CHUYỂN TIỀN
+
+Câu hỏi 6: Khách hàng chuyển nhầm số tài khoản trong nước, GDV hướng dẫn thế nào?
+Trả lời: Hướng dẫn lập yêu cầu tra soát, cấp mã khiếu nại KN-YYYY-xxxx theo Điều 2 HD.TS.VH.10; việc hoàn tiền phụ thuộc sự đồng ý của người nhận, không cam kết thời gian cụ thể.
+
+Câu hỏi 7: Chuyển khoản tại quầy trên 500 triệu đồng, GDV có tự duyệt được không?
+Trả lời: Không. Theo Điều 3 khoản 2 QĐ.KS.VH.09, GDV chỉ tự duyệt đến 500 triệu đồng; trên mức này cần KSV phê duyệt, trên 3 tỷ đồng cần thêm phê duyệt của Giám đốc ĐVKD.
+
+Câu hỏi 8: Giao dịch nộp tiền mặt 450 triệu đồng có phải báo cáo gì thêm không?
+Trả lời: Có. Từ 400 triệu đồng trở lên phải lập Báo cáo giao dịch giá trị lớn theo QĐ.AML.11, hệ thống tự động gắn cờ, GDV không được huỷ cờ báo cáo.
+
+Câu hỏi 9: Khách hàng hỏi vì sao chuyển khoản Napas 24/7 mà tiền chưa vào tài khoản người nhận?
+Trả lời: Thông thường tức thời; nếu chậm có thể do hệ thống ngân hàng nhận đang bảo trì. Hướng dẫn khách hàng chờ đến hết ngày làm việc, nếu vẫn chưa nhận thì lập tra soát theo Điều 5 HD.TS.VH.10.
+
+Câu hỏi 10: Có giới hạn số lần chuyển khoản miễn phí trên ứng dụng không?
+Trả lời: Không giới hạn số lần đối với chuyển khoản trên MSB mBank và Internet Banking (nội bộ và liên ngân hàng qua Napas, Citad), theo Biểu phí BP.KH.06 Điều 2.
+
+MỤC III. THANH TOÁN QUỐC TẾ (TTQT)
+
+Câu hỏi 11: Khách hàng chuyển tiền quốc tế 60.000 USD, có gì khác so với dưới 50.000 USD?
+Trả lời: Từ 50.000 USD trở lên, ngoài KSV còn phải có thêm phê duyệt của TTQT theo Điều 1 khoản 3 HD.TTQT.04.
+
+Câu hỏi 12: Trước khi lập điện TTR, GDV bắt buộc kiểm tra gì về tuân thủ?
+Trả lời: Sàng lọc danh sách cấm vận OFAC, EU, UN và danh sách cảnh báo AML nội bộ với người chuyển, người thụ hưởng và ngân hàng thụ hưởng theo Điều 3 khoản 1 HD.TTQT.04; trùng tên phải được KSV và Tuân thủ xác nhận trước khi tiếp tục.
+
+Câu hỏi 13: Điện chuyển tiền bị trả về do sai BIC ngân hàng thụ hưởng, GDV xử lý ra sao?
+Trả lời: Liên hệ khách hàng lập đề nghị điều chỉnh, TTQT lập lại điện; phí xử lý theo Điều 5 khoản 4 HD.TTQT.04, khoảng 20 USD/lần cộng phí thực tế phía ngân hàng nước ngoài.
+
+Câu hỏi 14: Khách hàng hỏi bao lâu thì biết điện quốc tế đã đến nơi?
+Trả lời: Nếu chưa nhận xác nhận sau 2 ngày làm việc, TTQT lập tra soát MT199 theo Điều 7 khoản 3 HD.TTQT.04; có thể dùng SWIFT gpi tracker hoặc mã UETR để theo dõi gần thời gian thực theo Điều 6 HD.TS.VH.10.
+
+Câu hỏi 15: Chuyển tiền quốc tế trên 1.000 USD có bị theo dõi gì đặc biệt về phòng chống rửa tiền không?
+Trả lời: Có. Ngưỡng báo cáo chuyển tiền điện tử quốc tế theo QĐ.AML.11 là từ 1.000 USD, hệ thống tự động ghi nhận thông tin đầy đủ người chuyển và người thụ hưởng phục vụ báo cáo.
+
+MỤC IV. THẺ
+
+Câu hỏi 16: Thẻ khách hàng bị nuốt tại ATM MSB, GDV xử lý ngay được không?
+Trả lời: Nếu ATM tại chính chi nhánh, GDV lấy thẻ trong ngăn giữ thẻ sau khi xác thực chủ thẻ; nếu ATM ở chi nhánh khác, hướng dẫn khách hàng liên hệ tổng đài hoặc chi nhánh quản lý máy đó.
+
+Câu hỏi 17: Giao dịch thẻ quốc tế bị tranh chấp mất bao lâu để có kết quả?
+Trả lời: Theo Điều 4 khoản 4 HD.TS.VH.10, chu kỳ chargeback của tổ chức thẻ quốc tế là 45 đến 120 ngày, MSB không kiểm soát được tiến độ phía đối tác nước ngoài.
+
+Câu hỏi 18: Khách hàng bị trừ tiền hai lần cho cùng một giao dịch quẹt thẻ tại POS, có hoàn ngay được không?
+Trả lời: Nếu xác định rõ lỗi trùng giao dịch, có thể hoàn tiền tạm ứng trong 1 ngày làm việc theo Điều 7 HD.TS.VH.10 sau khi Giám đốc ĐVKD phê duyệt.
+
+Câu hỏi 19: Phát hành lại thẻ do mất, thời gian bao lâu?
+Trả lời: 5 đến 7 ngày làm việc theo BP.KH.06 Điều 7; phí phát hành lại 50.000 đồng, cấp lại mã PIN trên ứng dụng miễn phí.
+
+MỤC V. HỆ THỐNG VÀ SỰ CỐ
+
+Câu hỏi 20: Hệ thống T24 treo giữa giao dịch, tiền đã trừ nhưng chưa hạch toán xong, làm gì?
+Trả lời: Không thao tác lại giao dịch; ghi nhận thời điểm, báo cáo KSV và bộ phận Công nghệ thông tin; đối chiếu sổ phụ khi hệ thống phục hồi trước khi xử lý tiếp cho khách hàng.
+
+Câu hỏi 21: Nghi ngờ máy tính tại quầy bị truy cập trái phép ngoài giờ, cần báo ai?
+Trả lời: Báo cáo Trung tâm An toàn thông tin theo Điều 7 QĐ.TT.07 ngay khi phát hiện; không tự ý kiểm tra hoặc xử lý một mình.
+
+Câu hỏi 22: Có được dùng công cụ dịch thuật hoặc chatbot công cộng để soạn thư trả lời khách hàng có thông tin giao dịch không?
+Trả lời: Không. Theo Điều 5 khoản 3 QĐ.TT.07, nghiêm cấm dùng công cụ AI công cộng để xử lý thông tin Nội bộ, Mật hoặc Tối mật; chỉ dùng trợ lý AI nội bộ do MSB triển khai và đã ẩn danh thông tin khách hàng.
+
+Câu hỏi 23: Trợ lý AI nội bộ trả lời sai một quy định, GDV có được áp dụng luôn không?
+Trả lời: Không. Theo Điều 5 khoản 4 QĐ.TT.07, câu trả lời của trợ lý AI chỉ có giá trị tham khảo, GDV phải đối chiếu văn bản gốc còn hiệu lực được trích dẫn trước khi áp dụng.
+
+MỤC VI. TUÂN THỦ TẠI QUẦY
+
+Câu hỏi 24: Khách hàng yêu cầu GDV bỏ qua bước xác thực sinh trắc học vì "đang vội", có được chiều theo không?
+Trả lời: Không. Đây là dấu hiệu cảnh báo tại Điều 5 khoản 5 QĐ.KS.VH.09; GDV kiên quyết thực hiện đầy đủ xác thực, báo cáo KSV nếu khách hàng tiếp tục gây áp lực.
+
+Câu hỏi 25: Khách hàng lớn tuổi đến rút toàn bộ sổ tiết kiệm 800 triệu đồng, nói để "chuyển cho môi giới đầu tư", GDV xử lý sao?
+Trả lời: Đây là dấu hiệu gian lận rõ theo Điều 5 khoản 3 QĐ.KS.VH.09; mời khách hàng vào phòng riêng, báo cáo Giám đốc ĐVKD, có thể tạm dừng giao dịch và lập Biên bản tạm dừng theo Điều 6.
+
+Câu hỏi 26: GDV có được nhận quà cảm ơn bằng tiền mặt từ khách hàng sau khi hỗ trợ nhiệt tình không?
+Trả lời: Không. Theo Quy tắc ứng xử QĐ.ĐĐ.13, cán bộ không được nhận tiền mặt từ khách hàng dưới bất kỳ hình thức nào; quà tặng hiện vật giá trị từ 2 triệu đồng trở lên phải khai báo.
+
+Câu hỏi 27: Phát hiện đồng nghiệp tra cứu thông tin một khách hàng không thuộc hồ sơ mình phụ trách, có phải báo cáo không?
+Trả lời: Có. Đây là vi phạm nguyên tắc cần biết tại Điều 3 QĐ.TT.07; báo cáo qua kênh tố giác nội bộ theo QĐ.ĐĐ.13, người phản ánh được bảo vệ danh tính.
+
+Câu hỏi 28: Khách hàng phản ánh thái độ phục vụ của một GDV khác, GDV tiếp nhận xử lý ra sao?
+Trả lời: Đây là khiếu nại về thái độ phục vụ, không phải tra soát giao dịch; hướng dẫn khách hàng theo kênh tại Điều 2 HD.KN.PC.12, không tự ý giải quyết hoặc bao che.
+
+Câu hỏi 29: GDV phát hiện có sự chênh lệch quỹ cuối ngày 3 triệu đồng, có được tự bù vào ngày hôm sau không?
+Trả lời: Không. Theo Điều 7 khoản 4 QĐ.KS.VH.09, chênh lệch trên 2 triệu đồng phải báo cáo Khối Vận hành và Phòng Phòng chống gian lận ngay, không được tự xử lý hoặc trì hoãn.
+
+Câu hỏi 30: Cán bộ ký hợp đồng tín dụng cho người thân có vi phạm gì không?
+Trả lời: Có, đây là xung đột lợi ích phải khai báo và không được trực tiếp xử lý hồ sơ theo Điều 2 QĐ.ĐĐ.13; hồ sơ phải được chuyển cho cán bộ khác không có quan hệ thân nhân xử lý.

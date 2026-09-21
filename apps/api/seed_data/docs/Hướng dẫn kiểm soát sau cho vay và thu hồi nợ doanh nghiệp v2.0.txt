@@ -1,0 +1,84 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG DOANH NGHIỆP
+HƯỚNG DẪN KIỂM SOÁT SAU CHO VAY VÀ THU HỒI NỢ DOANH NGHIỆP
+Số hiệu: HD.KSS.EB.08 — Phiên bản: 2.0 — Hiệu lực từ: 01/04/2026
+Đơn vị ban hành: Khối Khách hàng Doanh nghiệp, phối hợp Khối Quản trị Rủi ro và Trung tâm Xử lý nợ
+Phân loại: Tài liệu nội bộ — không cung cấp cho khách hàng
+Văn bản liên quan: QT.TD.EB.01 (Quy trình cấp tín dụng KHDN), QĐ.TSBĐ.02 (Quy định TSBĐ), QĐ.HM.EB.07 (Hạn mức tín dụng)
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Phạm vi áp dụng
+1. Hướng dẫn này quy định trình tự kiểm soát sau cho vay, theo dõi tài sản bảo đảm (TSBĐ), dấu hiệu chuyển nhóm nợ và quy trình nhắc nợ, thu hồi nợ đối với khách hàng doanh nghiệp (EB) tại MSB.
+2. Áp dụng cho RM, CA, Giám đốc ĐVKD, Khối Quản trị Rủi ro và Trung tâm Xử lý nợ đối với mọi khoản cấp tín dụng doanh nghiệp còn dư nợ, kể từ ngày giải ngân đầu tiên đến khi tất toán.
+3. Việc cơ cấu lại thời hạn trả nợ, miễn giảm lãi và phân loại nợ thực hiện theo Hướng dẫn này kết hợp quy định phân loại nợ hiện hành của MSB.
+
+Điều 2. Giải thích từ ngữ
+1. HSKSS: Hồ sơ kiểm soát sau cho vay, lưu trên hệ thống ECM, bao gồm biên bản kiểm tra sử dụng vốn, biên bản kiểm tra TSBĐ và báo cáo đánh giá định kỳ.
+2. Dấu hiệu cảnh báo sớm (HSCBS): các dấu hiệu cho thấy khách hàng có khả năng suy giảm khả năng trả nợ trước khi phát sinh nợ quá hạn thực tế, quy định tại Điều 5.
+3. Trung tâm Xử lý nợ: đơn vị chuyên trách tiếp nhận, xử lý các khoản nợ từ nhóm 3 trở lên hoặc theo chỉ định của cấp có thẩm quyền.
+4. Mã hành động kiểm soát sau (KSS-01 đến KSS-08): mã ghi nhận loại hành động kiểm soát sau trên hệ thống, quy định tại Điều 9.
+
+CHƯƠNG II. KIỂM TRA SỬ DỤNG VỐN VÀ TÀI SẢN BẢO ĐẢM
+
+Điều 3. Định kỳ kiểm tra sử dụng vốn
+1. RM thực hiện kiểm tra mục đích sử dụng vốn lần đầu trong vòng 30 ngày kể từ ngày giải ngân, đối chiếu chứng từ chi tiêu, hóa đơn, hợp đồng mua bán với phương án vay vốn đã phê duyệt.
+2. Sau lần kiểm tra đầu, định kỳ kiểm tra sử dụng vốn tối thiểu mỗi quý một lần đối với khoản vay còn dư nợ, không phân biệt loại sản phẩm.
+3. Đối với khách hàng có dấu hiệu cảnh báo sớm theo Điều 5, tần suất kiểm tra tăng lên hằng tháng cho đến khi dấu hiệu cảnh báo được gỡ bỏ hoặc khoản vay được xử lý theo Chương III.
+4. Đối với khoản vay theo hạn mức tín dụng giải ngân nhiều lần, mỗi lần giải ngân từ 3 tỷ đồng trở lên phải kiểm tra sử dụng vốn riêng trong 15 ngày kể từ ngày giải ngân lần đó, không gộp chung vào kỳ kiểm tra định kỳ.
+
+Điều 4. Kiểm tra và định giá lại tài sản bảo đảm
+1. Bất động sản: định giá lại tối thiểu 12 tháng một lần, hoặc ngay khi có dấu hiệu biến động giá thị trường bất thường tại khu vực theo cảnh báo của Khối Quản trị Rủi ro.
+2. Hàng tồn kho, máy móc thiết bị dùng làm TSBĐ: định giá lại tối thiểu 6 tháng một lần do đặc thù biến động giá trị nhanh; RM phối hợp bộ phận định giá kiểm tra thực tế số lượng, chất lượng và tình trạng bảo quản.
+3. Khi giá trị định giá lại làm tỷ lệ dư nợ trên giá trị TSBĐ vượt ngưỡng quy định tại QĐ.TSBĐ.02, RM lập đề xuất yêu cầu khách hàng bổ sung tài sản bảo đảm hoặc trả nợ trước hạn phần vượt trong thời hạn 30 ngày kể từ ngày có kết quả định giá.
+4. Toàn bộ biên bản kiểm tra sử dụng vốn, biên bản kiểm tra và định giá lại TSBĐ, báo cáo kiểm soát sau được lưu nhóm HSKSS trên ECM, có chữ ký của RM và xác nhận của Giám đốc ĐVKD.
+
+Điều 5. Dấu hiệu cảnh báo sớm
+1. Doanh thu hoặc dòng tiền qua tài khoản MSB giảm trên 30% so với bình quân 6 tháng liền trước mà không có giải trình hợp lý.
+2. Khách hàng chậm trả gốc hoặc lãi từ 1 đến 10 ngày quá 2 lần liên tiếp trong 6 tháng gần nhất.
+3. Phát sinh khởi kiện, tranh chấp thương mại, hoặc thông tin bất lợi về tình hình tài chính của khách hàng hoặc người có liên quan trên các nguồn thông tin đại chúng đã được xác minh.
+4. Kết quả tra cứu CIC phát sinh nợ nhóm 2 tại tổ chức tín dụng khác trong khi tại MSB vẫn thuộc nhóm 1.
+5. Khi phát hiện dấu hiệu tại khoản 1 đến khoản 4, RM lập báo cáo cảnh báo sớm trong 2 ngày làm việc, chuyển Khối Quản trị Rủi ro và ghi nhận mã KSS-05 trên hệ thống.
+
+CHƯƠNG III. NHẮC NỢ VÀ XỬ LÝ QUÁ HẠN
+
+Điều 6. Nhắc nợ trước hạn
+1. Hệ thống BPM tự động gửi thông báo nhắc nợ đến khách hàng và RM trước 5 ngày làm việc so với ngày đến hạn trả gốc, lãi theo lịch trả nợ đã ký.
+2. RM chủ động liên hệ khách hàng xác nhận khả năng thanh toán đúng hạn; trường hợp khách hàng báo trước khó khăn về dòng tiền, RM hướng dẫn thủ tục cơ cấu lại thời hạn trả nợ theo Điều 8 trước khi phát sinh quá hạn.
+
+Điều 7. Xử lý theo số ngày quá hạn
+1. Quá hạn 1 đến 10 ngày: RM trực tiếp liên hệ khách hàng, lập biên bản làm việc, xác định nguyên nhân và cam kết ngày trả nợ cụ thể; ghi nhận mã KSS-02. Khoản vay vẫn giữ nhóm nợ 1 nếu không vượt 10 ngày theo quy định phân loại nợ hiện hành.
+2. Quá hạn 11 đến 30 ngày: khoản vay chuyển nhóm nợ 2; RM phối hợp Giám đốc ĐVKD lập báo cáo đánh giá khả năng trả nợ, đề xuất phương án xử lý (cơ cấu nợ, bổ sung TSBĐ, hoặc thu hồi một phần); ghi nhận mã KSS-03, sao gửi Khối Quản trị Rủi ro.
+3. Quá hạn 31 đến 90 ngày: khoản vay chuyển nhóm nợ 3, hồ sơ bắt buộc chuyển giao Trung tâm Xử lý nợ trong 3 ngày làm việc kể từ ngày chuyển nhóm; RM bàn giao toàn bộ hồ sơ tín dụng, hồ sơ TSBĐ và lịch sử liên hệ khách hàng; ghi nhận mã KSS-04.
+4. Quá hạn trên 90 ngày: khoản vay chuyển nhóm nợ 4 hoặc 5 tùy khả năng thu hồi; Trung tâm Xử lý nợ chủ trì xử lý TSBĐ, khởi kiện hoặc bán nợ theo pháp luật và chính sách xử lý nợ xấu hiện hành.
+5. Việc chuyển giao hồ sơ giữa RM/ĐVKD và Trung tâm Xử lý nợ phải lập biên bản bàn giao, xác nhận đầy đủ hồ sơ pháp lý, hồ sơ TSBĐ và số liệu dư nợ tại thời điểm bàn giao.
+
+Điều 8. Cơ cấu lại thời hạn trả nợ và miễn giảm lãi
+1. Điều kiện cơ cấu lại thời hạn trả nợ: khách hàng có khó khăn tài chính tạm thời được đánh giá có khả năng phục hồi, có phương án trả nợ khả thi sau cơ cấu, không thuộc diện có dấu hiệu gian lận hoặc cố tình chây ỳ.
+2. Thẩm quyền phê duyệt cơ cấu nợ theo giá trị dư nợ được cơ cấu, áp dụng thẩm quyền phê duyệt tín dụng tại Điều 2 khoản 3 QT.TD.EB.01; riêng khoản vay đã chuyển nhóm nợ 3 trở lên phải có ý kiến thẩm định bổ sung của Khối Quản trị Rủi ro trước khi trình phê duyệt.
+3. Sau khi cơ cấu, nhóm nợ được giữ nguyên hoặc phân loại lại theo quy định phân loại nợ hiện hành của MSB và Ngân hàng Nhà nước; không tự động chuyển về nhóm 1 chỉ vì đã cơ cấu.
+4. Miễn giảm lãi: áp dụng cho khách hàng gặp khó khăn khách quan (thiên tai, dịch bệnh, biến động thị trường ngoài dự đoán) và chỉ được xem xét miễn giảm lãi phạt quá hạn, không miễn giảm lãi trong hạn trừ trường hợp đặc biệt do Hội đồng Tín dụng quyết định; hồ sơ miễn giảm lãi lưu nhóm HSKSS, ghi nhận mã KSS-06.
+5. Xử lý TSBĐ: khi khách hàng không có khả năng trả nợ và không còn phương án cơ cấu khả thi, Trung tâm Xử lý nợ thực hiện các biện pháp xử lý TSBĐ theo thỏa thuận trong hợp đồng thế chấp/cầm cố và quy định pháp luật (thu giữ, bán đấu giá, khởi kiện), ghi nhận mã KSS-07.
+
+CHƯƠNG IV. MÃ HÀNH ĐỘNG VÀ BÁO CÁO
+
+Điều 9. Bảng mã hành động kiểm soát sau (KSS)
+1. KSS-01: Kiểm tra sử dụng vốn định kỳ hoặc đột xuất.
+2. KSS-02: Nhắc nợ và làm việc với khách hàng quá hạn 1–10 ngày.
+3. KSS-03: Đánh giá và đề xuất xử lý khách hàng quá hạn 11–30 ngày, chuyển nhóm nợ 2.
+4. KSS-04: Bàn giao hồ sơ cho Trung tâm Xử lý nợ, chuyển nhóm nợ 3.
+5. KSS-05: Ghi nhận và báo cáo dấu hiệu cảnh báo sớm.
+6. KSS-06: Miễn giảm lãi phạt.
+7. KSS-07: Xử lý tài sản bảo đảm.
+8. KSS-08: Đóng hồ sơ kiểm soát sau do khoản vay đã tất toán hoặc xử lý xong.
+
+Điều 10. Báo cáo định kỳ
+1. RM lập báo cáo kiểm soát sau cho vay hằng tháng gửi Giám đốc ĐVKD, tổng hợp tình trạng các khoản vay đang theo dõi HSCBS và các khoản quá hạn.
+2. Khối Quản trị Rủi ro tổng hợp báo cáo toàn hệ thống hằng quý về tỷ lệ nợ quá hạn, nợ xấu theo ngành và theo ĐVKD, trình Ban Điều hành.
+3. Trung tâm Xử lý nợ báo cáo tiến độ xử lý các hồ sơ đã tiếp nhận hằng tháng, bao gồm kết quả thu hồi, biện pháp đang áp dụng và dự kiến thời gian xử lý dứt điểm.
+
+Điều 11. Hiệu lực thi hành
+1. Hướng dẫn có hiệu lực từ ngày 01/04/2026, thay thế phiên bản 1.3.
+2. Thay đổi chính so với phiên bản 1.3: rút ngắn thời hạn bàn giao hồ sơ cho Trung tâm Xử lý nợ từ 5 xuống 3 ngày làm việc khi chuyển nhóm nợ 3; bổ sung Điều 5 về dấu hiệu cảnh báo sớm và mã KSS-05; bổ sung yêu cầu kiểm tra riêng với từng lần giải ngân từ 3 tỷ đồng trở lên tại Điều 3 khoản 4.
+3. Vướng mắc phản ánh về Phòng Chính sách tín dụng doanh nghiệp, Khối Khách hàng Doanh nghiệp, hoặc Trung tâm Xử lý nợ.

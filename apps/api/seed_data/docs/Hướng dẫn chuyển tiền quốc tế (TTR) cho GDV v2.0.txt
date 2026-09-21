@@ -1,0 +1,66 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI VẬN HÀNH — TRUNG TÂM THANH TOÁN QUỐC TẾ
+HƯỚNG DẪN NGHIỆP VỤ CHUYỂN TIỀN QUỐC TẾ ĐI (TTR) DÀNH CHO GIAO DỊCH VIÊN
+Số hiệu: HD.TTQT.04 — Phiên bản: 2.0 — Hiệu lực từ: 01/04/2026
+Đơn vị ban hành: Trung tâm Thanh toán quốc tế (TTQT)
+Đối tượng: Giao dịch viên (GDV), Kiểm soát viên (KSV) tại Đơn vị kinh doanh; Chuyên viên xử lý tại TTQT
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+Điều 1. Phạm vi và nguyên tắc
+1. Hướng dẫn áp dụng cho giao dịch chuyển tiền quốc tế đi (TTR — Telegraphic Transfer Remittance) bằng điện SWIFT MT103 hoặc chuẩn ISO 20022 (MX pacs.008) cho khách hàng cá nhân và doanh nghiệp.
+2. Mọi giao dịch phải tuân thủ Pháp lệnh Ngoại hối, quy định về phòng chống rửa tiền (AML) và quy định về mục đích chuyển tiền của Ngân hàng Nhà nước.
+3. Nguyên tắc Maker – Checker: GDV lập giao dịch (Maker), KSV kiểm soát và duyệt (Checker); giao dịch từ 50.000 USD trở lên (hoặc tương đương) phải có thêm phê duyệt của TTQT.
+
+Điều 2. Hồ sơ theo mục đích chuyển tiền
+1. Thanh toán hàng nhập khẩu (khách hàng doanh nghiệp):
+a) Đề nghị chuyển tiền theo mẫu của MSB có chữ ký và dấu của người đại diện hợp pháp;
+b) Hợp đồng ngoại thương hoặc đơn hàng đã xác nhận;
+c) Hoá đơn thương mại (Commercial Invoice);
+d) Tờ khai hải quan đã thông quan (thanh toán sau) hoặc cam kết bổ sung tờ khai trong 60 ngày (thanh toán trước khi hàng về);
+e) Vận đơn (B/L hoặc AWB) nếu đã có hàng.
+2. Thanh toán dịch vụ, phí bản quyền, phí quản lý cho đối tác nước ngoài: hợp đồng dịch vụ, hoá đơn, chứng từ khấu trừ thuế nhà thầu nước ngoài.
+3. Chuyển tiền cá nhân — học phí: thông báo nhập học hoặc thông báo học phí của cơ sở đào tạo, hộ chiếu/thẻ căn cước, chứng minh quan hệ nếu người chuyển không phải người học.
+4. Chuyển tiền cá nhân — sinh hoạt phí, trợ cấp thân nhân: giấy tờ chứng minh thân nhân đang cư trú ở nước ngoài (visa, thẻ cư trú), giấy tờ quan hệ nhân thân; mức chuyển theo định mức chi tiêu của nước sở tại, tối đa 30.000 USD/người/năm nếu không có chứng từ chi phí cụ thể.
+5. Chuyển tiền cá nhân — du lịch, chữa bệnh, công tác: chứng từ chi phí tương ứng (đặt phòng, hoá đơn bệnh viện, quyết định công tác).
+6. Khách hàng có thể nộp chứng từ điện tử qua ứng dụng; GDV kiểm tra tính hợp lệ và đối chiếu bản chính khi khách hàng đến quầy trong 5 ngày làm việc.
+
+Điều 3. Kiểm soát trước khi lập điện
+1. GDV kiểm tra danh sách cấm vận (OFAC, EU, UN) và danh sách cảnh báo AML nội bộ đối với người chuyển, người thụ hưởng và ngân hàng thụ hưởng trên hệ thống sàng lọc; giao dịch trùng tên phải được KSV và bộ phận Tuân thủ xác nhận trước khi tiếp tục.
+2. Kiểm tra số dư tài khoản thanh toán, nguồn ngoại tệ (mua ngoại tệ từ MSB hoặc ngoại tệ có sẵn hợp pháp) và hạn mức chuyển tiền của khách hàng.
+3. Kiểm tra mã SWIFT/BIC của ngân hàng thụ hưởng, số tài khoản/IBAN đúng định dạng theo quốc gia; đối với chuyển tiền sang EU bắt buộc có IBAN.
+4. Đối với giao dịch trên 100.000 USD, GDV phải gọi xác nhận với khách hàng qua số điện thoại đã đăng ký và ghi nhận trên hệ thống.
+
+Điều 4. Lập điện SWIFT MT103
+1. Trường 50 (Ordering Customer): tên, địa chỉ đầy đủ của người chuyển theo hồ sơ CIF; không viết tắt.
+2. Trường 56 (Intermediary) và 57 (Account With Institution): nhập BIC ngân hàng trung gian và ngân hàng thụ hưởng theo yêu cầu; ưu tiên định tuyến qua ngân hàng đại lý có tài khoản Nostro của MSB để giảm phí.
+3. Trường 59 (Beneficiary): số tài khoản/IBAN và tên người thụ hưởng khớp hoàn toàn với chứng từ.
+4. Trường 70 (Remittance Information): ghi mục đích chuyển tiền và số tham chiếu hợp đồng/hoá đơn, tối đa 4 dòng x 35 ký tự.
+5. Trường 71A (Details of Charges): OUR (người chuyển chịu toàn bộ phí), SHA (mỗi bên chịu phí bên mình), BEN (người thụ hưởng chịu phí). Mặc định SHA nếu khách hàng không chỉ định.
+6. Điện được sinh tự động từ hệ thống BPM sau khi Checker duyệt và đẩy sang core T24; GDV không nhập tay điện trên hệ thống SWIFT.
+
+Điều 5. Biểu phí chuyển tiền quốc tế đi
+1. FEETTR01 — Phí chuyển tiền: 0,20% số tiền chuyển, tối thiểu 10 USD, tối đa 300 USD.
+2. FEETTR02 — Điện phí: 5 USD/giao dịch.
+3. FEETTR03 — Phí OUR (phí ngân hàng nước ngoài khi khách hàng chọn 71A = OUR): 25 USD/giao dịch; MSB thu bổ sung nếu ngân hàng đại lý đòi phí cao hơn.
+4. Phí tra soát, điều chỉnh, huỷ điện theo yêu cầu khách hàng: 20 USD/lần cộng phí thực tế của ngân hàng nước ngoài.
+5. Phí được thu bằng VND theo tỷ giá bán tại thời điểm giao dịch, hạch toán tự động qua hệ thống phí Plutus.
+
+Điều 6. Tỷ giá và mua ngoại tệ
+1. Giao dịch dưới 100.000 USD áp dụng tỷ giá niêm yết tại thời điểm KSV duyệt.
+2. Giao dịch từ 100.000 USD trở lên phải chốt tỷ giá với Phòng Kinh doanh ngoại hối (FX dealing) qua hệ thống Kondor trước khi duyệt; số tham chiếu deal FX phải được ghi trên hồ sơ.
+3. Khách hàng doanh nghiệp mua ngoại tệ phải cung cấp chứng từ chứng minh mục đích theo Điều 2 và ký hợp đồng mua bán ngoại tệ.
+
+Điều 7. Theo dõi trạng thái và xử lý lỗi
+1. Trạng thái giao dịch trên BPM: Khởi tạo → Chờ kiểm soát → Chờ TTQT duyệt (nếu có) → Đã đẩy điện → Đã xác nhận (nhận MT900/MT910 hoặc ACK) → Hoàn thành.
+2. Điện bị trả về (return) do sai thông tin người thụ hưởng: TTQT thông báo GDV trong 1 ngày làm việc; GDV liên hệ khách hàng lập đề nghị điều chỉnh; phí xử lý theo Điều 5 khoản 4.
+3. Điện chưa nhận được xác nhận sau 2 ngày làm việc: GDV lập yêu cầu tra soát (MT199) qua TTQT.
+4. Lỗi kỹ thuật khi đẩy điện (timeout kết nối core hoặc SWIFT): hệ thống tự động thử lại tối đa 3 lần; nếu vẫn lỗi, TTQT chuyển sang luồng đi tiền thủ công và ghi nhận sự cố.
+
+Điều 8. Thời gian xử lý
+1. Giờ nhận hồ sơ (cut-off) để xử lý trong ngày: 15h30 đối với USD, EUR; 14h30 đối với JPY, CNY và các ngoại tệ khác. Hồ sơ sau giờ cut-off được xử lý ngày làm việc kế tiếp.
+2. Thời gian xử lý tại quầy từ khi nhận đủ hồ sơ đến khi đẩy điện: tối đa 60 phút đối với giao dịch dưới 50.000 USD; tối đa 4 giờ làm việc đối với giao dịch cần TTQT duyệt.
+3. Tiền thường về tài khoản người thụ hưởng sau 1 đến 3 ngày làm việc tuỳ quốc gia và ngân hàng trung gian; GDV không cam kết thời gian cụ thể với khách hàng.
+
+Điều 9. Hiệu lực
+1. Hướng dẫn có hiệu lực từ ngày 01/04/2026, thay thế phiên bản 1.5.
+2. Thay đổi chính: bổ sung chuẩn điện ISO 20022; cho phép nộp chứng từ điện tử qua ứng dụng; điều chỉnh mức FEETTR01 tối đa từ 250 USD lên 300 USD; bổ sung yêu cầu gọi xác nhận với giao dịch trên 100.000 USD.

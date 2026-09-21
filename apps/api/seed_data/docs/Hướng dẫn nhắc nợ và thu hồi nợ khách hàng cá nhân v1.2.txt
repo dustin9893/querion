@@ -1,0 +1,83 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI KHÁCH HÀNG CÁ NHÂN
+HƯỚNG DẪN NHẮC NỢ VÀ THU HỒI NỢ KHÁCH HÀNG CÁ NHÂN
+Số hiệu: HD.THN.RB.09 — Phiên bản: 1.2 — Hiệu lực từ: 15/03/2026
+Đơn vị ban hành: Khối Khách hàng Cá nhân, phối hợp Trung tâm Xử lý nợ
+Phân loại: Tài liệu nội bộ — không cung cấp cho khách hàng
+Văn bản liên quan: QĐ.ĐĐ.13 (Quy tắc ứng xử và đạo đức nghề nghiệp), QĐ.TĐ.RB.03, SP.RB.05, QĐ.TSBĐ.02
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Phạm vi áp dụng
+1. Hướng dẫn này quy định nguyên tắc ứng xử, kênh nhắc nợ, phân giai đoạn xử lý và các biện pháp cơ cấu, miễn giảm, thu hồi nợ đối với khoản vay khách hàng cá nhân (RB) quá hạn tại MSB.
+2. Áp dụng cho RM, chuyên viên Trung tâm Dịch vụ khách hàng, chuyên viên Trung tâm Xử lý nợ và các đơn vị được MSB ủy quyền thực hiện nhắc nợ.
+3. Mọi hành vi nhắc nợ phải tuân thủ Quy tắc ứng xử và đạo đức nghề nghiệp QĐ.ĐĐ.13 và quy định pháp luật về bảo vệ quyền lợi người tiêu dùng tài chính.
+
+Điều 2. Nguyên tắc ứng xử khi nhắc nợ
+1. Chỉ được liên hệ nhắc nợ trong khung giờ từ 7 giờ đến 21 giờ hằng ngày, kể cả ngày nghỉ, trừ trường hợp khách hàng chủ động đề nghị thời gian khác.
+2. Tuyệt đối không đe dọa, xúc phạm danh dự, sử dụng ngôn từ thô tục hoặc gây áp lực tâm lý quá mức đối với khách hàng và người thân của khách hàng, theo đúng nguyên tắc tại Chương II QĐ.ĐĐ.13.
+3. Không liên hệ, tiết lộ thông tin khoản vay của khách hàng với người không liên quan (đồng nghiệp, hàng xóm, người quen không phải người tham chiếu hoặc người bảo lãnh đã đăng ký trong hồ sơ vay).
+4. Không sử dụng hình ảnh, thông tin cá nhân của khách hàng để bêu xấu trên mạng xã hội hoặc bất kỳ hình thức công khai nào; vi phạm bị xử lý kỷ luật theo Điều 11 QĐ.ĐĐ.13, không phân biệt là cán bộ MSB hay đơn vị thu hồi nợ được ủy quyền.
+5. Nội dung trao đổi với khách hàng phải trung thực về số dư nợ, số ngày quá hạn, phí phạt và hậu quả pháp lý có thể phát sinh; không được đưa thông tin sai sự thật để gây sức ép.
+
+CHƯƠNG II. KÊNH NHẮC NỢ VÀ PHÂN GIAI ĐOẠN
+
+Điều 3. Kênh nhắc nợ theo số ngày quá hạn
+1. Ngày -3 (3 ngày trước hạn): hệ thống tự động gửi SMS và thông báo qua ứng dụng MSB mBank nhắc lịch thanh toán sắp tới, không coi là nhắc nợ quá hạn.
+2. Ngày 1 đến 10 quá hạn: Trung tâm Dịch vụ khách hàng gọi điện nhắc nợ, xác nhận nguyên nhân chậm trả và thời gian dự kiến thanh toán; tần suất không quá 1 lần/ngày.
+3. Ngày 11 đến 30 quá hạn: gửi thư nhắc nợ chính thức (điện tử hoặc giấy) kèm bảng kê chi tiết dư nợ gốc, lãi, phí phạt; tiếp tục gọi điện, tần suất giảm còn tối đa 3 lần/tuần.
+4. Ngày 31 đến 90 quá hạn: chuyển giai đoạn gặp trực tiếp tại địa chỉ đăng ký hoặc nơi làm việc (nếu khách hàng đồng ý), do chuyên viên Trung tâm Xử lý nợ hoặc đơn vị thu hồi nợ được MSB ủy quyền thực hiện, phải xuất trình giấy giới thiệu và thẻ nhân viên.
+5. Trên 90 ngày quá hạn: áp dụng đồng thời biện pháp xử lý tài sản bảo đảm (nếu có) và cân nhắc biện pháp pháp lý theo Chương III.
+
+Điều 4. Phân giai đoạn và bộ phận phụ trách
+1. Giai đoạn nhắc nhở sớm (trước hạn đến 10 ngày quá hạn): Trung tâm Dịch vụ khách hàng và RM quản lý khách hàng phối hợp thực hiện.
+2. Giai đoạn thu hồi tích cực (11 đến 90 ngày quá hạn): Trung tâm Xử lý nợ tiếp nhận, RM cung cấp thông tin hồ sơ và hỗ trợ liên hệ ban đầu nếu cần.
+3. Giai đoạn xử lý nợ xấu (trên 90 ngày quá hạn, khoản vay chuyển nhóm nợ 3 trở lên): Trung tâm Xử lý nợ chủ trì toàn bộ, có thể phối hợp đơn vị thu hồi nợ được ủy quyền hoặc bộ phận pháp chế để khởi kiện.
+4. Việc bàn giao giữa các giai đoạn phải ghi nhận đầy đủ lịch sử liên hệ, cam kết của khách hàng (nếu có) và tình trạng tài sản bảo đảm trên hệ thống quản lý thu hồi nợ (CMS).
+
+Điều 5. Ghi nhận lịch sử liên hệ
+1. Mọi cuộc gọi, tin nhắn, thư nhắc nợ và buổi làm việc trực tiếp với khách hàng phải được ghi nhận trên hệ thống CMS ngay trong ngày làm việc, gồm thời gian, nội dung trao đổi, cam kết của khách hàng (nếu có).
+2. Cuộc gọi nhắc nợ được ghi âm và lưu trữ tối thiểu 24 tháng để phục vụ tra soát khiếu nại và kiểm tra tuân thủ nguyên tắc ứng xử tại Điều 2.
+3. Lịch sử liên hệ là căn cứ để đánh giá thiện chí trả nợ của khách hàng khi xem xét cơ cấu nợ hoặc miễn giảm lãi phạt tại Điều 6, Điều 7.
+
+CHƯƠNG III. CƠ CẤU NỢ, MIỄN GIẢM VÀ XỬ LÝ TÀI SẢN BẢO ĐẢM
+
+Điều 6. Cơ cấu nợ cho khách hàng gặp khó khăn
+1. Điều kiện: khách hàng có khó khăn tài chính tạm thời do lý do khách quan (mất việc làm, giảm thu nhập, ốm đau, thiên tai), có thiện chí trả nợ thể hiện qua lịch sử liên hệ tại Điều 5, có phương án trả nợ khả thi sau cơ cấu.
+2. Hồ sơ đề nghị cơ cấu nợ: đơn đề nghị theo mẫu, chứng từ chứng minh khó khăn tài chính (quyết định nghỉ việc, giấy tờ y tế, xác nhận thiệt hại thiên tai), bảng kê thu nhập hiện tại và phương án trả nợ mới.
+3. Hình thức cơ cấu: gia hạn thời hạn trả nợ (tối đa 1/2 thời hạn vay còn lại, không quá 60 tháng), điều chỉnh kỳ hạn trả nợ, hoặc ân hạn gốc tạm thời tối đa 6 tháng kèm tiếp tục trả lãi.
+4. Thẩm quyền phê duyệt áp dụng theo thẩm quyền phê duyệt tín dụng tại Điều 7 QĐ.TĐ.RB.03 dựa trên dư nợ gốc còn lại tại thời điểm cơ cấu.
+5. Sau cơ cấu, khoản vay được phân loại nợ theo quy định hiện hành của MSB và Ngân hàng Nhà nước, không tự động giữ nguyên nhóm nợ 1.
+
+Điều 7. Miễn giảm lãi phạt quá hạn
+1. Chỉ xem xét miễn giảm lãi phạt quá hạn, không miễn giảm lãi trong hạn, trừ trường hợp đặc biệt do CCO RB quyết định đối với khách hàng có hoàn cảnh đặc biệt khó khăn được xác minh.
+2. Mức miễn giảm tối đa 50% lãi phạt quá hạn phát sinh, áp dụng khi khách hàng thanh toán dứt điểm toàn bộ dư nợ gốc và lãi trong hạn còn lại trong vòng 15 ngày kể từ ngày được chấp thuận miễn giảm.
+3. Không áp dụng miễn giảm lãi phạt cho khách hàng có dấu hiệu cố tình chây ỳ (có khả năng tài chính nhưng không hợp tác liên hệ, không cung cấp thông tin theo yêu cầu quá 3 lần liên tiếp).
+
+Điều 8. Xử lý tài sản bảo đảm đối với vay có bảo đảm
+1. Khoản vay có tài sản bảo đảm quá hạn trên 90 ngày mà khách hàng không có phương án cơ cấu khả thi: Trung tâm Xử lý nợ thông báo bằng văn bản về việc xử lý tài sản bảo đảm, trước tối thiểu 15 ngày, trừ trường hợp pháp luật có quy định khác.
+2. Thứ tự ưu tiên: thỏa thuận bán tài sản bảo đảm với sự đồng ý của khách hàng trước; không đạt thỏa thuận thì thu giữ và bán đấu giá theo hợp đồng thế chấp/cầm cố và quy định pháp luật.
+3. Số tiền thu được ưu tiên thanh toán theo thứ tự: chi phí xử lý tài sản, nợ gốc, lãi trong hạn, lãi phạt quá hạn; phần còn thừa hoàn trả khách hàng.
+4. Giá trị xử lý không đủ thu hồi toàn bộ nghĩa vụ nợ: phần còn thiếu tiếp tục theo dõi, xử lý theo biện pháp pháp lý phù hợp.
+
+Điều 9. Chuyển nhóm nợ
+1. Việc chuyển nhóm nợ thực hiện tự động trên hệ thống theo số ngày quá hạn thực tế, tuân thủ quy định phân loại nợ hiện hành của MSB và Ngân hàng Nhà nước.
+2. Khoản vay đã cơ cấu theo Điều 6 vẫn có thể bị phân loại vào nhóm nợ tương ứng với bản chất rủi ro thực tế, không phụ thuộc vào việc đã cơ cấu hay chưa.
+3. Khách hàng có nhiều khoản vay tại MSB: khi một khoản vay chuyển nhóm nợ từ nhóm 3 trở lên, toàn bộ các khoản vay khác của khách hàng tại MSB được phân loại lại vào nhóm nợ cao nhất trong số các khoản vay đó theo nguyên tắc thận trọng.
+
+CHƯƠNG IV. BÁO CÁO VÀ CHẾ TÀI
+
+Điều 10. Báo cáo
+1. Trung tâm Xử lý nợ báo cáo hằng tháng về tình hình nợ quá hạn, kết quả thu hồi, số lượng hồ sơ cơ cấu và miễn giảm lãi phạt, gửi Khối Khách hàng Cá nhân và Khối Quản trị Rủi ro.
+2. Báo cáo hằng quý tổng hợp các khiếu nại liên quan đến hành vi nhắc nợ (nếu có), kết quả xử lý và biện pháp chấn chỉnh, trình Ban Điều hành.
+
+Điều 11. Chế tài vi phạm quy tắc ứng xử
+1. Cán bộ hoặc đơn vị thu hồi nợ được ủy quyền vi phạm nguyên tắc ứng xử tại Điều 2 bị xử lý theo Chương IV QĐ.ĐĐ.13, mức độ tùy theo tính chất và hậu quả vi phạm, từ nhắc nhở, cắt giảm chỉ tiêu đến chấm dứt hợp đồng hoặc chấm dứt hợp tác với đơn vị thu hồi nợ ngoài.
+2. Khách hàng phản ánh hành vi nhắc nợ không đúng quy định được tiếp nhận và xử lý theo Hướng dẫn tiếp nhận và xử lý khiếu nại tố cáo của khách hàng HD.KN.PC.12; kết quả xác minh vi phạm là căn cứ áp dụng chế tài tại khoản 1.
+3. MSB không chịu trách nhiệm về hành vi nhắc nợ sai quy định của bên thứ ba không được MSB ủy quyền hợp pháp; khách hàng cần xác minh danh tính người liên hệ trước khi cung cấp thông tin hoặc thực hiện thanh toán qua kênh không chính thức.
+
+Điều 12. Hiệu lực thi hành
+1. Hướng dẫn có hiệu lực từ ngày 15/03/2026, thay thế phiên bản 1.1.
+2. Thay đổi chính so với phiên bản 1.1: bổ sung Điều 9 khoản 3 về phân loại lại nhóm nợ đối với khách hàng có nhiều khoản vay; điều chỉnh mức miễn giảm lãi phạt tối đa từ 30% lên 50% tại Điều 7 khoản 2; bổ sung yêu cầu ghi âm và lưu trữ cuộc gọi tối thiểu 24 tháng tại Điều 5 khoản 2.
+3. Vướng mắc phản ánh về Trung tâm Xử lý nợ hoặc Phòng Chính sách sản phẩm cá nhân, Khối Khách hàng Cá nhân.

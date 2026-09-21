@@ -1,0 +1,300 @@
+CẨM NANG VẬN HÀNH — KỸ NĂNG CỦA TRỢ LÝ
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Kỹ năng là gì
+
+Kỹ năng là một bí kíp nghiệp vụ mà trợ lý chỉ nạp khi câu hỏi thật sự cần đến nó. Nó dạy trợ lý cách làm một việc lặp đi lặp lại theo đúng trình tự mà cán bộ mong muốn.
+
+Ví dụ điển hình là rà một hồ sơ tín dụng đã đủ điều kiện giải ngân chưa, soạn một thông báo yêu cầu bổ sung chứng từ theo đúng bố cục quen dùng, hoặc hướng dẫn xử lý một giao dịch chuyển tiền quốc tế bị treo theo đúng trình tự tra soát.
+
+Kỹ năng gồm bốn phần chính. Mã kỹ thuật để hệ thống và các agent khác nhận diện. Tên hiển thị để người đọc trong đơn vị dễ nhận ra. Mô tả dùng khi nào để mô hình quyết định kích hoạt. Thân bài là toàn văn bí kíp, viết theo định dạng markdown.
+
+Kỹ năng thuộc về một đơn vị, giống công cụ và biểu mẫu. Mã kỹ thuật viết bằng chữ thường không dấu, số và gạch nối, tối đa 64 ký tự, không mở đầu hay kết thúc bằng gạch nối, không có hai gạch nối liền nhau, và không trùng với mã kỹ thuật khác trong cùng đơn vị. Mã này cũng chính là tên thư mục khi xuất kỹ năng ra tệp chuẩn mở, nên nên đặt gọn và dễ đọc ngay từ đầu, tránh phải đổi lại sau này.
+
+1.1 Khác gì với hướng dẫn hệ thống của trợ lý
+
+Trước khi có kỹ năng, muốn dạy trợ lý một bí kíp nghiệp vụ thì chỉ có một chỗ để viết, là hướng dẫn hệ thống của trợ lý. Đây là đoạn văn nạp cho mọi câu hỏi trợ lý đó xử lý, không phân biệt câu hỏi có liên quan tới bí kíp hay không.
+
+Thêm một bí kíp vào hướng dẫn hệ thống nghĩa là mọi câu hỏi, kể cả một câu chào hỏi đơn giản hay một câu hỏi hoàn toàn khác chủ đề, đều phải gánh thêm phần đó. Viết càng nhiều bí kíp thì hướng dẫn hệ thống càng dài, và mô hình càng dễ lẫn lộn giữa các bí kíp không liên quan tới câu đang hỏi, hoặc áp nhầm bước của bí kíp này vào câu hỏi thuộc bí kíp khác.
+
+Kỹ năng giải quyết đúng chỗ hở này. Nó chỉ nạp toàn văn khi câu hỏi khớp với đúng kỹ năng đó. Một câu hỏi về biểu phí không kéo theo bí kíp về giải ngân, dù cả hai kỹ năng đều đã gắn vào cùng một trợ lý và trợ lý vẫn biết cả hai đang tồn tại.
+
+Nói cách khác, hướng dẫn hệ thống phù hợp với thứ áp dụng cho mọi câu hỏi, còn kỹ năng phù hợp với thứ chỉ áp dụng cho một nhóm câu hỏi cụ thể.
+
+1.2 Khung thân bài gợi ý
+
+Tạo một kỹ năng mới, trình soạn tự động điền sẵn một khung thân bài mẫu vào ô nội dung, để người soạn không phải bắt đầu từ một ô trống hoàn toàn.
+
+Khung mẫu gồm năm mục theo đúng thứ tự. Khi nào dùng, mô tả lại chi tiết hơn tình huống kích hoạt so với ô mô tả ngắn. Các bước, liệt kê trình tự xử lý theo số thứ tự. Quy tắc bắt buộc, nêu những điều luôn phải làm hoặc luôn phải tránh, ví dụ luôn trích dẫn Điều Khoản hoặc không tự quyết định phê duyệt. Ví dụ, gồm một câu hỏi mẫu và dàn ý câu trả lời mong muốn. Trường hợp đặc biệt, nêu các tình huống ngoại lệ và cách xử lý khác với luồng thông thường.
+
+Năm mục này phản ánh đúng thứ mô hình cần để làm theo một trình tự nghiệp vụ, và người soạn chỉ cần thay phần trong dấu ngoặc nhọn bằng nội dung thật, không bắt buộc phải giữ nguyên cả năm mục nếu kỹ năng đơn giản hơn.
+
+2. Ba mức nạp dần
+
+Cách vận hành này chuẩn mở Agent Skills gọi là nạp dần, và bản thân chuẩn định nghĩa ba mức. Mức một là tên và mô tả, luôn có sẵn cho mọi kỹ năng đã gắn. Mức hai là toàn văn thân bài, chỉ nạp khi có kỹ năng khớp câu hỏi. Mức ba là các tệp tài liệu rời đính kèm thêm bên trong kỹ năng, chỉ nạp xa hơn nữa nếu thân bài dẫn tới đó.
+
+Hệ thống ở đây dừng lại ở mức hai. Một kỹ năng gói gọn trong đúng một thân bài, không có tệp rời đính kèm bên trong bản thân kỹ năng, nên mức ba không áp dụng. Muốn dẫn ra một tài liệu chi tiết hơn, kỹ năng trỏ thẳng tới văn bản tương ứng trong kho tri thức để trợ lý tự tra khi cần, không đính kèm tệp riêng.
+
+Ở mức một, trợ lý luôn thấy một danh mục ngắn liệt kê tên mã và mô tả của mọi kỹ năng đã gắn và đã công bố, khoảng 80 token cho mỗi dòng. Nhờ vậy một trợ lý có thể biết mình đang có ba mươi kỹ năng với chi phí chỉ ngang một kỹ năng đang mở toàn văn.
+
+Ở mức hai, chỉ khi một kỹ năng khớp câu hỏi thì toàn văn thân bài của đúng kỹ năng đó mới được đưa vào. Thân bài được bọc trong một khối đánh dấu rõ ràng là kỹ năng đang áp dụng, kèm theo tên và phiên bản của kỹ năng.
+
+Ngay sau khối đó luôn có một dòng nhắc cố định, không phải do người soạn kỹ năng phải tự viết thêm, nói rằng kỹ năng hướng dẫn cách làm, còn mọi khẳng định về quy định vẫn phải lấy từ tài liệu trong ngữ cảnh và trích dẫn như bình thường. Dòng nhắc này chính là lớp bảo vệ cho quy tắc vàng nói ở mục 7.
+
+2.1 Vì sao danh mục kỹ năng không tốn nhiều chi phí
+
+Danh mục ở mức một chỉ là một dòng cho mỗi kỹ năng, gồm mã kỹ thuật và mô tả dùng khi nào, không kèm thân bài. Một trợ lý gắn hai mươi kỹ năng thì danh mục cũng chỉ vài trăm token, trong khi nếu viết cả hai mươi bí kíp thẳng vào hướng dẫn hệ thống theo cách cũ thì con số đó có thể lên tới hàng chục nghìn token cho mỗi câu hỏi.
+
+Đây là lý do kỹ năng mở rộng được số lượng bí kíp một trợ lý biết mà không làm mọi câu trả lời chậm đi hay tốn kém hơn, miễn là phần lớn kỹ năng không được kích hoạt trong cùng một lượt hỏi.
+
+3. Trường Dùng khi nào là thứ quan trọng nhất
+
+Trong trình soạn, ô mô tả có nhãn là Dùng khi nào. Đây là thứ duy nhất mô hình đọc để quyết định có kích hoạt kỹ năng hay không, cả ở cách chọn trước lẫn cách mô hình tự gọi công cụ.
+
+Thân bài viết hay tới đâu cũng vô nghĩa nếu mô tả không đủ rõ để mô hình biết lúc nào nên gọi tới, vì thân bài chỉ được đọc sau khi mô tả đã quyết định kích hoạt.
+
+Mô tả tối đa 1024 ký tự. Ngắn hơn 40 ký tự bị coi là quá ngắn để phân biệt với kỹ năng khác, vì một câu vài chữ không đủ tín hiệu ngữ nghĩa để tách bạch với những kỹ năng còn lại.
+
+3.1 Mô tả tốt và mô tả tệ
+
+Mô tả tốt trả lời được đúng hai câu hỏi trong cùng một đoạn ngắn, kỹ năng làm gì, và dùng nó khi nào.
+
+Ví dụ mô tả tốt, lấy từ kỹ năng kiểm tra điều kiện giải ngân đi kèm hệ thống: rà soát một hồ sơ tín dụng đã đủ điều kiện giải ngân chưa và còn thiếu gì, dùng khi cán bộ hỏi về giải ngân, chứng từ còn thiếu, điều kiện trước giải ngân, hoặc nhắc tới một mã hồ sơ và hỏi đã làm được bước tiếp theo chưa. Câu này vừa nói rõ việc kỹ năng làm, vừa liệt kê nhiều cách một cán bộ có thể hỏi tới nó.
+
+Ví dụ mô tả tệ, chỉ nói kỹ năng làm gì mà không nói khi nào dùng: hỗ trợ nghiệp vụ tín dụng. Câu này không cho mô hình biết nên gọi kỹ năng lúc nào, nên trong thực tế kỹ năng gần như không bao giờ được kích hoạt đúng lúc, hoặc bị kích hoạt sai vào những câu hỏi không thật sự liên quan.
+
+3.2 Thước đo chất lượng trong trình soạn
+
+Trình soạn chấm điểm mô tả ngay lúc gõ, không cần lưu mới thấy kết quả. Ba mức chấm là Tốt, Tạm được và Cần sửa.
+
+Ba dấu hiệu được kiểm cùng lúc. Độ dài, quá 1024 ký tự hoặc dưới 40 ký tự đều bị nhắc. Có nêu tình huống kích hoạt hay không, nhận diện qua các cụm quen thuộc như khi, dùng khi, lúc, trường hợp, nếu, thiếu hẳn các cụm này thì trình soạn gợi ý thêm. Số lượng ý trong câu, mô tả quá ngắn gọn tính theo số từ cũng bị coi là chưa đủ ý.
+
+Điểm chất lượng chỉ mang tính cảnh báo, không chặn việc lưu. Kỹ năng vẫn lưu được dù mô tả bị chấm Cần sửa, vì đôi khi người soạn muốn lưu nháp trước rồi hoàn thiện dần. Trước khi công bố, nên đưa mô tả về mức Tốt, vì mô tả yếu là nguyên nhân phổ biến nhất khiến một kỹ năng tồn tại mà không bao giờ được dùng tới.
+
+4. Hai cách kích hoạt
+
+Cách kỹ năng được chọn phụ thuộc vào việc trợ lý có bật chế độ agent hay không.
+
+4.1 Trợ lý không bật agent
+
+Một trợ lý chỉ trả lời theo kho tri thức hoặc trả lời tự do không có vòng gọi công cụ nào để tự quyết định giữa chừng. Với loại này, máy chủ tự chọn trước kỹ năng ngay khi bắt đầu xử lý câu hỏi.
+
+Cách chọn là so độ gần nghĩa giữa câu hỏi và mô tả của từng kỹ năng đã gắn, dùng embedding chứ không dùng thêm một lượt gọi mô hình ngôn ngữ đầy đủ. Nhờ vậy độ trễ của kênh cán bộ và kênh khách hàng không đổi so với khi trợ lý chưa có kỹ năng nào.
+
+Kỹ năng có điểm khớp cao nhất được chọn, nhưng chỉ khi điểm đó đạt ngưỡng của trợ lý. Ngưỡng mặc định là 0,32 và lưu riêng cho từng trợ lý.
+
+4.2 Trợ lý bật agent
+
+Trợ lý có agent thì tự quyết định bằng cách gọi công cụ, đúng như chuẩn mở Agent Skills mô tả. Mô hình đã thấy danh mục tên và mô tả của mọi kỹ năng ngay trong hướng dẫn hệ thống, giống hệt trợ lý không bật agent.
+
+Khác biệt nằm ở chỗ khi thấy câu hỏi thật sự khớp, mô hình tự gọi một công cụ để đọc toàn văn đúng kỹ năng đó, thay vì máy chủ quyết định hộ.
+
+Công cụ này không phải một dòng trong danh sách công cụ thông thường mà đơn vị tự tạo, và không ai gắn nhầm được, vì nó dựng thẳng từ chính danh sách kỹ năng đã gắn vào trợ lý đang chạy. Mỗi kỹ năng chỉ đọc được một lần trong cùng một lượt trả lời, và tối đa hai lần đọc kỹ năng cho một câu hỏi. Đọc quá số đó là dấu hiệu chọn sai và làm loãng ngữ cảnh, nên công cụ từ chối lần đọc thứ ba và nhắc mô hình trả lời với những gì đã đọc được.
+
+4.3 Vì sao dưới ngưỡng thì thà không dùng kỹ năng nào
+
+Ở cách chọn trước, nếu điểm khớp cao nhất vẫn dưới ngưỡng thì hệ thống không áp dụng kỹ năng nào, kể cả kỹ năng có điểm cao nhất trong số đó.
+
+Danh mục tên và mô tả vẫn được đưa vào để mô hình biết mình có những gì, nhưng không kỹ năng nào bị ép áp dụng khi chưa đủ chắc chắn.
+
+Lý do nằm ở hậu quả của việc chọn sai. Một kỹ năng áp sai sẽ ép câu trả lời đi theo một trình tự không liên quan tới điều cán bộ đang hỏi, khiến câu trả lời lạc đề theo một cách khó nhận ra ngay. Trong khi đó, không có kỹ năng nào thì trợ lý vẫn trả lời bình thường theo kho tri thức hoặc theo hướng dẫn chung, vốn là phương án an toàn hơn nhiều.
+
+4.4 Một ví dụ minh hoạ cả hai cách
+
+Giả sử một trợ lý tín dụng doanh nghiệp có gắn kỹ năng kiểm tra điều kiện giải ngân. Cán bộ hỏi hồ sơ mã HS2026-0412 đã giải ngân được chưa.
+
+Nếu trợ lý không bật agent, máy chủ tính điểm gần nghĩa giữa câu hỏi này và mô tả của kỹ năng ngay khi nhận câu hỏi, thấy vượt ngưỡng nên nạp toàn văn kỹ năng vào trước khi gọi mô hình sinh câu trả lời, chỉ trong một lượt xử lý duy nhất.
+
+Nếu trợ lý bật agent, mô hình nhận câu hỏi cùng danh mục kỹ năng, tự nhận ra câu hỏi khớp với kỹ năng kiểm tra điều kiện giải ngân, và chủ động gọi công cụ đọc toàn văn kỹ năng đó trước khi soạn câu trả lời. Kết quả cuối cùng người dùng nhìn thấy giống nhau ở cả hai trường hợp, chỉ khác nơi ra quyết định.
+
+5. Cảnh báo chồng chéo
+
+Mỗi khi tạo mới hoặc sửa mô tả của một kỹ năng, hệ thống so embedding mô tả đó với mô tả của mọi kỹ năng khác trong cùng đơn vị đã có embedding.
+
+Vượt một mức gần nghĩa nhất định thì hai kỹ năng bị coi là nói cùng một chuyện, và trình soạn hiện một cảnh báo kèm tên kỹ năng trùng ý cùng điểm gần nghĩa, cao nhất là năm kỹ năng trùng nhiều nhất.
+
+Cảnh báo chỉ so trong phạm vi đơn vị đang sửa, không so với kỹ năng đã chia sẻ toàn ngân hàng của đơn vị khác, vì người soạn không sửa được kỹ năng của đơn vị khác nên cảnh báo đó cũng không giúp ích gì.
+
+Hai kỹ năng mô tả gần giống nhau là một vấn đề thật, không chỉ là sự trùng lặp vô hại. Mô hình chỉ đọc mô tả để quyết định kích hoạt, nên khi hai mô tả gần giống nhau nó có thể chọn nhầm kỹ năng, và không ai trong cuộc hội thoại biết được vì sao câu trả lời lại đi theo trình tự của kỹ năng kia thay vì kỹ năng đang cần.
+
+Thấy cảnh báo này nên viết lại một trong hai mô tả cho tách bạch hơn, nêu rõ hơn sự khác biệt về tình huống dùng, hoặc gộp hai kỹ năng làm một nếu chúng thực sự phục vụ cùng một tình huống và chỉ khác nhau ở cách diễn đạt.
+
+6. Nút thử kỹ năng
+
+Trình soạn có một ô thử kỹ năng ngay trong màn hình sửa, tách biệt với phần lưu kỹ năng. Gõ một câu hỏi thật rồi bấm thử, hệ thống trả về kỹ năng sẽ được kích hoạt theo cách chọn trước, điểm khớp cao nhất, ngưỡng đang dùng, và danh sách vài kỹ năng có điểm cao nhất kèm điểm số cụ thể.
+
+Thử được ngay trong lúc soạn nghĩa là người viết sửa mô tả rồi thử lại tức thì, không cần lưu và không cần gắn thử vào một trợ lý thật để kiểm tra. Đây là cách nhanh nhất để biết một câu mô tả có đủ rõ để mô hình phân biệt được với các kỹ năng khác hay không, trước khi kỹ năng đó được công bố và ảnh hưởng tới câu trả lời thật.
+
+Thử kỹ năng luôn dùng cách chọn trước để tính điểm, kể cả khi trợ lý đích thực sự chạy agent. Điều này hợp lý vì cách chọn trước và cách mô hình tự gọi công cụ dùng chung một phép so khớp mô tả, chỉ khác nhau ở nơi quyết định diễn ra, nên điểm số ở ô thử vẫn phản ánh đúng độ rõ của mô tả trong cả hai trường hợp.
+
+Ô thử có hai phạm vi. Mở từ trình soạn của một kỹ năng cụ thể mà chưa gắn vào trợ lý nào, nó so với mọi kỹ năng đã công bố của đơn vị, để xem kỹ năng mới soạn có bị kỹ năng nào khác giành mất câu hỏi hay không. Mở từ trong ngữ cảnh một trợ lý cụ thể, nó chỉ so với đúng những kỹ năng đã gắn vào trợ lý đó, cho kết quả sát với thực tế trợ lý sẽ chạy.
+
+7. Quy tắc vàng không chép số liệu quy định vào kỹ năng
+
+Đây là quy tắc quan trọng nhất khi soạn một kỹ năng, và trình soạn nhắc lại ngay dưới ô nội dung kỹ năng để không ai bỏ sót.
+
+Con số quy định như tỉ lệ, hạn mức, thời hạn phải nằm trong văn bản của kho tri thức, vì chỉ ở đó chúng mới trích dẫn được kèm tên Điều Khoản cụ thể.
+
+Nếu một con số bị chép thẳng vào thân bài kỹ năng, thì khi văn bản gốc được cập nhật với con số mới, kỹ năng vẫn giữ nguyên con số cũ. Đó là lỗi sai âm thầm, vì kỹ năng vẫn chạy bình thường, không báo lỗi gì, chỉ là câu trả lời sai mà không ai biết cho tới khi có sự cố xảy ra ở phía cán bộ hoặc khách hàng dựa vào con số đó.
+
+Cách viết đúng là mô tả cách tra chứ không viết thẳng con số. Thay vì viết tỉ lệ cho vay tối đa là bảy mươi phần trăm, hãy viết tra tỉ lệ cho vay tối đa trong quy định tài sản bảo đảm rồi so với hồ sơ. Kỹ năng lúc đó luôn đúng theo văn bản mới nhất, vì bản thân nó không giữ một con số nào để có thể lỗi thời.
+
+Bốn kỹ năng mẫu đi kèm hệ thống đều viết theo đúng cách này. Không kỹ năng nào trong số đó chứa một con số quy định, mọi con số cần thiết đều được nói là phải tra trong đúng văn bản nào.
+
+8. Kho ưu tiên và công cụ được phép
+
+Một kỹ năng khai được kho tri thức ưu tiên. Khi kỹ năng này được áp dụng cho một câu hỏi, việc tra cứu sẽ chỉ tìm trong đúng kho ưu tiên đó thay vì mọi kho đã gắn cho trợ lý.
+
+Điều kiện đi kèm là kho ưu tiên đó cũng phải đang được gắn cho chính trợ lý đang trả lời. Nếu kho ưu tiên của kỹ năng không nằm trong danh sách kho của trợ lý, hệ thống bỏ qua ưu tiên đó và tra cứu như bình thường trên mọi kho đã gắn cho trợ lý, không báo lỗi gì thêm.
+
+Nhờ vậy một kỹ năng dùng đúng nguồn hẹp và sát chủ đề, thay vì tra lan man trên mọi kho tri thức của trợ lý, kể cả những kho không liên quan tới bí kíp đang áp dụng. Điều này quan trọng với trợ lý gắn nhiều kho khác nhau, nơi tra cứu trên toàn bộ có thể lẫn lộn tài liệu của nhiều nghiệp vụ.
+
+Ví dụ một trợ lý tổng hợp gắn cả kho tín dụng doanh nghiệp lẫn kho vận hành thanh toán quốc tế. Không có kỹ năng nào được áp dụng, câu hỏi về giải ngân sẽ tra trên cả hai kho, có thể lẫn vào vài đoạn không liên quan của kho thanh toán quốc tế. Kỹ năng kiểm tra điều kiện giải ngân khai kho tín dụng doanh nghiệp làm kho ưu tiên, nên khi kỹ năng này được áp dụng, việc tra cứu chỉ còn diễn ra trên đúng kho đó.
+
+Một kỹ năng cũng khai được danh sách công cụ được xem là phù hợp đi kèm, và danh sách văn bản tham chiếu để người soạn ghi lại kỹ năng này dựa trên văn bản nào. Cả hai danh sách này được kiểm tra thuộc đúng đơn vị hoặc đã chia sẻ toàn ngân hàng và đang hoạt động ngay lúc lưu, để không ai gắn nhầm tài nguyên của đơn vị khác vào một kỹ năng.
+
+Danh sách công cụ được phép và danh sách văn bản tham chiếu chủ yếu phục vụ việc ghi lại và kiểm tra tính hợp lệ ngay lúc soạn, giúp người đọc sau này biết kỹ năng này gắn với công cụ nào và dựa trên văn bản nào mà không phải đoán. Chỉ kho tri thức ưu tiên là thứ thực sự thay đổi việc tra cứu diễn ra ở đâu khi kỹ năng được áp dụng.
+
+9. Vòng đời của một kỹ năng
+
+9.1 Nháp và đã công bố
+
+Một kỹ năng có hai trạng thái, nháp và đã công bố. Chỉ kỹ năng đã công bố mới được trợ lý dùng, dù là qua cách chọn trước hay qua công cụ của agent.
+
+Kỹ năng nháp vẫn hiện trong danh sách quản trị để người soạn tiếp tục chỉnh sửa, nhưng không tham gia trả lời thật, kể cả khi đã gắn sẵn vào một trợ lý.
+
+Kỹ năng nhập từ tệp chuẩn mở luôn bắt đầu ở trạng thái nháp, kể cả khi tệp gốc đã được đánh dấu là hoàn chỉnh ở nơi soạn ra nó. Người trong đơn vị phải tự rà lại nội dung và công bố lại, vì hệ thống không có cách nào xác nhận nội dung nhập vào đã được kiểm chứng đúng với thực tế của đơn vị mình.
+
+9.2 Phiên bản và ngày hiệu lực
+
+Mỗi kỹ năng có một trường phiên bản dạng chữ tự do, mặc định v1.0, và một trường hiệu lực từ ngày cũng ở dạng chữ tự do. Hai trường này không bắt buộc đúng định dạng ngày tháng, nhưng nên viết nhất quán với cách đặt tên phiên bản của văn bản trong kho tri thức để chip hiển thị dưới câu trả lời đọc được rõ ràng và dễ đối chiếu.
+
+Người đưa một kỹ năng sang trạng thái đã công bố lần đầu tiên được hệ thống tự ghi lại là người duyệt. Lần sửa sau đó không đổi lại người duyệt, vì hệ thống chỉ ghi ở đúng lần chuyển trạng thái đầu tiên, giống cách một văn bản giữ nguyên người ký ban đầu dù có chỉnh sửa nhỏ về sau.
+
+9.3 Chia sẻ toàn ngân hàng và mở cho kênh khách hàng
+
+Mặc định một kỹ năng chỉ dùng được trong đơn vị đã tạo ra nó. Chuyển sang chia sẻ toàn ngân hàng nghĩa là mọi đơn vị khác đều thấy và gắn được kỹ năng này vào trợ lý của họ, miễn là kỹ năng đang ở trạng thái đã công bố. Chỉ chủ sở hữu đơn vị mới bật được cờ chia sẻ toàn ngân hàng, biên tập viên thường không bật được.
+
+Mở cho kênh khách hàng là một cờ riêng, tách hẳn khỏi cờ chia sẻ toàn ngân hàng, và cũng chỉ chủ sở hữu đơn vị mới bật được. Một trợ lý phục vụ khách hàng chỉ dùng được những kỹ năng đã bật cờ này, dù kỹ năng đó có đang gắn vào trợ lý hay không.
+
+Hai quyền này tách riêng có chủ đích. Chia sẻ toàn ngân hàng và mở ra cho khách hàng bên ngoài là hai mức rủi ro khác nhau, một kỹ năng nội bộ dùng tốt giữa các đơn vị chưa chắc đã phù hợp để lộ ra ngoài cho khách hàng đọc gián tiếp qua câu trả lời.
+
+9.4 Nhãn trên danh sách kỹ năng
+
+Mỗi dòng trong danh sách kỹ năng của đơn vị hiện sẵn một loạt nhãn nhỏ để không phải mở từng kỹ năng mới biết trạng thái. Nhãn Nháp hoặc Đã công bố cho biết kỹ năng đã dùng được thật hay chưa. Nhãn Toàn ngân hàng chỉ hiện khi kỹ năng đã bật cờ chia sẻ. Nhãn Mở cho khách hàng chỉ hiện khi kỹ năng đã bật cờ cho kênh khách hàng.
+
+Một kỹ năng không thuộc đơn vị đang xem, tức là kỹ năng chia sẻ toàn ngân hàng của đơn vị khác, có thêm dòng chữ nhỏ ghi của đơn vị khác, và nút sửa không hiện ra cho dòng đó, chỉ còn nút xuất.
+
+Danh sách cũng hiện số trợ lý đang dùng mỗi kỹ năng và mức chất lượng mô tả hiện tại, để biết ngay kỹ năng nào đang thực sự có ích và kỹ năng nào nên xem lại mô tả trước khi có ai dùng nhầm.
+
+10. Gắn kỹ năng vào trợ lý
+
+Màn hình chi tiết trợ lý có một tab riêng cho kỹ năng, hiện số kỹ năng đang gắn ngay trên tên tab để nhìn thấy ngay không cần mở ra.
+
+Danh sách để chọn gồm kỹ năng của chính đơn vị mình, cộng kỹ năng đã công bố và chia sẻ toàn ngân hàng của đơn vị khác. Với trợ lý phục vụ khách hàng, danh sách chỉ còn những kỹ năng đã mở cho kênh khách hàng, các kỹ năng còn lại không hiện ra để chọn.
+
+Gắn thêm một kỹ năng không làm nặng những câu hỏi không liên quan tới kỹ năng đó, vì mức một của nạp dần chỉ tốn khoảng 80 token cho mỗi dòng danh mục, bất kể trợ lý đang gắn bao nhiêu kỹ năng.
+
+Kỹ năng chỉ có tác dụng với trợ lý trả lời theo kho tri thức hoặc trả lời tự do. Một trợ lý gắn thẳng vào một luồng xử lý để làm bộ não chính không đi qua bước chọn kỹ năng, vì toàn bộ đường đi của câu trả lời loại trợ lý đó do chính luồng xử lý quyết định từ đầu tới cuối.
+
+10.1 Chip kỹ năng dưới câu trả lời
+
+Khi một kỹ năng được áp dụng cho một câu trả lời, giao diện hiện một chip nhỏ ngay dưới câu trả lời đó, ghi tên kỹ năng. Di chuột vào chip thấy thêm mã kỹ năng và phiên bản đang dùng.
+
+Chip xuất hiện bất kể kỹ năng được chọn theo cách chọn trước hay do mô hình tự gọi công cụ, giao diện không phân biệt hai cách này với người xem.
+
+Chip có nghĩa là trợ lý đã thực sự đọc toàn văn kỹ năng đó và làm theo khi soạn câu trả lời này, không chỉ là một kỹ năng có liên quan mà chưa chắc đã dùng tới. Không thấy chip nghĩa là không kỹ năng nào được áp dụng cho câu trả lời đó, kể cả khi trợ lý đang gắn sẵn nhiều kỹ năng.
+
+10.2 Nhìn lại việc kích hoạt kỹ năng trong nhật ký truy vấn
+
+Mở lại một lượt trả lời trong nhật ký truy vấn, quản trị viên thấy đúng bước đã kích hoạt kỹ năng nằm trong danh sách các bước xử lý của lượt đó, kèm tên và điểm khớp lúc chọn.
+
+Với trợ lý không bật agent, bước này hiện riêng như một bước chọn kỹ năng. Với trợ lý bật agent, việc đọc kỹ năng nằm chung trong bước gọi công cụ, vì về bản chất đó cũng là một lượt gọi công cụ như mọi lượt khác trong vòng lặp của agent.
+
+11. Xuất và nhập SKILL.md
+
+Một kỹ năng xuất ra được thành một tệp văn bản theo đúng chuẩn mở, gồm một khối mô tả ở đầu tệp nêu mã kỹ thuật, mô tả dùng khi nào, tên hiển thị, phiên bản và ngày hiệu lực nếu có, tiếp theo là toàn văn thân bài.
+
+Xuất một kỹ năng cho ra đúng một tệp mang tên mã kỹ thuật của kỹ năng đó. Xuất cả đơn vị cho ra một tệp nén, mỗi kỹ năng một thư mục riêng theo đúng mã kỹ thuật, để giữ đúng bố cục mà chuẩn mở quy định.
+
+Kho tri thức ưu tiên, công cụ được phép và văn bản tham chiếu không nằm trong tệp xuất ra, vì ba thứ đó gắn với tài nguyên nội bộ của riêng đơn vị mình, không có ý nghĩa gì ở một hệ thống khác hay một đơn vị khác.
+
+Lợi ích của việc theo đúng chuẩn mở là kỹ năng soạn ở đây chạy được trên một hệ thống agent khác cũng hiểu chuẩn này, và ngược lại, một kỹ năng soạn ở nơi khác cũng nhập vào đây được mà không cần viết lại từ đầu.
+
+Nhập một tệp hoặc một tệp nén nhiều kỹ năng, hệ thống chỉ nhận đúng tệp mang tên chuẩn, bỏ qua tệp rác lẫn trong tệp nén. Kỹ năng trùng mã kỹ thuật với kỹ năng đã có trong đơn vị bị bỏ qua chứ không ghi đè, và kết quả nhập báo rõ đã tạo được bao nhiêu kỹ năng mới và bỏ qua bao nhiêu vì trùng mã, để người nhập biết ngay cần xử lý gì tiếp theo.
+
+Màn hình kỹ năng nhận hai loại tệp khi nhập, một tệp markdown đơn lẻ hoặc một tệp nén. Tệp phải mở đầu bằng một khối mô tả kiểu YAML giữa hai dòng gạch ngang ba nét, thiếu khối này hoặc thiếu dòng đóng khối thì hệ thống báo lỗi định dạng ngay, không cố đoán nội dung.
+
+11.1 Kỹ năng của đơn vị khác trong danh sách xuất nhập
+
+Xuất cả đơn vị chỉ lấy đúng kỹ năng thuộc đơn vị đang chọn, không lấy kèm kỹ năng chia sẻ toàn ngân hàng của đơn vị khác dù đang thấy trong danh sách dùng hằng ngày. Đây là điểm cần nhớ khi muốn sao lưu hoặc chuyển toàn bộ kỹ năng của một đơn vị sang môi trường khác, vì kỹ năng mượn từ nơi khác sẽ không đi kèm.
+
+12. Giới hạn và hạn mức
+
+- Mã kỹ thuật tối đa 64 ký tự, duy nhất trong một đơn vị.
+- Mô tả dùng khi nào tối đa 1024 ký tự, nên dài hơn 40 ký tự để đủ phân biệt với kỹ năng khác.
+- Thân bài khuyến nghị dưới 500 dòng, và bị chặn cứng nếu vượt quá, kèm gợi ý tách phần chi tiết ra một tài liệu tham chiếu trong kho tri thức thay vì nhồi hết vào một kỹ năng.
+- Mỗi lượt trả lời của agent đọc tối đa hai kỹ năng, đọc thêm sẽ bị công cụ từ chối.
+- Nhập tệp tối đa 5 megabyte cho một lần nhập, tối đa 50 kỹ năng trong cùng một lần nhập.
+- Ngưỡng khớp mặc định để chọn trước là 0,32, lưu riêng cho từng trợ lý.
+
+Các con số này được đặt để một kỹ năng luôn gọn đủ đọc trong một lần, và một lần nhập không vô tình kéo cả trăm kỹ năng rác vào đơn vị.
+
+12.1 Vì sao thân bài giới hạn 500 dòng
+
+Chuẩn mở khuyến nghị thân bài một kỹ năng nên dưới khoảng năm nghìn token, và năm trăm dòng là một quy đổi thực tế gần đúng cho mức đó với văn bản tiếng Việt thông thường.
+
+Một kỹ năng dài quá mức này thường là dấu hiệu đang nhồi quá nhiều việc vào cùng một bí kíp. Cách xử lý đúng không phải là cố viết ngắn lại cho vừa giới hạn, mà là tách thành nhiều kỹ năng nhỏ hơn, mỗi kỹ năng ứng với một tình huống kích hoạt rõ ràng, hoặc chuyển phần nội dung tra cứu dài sang một tài liệu trong kho tri thức và để kỹ năng chỉ nói cách tra tới đó.
+
+13. Quyền thao tác trên kỹ năng
+
+Xem danh sách kỹ năng của đơn vị cần vai trò xem trở lên. Tạo, sửa và xoá kỹ năng cần vai trò biên tập trở lên, cùng mức quyền với công cụ và biểu mẫu.
+
+Đổi phạm vi chia sẻ sang toàn ngân hàng và mở kỹ năng cho kênh khách hàng cần vai trò chủ sở hữu đơn vị. Một biên tập viên vẫn soạn được nội dung kỹ năng bình thường, chỉ không tự bật được hai cờ này.
+
+Sửa hoặc xoá một kỹ năng không thuộc đơn vị mình trả về không tìm thấy kỹ năng, không phải một thông báo từ chối quyền. Cách trả lời này giống hệt với công cụ, và có chủ đích, để một đơn vị không tự dò ra được kỹ năng nội bộ của đơn vị khác chỉ bằng cách thử sửa theo mã định danh.
+
+Xoá một kỹ năng không hỏi lại trước, và cũng không kiểm tra kỹ năng đó có đang gắn vào trợ lý nào hay không. Trước khi xoá một kỹ năng đang dùng, nên xem cột số trợ lý đang dùng trong danh sách để biết trước ảnh hưởng, vì trợ lý mất kỹ năng đó ngay lập tức mà không có cảnh báo riêng nào khác.
+
+14. Bốn kỹ năng mẫu đã seed
+
+Hệ thống đi kèm bốn kỹ năng mẫu, cả bốn đều ở trạng thái đã công bố, phiên bản v1.0, và không kỹ năng nào chứa số liệu quy định trong thân bài, đúng theo quy tắc vàng ở mục 7.
+
+Kiểm tra điều kiện giải ngân, thuộc Khối Tín dụng doanh nghiệp, gắn vào Trợ lý Tín dụng KHDN và Trợ lý Hồ sơ Tín dụng. Hướng dẫn rà một hồ sơ đã đủ điều kiện giải ngân chưa và còn thiếu chứng từ gì, ưu tiên tra trong kho tri thức tín dụng doanh nghiệp, tham chiếu hướng dẫn giải ngân và quy định tài sản bảo đảm.
+
+Soạn thông báo bổ sung hồ sơ, cùng khối, gắn vào Trợ lý Tín dụng KHDN. Hướng dẫn soạn một bản nháp thông báo yêu cầu khách hàng doanh nghiệp bổ sung chứng từ, luôn để trống các chỗ định danh khách hàng cho cán bộ tự điền, vì hệ thống đã che dữ liệu cá nhân trước khi tới mô hình nên mô hình không có sẵn thông tin đó để điền.
+
+Tra soát điện chuyển tiền quốc tế, thuộc Khối Vận hành, gắn vào Trợ lý Vận hành và Thanh toán quốc tế. Hướng dẫn xử lý một giao dịch chuyển tiền quốc tế bị treo, bị trả về hoặc lệch phí, theo đúng mốc thời gian và các bước tra soát của quy trình chuyển tiền quốc tế.
+
+Giải thích biểu phí cho khách hàng, thuộc Khối Bán lẻ, gắn vào Trợ lý Khách hàng MSB và đã mở cho kênh khách hàng. Hướng dẫn giải thích một khoản phí bằng ngôn ngữ dễ hiểu, chỉ nêu mức phí có trong biểu phí đã công bố, không suy đoán và không tra cứu một giao dịch cụ thể của khách.
+
+Bốn kỹ năng này là ví dụ tham khảo tốt khi soạn kỹ năng mới cho đơn vị mình, đặc biệt ở cách viết phần dùng khi nào và cách tránh chép số liệu quy định vào thân bài.
+
+Ba trong bốn kỹ năng mẫu chỉ dùng nội bộ, chỉ kỹ năng giải thích biểu phí mới mở cho kênh khách hàng. Đây cũng là lựa chọn có chủ đích trong dữ liệu mẫu, để minh hoạ đúng việc phần lớn bí kíp nghiệp vụ ngân hàng, như điều kiện giải ngân hay xử lý tra soát, không phù hợp để lộ ra ngoài, còn việc giải thích một khoản phí công khai thì an toàn để khách hàng đọc trực tiếp.
+
+15. Câu hỏi thường gặp
+
+Hỏi: Tôi nên viết bí kíp vào hướng dẫn hệ thống hay tạo một kỹ năng riêng?
+Đáp: Nếu bí kíp cần cho mọi câu hỏi của trợ lý, ví dụ văn phong hay giọng điệu chung, hãy để trong hướng dẫn hệ thống. Nếu bí kíp chỉ cần cho một nhóm câu hỏi cụ thể, hãy tách thành một kỹ năng, vì như vậy những câu hỏi khác không phải gánh thêm phần đó.
+
+Hỏi: Kỹ năng đã gắn và đã công bố nhưng không bao giờ được kích hoạt, vì sao?
+Đáp: Nguyên nhân phổ biến nhất là mô tả dùng khi nào chưa đủ rõ. Mở trình soạn, xem điểm chất lượng mô tả, và thử với vài câu hỏi thật bằng nút thử kỹ năng để xem điểm khớp có vượt ngưỡng hay không.
+
+Hỏi: Vì sao trợ lý của tôi đôi khi dùng đúng kỹ năng, đôi khi lại không dùng kỹ năng nào cho những câu hỏi tương tự nhau?
+Đáp: Cách chọn trước dựa trên độ gần nghĩa, không phải khớp từ khoá tuyệt đối, nên hai câu hỏi na ná nhau có thể cho điểm khớp khác nhau. Nếu điểm rơi ngay quanh ngưỡng thì việc có kích hoạt hay không sẽ thất thường. Hãy viết mô tả bao quát hơn để những cách hỏi gần nghĩa đều được nhận diện.
+
+Hỏi: Hai kỹ năng của tôi bị cảnh báo chồng chéo, tôi nên gộp hay giữ riêng?
+Đáp: Nếu cả hai thực sự phục vụ cùng một tình huống thì nên gộp làm một, vì giữ hai bản chỉ khiến mô hình chọn ngẫu nhiên giữa chúng. Nếu chúng phục vụ hai tình huống khác nhau nhưng mô tả tình cờ viết giống nhau, hãy viết lại mô tả cho tách bạch hơn, nêu rõ hơn sự khác biệt về tình huống dùng.
+
+Hỏi: Tôi sửa thân bài của một kỹ năng đang công bố thì có cần công bố lại không?
+Đáp: Không cần một bước riêng. Lưu lại là bản sửa áp dụng ngay cho những lượt trả lời tiếp theo, vì không có bản sao riêng cho nháp và cho bản đang chạy thật. Vì vậy nên thử kỹ trước khi lưu một thay đổi lớn vào thân bài.
+
+Hỏi: Tôi nhập một kỹ năng từ tệp chuẩn mở nhưng không thấy kho tri thức ưu tiên nào được gắn sẵn, vì sao?
+Đáp: Tệp chuẩn mở chỉ mang theo mã kỹ thuật, mô tả, tên, phiên bản và thân bài. Kho tri thức, công cụ và văn bản tham chiếu gắn với tài nguyên riêng của từng đơn vị, nên sau khi nhập cần vào trình soạn để gắn lại những phần này cho đúng với đơn vị của mình.
+
+Hỏi: Kỹ năng chia sẻ toàn ngân hàng của đơn vị khác thì đơn vị tôi có sửa được không?
+Đáp: Không. Đơn vị khác chỉ thấy và gắn được kỹ năng đó vào trợ lý của mình, không sửa được nội dung. Muốn thay đổi nội dung phải liên hệ đơn vị đã tạo ra kỹ năng đó.
+
+Hỏi: Xoá nhầm một kỹ năng đang được nhiều trợ lý dùng thì khôi phục lại bằng cách nào?
+Đáp: Không có thao tác khôi phục. Xem lại cột số trợ lý đang dùng trước khi xoá là cách phòng ngừa duy nhất. Nếu đã xoá nhầm, cách nhanh nhất là tạo lại kỹ năng với cùng mã kỹ thuật và chép lại nội dung, rồi gắn lại vào từng trợ lý đã mất kỹ năng đó.

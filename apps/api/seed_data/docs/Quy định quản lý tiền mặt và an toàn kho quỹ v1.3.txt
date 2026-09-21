@@ -1,0 +1,89 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI VẬN HÀNH
+QUY ĐỊNH QUẢN LÝ TIỀN MẶT VÀ AN TOÀN KHO QUỸ
+Số hiệu: QĐ.KQ.VH.12 — Phiên bản: 1.3 — Hiệu lực từ: 01/02/2026
+Đơn vị ban hành: Khối Vận hành
+Áp dụng: Toàn bộ Đơn vị kinh doanh (chi nhánh, phòng giao dịch) có quầy giao dịch tiền mặt và kho quỹ
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+CHƯƠNG I. QUY ĐỊNH CHUNG
+
+Điều 1. Mục đích và phạm vi
+1. Quy định này thiết lập định mức tồn quỹ, nguyên tắc an toàn kho quỹ, xử lý tiền giả/tiền không đủ tiêu chuẩn lưu thông và chênh lệch quỹ tại các Đơn vị kinh doanh (ĐVKD) của MSB.
+2. Áp dụng cho toàn bộ hoạt động thu, chi, bảo quản, điều chuyển tiền mặt VND và ngoại tệ tại quầy giao dịch và kho quỹ ĐVKD.
+
+Điều 2. Giải thích từ ngữ
+1. Định mức tồn quỹ: mức tiền mặt tối đa được phép lưu giữ tại kho quỹ ĐVKD cuối mỗi ngày làm việc, theo hạng chi nhánh.
+2. Nguyên tắc ba chìa khoá: kho quỹ được khoá bằng ba ổ khoá độc lập, chìa do ba cán bộ khác nhau giữ (Giám đốc/Phó giám đốc ĐVKD, Thủ quỹ, Kiểm soát viên), không ai được giữ từ hai chìa trở lên.
+3. Kiểm quỹ đột xuất: hoạt động kiểm đếm tiền mặt tại kho quỹ hoặc quầy giao dịch không theo lịch cố định, do cấp trên hoặc bộ phận kiểm soát nội bộ thực hiện.
+
+CHƯƠNG II. ĐỊNH MỨC TỒN QUỸ VÀ ĐIỀU CHUYỂN
+
+Điều 3. Định mức tồn quỹ theo hạng chi nhánh
+1. Chi nhánh hạng 1 (doanh số giao dịch tiền mặt cao, trung tâm thành phố lớn): định mức tồn quỹ cuối ngày tối đa 8 tỷ đồng.
+2. Chi nhánh hạng 2: định mức tồn quỹ cuối ngày tối đa 5 tỷ đồng.
+3. Phòng giao dịch (PGD): định mức tồn quỹ cuối ngày tối đa 2 tỷ đồng.
+4. ĐVKD có nhu cầu tồn quỹ vượt định mức tại khoản 1, 2, 3 do đặc thù thời vụ (cao điểm chi lương, lễ Tết) phải xin phê duyệt tạm thời của Khối Vận hành trước tối thiểu 2 ngày làm việc, thời gian áp dụng không quá 10 ngày làm việc.
+5. Tồn quỹ vượt định mức mà không có phê duyệt phải điều chuyển về kho quỹ tập trung hoặc nộp Ngân hàng Nhà nước chi nhánh gần nhất trong ngày làm việc kế tiếp.
+
+Điều 4. Điều chuyển tiền và bảo vệ
+1. Điều chuyển tiền mặt giữa ĐVKD với kho quỹ tập trung hoặc giữa các ĐVKD phải có tối thiểu 2 cán bộ áp tải, đi cùng xe chuyên dụng có bảo vệ đối với giá trị từ 5 tỷ đồng trở lên.
+2. Mọi chuyến điều chuyển phải có lệnh điều chuyển bằng văn bản được Giám đốc ĐVKD hoặc cấp có thẩm quyền ký duyệt trước, ghi rõ số tiền, mệnh giá, tuyến đường và thời gian dự kiến.
+3. Tiền điều chuyển phải được niêm phong theo bao/túi có số seri, đối chiếu số seri khi giao nhận tại điểm đến; hai bên giao nhận cùng ký biên bản.
+4. Trường hợp xảy ra sự cố trên đường vận chuyển (tai nạn, cướp giật, thiên tai), cán bộ áp tải báo ngay cho Giám đốc ĐVKD và cơ quan công an gần nhất, không tự ý xử lý.
+
+CHƯƠNG III. AN TOÀN KHO QUỸ
+
+Điều 5. Nguyên tắc ba chìa khoá và mở/đóng kho
+1. Kho quỹ ĐVKD áp dụng nguyên tắc ba chìa khoá quy định tại Điều 2 khoản 2; danh sách người giữ chìa khoá phải được Giám đốc ĐVKD phê duyệt bằng văn bản và cập nhật khi có thay đổi nhân sự.
+2. Việc mở kho đầu ngày và đóng kho cuối ngày phải có tối thiểu 2 trong 3 người giữ chìa khoá cùng có mặt, ký xác nhận vào sổ theo dõi mở/đóng kho ghi rõ thời điểm.
+3. Không cá nhân nào được một mình vào kho quỹ dưới bất kỳ lý do gì, kể cả ngoài giờ làm việc; camera khu vực kho quỹ phải ghi hình liên tục trong suốt thời gian kho mở.
+4. Chìa khoá dự phòng (nếu có) được niêm phong, lưu tại nơi an toàn theo quy định riêng của Khối Vận hành, chỉ sử dụng khi có sự cố và phải lập biên bản khi mở niêm phong.
+
+Điều 6. Kiểm quỹ định kỳ và đột xuất
+1. Kiểm quỹ định kỳ cuối ngày làm việc do Thủ quỹ và Kiểm soát viên thực hiện, đối chiếu số dư thực tế với sổ quỹ và số liệu hạch toán trên hệ thống.
+2. Kiểm quỹ đột xuất do Giám đốc ĐVKD, Khối Vận hành hoặc Kiểm toán nội bộ thực hiện không báo trước, tối thiểu 2 lần/năm đối với mỗi ĐVKD.
+3. Kết quả kiểm quỹ đột xuất phải lập biên bản có chữ ký của người kiểm tra và Thủ quỹ, gửi báo cáo về Khối Vận hành trong 1 ngày làm việc.
+
+CHƯƠNG IV. TIỀN GIẢ, TIỀN KHÔNG ĐỦ TIÊU CHUẨN VÀ CHÊNH LỆCH QUỸ
+
+Điều 7. Tiền giả và tiền nghi giả
+1. Khi phát hiện tiền nghi giả trong quá trình thu, đếm hoặc kiểm quỹ, cán bộ phải dừng ngay việc trả lại tiền đó cho khách hàng, lập Biên bản thu giữ tiền nghi giả có chữ ký của khách hàng (nếu khách hàng đồng ý ký) và cán bộ lập biên bản.
+2. Tiền nghi giả được đóng dấu "Nghi tiền giả", niêm phong và gửi giám định tại Ngân hàng Nhà nước chi nhánh hoặc tổ chức được uỷ quyền trong tối đa 3 ngày làm việc.
+3. Khách hàng không đồng ý lập biên bản hoặc có hành vi phản ứng bất thường: mời vào phòng riêng, mời phối hợp cơ quan công an nếu có dấu hiệu lưu hành tiền giả có tổ chức; báo cáo mã sự cố SC-GD-01 theo Điều 6 QĐ.KS.VH.09.
+4. Không được thu giữ tiền giả mà không lập biên bản, không được trả lại tiền nghi giả cho khách hàng dưới bất kỳ hình thức nào.
+5. Kết quả giám định xác nhận tiền giả: MSB không hoàn trả giá trị tiền giả cho khách hàng; kết quả xác nhận tiền thật: hoàn trả ngay cho khách hàng kèm văn bản giải thích.
+
+Điều 8. Tiền không đủ tiêu chuẩn lưu thông
+1. Tiền rách, bẩn, biến dạng, mất góc nhưng còn đủ căn cứ xác định mệnh giá được đổi ngang giá trị cho khách hàng có nhu cầu, không thu phí đối với giao dịch dưới 50 tờ/lần.
+2. Tiền không đủ tiêu chuẩn thu về được phân loại riêng, không đưa trở lại lưu thông; nộp về kho quỹ tập trung hoặc Ngân hàng Nhà nước theo lịch định kỳ hàng tháng.
+3. Tiền nghi bị cắt ghép, tẩy xoá có dấu hiệu gian lận phải xử lý theo nguyên tắc tại Điều 7 như tiền nghi giả.
+
+Điều 9. Chênh lệch thừa/thiếu quỹ
+1. Chênh lệch quỹ được xác định khi số dư thực kiểm không khớp số liệu hạch toán tại thời điểm kiểm quỹ cuối ngày.
+2. Chênh lệch từ 2 triệu đồng trở lên phải báo cáo ngay cho Khối Vận hành và Phòng Phòng chống gian lận theo Điều 7 khoản 4 QĐ.KS.VH.09, không được tự ý bù trừ hoặc trì hoãn báo cáo sang ngày làm việc kế tiếp.
+3. Chênh lệch dưới 2 triệu đồng được ghi nhận vào sổ theo dõi chênh lệch quỹ, xác minh nguyên nhân trong 2 ngày làm việc (lỗi đếm tiền, lỗi hạch toán, thao tác sai); nếu không xác định được nguyên nhân, xử lý theo quy chế trách nhiệm vật chất của MSB.
+4. Chênh lệch thừa quỹ không rõ nguyên nhân sau 5 ngày làm việc phải hạch toán vào tài khoản chờ xử lý và tiếp tục theo dõi tối thiểu 60 ngày trước khi ghi nhận thu nhập khác theo hướng dẫn kế toán.
+5. Cán bộ cố ý báo cáo sai chênh lệch quỹ hoặc che giấu thiếu hụt bị xử lý theo Điều 10 khoản 2, 3 QĐ.KS.VH.09.
+
+Điều 10. Ngoại tệ tiền mặt
+1. Tồn quỹ ngoại tệ tiền mặt áp dụng định mức riêng theo từng loại ngoại tệ, do Khối Vận hành thông báo theo từng thời kỳ dựa trên nhu cầu giao dịch thực tế của ĐVKD.
+2. Ngoại tệ tiền mặt thu đổi phải kiểm tra bằng máy soi và đối chiếu series với danh sách cảnh báo tiền giả ngoại tệ do Trung tâm Thanh toán quốc tế cung cấp.
+3. Tiền mặt ngoại tệ rách, cũ theo tiêu chuẩn của tổ chức phát hành nước ngoài được xử lý theo hướng dẫn thu đổi riêng, không áp dụng nguyên tắc đổi ngang như tiền VND tại Điều 8.
+
+CHƯƠNG V. GIÁM SÁT VÀ CHẾ TÀI
+
+Điều 11. Camera giám sát kho quỹ và quầy giao dịch
+1. Khu vực kho quỹ, quầy giao dịch tiền mặt phải lắp camera giám sát liên tục 24/24, có ghi âm khi pháp luật cho phép.
+2. Dữ liệu camera lưu tối thiểu 90 ngày; sự cố liên quan tra soát, khiếu nại hoặc điều tra được trích xuất và lưu riêng theo thời hạn của hồ sơ liên quan.
+3. Việc trích xuất camera phải có phê duyệt của Giám đốc ĐVKD hoặc cấp cao hơn, ghi nhật ký người trích xuất và mục đích sử dụng.
+
+Điều 12. Chế tài
+1. Vi phạm nguyên tắc ba chìa khoá hoặc để cá nhân vào kho quỹ một mình: khiển trách lần đầu, cảnh cáo hoặc tạm đình chỉ công tác nếu tái phạm.
+2. Che giấu chênh lệch quỹ, không lập biên bản tiền nghi giả theo Điều 7: xử lý kỷ luật từ cảnh cáo đến chấm dứt hợp đồng lao động tuỳ mức độ thiệt hại.
+3. Có dấu hiệu chiếm đoạt tài sản của MSB hoặc khách hàng qua thao túng chênh lệch quỹ: chuyển hồ sơ cho cơ quan điều tra theo pháp luật.
+
+Điều 13. Hiệu lực thi hành
+1. Quy định có hiệu lực từ ngày 01/02/2026, thay thế phiên bản 1.2.
+2. Thay đổi chính so với phiên bản 1.2: nâng định mức tồn quỹ chi nhánh hạng 1 từ 6 tỷ lên 8 tỷ đồng; bổ sung Điều 9 khoản 4 về xử lý chênh lệch thừa quỹ không rõ nguyên nhân; bổ sung yêu cầu lưu camera tối thiểu 90 ngày tại Điều 11.
+3. Các ĐVKD có trách nhiệm phổ biến quy định này đến toàn thể Thủ quỹ, Kiểm soát viên và cán bộ liên quan; vướng mắc phản ánh về Khối Vận hành.

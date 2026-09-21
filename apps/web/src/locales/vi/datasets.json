@@ -1,0 +1,89 @@
+{
+  "title": "Kho tri thức",
+  "description": "Quản lý các kho văn bản nghiệp vụ (quy trình, quy định, sản phẩm, biểu phí) dùng cho trợ lý.",
+  "createDataset": "Tạo kho tri thức",
+  "empty": {
+    "title": "Chưa có kho tri thức nào",
+    "description": "Tạo kho tri thức đầu tiên và tải văn bản lên để bắt đầu."
+  },
+  "modal": {
+    "title": "Tạo kho tri thức mới",
+    "nameLabel": "Tên kho",
+    "namePlaceholder": "VD: Quy trình & quy định tín dụng KHDN",
+    "descLabel": "Mô tả",
+    "descPlaceholder": "Mô tả ngắn về phạm vi văn bản trong kho",
+    "visibilityLabel": "Phạm vi sử dụng",
+    "cancel": "Huỷ",
+    "create": "Tạo",
+    "creating": "Đang tạo..."
+  },
+  "visibility": {
+    "label": "Phạm vi",
+    "internal": "Nội bộ",
+    "internalHint": "Chỉ cán bộ; không gắn được cho trợ lý khách hàng",
+    "public": "Công khai",
+    "publicHint": "Có thể dùng cho trợ lý khách hàng (biểu phí, sản phẩm, FAQ)"
+  },
+  "docType": {
+    "quy_trinh": "Quy trình",
+    "quy_dinh": "Quy định",
+    "huong_dan": "Hướng dẫn",
+    "san_pham": "Sản phẩm",
+    "bieu_phi": "Biểu phí",
+    "mau_bieu": "Mẫu biểu",
+    "faq": "FAQ"
+  },
+  "table": {
+    "name": "Tên kho",
+    "documents": "Văn bản",
+    "visibility": "Phạm vi",
+    "created": "Ngày tạo",
+    "actions": "Thao tác"
+  },
+  "detail": {
+    "documents": "văn bản",
+    "upload": "Tải văn bản lên",
+    "noDocuments": "Chưa có văn bản. Tải tệp lên để bắt đầu lập chỉ mục.",
+    "filename": "Văn bản",
+    "meta": "Loại · Phiên bản · Hiệu lực",
+    "size": "Kích thước",
+    "status": "Trạng thái",
+    "uploadedAt": "Ngày tải",
+    "actions": "Thao tác",
+    "deleteConfirm": "Bạn có chắc muốn xoá văn bản này? Toàn bộ chỉ mục sẽ bị xoá.",
+    "index": "Lập chỉ mục",
+    "toggleVisibility": "Đổi phạm vi",
+    "chat": "Thử hỏi đáp",
+    "enabled": "Dùng cho AI",
+    "enabledHint": "Tắt để trợ lý không truy vấn văn bản này nữa. File và chỉ mục vẫn được giữ, bật lại là dùng được ngay.",
+    "enable": "Bật lại cho AI truy vấn",
+    "disable": "Tắt: AI không truy vấn văn bản này",
+    "disabled": "Đã tắt",
+    "disabledAt": "Tắt lúc",
+    "disabledCount": "đang tắt",
+    "enableFailed": "Không đổi được trạng thái văn bản"
+  },
+  "chunks": {
+    "title": "Xem trước đoạn văn bản (chunks)",
+    "empty": "Không tìm thấy đoạn nào",
+    "prev": "Trước",
+    "next": "Tiếp"
+  },
+  "upload": {
+    "title": "Kéo thả tệp hoặc nhấp để tải lên",
+    "subtitle": "Hỗ trợ PDF, DOCX, TXT (tối đa 50MB). Sau khi tải lên, hệ thống tự động tách theo Điều/Khoản và lập chỉ mục.",
+    "uploading": "Đang tải lên...",
+    "docTypeLabel": "Loại văn bản",
+    "versionLabel": "Phiên bản",
+    "effectiveLabel": "Hiệu lực từ",
+    "metaHint": "Thông tin này hiển thị trong trích dẫn nguồn của câu trả lời (áp dụng cho các tệp tải lên trong lượt này)."
+  },
+  "status": {
+    "uploaded": "Đã tải",
+    "indexing": "Đang lập chỉ mục",
+    "ready": "Sẵn sàng",
+    "failed": "Lỗi"
+  },
+  "deleteConfirm": "Bạn có chắc muốn xoá kho tri thức này? Toàn bộ văn bản và chỉ mục sẽ bị xoá.",
+  "deleted": "Đã xoá kho tri thức"
+}

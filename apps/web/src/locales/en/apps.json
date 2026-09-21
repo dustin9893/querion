@@ -1,0 +1,9 @@
+{
+  "title": "Assistants",
+  "description": "Each assistant is bound to a knowledge base (or workflow) and serves either internal staff or customers.",
+  "createApp": "New assistant",
+  "empty": {
+    "title": "No assistants yet",
+    "description": "Create an assistant, bind a knowledge base and publish it for staff or customers."
+  }
+}

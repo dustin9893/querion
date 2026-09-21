@@ -1,0 +1,67 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — TRUNG TÂM XỬ LÝ TÍN DỤNG TẬP TRUNG (CPC)
+HƯỚNG DẪN GIẢI NGÂN VÀ CHECKLIST CHỨNG TỪ GIẢI NGÂN KHÁCH HÀNG DOANH NGHIỆP
+Số hiệu: HD.GN.03 — Phiên bản: 1.4 — Hiệu lực từ: 01/02/2026
+Đơn vị ban hành: Trung tâm Xử lý tín dụng tập trung, phối hợp Khối Vận hành
+Văn bản liên quan: QT.TD.EB.01 (Quy trình cấp tín dụng KHDN), QĐ.TSBĐ.02 (Quy định TSBĐ)
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+Điều 1. Phạm vi áp dụng
+1. Hướng dẫn này áp dụng cho giải ngân các khoản cho vay từng lần, cho vay theo hạn mức và thấu chi đối với khách hàng doanh nghiệp tại MSB qua kênh tại quầy và kênh online IBCorp.
+2. Giải ngân bảo lãnh và L/C thực hiện theo hướng dẫn riêng của Trung tâm Tài trợ thương mại.
+
+Điều 2. Điều kiện giải ngân
+1. Hồ sơ tín dụng ở trạng thái STEB01 "Hoàn thành phê duyệt" hoặc STEB10 "Hoàn thành" trên hệ thống BPM; Biên bản phê duyệt còn hiệu lực (90 ngày).
+2. Hợp đồng tín dụng, Giấy nhận nợ và các văn kiện bảo đảm đã được ký đầy đủ bởi người đại diện hợp pháp; chữ ký khớp với mẫu đã đăng ký hoặc đã xác thực chữ ký số (d-signature) đối với kênh online.
+3. Tài sản bảo đảm đã hoàn tất công chứng, đăng ký biện pháp bảo đảm và phong toả theo Điều 6 Quy định QĐ.TSBĐ.02, trừ trường hợp được phê duyệt giải ngân trước.
+4. Các điều kiện tiên quyết ghi trong Biên bản phê duyệt đã được đáp ứng và có chứng từ chứng minh (ví dụ: vốn tự có tham gia tối thiểu 30% phương án đã được chuyển vào tài khoản tại MSB).
+5. Khách hàng không có nợ quá hạn tại MSB và không phát sinh nợ nhóm 2 trở lên tại tổ chức tín dụng khác theo tra cứu CIC trong 30 ngày trước ngày giải ngân.
+6. Số tiền giải ngân không vượt quá số dư hạn mức khả dụng và không vượt quá giá trị chứng từ chứng minh mục đích sử dụng vốn.
+
+Điều 3. Checklist chứng từ chứng minh mục đích sử dụng vốn
+1. Thanh toán tiền mua hàng hoá, nguyên vật liệu trong nước:
+a) Hợp đồng mua bán hoặc đơn đặt hàng đã được bên bán xác nhận;
+b) Hoá đơn giá trị gia tăng (hoá đơn điện tử có mã cơ quan thuế) hoặc bảng kê hàng hoá kèm biên bản giao nhận;
+c) Uỷ nhiệm chi (UNC) của khách hàng chuyển tiền cho bên thụ hưởng đúng tên và số tài khoản trên hợp đồng.
+2. Thanh toán hàng nhập khẩu:
+a) Hợp đồng ngoại thương hoặc hợp đồng nguyên tắc kèm đơn hàng;
+b) Hoá đơn thương mại (Commercial Invoice);
+c) Tờ khai hải quan đã thông quan hoặc vận đơn đối với thanh toán trước khi hàng về;
+d) Đề nghị chuyển tiền quốc tế theo Hướng dẫn HD.TTQT.04.
+3. Thanh toán lương và chi phí hoạt động:
+a) Bảng lương có xác nhận của người đại diện hợp pháp và kế toán trưởng;
+b) Danh sách tài khoản nhận lương;
+c) Đối với chi phí thuê mặt bằng, điện nước: hợp đồng thuê và hoá đơn kỳ thanh toán.
+4. Thanh toán chi phí xây dựng, đầu tư tài sản cố định:
+a) Hợp đồng thi công hoặc hợp đồng mua sắm;
+b) Biên bản nghiệm thu khối lượng hoàn thành theo giai đoạn;
+c) Hoá đơn và bảng báo giá.
+5. Bù đắp vốn đã thanh toán (hoàn vốn): chỉ chấp nhận chứng từ phát sinh trong 30 ngày trước ngày giải ngân, có UNC gốc thể hiện khách hàng đã thanh toán từ vốn tự có.
+6. Chứng từ có thể nộp bản chụp qua kênh IBCorp; bản chính hoặc bản sao có xác nhận phải được RM đối chiếu và lưu hồ sơ trong 10 ngày làm việc.
+
+Điều 4. Phương thức giải ngân
+1. Giải ngân chuyển khoản trực tiếp cho bên thụ hưởng là phương thức bắt buộc đối với khoản giải ngân từ 100 triệu đồng trở lên.
+2. Giải ngân bằng tiền mặt hoặc chuyển vào tài khoản của chính khách hàng chỉ áp dụng khi số tiền dưới 100 triệu đồng và bên thụ hưởng không có tài khoản ngân hàng; phải có bảng kê chi tiết và được Giám đốc ĐVKD phê duyệt.
+3. Giải ngân nhiều lần trong một hạn mức: mỗi lần lập một Giấy nhận nợ (GNN) riêng, số GNN theo định dạng GNN-<mã hồ sơ>-<số thứ tự>.
+
+Điều 5. Luồng xử lý giải ngân
+1. RM lập Đề nghị giải ngân trên BPM, đính kèm chứng từ theo checklist rule mã 0101 (trong nước), 0109 (nhập khẩu), 0110 (lương và chi phí), 0111 (xây dựng). Hệ thống tự kiểm tra tính đầy đủ và cảnh báo mục còn thiếu.
+2. Kiểm soát viên ĐVKD kiểm tra chứng từ, đối chiếu điều kiện giải ngân và phê duyệt chuyển hồ sơ sang CPC (vai trò Maker).
+3. Chuyên viên CPC kiểm tra lại toàn bộ hồ sơ theo nguyên tắc bốn mắt (vai trò Checker), đối chiếu số dư hạn mức và trạng thái TSBĐ trên hệ thống.
+4. Sau khi Checker duyệt, hệ thống tự động hạch toán giải ngân vào T24, sinh bút toán và thông báo kết quả cho RM qua email và trên BPM.
+5. Đối với luồng giải ngân nhanh IBCorp (khách hàng tự nộp đề nghị online): áp dụng với khoản giải ngân đến 2 tỷ đồng trong hạn mức đã mở, chứng từ chụp qua ứng dụng, thời gian xử lý mục tiêu 2 giờ làm việc.
+
+Điều 6. Lưu trữ hồ sơ giải ngân
+1. Toàn bộ chứng từ giải ngân lưu nhóm HSGN trên ECM theo từng Giấy nhận nợ.
+2. Bản chính Giấy nhận nợ được lưu tại kho chứng từ CPC; bản scan lưu ECM trong ngày giải ngân.
+3. Thời hạn lưu trữ hồ sơ giải ngân: tối thiểu 10 năm kể từ ngày tất toán khoản vay.
+
+Điều 7. Xử lý ngoại lệ
+1. Bổ sung chứng từ sau giải ngân: chỉ áp dụng khi khách hàng có xếp hạng từ A trở lên, số tiền không quá 20% hạn mức, thời hạn bổ sung tối đa 10 ngày làm việc và được Giám đốc phê duyệt tín dụng chấp thuận bằng văn bản.
+2. Chứng từ có sai lệch nhỏ (tên bên thụ hưởng viết tắt, chênh lệch số tiền dưới 1% do làm tròn) được chấp nhận khi RM lập giải trình và Kiểm soát viên xác nhận.
+3. Giải ngân ngoài giờ cut-off 16h00: chỉ thực hiện khi có phê duyệt của Giám đốc CPC và bút toán được hạch toán ngày làm việc kế tiếp.
+4. Mọi trường hợp ngoại lệ phải được ghi nhận trên BPM với mã lý do và lưu văn bản chấp thuận trong nhóm HSGN.
+
+Điều 8. Hiệu lực
+1. Hướng dẫn có hiệu lực từ ngày 01/02/2026, thay thế phiên bản 1.3.
+2. Thay đổi chính: bổ sung luồng giải ngân nhanh IBCorp (Điều 5 khoản 5); nâng ngưỡng bắt buộc chuyển khoản trực tiếp từ 50 triệu lên 100 triệu đồng; quy định rõ thời hạn chứng từ hoàn vốn là 30 ngày.

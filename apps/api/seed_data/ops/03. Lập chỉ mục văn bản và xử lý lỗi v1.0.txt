@@ -1,0 +1,380 @@
+CẨM NANG VẬN HÀNH — LẬP CHỈ MỤC VĂN BẢN VÀ XỬ LÝ LỖI
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Lập chỉ mục là gì và vì sao cần
+
+Trợ lý không đọc thẳng tệp PDF hay Word của anh chị. Trước khi trả lời được, hệ thống phải bóc chữ ra khỏi tệp, cắt thành từng đoạn ngắn, rồi chuyển mỗi đoạn thành một dãy số gọi là vector. Toàn bộ việc đó gọi là lập chỉ mục.
+
+Vector là thứ cho phép hệ thống tìm đoạn văn bản liên quan tới câu hỏi mà không cần trùng từ khoá. Cán bộ hỏi "vay mua nhà cần giấy tờ gì", hệ thống vẫn tìm ra điều khoản viết là "hồ sơ tài sản bảo đảm là bất động sản". Tra theo từ khoá thuần tuý không làm được việc này.
+
+Hệ quả quan trọng nhất cần nhớ: một văn bản chưa lập chỉ mục xong thì trợ lý coi như chưa có văn bản đó. Tải tệp lên không đủ, phải chờ trạng thái chuyển sang Sẵn sàng.
+
+1.1 Bốn trạng thái của một văn bản
+
+Trên trang chi tiết kho tri thức, cột Trạng thái hiển thị đúng bốn giá trị.
+
+- Đã tải: tệp đã nằm trong kho lưu trữ, bản ghi đã tạo, nhưng chưa có đoạn nào được sinh ra. Trợ lý chưa dùng được văn bản này.
+- Đang lập chỉ mục: công việc đã nằm trong hàng đợi hoặc đang chạy. Ô trạng thái có vòng xoay nhỏ.
+- Sẵn sàng: đã có đoạn và vector trong cơ sở dữ liệu. Từ lúc này trợ lý mới truy vấn được.
+- Lỗi: công việc dừng giữa chừng. Thông báo lỗi được lưu lại và hiển thị để anh chị biết nguyên nhân.
+
+1.2 Đường đi bình thường của một tệp
+
+Anh chị tải tệp lên. Hệ thống đẩy tệp vào kho lưu trữ đối tượng, tạo bản ghi văn bản ở trạng thái Đã tải, rồi ngay lập tức đặt trạng thái thành Đang lập chỉ mục và xếp một công việc vào hàng đợi.
+
+Tiến trình xử lý nền nhận công việc, làm bảy bước, rồi cập nhật trạng thái thành Sẵn sàng kèm số đoạn đã tạo.
+
+Không ai phải bấm gì thêm. Chuyển trạng thái từ Đã tải sang Đang lập chỉ mục xảy ra tự động ngay trong lượt tải lên, và chuyển sang Sẵn sàng hoặc Lỗi xảy ra tự động khi tiến trình nền làm xong.
+
+2. Hàng đợi và tiến trình xử lý nền
+
+Việc lập chỉ mục không chạy bên trong lượt bấm nút của anh chị. Nó chạy ở một tiến trình riêng.
+
+2.1 Vì sao không xử lý ngay trong lượt tải lên
+
+Bóc chữ khỏi một tệp PDF vài chục trang mất nhiều giây. Sau đó mỗi đoạn phải gọi ra nhà cung cấp AI để lấy vector, và một văn bản quy trình dài dễ sinh ra vài trăm đoạn. Cộng lại có thể mất nhiều phút.
+
+Nếu làm việc đó ngay trong lượt bấm nút thì trình duyệt sẽ quay vòng rồi hết thời gian chờ, và anh chị không biết tệp đã vào hay chưa. Tách ra hàng đợi giúp lượt tải lên trả kết quả ngay, còn phần nặng chạy nền và báo lại bằng trạng thái.
+
+2.2 Hàng đợi nằm ở đâu
+
+Hàng đợi nằm trên Redis và có tên querion-indexing. Máy chủ API chỉ bỏ công việc vào hàng đợi. Một tiến trình riêng, gọi là worker lập chỉ mục, lấy công việc ra và chạy.
+
+Điều này có nghĩa là phải có đủ ba thứ cùng lúc thì văn bản mới lập chỉ mục được: máy chủ API đang chạy, Redis đang chạy, và tiến trình worker đang chạy. Thiếu bất kỳ cái nào, tệp sẽ nằm im ở một trạng thái nào đó.
+
+2.3 Khi không xếp được vào hàng đợi
+
+Nếu Redis không kết nối được lúc tải tệp lên, hệ thống bắt lỗi và đặt trạng thái văn bản trở lại Đã tải thay vì để nó mắc kẹt ở Đang lập chỉ mục.
+
+Đây là quy ước cố ý. Một văn bản nằm ở Đã tải nghĩa là tệp đã an toàn trong kho lưu trữ nhưng chưa ai nhận việc, nên anh chị bấm lập chỉ mục lại được bằng tay. Nếu hệ thống để nó ở Đang lập chỉ mục thì thao tác lập chỉ mục thủ công sẽ bị từ chối và văn bản đó kẹt vĩnh viễn.
+
+Quy tắc nhận biết: nhiều tệp vừa tải lên đều đứng ở Đã tải, đó là dấu hiệu Redis không với tới được.
+
+2.4 Khi worker không chạy
+
+Trường hợp khác hẳn. Redis vẫn tốt nên công việc vào hàng đợi được, trạng thái văn bản chuyển sang Đang lập chỉ mục, nhưng không ai lấy công việc ra chạy.
+
+Biểu hiện: văn bản đứng ở Đang lập chỉ mục rất lâu, không sang Sẵn sàng cũng không sang Lỗi. Vòng xoay quay mãi.
+
+Phân biệt hai trường hợp bằng trạng thái, không đoán. Đứng ở Đã tải là Redis hỏng. Đứng ở Đang lập chỉ mục là worker không chạy hoặc đang tắc.
+
+3. Bảy bước mà tiến trình nền thực hiện
+
+Biết bảy bước này giúp đọc thông báo lỗi nhanh hơn, vì mỗi thông báo gắn với một bước.
+
+3.1 Bước một, đọc bản ghi văn bản và nhà cung cấp embedding
+
+Tiến trình tìm bản ghi văn bản theo mã. Không thấy thì ghi nhật ký rồi dừng, không đổi trạng thái.
+
+Ngay sau đó nó tìm nhà cung cấp embedding đang bật. Nếu không có, công việc dừng tại đây.
+
+3.2 Bước hai, tải tệp về từ kho lưu trữ
+
+Tệp gốc nằm trong kho lưu trữ đối tượng. Tiến trình tải về một tệp tạm trên máy, và xoá tệp tạm đó khi xong, kể cả khi giữa chừng có lỗi.
+
+3.3 Bước ba, bóc chữ
+
+Tuỳ định dạng mà hệ thống dùng cách bóc khác nhau. PDF, DOCX và TXT đều được hỗ trợ.
+
+Đây là bước hay hỏng nhất với PDF, vì một tệp PDF có thể chỉ là ảnh chụp trang giấy.
+
+3.4 Bước bốn, cắt đoạn
+
+Chữ vừa bóc được cắt thành các đoạn. Cách cắt mô tả ở mục 4.
+
+3.5 Bước năm, sinh vector
+
+Danh sách đoạn được gửi tới nhà cung cấp embedding theo từng lô. Đây là bước tốn thời gian và tốn tiền nhất, và cũng là bước ghi số token vào bảng đo.
+
+3.6 Bước sáu, ghi đoạn và vector vào cơ sở dữ liệu
+
+Trước khi ghi mới, tiến trình xoá sạch các đoạn cũ của chính văn bản đó. Nhờ vậy lập chỉ mục lại không tạo ra đoạn trùng lặp.
+
+3.7 Bước bảy, đánh dấu Sẵn sàng
+
+Trạng thái chuyển sang Sẵn sàng, số đoạn được ghi lại, thông báo lỗi cũ bị xoá.
+
+4. Cách hệ thống cắt đoạn và vì sao cách đó quan trọng
+
+Cắt đoạn nghe kỹ thuật nhưng nó quyết định chất lượng trích dẫn mà cán bộ nhìn thấy.
+
+4.1 Cắt theo cấu trúc trước, cắt theo độ dài sau
+
+Hệ thống đọc văn bản và tìm các tiêu đề cấu trúc quen thuộc của văn bản pháp quy tiếng Việt, theo thứ tự từ lớn xuống nhỏ. Nó cắt văn bản tại các tiêu đề đó trước.
+
+Sau khi đã tách thành từng mục, mỗi mục mới được cắt tiếp theo độ dài. Cửa sổ cắt là 1000 ký tự, và hai đoạn liền nhau chồng lấn 200 ký tự.
+
+Chồng lấn 200 ký tự có lý do. Một câu quan trọng nằm vắt ngang ranh giới hai đoạn sẽ xuất hiện trọn vẹn ở ít nhất một trong hai đoạn, nên không bị mất nghĩa khi tìm kiếm.
+
+4.2 Vì sao cắt theo cấu trúc trước lại quan trọng
+
+Nếu chỉ cắt theo độ dài, một đoạn dễ chứa nửa cuối điều này và nửa đầu điều kia. Khi trợ lý trích đoạn đó, câu trả lời trộn hai điều khoản khác nhau. Trong nghiệp vụ ngân hàng, đó là sai sót nghiêm trọng chứ không phải lỗi hiển thị.
+
+Cắt theo cấu trúc trước bảo đảm một đoạn không bao giờ vắt ngang hai điều.
+
+4.3 Dấu vết đường dẫn ở đầu mỗi đoạn
+
+Mỗi đoạn được gắn thêm ở đầu một dấu vết đường dẫn đặt trong ngoặc vuông, ghi hai cấp tiêu đề gần nhất.
+
+Dấu vết này phục vụ hai việc cùng lúc. Khi sinh vector, nó cho mô hình biết đoạn này thuộc phần nào, nên tìm kiếm chính xác hơn. Khi hiển thị trích dẫn, giao diện đọc ngược dấu vết ra để ghi rõ cán bộ đang đọc điều khoản nào.
+
+Nhờ nó mà trích dẫn hiện ra dưới dạng tên văn bản, ngày hiệu lực và tên điều khoản, thay vì chỉ có tên tệp.
+
+4.4 Danh sách đánh số không bị băm nhỏ
+
+Văn bản nghiệp vụ đầy các dòng đánh số. Nếu coi mọi dòng đánh số là tiêu đề thì một điều khoản có mười khoản sẽ vỡ thành mười mảnh vụn, mỗi mảnh vài chục chữ, và tìm kiếm trở nên vô dụng.
+
+Hệ thống phân biệt bằng hình dạng câu. Một dòng đánh số quá dài, hoặc kết thúc bằng dấu chấm, dấu chấm phẩy, dấu hai chấm hay dấu phẩy, được coi là câu trong thân bài chứ không phải tiêu đề. Chỉ những dòng đánh số ngắn gọn, không kết thúc bằng dấu câu, mới được coi là tiêu đề.
+
+Đây cũng là lý do khi anh chị soạn tài liệu để nạp vào hệ thống, nên đặt tiêu đề mục ngắn và không kết thúc bằng dấu câu.
+
+5. Các lỗi thường gặp và cách xử lý
+
+Thông báo lỗi được lưu nguyên văn vào bản ghi văn bản và hiển thị trên giao diện. Dưới đây là các thông báo hay gặp nhất.
+
+5.1 Không có nhà cung cấp embedding đang bật
+
+Thông báo lưu lại là "No active embedding provider configured".
+
+Nguyên nhân: không có bản ghi nhà cung cấp nào với mục đích embedding đang ở trạng thái bật. Công việc dừng ngay ở bước một, chưa kịp tải tệp về.
+
+Cách xử lý: vào màn hình cài đặt AI, thêm hoặc bật một nhà cung cấp cho mục đích embedding, rồi lập chỉ mục lại văn bản.
+
+Lưu ý quan trọng: lỗi này ảnh hưởng nhiều hơn vẻ ngoài của nó. Cùng một nhà cung cấp embedding cũng được dùng để chuyển câu hỏi của cán bộ thành vector. Khi thiếu nó, việc tra cứu trả về danh sách rỗng một cách im lặng, trợ lý vẫn trả lời nhưng không có trích dẫn nào. Nếu anh chị thấy mọi câu trả lời đột nhiên mất trích dẫn, hãy kiểm tra chỗ này trước.
+
+5.2 Không bóc được chữ nào
+
+Thông báo lưu lại là "No text content extracted from document".
+
+Nguyên nhân phổ biến nhất: tệp PDF là bản quét, tức là ảnh chụp trang giấy, không có lớp chữ bên trong. Mắt người đọc được nhưng máy không đọc được.
+
+Nguyên nhân khác: tệp rỗng, tệp hỏng, hoặc tệp đổi đuôi từ định dạng khác sang.
+
+Cách xử lý: trong hệ thống không có bước nhận dạng ký tự quang học. Anh chị phải xử lý nhận dạng ký tự ở bên ngoài trước, lưu ra một tệp PDF có lớp chữ hoặc một tệp Word, rồi tải lại. Lập chỉ mục lại tệp quét cũ bao nhiêu lần cũng cho cùng kết quả.
+
+Cách kiểm tra nhanh trước khi tải lên: mở tệp PDF, thử bôi đen một dòng chữ. Bôi đen được là có lớp chữ. Không bôi đen được là bản quét.
+
+5.3 Không tạo được đoạn nào
+
+Thông báo lưu lại là "No chunks created from text".
+
+Nguyên nhân: bóc được chữ nhưng sau khi cắt thì không còn đoạn nào có nội dung. Thường gặp với tệp chỉ chứa khoảng trắng, ký tự xuống dòng hoặc vài ký tự lẻ.
+
+Cách xử lý: mở tệp gốc kiểm tra xem có nội dung thật hay không.
+
+5.4 Lỗi khi gọi nhà cung cấp embedding
+
+Thông báo lưu lại là nguyên văn lỗi từ thư viện gọi API, nên hình dạng thay đổi. Hay gặp là lỗi xác thực khi khoá sai hoặc hết hạn, lỗi vượt hạn mức, và lỗi hết thời gian chờ.
+
+Cách xử lý: kiểm tra khoá và hạn mức ở phía nhà cung cấp, rồi lập chỉ mục lại. Nếu lỗi hết thời gian chờ lặp lại với tệp lớn, tách tệp thành nhiều tệp nhỏ hơn.
+
+5.5 Văn bản đứng mãi ở Đang lập chỉ mục
+
+Đây không phải lỗi được ghi lại, vì tiến trình chưa chạy tới chỗ ghi lỗi.
+
+Nguyên nhân: tiến trình worker không chạy, hoặc đang bận một công việc rất dài, hoặc đã chết giữa chừng mà không kịp cập nhật.
+
+Cách xử lý: kiểm tra tiến trình worker có đang chạy không. Sau khi worker chạy lại, bấm lập chỉ mục cho văn bản đó. Thao tác này đặt lại trạng thái và xếp một công việc mới.
+
+6. Lập chỉ mục lại
+
+Nút lập chỉ mục xuất hiện trên dòng văn bản khi trạng thái là Đã tải hoặc Lỗi.
+
+6.1 Lập chỉ mục lại làm gì
+
+Hệ thống đặt trạng thái về Đang lập chỉ mục, xoá thông báo lỗi cũ, rồi xếp một công việc mới vào hàng đợi.
+
+Tiến trình nền chạy lại toàn bộ bảy bước. Ở bước ghi dữ liệu, nó xoá hết đoạn cũ của văn bản trước khi ghi đoạn mới.
+
+6.2 Lập chỉ mục lại nhiều lần có an toàn không
+
+An toàn. Vì đoạn cũ bị xoá trước khi ghi mới, chạy lại mười lần cho ra đúng kết quả như chạy một lần. Không có đoạn trùng, không có vector mồ côi.
+
+Điều duy nhất bị mất là các chỉnh sửa thủ công trên từng đoạn, xem mục 8.
+
+6.3 Khi nào hệ thống từ chối lập chỉ mục lại
+
+Nếu văn bản đang ở trạng thái Đang lập chỉ mục, yêu cầu bị từ chối với thông báo cho biết văn bản đang được lập chỉ mục.
+
+Đây là chốt chặn chống chạy hai công việc song song trên cùng một văn bản, vì hai tiến trình cùng xoá và cùng ghi sẽ tạo ra dữ liệu lẫn lộn.
+
+Nếu anh chị chắc chắn công việc cũ đã chết, cách xử lý là khôi phục tiến trình worker rồi chờ công việc treo kết thúc bằng lỗi, sau đó lập chỉ mục lại.
+
+6.4 Khi nào nên chủ động lập chỉ mục lại
+
+- Sau khi đổi nhà cung cấp hoặc đổi model embedding. Bắt buộc, xem mục 9.
+- Sau khi sửa nội dung đoạn bằng tay và muốn quay về bản gốc.
+- Sau khi một lần chạy thất bại vì lý do tạm thời như mất mạng hoặc hết hạn mức.
+
+Không cần lập chỉ mục lại khi chỉ sửa loại văn bản, phiên bản hay ngày hiệu lực. Ba trường đó nằm ở bản ghi văn bản, không nằm trong đoạn, nên trích dẫn cập nhật ngay.
+
+7. Theo dõi tiến độ trên giao diện
+
+Trang chi tiết kho tri thức tự động hỏi lại máy chủ ba giây một lần cho mỗi văn bản đang ở trạng thái Đang lập chỉ mục.
+
+Nghĩa là anh chị không cần tải lại trang. Cứ mở trang đó và chờ, trạng thái sẽ tự đổi sang Sẵn sàng hoặc Lỗi.
+
+Khi văn bản đã Sẵn sàng, cột số đoạn hiển thị số đoạn đã tạo, và tên tệp trở thành liên kết mở được hộp xem trước từng đoạn.
+
+Một mẹo đọc số đoạn: một văn bản quy trình dài vài chục trang mà chỉ ra vài đoạn là dấu hiệu bóc chữ không đầy đủ. Mở xem trước đoạn để kiểm tra.
+
+8. Xem trước và sửa nội dung đoạn
+
+Bấm vào tên tệp của một văn bản đã Sẵn sàng để mở hộp xem trước đoạn. Hộp này phân trang và cho phép sửa nội dung từng đoạn.
+
+8.1 Khi nào nên sửa đoạn
+
+Rất hiếm. Dùng khi bóc chữ làm hỏng một bảng biểu quan trọng, hoặc khi một đoạn dính ký tự rác làm tìm kiếm sai.
+
+Trường hợp thông thường nên sửa tệp gốc rồi tải lên lại, vì đó mới là bản có giá trị lưu trữ.
+
+8.2 Điều gì xảy ra khi lưu một đoạn đã sửa
+
+Nội dung đoạn được cập nhật, rồi hệ thống sinh vector mới cho đoạn đó ngay lập tức, đi qua đúng đường mà câu hỏi của cán bộ đi qua, nên tôn trọng cả địa chỉ máy chủ riêng của nhà cung cấp.
+
+Lượt sinh vector này được ghi vào bảng đo token như công việc lập chỉ mục, nên chi phí vẫn được tính đúng chỗ.
+
+Nếu không có nhà cung cấp embedding nào đang bật, nội dung vẫn được lưu nhưng vector không đổi. Kết quả là đoạn hiển thị nội dung mới nhưng tìm kiếm vẫn theo nội dung cũ. Hệ thống có báo lại trạng thái này.
+
+8.3 Sửa đoạn không sửa tệp gốc
+
+Đây là điều dễ quên nhất. Chỉnh sửa chỉ nằm ở bảng đoạn trong cơ sở dữ liệu. Tệp gốc trong kho lưu trữ giữ nguyên.
+
+Lần lập chỉ mục lại kế tiếp sẽ xoá hết đoạn cũ và sinh lại từ tệp gốc, nên mọi chỉnh sửa thủ công biến mất không báo trước.
+
+Nếu một chỉnh sửa là cần thiết lâu dài, hãy sửa vào tệp gốc và tải lên bản mới.
+
+8.4 Hộp xem trước đoạn vẫn hiển thị tiếng Anh
+
+Tiêu đề hộp và nút phân trang đã là tiếng Việt, nhưng các nhãn bên trong thẻ đoạn vẫn là tiếng Anh, gồm nút sửa, nút lưu và các thông báo sau khi lưu. Đây là phần chưa dịch xong, không phải lỗi.
+
+9. Số chiều vector cố định 1536
+
+Cột lưu vector trong cơ sở dữ liệu được khai báo cứng là vector 1536 chiều. Con số này không đổi được bằng cấu hình.
+
+9.1 Vector ngắn hơn được đệm thêm số không
+
+Một số model cho ra vector ngắn hơn, ví dụ các model của Google cho 768 chiều. Hệ thống đệm thêm số không cho đủ 1536 rồi mới lưu.
+
+Đệm số không không làm sai kết quả so sánh giữa các vector cùng loại, vì phần đệm giống nhau ở mọi vector.
+
+9.2 Vector dài hơn bị cắt bớt
+
+Một số model cho ra vector dài hơn, ví dụ 3072 hoặc 4096 chiều. Hệ thống cắt bỏ phần vượt quá 1536.
+
+Cắt bớt thì có mất thông tin. Danh mục model trong hệ thống ghi rõ nhãn cho biết model nào sẽ bị cắt về 1536, nên anh chị nhìn nhãn là biết.
+
+Khuyến nghị: chọn model có đúng 1536 chiều để không phải đệm cũng không phải cắt.
+
+9.3 Đổi model embedding thì phải lập chỉ mục lại toàn bộ
+
+Đây là hệ quả quan trọng nhất của mục này.
+
+Đổi model embedding không tự động lập chỉ mục lại các văn bản cũ. Các đoạn cũ giữ nguyên vector do model cũ sinh ra, còn câu hỏi của cán bộ từ nay được model mới chuyển thành vector.
+
+Hai model khác nhau đặt cùng một ý nghĩa ở những vị trí khác nhau trong không gian vector. So sánh vector của model này với vector của model kia cho ra kết quả gần như ngẫu nhiên.
+
+Biểu hiện: sau khi đổi model, trợ lý vẫn chạy, vẫn trả lời, nhưng trích dẫn lệch chủ đề. Văn bản nào vừa nạp sau khi đổi thì tra đúng, văn bản cũ thì tra sai. Rất khó nhận ra nếu không biết trước.
+
+Quy tắc vận hành: đổi model embedding là một đợt bảo trì, không phải một lần bấm nút. Kế hoạch tối thiểu gồm bốn việc, làm lần lượt. Một là chọn thời điểm ít người dùng. Hai là đổi cấu hình nhà cung cấp. Ba là lập chỉ mục lại toàn bộ văn bản của mọi kho. Bốn là hỏi thử vài câu đã biết trước câu trả lời để đối chiếu.
+
+Đổi model của nhà cung cấp LLM thì không có vấn đề này, vì LLM không sinh vector lưu trữ.
+
+10. Cột Dùng cho AI
+
+Trên bảng văn bản có một cột tên Dùng cho AI với công tắc bật tắt cho từng văn bản.
+
+10.1 Tắt thì điều gì xảy ra
+
+Văn bản được đánh dấu là tắt, kèm thời điểm tắt và người tắt.
+
+Tệp gốc vẫn nằm trong kho lưu trữ. Các đoạn và vector vẫn nằm nguyên trong cơ sở dữ liệu. Không có gì bị xoá.
+
+Thay đổi duy nhất: câu truy vấn tìm kiếm có thêm điều kiện chỉ lấy đoạn thuộc văn bản đang bật.
+
+10.2 Vì sao một công tắc lại đủ cho mọi kênh
+
+Toàn hệ thống chỉ có một hàm tra cứu duy nhất. Mọi đường trả lời đều gọi qua đó.
+
+Danh sách các đường đó gồm hỏi đáp của cán bộ trên cổng nội bộ, hỏi đáp của khách hàng trên trang công khai, bong bóng nhúng trên website đối tác, bong bóng của extension trình duyệt, màn hình thử nghiệm hỏi đáp của quản trị, node tra kho trong luồng xử lý, trợ lý chạy chế độ agent, và điểm cuối thử tra cứu.
+
+Vì tất cả dùng chung một truy vấn nên chỉ cần thêm điều kiện ở một chỗ là mọi đường ngừng dùng văn bản đó cùng lúc. Không có kênh nào bị bỏ sót.
+
+10.3 Vì sao nên tắt thay vì xoá
+
+Khi một quy định được thay thế bằng phiên bản mới, phản xạ thường là xoá bản cũ. Đừng làm vậy ngay.
+
+Tắt giữ lại dấu vết. Nhật ký truy vấn của những tháng trước vẫn trỏ tới văn bản đó, và khi kiểm tra tuân thủ, anh chị chứng minh được câu trả lời hồi đó dựa trên văn bản nào. Xoá đi thì mất luôn bằng chứng.
+
+Tắt cũng có hiệu lực tức thì và đảo ngược tức thì. Nếu phát hiện bản mới có sai sót và phải quay lại bản cũ, bật lại là xong, không phải tải lên và lập chỉ mục lại từ đầu.
+
+10.4 Điều gì không bật lại văn bản
+
+Lập chỉ mục lại không bật lại văn bản đang tắt. Sửa loại văn bản, phiên bản hay ngày hiệu lực cũng không bật lại.
+
+Trạng thái bật tắt độc lập với trạng thái lập chỉ mục. Một văn bản có thể vừa Sẵn sàng vừa đang tắt, và đó là tình huống bình thường.
+
+Chỉ có thao tác bật công tắc mới bật lại.
+
+10.5 Nhìn đâu để biết kho đang tắt bao nhiêu văn bản
+
+Phần đầu trang chi tiết kho hiển thị tổng số văn bản, và khi có văn bản bị tắt thì hiển thị thêm số lượng đang tắt. Dòng của văn bản bị tắt được làm mờ và có nhãn cho biết đã tắt, di chuột lên nhãn sẽ thấy thời điểm tắt.
+
+11. Danh sách kiểm tra khi có sự cố
+
+Làm theo đúng thứ tự này, đừng nhảy cóc. Thứ tự được sắp theo xác suất gặp phải.
+
+11.1 Khi một văn bản không lập chỉ mục được
+
+- Xem trạng thái. Đã tải nghĩa là chưa vào hàng đợi, Đang lập chỉ mục nghĩa là chưa ai chạy, Lỗi nghĩa là đã chạy và hỏng.
+- Nếu là Lỗi, đọc thông báo lỗi. Ba thông báo hay gặp đã liệt kê ở mục 5.
+- Nếu là Đã tải, kiểm tra Redis rồi bấm lập chỉ mục lại.
+- Nếu là Đang lập chỉ mục quá lâu, kiểm tra tiến trình worker.
+- Nếu thông báo nói không có nhà cung cấp embedding, sang màn hình cài đặt AI.
+- Nếu thông báo nói không bóc được chữ, kiểm tra tệp có phải bản quét không.
+
+11.2 Khi trợ lý trả lời mà không có trích dẫn nào
+
+- Kiểm tra trợ lý đã gắn kho tri thức chưa. Không gắn kho thì trợ lý trả lời bằng kiến thức chung.
+- Kiểm tra kho có văn bản nào ở trạng thái Sẵn sàng không.
+- Kiểm tra các văn bản đó có đang bật ở cột Dùng cho AI không.
+- Kiểm tra nhà cung cấp embedding có đang bật không. Thiếu nó thì tra cứu trả về rỗng mà không báo lỗi.
+- Nếu trợ lý chạy bằng luồng xử lý, kiểm tra node tra kho đã chọn kho chưa và chuỗi mẫu đã chèn ngữ cảnh chưa.
+
+11.3 Khi trích dẫn trỏ sai chủ đề
+
+- Kiểm tra gần đây có ai đổi model embedding không. Nếu có, phải lập chỉ mục lại toàn bộ.
+- Mở xem trước đoạn để kiểm tra chất lượng bóc chữ.
+- Kiểm tra kho có lẫn văn bản của nghiệp vụ khác không.
+
+11.4 Khi số đoạn thấp bất thường
+
+- Mở xem trước đoạn và đọc vài đoạn đầu.
+- Nếu nội dung cụt hoặc lẫn ký tự lạ, bóc chữ có vấn đề. Thử chuyển tệp sang Word rồi tải lại.
+
+12. Câu hỏi thường gặp
+
+Hỏi: Tôi tải tệp lên xong hỏi ngay thì trợ lý nói không có thông tin, vì sao?
+Đáp: Vì văn bản chưa lập chỉ mục xong. Chờ trạng thái chuyển sang Sẵn sàng rồi hỏi lại. Trang tự cập nhật ba giây một lần.
+
+Hỏi: Tệp PDF của tôi báo không bóc được chữ, lập chỉ mục lại nhiều lần vẫn vậy?
+Đáp: Tệp là bản quét, bên trong chỉ có ảnh. Hệ thống không có bước nhận dạng ký tự. Phải nhận dạng ký tự bên ngoài rồi tải lại bản có lớp chữ.
+
+Hỏi: Tắt một văn bản có mất dữ liệu không?
+Đáp: Không mất gì. Tệp và các đoạn vẫn còn nguyên, chỉ là mọi đường trả lời ngừng dùng nó. Bật lại là dùng được ngay.
+
+Hỏi: Tôi đổi model embedding sang model tốt hơn, có cần làm gì thêm không?
+Đáp: Có, và bắt buộc. Phải lập chỉ mục lại toàn bộ văn bản của mọi kho. Nếu không, đoạn cũ và câu hỏi mới được đo bằng hai thước khác nhau và trích dẫn sẽ lệch.
+
+Hỏi: Lập chỉ mục lại có làm mất chỉnh sửa đoạn của tôi không?
+Đáp: Có. Tiến trình xoá hết đoạn cũ rồi sinh lại từ tệp gốc. Muốn giữ lâu dài thì sửa vào tệp gốc và tải lên bản mới.
+
+Hỏi: Nhiều tệp cùng đứng ở Đã tải, nguyên nhân là gì?
+Đáp: Hệ thống không xếp được công việc vào hàng đợi, thường vì Redis không kết nối được. Khôi phục Redis rồi bấm lập chỉ mục lại cho từng tệp.
+
+Hỏi: Vì sao số chiều vector không đổi được thành 3072 cho model tốt hơn?
+Đáp: Vì cột trong cơ sở dữ liệu khai báo cứng là 1536 chiều. Vector dài hơn bị cắt về 1536 khi lưu. Đổi con số này là việc thay đổi lược đồ cơ sở dữ liệu và lập chỉ mục lại toàn hệ thống, không phải việc cấu hình.
+
+Hỏi: Một văn bản vừa Sẵn sàng vừa hiển thị Đã tắt, có phải lỗi không?
+Đáp: Không. Hai trạng thái đó độc lập nhau. Sẵn sàng nói về chỉ mục, Đã tắt nói về việc có cho trợ lý dùng hay không.

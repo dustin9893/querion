@@ -1,0 +1,328 @@
+CẨM NANG VẬN HÀNH — CẤU HÌNH NHÀ CUNG CẤP AI
+Phiên bản v1.0 — hiệu lực 01/10/2026
+Đối tượng: quản trị viên hệ thống và quản trị viên đơn vị
+
+1. Nhà cung cấp AI là gì trong hệ thống này
+
+Hệ thống không tự chạy mô hình AI. Nó gọi ra dịch vụ của bên thứ ba qua mạng. Mỗi dịch vụ như vậy được khai một bản ghi, gọi là nhà cung cấp.
+
+Một bản ghi nhà cung cấp gồm năm thông tin. Tên họ nhà cung cấp, mục đích sử dụng, tên model, khoá gọi API, và địa chỉ máy chủ.
+
+Màn hình quản lý nằm ở mục Cài đặt AI trong nhóm Quản trị của thanh bên.
+
+1.1 Chỉ super admin mới vào được
+
+Màn hình này chỉ hiển thị với tài khoản super admin. Quản trị viên đơn vị không nhìn thấy mục Cài đặt AI trên thanh bên, và nếu gõ thẳng đường dẫn thì nhận thông báo từ chối truy cập.
+
+Bốn mục chỉ dành cho super admin là Người dùng quản trị, Đơn vị, Cài đặt AI và Trợ lý Vận hành. Bốn mục còn lại trong nhóm Quản trị thì chủ đơn vị cũng vào được.
+
+1.2 Cấu hình là toàn hệ thống, không theo đơn vị
+
+Đây là điểm khác biệt quan trọng so với gần như mọi thứ khác trong sản phẩm. Kho tri thức, trợ lý, công cụ, luồng xử lý và biểu mẫu đều thuộc về một đơn vị. Nhà cung cấp AI thì không.
+
+Một bản ghi nhà cung cấp phục vụ toàn bộ ngân hàng. Mọi đơn vị dùng chung khoá đó, và mọi chi phí đổ về một tài khoản.
+
+Lựa chọn này là cố ý. Khoá gọi API là tài sản nhạy cảm và chi phí token là khoản chi cấp ngân hàng, không phải khoản chi của từng khối. Để mỗi đơn vị tự khai khoá riêng thì mất kiểm soát cả bảo mật lẫn ngân sách, và không ai tổng hợp nổi số tiền thực dùng.
+
+Bù lại, bảng đo token vẫn tách được theo đơn vị, theo trợ lý và theo kênh, nên phân bổ chi phí nội bộ vẫn làm được.
+
+2. Hai mục đích và cách hệ thống chọn bản ghi
+
+Mỗi bản ghi nhà cung cấp phải khai đúng một mục đích. Có hai giá trị.
+
+2.1 Mục đích embedding
+
+Embedding là việc chuyển một đoạn chữ thành một dãy số. Hệ thống dùng nó ở hai chỗ.
+
+Chỗ thứ nhất là lập chỉ mục. Khi tải văn bản lên, tiến trình nền cắt văn bản thành đoạn rồi gọi nhà cung cấp embedding để lấy vector cho từng đoạn.
+
+Chỗ thứ hai là mỗi lần có người hỏi. Câu hỏi cũng phải thành vector thì mới so sánh được với các đoạn đã lưu.
+
+Hai chỗ này phải dùng cùng một model thì kết quả mới có nghĩa. Vì hệ thống luôn lấy một bản ghi embedding duy nhất cho cả hai việc, điều này tự động đúng, miễn là anh chị không đổi model giữa chừng mà quên lập chỉ mục lại.
+
+2.2 Mục đích llm
+
+LLM là mô hình viết câu trả lời. Hệ thống dùng nó cho hỏi đáp của cán bộ và khách hàng, cho node sinh câu trả lời và node trích tham số trong luồng xử lý, cho phần nhận định của báo cáo, cho gợi ý nội dung biểu mẫu, và cho việc tự đặt tiêu đề hội thoại.
+
+2.3 Bản ghi nào được dùng
+
+Đây là quy tắc mà anh chị phải thuộc, vì nó gây nhiều hiểu lầm nhất.
+
+Với mỗi mục đích, hệ thống lấy bản ghi đang bật đầu tiên tính theo thứ tự ngày tạo từ cũ tới mới. Không có nút đánh dấu mặc định, không có thứ tự ưu tiên tự sắp xếp được.
+
+Nói cách khác, bản ghi cũ nhất còn bật sẽ thắng.
+
+Hệ quả thực tế: thêm một nhà cung cấp mới và bật nó lên thường không thay đổi gì cả, vì bản ghi cũ vẫn bật và vẫn cũ hơn.
+
+Quy trình đổi nhà cung cấp đúng gồm ba bước, làm lần lượt. Một là tạo bản ghi mới và bật. Hai là tắt bản ghi cũ. Ba là thử lại bằng một câu hỏi thật.
+
+Nếu anh chị muốn dọn dẹp cho gọn thì xoá hẳn bản ghi cũ sau khi đã chắc chắn bản mới chạy tốt. Xoá bản ghi không làm mất dữ liệu đã lập chỉ mục, cũng không làm mất lịch sử đo token, vì bảng đo lưu tên nhà cung cấp và tên model dưới dạng chữ chứ không tham chiếu tới bản ghi.
+
+3. Khoá gọi API và mã hoá
+
+3.1 Khoá được mã hoá trước khi lưu
+
+Khoá anh chị nhập vào không được lưu nguyên văn. Hệ thống mã hoá bằng Fernet rồi mới ghi xuống cơ sở dữ liệu.
+
+Khi đọc danh sách nhà cung cấp, API giải mã rồi che bớt, chỉ trả về dạng rút gọn. Không có đường nào trong giao diện lấy lại được khoá đầy đủ.
+
+Hệ quả vận hành: nếu anh chị làm mất khoá gốc thì phải xin lại từ nhà cung cấp, hệ thống không đọc hộ được. Hãy lưu khoá ở nơi quản lý bí mật của ngân hàng trước khi nhập vào đây.
+
+3.2 Muốn đổi khoá thì nhập lại
+
+Không có thao tác sửa một phần khoá. Nhập khoá mới vào ô khoá rồi lưu là khoá cũ bị thay hẳn.
+
+3.3 Khoá mã hoá dùng chung giữa máy chủ API và tiến trình nền
+
+Cùng một khoá mã hoá được máy chủ API và tiến trình worker lập chỉ mục dùng chung. API dùng nó để ghi, worker dùng nó để đọc.
+
+Nếu hai tiến trình được cấu hình hai khoá mã hoá khác nhau, hậu quả rất khó đoán nếu không biết trước. Trả lời hỏi đáp vẫn chạy bình thường, vì API tự mã hoá và tự giải mã. Nhưng lập chỉ mục thì hỏng hết, vì worker không giải mã nổi khoá API đã ghi.
+
+Biểu hiện: mọi văn bản mới tải lên đều chuyển sang trạng thái Lỗi với thông báo liên quan tới giải mã, trong khi hỏi đáp trên các văn bản cũ vẫn tốt. Gặp tình huống này, kiểm tra cấu hình khoá mã hoá của hai tiến trình trước khi nghi ngờ bất cứ thứ gì khác.
+
+Đây cũng là lý do không được sinh khoá mã hoá mới khi triển khai lại. Sinh khoá mới làm mọi khoá API đã lưu trở thành rác, và phải nhập lại toàn bộ.
+
+4. Các họ nhà cung cấp
+
+Hệ thống biết sáu họ.
+
+4.1 Danh sách và cách hệ thống gọi
+
+- openai, gọi bằng bộ thư viện OpenAI.
+- google, gọi bằng bộ thư viện riêng của Google.
+- anthropic, gọi bằng bộ thư viện riêng của Anthropic.
+- openrouter, một cổng trung chuyển nói giao thức OpenAI.
+- vngcloud, tên hiển thị là GreenNode MaaS của VNG Cloud, cũng nói giao thức OpenAI.
+- openai_compatible, dành cho mọi cổng khác nói giao thức OpenAI mà anh chị tự nhập địa chỉ.
+
+4.2 Vì sao cách chia này quan trọng
+
+Bốn họ openai, openrouter, vngcloud và openai_compatible đều nói cùng một giao thức. Hệ thống gọi chúng bằng cùng một đoạn mã, chỉ khác địa chỉ máy chủ và khoá.
+
+Hai họ google và anthropic nói giao thức riêng, nên hệ thống có hai nhánh mã riêng cho chúng.
+
+Sự khác biệt này không chỉ là chi tiết kỹ thuật. Nó quyết định tính năng nào chạy được với họ nào, xem mục 7.
+
+4.3 Địa chỉ máy chủ
+
+Mỗi họ có một địa chỉ mặc định. Khi anh chị chọn họ, ô địa chỉ được điền sẵn.
+
+OpenRouter và GreenNode MaaS đều có địa chỉ mặc định sẵn trong danh mục, nên chọn họ là xong, không cần gõ gì.
+
+Họ openai, google và anthropic không cần địa chỉ, vì thư viện của họ tự biết.
+
+Riêng lựa chọn openai_compatible bắt buộc anh chị tự nhập địa chỉ. Nhãn của ô cũng đổi để nhắc rằng đây là trường bắt buộc. Dùng lựa chọn này khi ngân hàng tự vận hành một cổng suy luận nội bộ nói giao thức OpenAI.
+
+Nếu anh chị để trống ô địa chỉ khi chọn một họ có mặc định, hệ thống tự điền mặc định lúc lưu.
+
+5. Cấu hình đang dùng thật và lý do
+
+5.1 Mô hình ngôn ngữ dùng GreenNode MaaS của VNG Cloud
+
+Bản triển khai hiện tại đặt mục đích llm ở họ vngcloud, tức nền tảng GreenNode MaaS của VNG Cloud.
+
+Danh mục model liệt kê ba model cho họ này. Một model Gemma 4 31B IT được đánh dấu là nhanh. Một model Qwen 3.6 Flash. Một model GLM 5.2 dành cho hackathon, được đánh dấu là model suy luận và chậm.
+
+Cấu hình đang chạy dùng model Gemma 4 31B IT.
+
+5.2 Embedding dùng OpenRouter
+
+Mục đích embedding đặt ở họ openrouter, với model text embedding 3 small của OpenAI đi qua cổng OpenRouter. Model này cho vector đúng 1536 chiều, khớp với cột trong cơ sở dữ liệu nên không phải đệm cũng không phải cắt.
+
+5.3 Vì sao phải tách làm hai nhà cung cấp
+
+Lý do rất cụ thể. Điểm cuối của GreenNode MaaS chỉ phục vụ các model hội thoại. Nó không mở điểm cuối embedding.
+
+Vì embedding là bắt buộc để lập chỉ mục và để tra cứu, mục đích embedding phải đặt ở một nơi khác. OpenRouter được chọn vì nó nói cùng giao thức, có sẵn model 1536 chiều, và chỉ cần một khoá.
+
+Đây là tình huống hoàn toàn bình thường. Hệ thống được thiết kế để hai mục đích chỉ tới hai nhà cung cấp khác nhau, và không có ràng buộc nào buộc chúng phải cùng một nơi.
+
+5.4 Danh mục model và nhãn cắt chiều
+
+Danh mục model ghi sẵn số chiều của từng model embedding. Model nào có số chiều khác 1536 thì nhãn hiển thị ghi rõ sẽ bị cắt về 1536.
+
+Trong danh mục có hai ví dụ như vậy ở họ OpenRouter, một model 4096 chiều và một model 3072 chiều, cả hai đều mang nhãn cho biết sẽ bị cắt.
+
+Các model của Google có 768 chiều. Chúng không bị cắt mà được đệm thêm số không cho đủ 1536.
+
+Khuyến nghị: chọn model có đúng 1536 chiều. Cắt bớt thì mất thông tin, còn đệm số không thì lãng phí chỗ lưu trữ mà không thêm chất lượng.
+
+6. Điều gì hỏng khi thiếu nhà cung cấp
+
+Đây là mục nên đọc kỹ, vì các biểu hiện rất khác nhau và phần lớn không hiện ra như một lỗi rõ ràng.
+
+6.1 Thiếu nhà cung cấp embedding đang bật
+
+Lập chỉ mục hỏng ngay và có báo lỗi rõ ràng. Tiến trình nền dừng ở bước đầu tiên và ghi vào văn bản thông báo cho biết không có nhà cung cấp embedding nào được cấu hình. Trạng thái văn bản chuyển sang Lỗi.
+
+Tra cứu thì hỏng âm thầm. Hàm tra cứu kiểm tra nhà cung cấp, không thấy, và trả về danh sách rỗng mà không ném lỗi.
+
+Hậu quả của việc hỏng âm thầm: trợ lý vẫn trả lời, câu trả lời vẫn trôi chảy, nhưng không có trích dẫn nào và nội dung là kiến thức chung của mô hình chứ không phải văn bản của ngân hàng. Với một trợ lý nghiệp vụ, đây là tình huống nguy hiểm hơn cả việc báo lỗi.
+
+Dấu hiệu nhận biết duy nhất dễ thấy: mọi câu trả lời trên mọi trợ lý đột nhiên không còn phần nguồn trích dẫn. Nếu thấy như vậy, kiểm tra nhà cung cấp embedding trước tiên.
+
+6.2 Thiếu nhà cung cấp llm đang bật
+
+Biểu hiện khác nhau tuỳ đường đi.
+
+Hỏi đáp trên mọi kênh vẫn nhận câu hỏi và vẫn mở luồng phản hồi, nhưng thay vì chữ thì gửi về một sự kiện lỗi với nội dung nói rằng chưa cấu hình mô hình ngôn ngữ và đề nghị liên hệ quản trị viên. Lượt hỏi vẫn được ghi vào nhật ký với trạng thái thất bại, nên anh chị vẫn thấy dấu vết.
+
+Node sinh câu trả lời trong luồng xử lý không dừng luồng. Nó ghi thẳng vào câu trả lời một dòng tiếng Anh báo chưa cấu hình nhà cung cấp, rồi luồng chạy tiếp. Với một luồng báo cáo, kết quả là tệp vẫn được tạo ra nhưng phần nhận định là câu báo lỗi bằng tiếng Anh. Đây là dấu hiệu rất dễ nhận.
+
+Node trích tham số thì im lặng hoàn toàn. Nó kiểm tra nhà cung cấp, không thấy, và bỏ qua. Không có lỗi, không có dấu vết. Hậu quả là node rẽ nhánh ngay sau đó luôn đi nhánh sai, vì trường cần so sánh không tồn tại.
+
+Gợi ý nội dung biểu mẫu từ chối thẳng với thông báo tiếng Việt cho biết chưa cấu hình mô hình ngôn ngữ.
+
+Tự đặt tiêu đề hội thoại không chạy, hội thoại giữ tiêu đề tạm.
+
+6.3 Thứ tự kiểm tra khi nghi thiếu nhà cung cấp
+
+- Mở màn hình Cài đặt AI và đếm số thẻ đang ở trạng thái bật.
+- Kiểm tra có ít nhất một thẻ mục đích embedding đang bật và một thẻ mục đích llm đang bật.
+- Nếu có nhiều thẻ cùng mục đích đang bật, nhớ rằng thẻ cũ nhất mới là thẻ đang chạy.
+- Tải thử một tệp văn bản nhỏ và xem nó có tới trạng thái Sẵn sàng không. Đây là phép thử cho embedding.
+- Hỏi một trợ lý đã công bố một câu và xem có trích dẫn không. Đây là phép thử cho cả hai mục đích cùng lúc.
+
+7. Ràng buộc theo họ nhà cung cấp
+
+Không phải tính năng nào cũng chạy với mọi họ. Đây là ràng buộc thật, cần cân nhắc trước khi chọn.
+
+7.1 Trợ lý gọi công cụ chỉ chạy với các họ nói giao thức OpenAI
+
+Cơ chế agent, tức chế độ để trợ lý tự quyết định gọi công cụ, được dựng trên lớp tích hợp chỉ hỗ trợ giao thức OpenAI.
+
+Bốn họ openai, openrouter, vngcloud và openai_compatible đều chạy được.
+
+Hai họ google và anthropic không chạy được. Khi trợ lý bật chế độ agent mà nhà cung cấp llm đang bật thuộc hai họ này, hệ thống trả về một sự kiện lỗi thay vì câu trả lời.
+
+Hãy nói rõ điều này khi có người đề xuất đổi sang Gemini hoặc Claude làm nhà cung cấp chính. Đổi như vậy sẽ làm mọi trợ lý có công cụ ngừng hoạt động, trong khi các trợ lý chỉ hỏi đáp tài liệu vẫn chạy bình thường. Đây là kiểu hỏng cục bộ rất dễ bỏ sót khi kiểm thử sơ sài.
+
+7.2 Số vòng gọi công cụ bị giới hạn
+
+Chế độ agent có giới hạn số vòng gọi công cụ trong một lượt trả lời. Giới hạn này là cấu hình ở mức hệ thống, không phải theo trợ lý. Giá trị mặc định là bốn vòng.
+
+Giới hạn tồn tại để một câu hỏi không kéo theo chuỗi gọi công cụ vô tận, vừa tốn tiền vừa làm cán bộ chờ lâu.
+
+7.3 Model suy luận và tốc độ
+
+Một số model hiện đại phát ra phần suy luận nội bộ trước khi phát ra câu trả lời. Hệ thống bỏ qua phần suy luận đó khi nhận luồng dữ liệu, nên cán bộ không nhìn thấy nó.
+
+Bỏ qua phần suy luận không làm nhanh hơn. Model vẫn tốn thời gian sinh ra nó, và cán bộ vẫn phải chờ. Danh mục model ghi rõ một model MaaS là model suy luận và chậm.
+
+Khuyến nghị: chọn model nhanh cho hỏi đáp, vì cán bộ đang chờ trước màn hình. Model chậm nhưng viết tốt hơn thì hợp với báo cáo chạy nền, nơi không ai phải chờ. Tuy nhiên hiện tại mục đích llm chỉ có một bản ghi đang chạy, nên hai nhu cầu này dùng chung một model. Nếu phải chọn một, chọn model nhanh.
+
+8. Đo token và chi phí
+
+8.1 Số liệu đến từ đâu
+
+Mỗi lần gọi mô hình, hệ thống ghi một dòng vào bảng đo token, kèm thành phần nào tiêu, kênh nào, trợ lý nào, đơn vị nào, nhà cung cấp và model nào.
+
+Số token lấy từ báo cáo của chính nhà cung cấp khi họ có trả về. Với các cổng nói giao thức OpenAI, hệ thống chủ động xin kèm số liệu sử dụng trong luồng trả về.
+
+8.2 Khi nhà cung cấp không báo số
+
+Một số cổng không trả số liệu trên luồng. Khi đó hệ thống ước tính theo tỷ lệ khoảng ba ký tự một token và đánh dấu dòng đó là ước tính.
+
+Trên màn hình Token sử dụng có một ô thống kê riêng cho số lượt ước tính, kèm ghi chú cho biết bao nhiêu lượt không có số liệu từ nhà cung cấp.
+
+8.3 Hai nhà cung cấp đang dùng đều báo số chính xác
+
+Cả GreenNode MaaS và OpenRouter đều trả về số liệu sử dụng chính xác. Nghĩa là với cấu hình hiện tại, số liệu trên màn hình Token sử dụng là số thật chứ không phải ước tính.
+
+Nếu ô ước tính đột nhiên tăng, đó là dấu hiệu có ai đó đã đổi nhà cung cấp, hoặc cổng đang dùng đã đổi cách trả lời.
+
+8.4 Lịch sử chi phí không mất theo bản ghi nhà cung cấp
+
+Bảng đo token lưu tên nhà cung cấp và tên model dưới dạng chữ, không tham chiếu tới bản ghi nhà cung cấp.
+
+Nhờ vậy xoá một bản ghi nhà cung cấp cũ không làm mất số liệu chi phí của những tháng trước. Đây là lựa chọn cố ý, vì số liệu kế toán phải sống lâu hơn cấu hình.
+
+9. Giao diện màn hình Cài đặt AI
+
+Cần nói thẳng một điểm để anh chị không mất thời gian tìm.
+
+9.1 Màn hình này chưa dịch xong
+
+Tiêu đề trang và dòng mô tả dưới tiêu đề đã là tiếng Việt. Nút thêm nhà cung cấp cũng tiếng Việt.
+
+Nhưng các nhãn trường trong biểu mẫu thêm mới vẫn là tiếng Anh, gồm nhãn chọn họ nhà cung cấp, nhãn chọn mục đích, nhãn tên model và nhãn khoá API. Hai nút xác nhận và huỷ của biểu mẫu cũng tiếng Anh. Các thẻ nhà cung cấp hiển thị nhãn tiếng Anh, và thông báo xác nhận khi xoá cũng tiếng Anh.
+
+Riêng ô địa chỉ máy chủ có nhãn nửa Anh nửa Việt, phần tiếng Việt cho biết trường đó bắt buộc hay có thể ghi đè.
+
+Đây là phần chưa dịch, không phải lỗi. Vì màn hình chỉ dành cho super admin nên nó được ưu tiên sau.
+
+9.2 Bố cục là thẻ, không phải bảng
+
+Các nhà cung cấp hiển thị dưới dạng lưới thẻ chứ không phải bảng. Mỗi thẻ có nhãn cho biết mục đích là embedding hay llm, nhãn cho biết đang bật, và công tắc bật tắt.
+
+Khi chưa có nhà cung cấp nào, màn hình hiển thị một dòng tiếng Anh cho biết chưa cấu hình nhà cung cấp nào và gợi ý thêm một cái để bật lập chỉ mục.
+
+9.3 Nhập tên model không có trong danh sách
+
+Danh sách model được lọc theo họ và mục đích đã chọn. Nếu model anh chị cần không có trong danh sách, chọn mục cho phép tự nhập rồi gõ tên model vào ô bên dưới.
+
+Tên model phải viết đúng như nhà cung cấp quy định, kể cả phần tiền tố có dấu gạch chéo. Gõ sai tên model thì lỗi chỉ xuất hiện lúc gọi thật, không xuất hiện lúc lưu.
+
+10. Quy trình kiểm tra sau mỗi lần thay đổi
+
+Đổi cấu hình AI là thay đổi có ảnh hưởng rộng nhất trong toàn hệ thống, vì nó chạm tới mọi đơn vị cùng lúc. Luôn kiểm tra ngay sau khi đổi, đừng chờ người dùng báo.
+
+10.1 Phép thử cho mục đích llm
+
+Mở màn hình thử nghiệm hỏi đáp, chọn một trợ lý đã gắn kho tri thức, hỏi một câu mà anh chị biết trước câu trả lời nằm trong tài liệu.
+
+Kết quả đạt gồm ba dấu hiệu. Có chữ chạy ra. Có phần nguồn trích dẫn. Nội dung khớp với tài liệu.
+
+Nếu không có chữ nào và hiện thông báo lỗi, nhà cung cấp llm có vấn đề. Nếu có chữ nhưng không có trích dẫn, vấn đề nằm ở embedding chứ không phải llm.
+
+10.2 Phép thử cho mục đích embedding
+
+Tạo một tệp văn bản thuần nhỏ, vài dòng, nội dung dễ nhận ra. Tải lên một kho tri thức bất kỳ.
+
+Kết quả đạt: trạng thái tự chuyển từ Đang lập chỉ mục sang Sẵn sàng trong vòng vài chục giây, và số đoạn lớn hơn không.
+
+Nếu chuyển sang Lỗi, đọc thông báo. Nếu đứng mãi ở Đang lập chỉ mục, vấn đề nằm ở tiến trình nền chứ không phải ở nhà cung cấp.
+
+Xoá tệp thử sau khi xong để kho không lẫn rác.
+
+10.3 Phép thử cho chế độ agent
+
+Chỉ cần làm khi ngân hàng có dùng công cụ.
+
+Mở màn hình thử nghiệm hỏi đáp, chọn một trợ lý đã bật chế độ gọi công cụ, hỏi một câu buộc phải gọi công cụ mới trả lời được.
+
+Kết quả đạt: hiện thẻ cho biết đang gọi công cụ, rồi hiện câu trả lời có số liệu thật.
+
+Nếu hiện lỗi ngay, khả năng cao nhà cung cấp llm đang bật thuộc họ google hoặc anthropic.
+
+10.4 Kiểm tra bảng đo sau vài giờ
+
+Mở màn hình Token sử dụng, chọn khoảng thời gian hôm nay, và xem phần tách theo mô hình.
+
+Tên model hiển thị ở đó phải là model anh chị vừa đặt. Nếu vẫn là model cũ, nghĩa là bản ghi cũ vẫn bật và vẫn thắng vì cũ hơn. Quay lại tắt nó.
+
+11. Câu hỏi thường gặp
+
+Hỏi: Tôi thêm nhà cung cấp mới và bật lên rồi mà hệ thống vẫn dùng cái cũ?
+Đáp: Vì hệ thống lấy bản ghi đang bật cũ nhất theo ngày tạo. Phải tắt bản ghi cũ thì bản mới mới được dùng.
+
+Hỏi: Vì sao LLM và embedding lại ở hai nhà cung cấp khác nhau?
+Đáp: Vì điểm cuối GreenNode MaaS chỉ phục vụ model hội thoại và không mở điểm cuối embedding. Mục đích embedding buộc phải đặt ở nơi khác, hiện là OpenRouter.
+
+Hỏi: Tôi muốn chuyển sang Gemini cho rẻ hơn, có được không?
+Đáp: Được với các trợ lý chỉ hỏi đáp tài liệu, nhưng mọi trợ lý có bật chế độ gọi công cụ sẽ ngừng hoạt động, vì cơ chế agent chỉ chạy với các họ nói giao thức OpenAI.
+
+Hỏi: Xoá một nhà cung cấp cũ có mất số liệu chi phí không?
+Đáp: Không. Bảng đo token lưu tên nhà cung cấp và tên model dưới dạng chữ, nên lịch sử chi phí vẫn còn nguyên sau khi xoá bản ghi.
+
+Hỏi: Tôi có lấy lại được khoá API đã nhập không?
+Đáp: Không. Khoá được mã hoá khi lưu và API chỉ trả về bản đã che. Phải xin lại khoá từ nhà cung cấp rồi nhập lại.
+
+Hỏi: Đổi model LLM có cần lập chỉ mục lại không?
+Đáp: Không. Chỉ đổi model embedding mới bắt buộc lập chỉ mục lại toàn bộ, vì vector đã lưu do model cũ sinh ra.
+
+Hỏi: Vì sao màn hình này còn nhiều chữ tiếng Anh?
+Đáp: Đây là phần chưa dịch xong. Vì màn hình chỉ dành cho super admin nên nó được ưu tiên sau các màn hình mà cán bộ và quản trị đơn vị dùng hằng ngày.
+
+Hỏi: Số lượt ước tính trên màn hình Token sử dụng tăng đột ngột, nghĩa là gì?
+Đáp: Nghĩa là nhà cung cấp đang dùng không trả về số token nữa. Hai nhà cung cấp đang cấu hình đều báo số chính xác, nên hãy kiểm tra xem có ai vừa đổi cấu hình hay không.

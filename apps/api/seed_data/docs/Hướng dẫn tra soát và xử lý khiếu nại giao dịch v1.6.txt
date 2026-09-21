@@ -1,0 +1,75 @@
+NGÂN HÀNG TMCP HÀNG HẢI VIỆT NAM (MSB) — KHỐI VẬN HÀNH
+HƯỚNG DẪN TRA SOÁT VÀ XỬ LÝ KHIẾU NẠI GIAO DỊCH
+Số hiệu: HD.TS.VH.10 — Phiên bản: 1.6 — Hiệu lực từ: 15/03/2026
+Đơn vị ban hành: Khối Vận hành — Trung tâm Dịch vụ khách hàng và Trung tâm Thanh toán quốc tế
+Đối tượng: Giao dịch viên (GDV), Kiểm soát viên (KSV), chuyên viên Trung tâm Dịch vụ khách hàng, chuyên viên TTQT
+
+*** TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO HACKATHON — KHÔNG PHẢI VĂN BẢN CHÍNH THỨC CỦA MSB ***
+
+Điều 1. Phạm vi và phân loại khiếu nại
+1. Hướng dẫn áp dụng cho việc tiếp nhận, tra soát và xử lý khiếu nại của khách hàng liên quan đến giao dịch tài chính tại MSB, không áp dụng cho khiếu nại về thái độ phục vụ hoặc sản phẩm (thực hiện theo Hướng dẫn HD.KN.PC.12).
+2. Phân loại khiếu nại giao dịch:
+a) Chuyển tiền nhầm: sai số tài khoản, sai tên người thụ hưởng, sai số tiền do lỗi thao tác của khách hàng hoặc GDV;
+b) Người thụ hưởng không nhận được tiền dù tài khoản người chuyển đã bị trừ tiền;
+c) Giao dịch thẻ ghi nợ/tín dụng bị trừ tiền nhưng khách hàng không thực hiện hoặc không nhận được hàng hoá, dịch vụ;
+d) ATM nuốt thẻ hoặc nuốt tiền (máy không nhả tiền nhưng tài khoản đã bị trừ);
+e) Thu phí sai, thu phí trùng hoặc áp dụng biểu phí không đúng quy định;
+f) Tra soát điện chuyển tiền quốc tế đi/đến chậm hoặc không nhận được xác nhận.
+
+Điều 2. Kênh tiếp nhận và mã hoá khiếu nại
+1. Khiếu nại được tiếp nhận qua: quầy giao dịch, tổng đài chăm sóc khách hàng 24/7, ứng dụng MSB mBank (mục Hỗ trợ), email trungtamdvkh@msb-demo.vn (mô phỏng) và văn bản gửi trực tiếp.
+2. Mỗi khiếu nại được cấp một mã theo cấu trúc KN-YYYY-xxxx (YYYY là năm tiếp nhận, xxxx là số thứ tự 4 chữ số, ví dụ KN-2026-0347); mã khiếu nại được gửi cho khách hàng ngay khi tiếp nhận qua SMS hoặc thông báo ứng dụng.
+3. Cán bộ tiếp nhận nhập đầy đủ thông tin: loại khiếu nại theo Điều 1, kênh giao dịch, số tiền, thời gian phát sinh, chứng từ đính kèm (ảnh chụp màn hình, biên lai) lên hệ thống quản lý khiếu nại (CRM-KN).
+4. Khách hàng có thể tra cứu trạng thái xử lý khiếu nại theo mã KN-YYYY-xxxx trên ứng dụng MSB mBank (mục Hỗ trợ → Tra cứu khiếu nại) hoặc qua tổng đài, không cần đến trực tiếp quầy giao dịch để hỏi tiến độ.
+
+Điều 3. Cam kết thời gian phản hồi lần đầu (SLA tiếp nhận)
+1. Mọi khiếu nại phải được phản hồi lần đầu cho khách hàng (xác nhận đã tiếp nhận, mã khiếu nại, thời gian dự kiến xử lý) trong vòng 24 giờ kể từ thời điểm tiếp nhận, không tính ngày nghỉ, lễ.
+2. Khiếu nại tiếp nhận ngoài giờ làm việc hoặc cuối tuần được tính thời gian phản hồi từ đầu giờ làm việc ngày kế tiếp.
+3. Không phản hồi trong SLA tại khoản 1 được coi là vi phạm và bị nhắc nhở tự động qua hệ thống CRM-KN.
+
+Điều 4. SLA giải quyết theo loại giao dịch
+1. Giao dịch nội bộ MSB (chuyển khoản giữa hai tài khoản MSB, nộp/rút tiền mặt): giải quyết tối đa 3 ngày làm việc kể từ khi đủ hồ sơ.
+2. Giao dịch liên ngân hàng trong nước qua Napas: tối đa 5 ngày làm việc, phụ thuộc phản hồi của ngân hàng đối tác qua hệ thống tra soát Napas.
+3. Giao dịch chuyển tiền quốc tế: tối đa 30 ngày làm việc đối với khu vực châu Á, tối đa 45 ngày làm việc đối với châu Âu, châu Mỹ do phụ thuộc ngân hàng trung gian và ngân hàng thụ hưởng ở nước ngoài.
+4. Giao dịch thẻ quốc tế (Visa/Mastercard) tranh chấp qua chargeback: 45 đến 120 ngày theo chu kỳ xử lý tranh chấp của tổ chức thẻ quốc tế; MSB không kiểm soát được thời gian phản hồi của ngân hàng phát hành/thanh toán phía đối tác.
+5. ATM nuốt tiền do lỗi máy (đối chiếu qua nhật ký máy ATM khớp với khiếu nại khách hàng): hoàn tiền trong 3 ngày làm việc, không cần chờ đối soát toàn bộ.
+6. Khiếu nại thu phí sai, thu phí trùng theo Điều 1 khoản 2 điểm e: hoàn trả phần phí thu sai trong 2 ngày làm việc kể từ khi Trung tâm Dịch vụ khách hàng xác nhận, không cần lập hồ sơ tra soát liên ngân hàng.
+
+Điều 5. Quy trình tra soát giao dịch trong nước
+1. Chuyên viên Trung tâm Dịch vụ khách hàng đối chiếu giao dịch trên T24, xác định lỗi thuộc về khách hàng (nhập sai), MSB (lỗi hệ thống, lỗi hạch toán) hay ngân hàng đối tác.
+2. Đối với chuyển tiền nhầm sang tài khoản khác trong hoặc ngoài MSB, MSB gửi yêu cầu tra soát đến ngân hàng thụ hưởng hoặc ĐVKD quản lý tài khoản nhận; việc hoàn trả phụ thuộc sự đồng ý của chủ tài khoản nhận tiền, MSB không có quyền tự động trích ngược.
+3. Đối với giao dịch qua Napas, tra soát thực hiện qua hệ thống tra soát điện tử Napas 24/7; thời gian phản hồi tiêu chuẩn của ngân hàng đối tác là 5 ngày làm việc theo thoả thuận liên ngân hàng.
+
+Điều 6. Quy trình tra soát chuyển tiền quốc tế
+1. Đối với điện đi chưa xác nhận, MSB lập điện tra soát MT192 (Request for Cancellation) hoặc theo dõi trạng thái qua SWIFT gpi tracker để xác định điện đang ở ngân hàng trung gian nào.
+2. Đối với khiếu nại chưa nhận được tiền dù đã chuyển, TTQT lập điện MT199 (Free Format Message) yêu cầu ngân hàng thụ hưởng xác nhận tình trạng; thực hiện theo Hướng dẫn HD.TTQT.04 về nội dung điện.
+3. Phí tra soát điện quốc tế: 20 USD/lần theo Điều 5 khoản 4 Hướng dẫn HD.TTQT.04, cộng phí thực tế phát sinh từ ngân hàng nước ngoài nếu có; miễn phí nếu xác định lỗi do MSB (nhập sai BIC, sai thông tin trên điện).
+4. Trường hợp sử dụng SWIFT gpi, khách hàng có thể được cung cấp mã theo dõi UETR để tra cứu trạng thái gần thời gian thực; TTQT cập nhật trạng thái trên CRM-KN mỗi khi có phản hồi mới.
+
+Điều 7. Hoàn tiền tạm ứng cho khách hàng khi lỗi do MSB
+1. Khi xác định rõ nguyên nhân do lỗi hệ thống hoặc lỗi tác nghiệp của MSB (hạch toán trùng, sai số tiền, treo giao dịch quá thời gian xử lý chuẩn), MSB hoàn tiền tạm ứng cho khách hàng trong 1 ngày làm việc kể từ khi có kết luận, không chờ đối soát xong toàn bộ chuỗi giao dịch.
+2. Việc hoàn tiền tạm ứng phải được Giám đốc ĐVKD hoặc Trưởng Trung tâm Dịch vụ khách hàng phê duyệt, hạch toán vào tài khoản treo tra soát của MSB, tất toán khi có kết quả đối soát cuối cùng.
+3. Trường hợp sau khi hoàn tạm ứng phát hiện lỗi không thuộc về MSB, MSB có quyền thu hồi lại số tiền đã tạm ứng theo thoả thuận đã ký với khách hàng khi nhận tiền tạm ứng.
+
+Điều 8. Hồ sơ lưu và mẫu phản hồi
+1. Hồ sơ khiếu nại gồm: đơn/yêu cầu tra soát của khách hàng, chứng từ giao dịch gốc, biên bản làm việc (nếu có), văn bản phản hồi khách hàng; lưu trên CRM-KN và ECM nhóm HSKN tối thiểu 5 năm.
+2. Văn bản phản hồi khách hàng theo mẫu MB-KN02, nêu rõ kết luận, căn cứ và hướng xử lý; gửi qua kênh khách hàng đã đăng ký (SMS, email, ứng dụng hoặc văn bản giấy nếu khách hàng yêu cầu).
+3. Với khiếu nại từ chối giải quyết, văn bản phản hồi phải nêu rõ lý do và hướng dẫn khách hàng quyền khiếu nại tiếp theo quy định tại HD.KN.PC.12.
+
+Điều 9. Leo thang khi quá hạn xử lý
+1. Khiếu nại quá 80% thời gian SLA quy định tại Điều 4 mà chưa có kết luận, hệ thống CRM-KN tự động cảnh báo Trưởng bộ phận xử lý.
+2. Quá SLA mà chưa giải quyết, hồ sơ tự động leo thang lên Giám đốc Trung tâm Dịch vụ khách hàng (giao dịch trong nước) hoặc Giám đốc TTQT (giao dịch quốc tế) để chỉ đạo xử lý trực tiếp.
+3. Khiếu nại phức tạp, giá trị lớn (trên 500 triệu đồng) hoặc có nguy cơ ảnh hưởng uy tín MSB được báo cáo đồng thời cho Khối Vận hành và Khối Pháp chế và Tuân thủ.
+
+Điều 10. Báo cáo định kỳ
+1. Trung tâm Dịch vụ khách hàng lập báo cáo tuần về số lượng khiếu nại tiếp nhận, đã giải quyết, tồn đọng theo từng loại và tỷ lệ tuân thủ SLA, gửi Ban điều hành Khối Vận hành.
+2. Khiếu nại liên quan lỗi hệ thống lặp lại từ 3 lần trở lên trong tháng phải được báo cáo bộ phận Công nghệ thông tin để rà soát nguyên nhân gốc.
+
+Điều 11. Đào tạo và công cụ hỗ trợ tra soát
+1. Chuyên viên Trung tâm Dịch vụ khách hàng và TTQT được đào tạo định kỳ về hệ thống CRM-KN, quy trình tra soát Napas và thao tác lập điện MT192/MT199 tối thiểu 1 lần/năm; cán bộ mới hoàn thành đào tạo trong 15 ngày làm việc kể từ khi nhận việc.
+2. Hệ thống CRM-KN cung cấp báo cáo trạng thái theo thời gian thực cho khách hàng tra cứu, đồng bộ dữ liệu với hệ thống tra soát Napas và SWIFT gpi tracker để giảm thao tác nhập tay của cán bộ.
+3. Trường hợp phát sinh loại khiếu nại mới chưa có trong danh mục tại Điều 1, cán bộ tiếp nhận phân loại tạm theo loại gần nhất, ghi rõ mô tả và báo cáo Trung tâm Dịch vụ khách hàng trong 3 ngày làm việc để xem xét bổ sung hướng dẫn.
+
+Điều 12. Hiệu lực thi hành
+1. Hướng dẫn có hiệu lực từ ngày 15/03/2026, thay thế phiên bản 1.5.
+2. Thay đổi chính: bổ sung quy trình tra soát qua SWIFT gpi tracker và mã UETR; điều chỉnh SLA tiếp nhận từ 48 giờ xuống 24 giờ; bổ sung Điều 7 về hoàn tiền tạm ứng khi lỗi do MSB; bổ sung Điều 11 về đào tạo và công cụ hỗ trợ tra soát.

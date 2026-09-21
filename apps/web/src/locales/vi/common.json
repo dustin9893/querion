@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "datasets": "Kho tri thức",
+    "workflows": "Luồng xử lý",
+    "apps": "Trợ lý",
+    "chat": "Thử nghiệm hỏi đáp",
+    "tools": "Công cụ",
+    "skills": "Kỹ năng",
+    "forms": "Biểu mẫu"
+  },
+  "admin": {
+    "section": "Quản trị",
+    "users": "Người dùng quản trị",
+    "workspaces": "Đơn vị",
+    "settings": "Cài đặt AI",
+    "employees": "Cán bộ",
+    "ops": "Trợ lý Vận hành",
+    "audit": "Nhật ký truy vấn",
+    "usage": "Token sử dụng",
+    "schedules": "Lịch chạy"
+  },
+  "topbar": {
+    "defaultWorkspace": "Đơn vị mặc định"
+  },
+  "buttons": {
+    "create": "Tạo mới",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "send": "Gửi",
+    "upload": "Tải lên"
+  },
+  "theme": {
+    "dark": "Tối",
+    "light": "Sáng",
+    "system": "Hệ thống"
+  },
+  "language": {
+    "en": "English",
+    "vi": "Tiếng Việt"
+  },
+  "appName": "MSB Knowledge Assistant",
+  "version": "v0.2.0"
+}
