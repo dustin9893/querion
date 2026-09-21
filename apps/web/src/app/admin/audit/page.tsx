@@ -7,6 +7,7 @@ import {
   AuditRunRow, AuditRunDetail, AuditSummary, AuditFilters, AuditQuery,
 } from "@/lib/api/audit";
 import { sourceLabel, sourceBody } from "@/lib/citations";
+import { stripDocExt } from "@/lib/kbFormats";
 import Markdown from "@/components/ui/Markdown";
 import { COMPONENTS } from "@/lib/api/usage";
 
@@ -115,7 +116,7 @@ export default function AuditPage() {
           <span className="font-semibold" style={{ color: "var(--muted)" }}>Văn bản được trích dẫn nhiều nhất:</span>
           {summary.top_documents.map((d) => (
             <span key={d.filename} className="rounded-md px-2 py-1" style={{ background: "var(--accent-glow)", color: "var(--accent)" }}>
-              {d.filename.replace(/\.(txt|pdf|docx)$/i, "")} <strong>×{d.count}</strong>
+              {stripDocExt(d.filename)} <strong>×{d.count}</strong>
             </span>
           ))}
         </div>

@@ -264,6 +264,16 @@ export default function DatasetDetailPage() {
                         )}
                         {t(`status.${doc.status}`, "datasets")}
                       </span>
+                      {doc.status === "failed" && doc.error_message && (
+                        <div
+                          className="mt-1 text-[11px] leading-snug max-w-[240px] line-clamp-2"
+                          style={{ color: "#ef4444" }}
+                          title={doc.error_message}
+                          data-testid={`doc-error-${doc.filename}`}
+                        >
+                          {doc.error_message}
+                        </div>
+                      )}
                     </td>
                     <td className="px-4 py-3">
                       {doc.status === "ready" ? (

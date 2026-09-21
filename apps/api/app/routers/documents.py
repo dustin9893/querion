@@ -27,7 +27,7 @@ ALLOWED_TYPES = {
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     "text/plain",
 }
-ALLOWED_EXTENSIONS = {".pdf", ".docx", ".txt"}
+ALLOWED_EXTENSIONS = {".pdf", ".docx", ".txt", ".xlsx"}
 MAX_FILE_SIZE = 50 * 1024 * 1024  # 50MB
 
 
@@ -49,6 +49,18 @@ def _doc_to_response(doc: Document) -> DocumentResponse:
         created_at=doc.created_at.isoformat(),
         updated_at=doc.updated_at.isoformat(),
     )
+
+
+def _upload_extension(filename: str | None) -> str:
+    """Lower-cased extension of an uploadable knowledge-base file, or 400."""
+    filename = filename or "unnamed"
+    ext = "." + filename.rsplit(".", 1)[-1].lower() if "." in filename else ""
+    if ext not in ALLOWED_EXTENSIONS:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Unsupported file type. Allowed: {', '.join(sorted(ALLOWED_EXTENSIONS))}",
+        )
+    return ext
 
 
 @router.post(
@@ -81,12 +93,7 @@ async def upload_document(
 
     # Validate file extension
     filename = file.filename or "unnamed"
-    ext = "." + filename.rsplit(".", 1)[-1].lower() if "." in filename else ""
-    if ext not in ALLOWED_EXTENSIONS:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Unsupported file type. Allowed: {', '.join(ALLOWED_EXTENSIONS)}",
-        )
+    _upload_extension(file.filename)
 
     # Read file content
     data = await file.read()

@@ -3,6 +3,7 @@
 import { useCallback, useRef, useState } from "react";
 import { useI18n } from "@/components/providers/I18nProvider";
 import { DOC_TYPES } from "@/lib/api/datasets";
+import { KB_ACCEPT } from "@/lib/kbFormats";
 
 interface Props {
   datasetId: string;
@@ -111,7 +112,7 @@ export default function UploadDropzone({ datasetId, onUploadComplete }: Props) {
         <input
           ref={fileInputRef}
           type="file"
-          accept=".pdf,.docx,.txt"
+          accept={KB_ACCEPT}
           multiple
           style={{ display: "none" }}
           onChange={handleFileSelect}

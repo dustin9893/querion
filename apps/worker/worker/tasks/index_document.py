@@ -9,8 +9,7 @@ from sqlalchemy import select
 
 from worker.db import get_db
 from worker.pipeline.downloader import download
-from worker.pipeline.parser import parse
-from worker.pipeline.chunker import chunk_text
+from worker.pipeline.route import build_chunks
 from worker.pipeline.embedder import embed_texts
 
 logger = logging.getLogger(__name__)
@@ -76,23 +75,15 @@ def index_document(document_id: str) -> None:
         file_path = download(storage_key)
 
         try:
-            # --- 3. Parse ---
+            # --- 3-4. Parse + chunk ---
             logger.info(f"Parsing: {filename}")
-            text = parse(file_path, content_type)
-
-            if not text.strip():
-                _mark_failed(db, doc_id, "No text content extracted from document")
+            try:
+                chunks = build_chunks(file_path, content_type)
+            except ValueError as e:
+                _mark_failed(db, doc_id, str(e))
                 return
 
-            logger.info(f"Extracted {len(text)} chars")
-
-            # --- 4. Chunk ---
-            chunks = chunk_text(text)
             logger.info(f"Created {len(chunks)} chunks")
-
-            if not chunks:
-                _mark_failed(db, doc_id, "No chunks created from text")
-                return
 
             # --- 5. Embed ---
             logger.info(f"Embedding {len(chunks)} chunks with {model_name}")

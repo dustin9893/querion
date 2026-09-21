@@ -71,7 +71,7 @@
   },
   "upload": {
     "title": "Drag & drop files or click to upload",
-    "subtitle": "PDF, DOCX, TXT up to 50MB. Files are split by clause (Điều/Khoản) and indexed automatically.",
+    "subtitle": "PDF, DOCX, TXT, XLSX up to 50MB. Documents are split by clause (Điều/Khoản), spreadsheets row by row with their column names, then indexed automatically.",
     "uploading": "Uploading...",
     "docTypeLabel": "Document type",
     "versionLabel": "Version",

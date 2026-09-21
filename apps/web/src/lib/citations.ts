@@ -1,5 +1,7 @@
 /** Shared helpers for rendering retrieval citations (staff portal, customer page, admin). */
 
+import { stripDocExt } from "./kbFormats";
+
 export interface Source {
   chunk_id: string;
   filename?: string;
@@ -26,7 +28,7 @@ export function sectionOf(src: Source): string | null {
 /** "Quy trình cấp tín dụng KHDN (EB) v3.2 · hiệu lực 01/03/2026 · Điều 5. Phê duyệt tín dụng" */
 export function sourceLabel(src: Source): string {
   const bits: string[] = [];
-  if (src.filename) bits.push(src.filename.replace(/\.(txt|pdf|docx)$/i, ""));
+  if (src.filename) bits.push(stripDocExt(src.filename));
   if (src.effective_from) bits.push(`hiệu lực ${src.effective_from}`);
   const sec = sectionOf(src);
   if (sec) bits.push(sec);
