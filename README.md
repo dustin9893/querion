@@ -40,7 +40,7 @@ Nền tảng trợ lý tri thức đa đơn vị, chạy trong hạ tầng ngân
 
 | Lớp | Nội dung |
 |---|---|
-| **Tri thức** | Kho theo đơn vị → văn bản (PDF/DOCX/TXT) có loại, phiên bản, ngày hiệu lực → cắt đoạn **theo Chương/Mục/Điều** → vector trong pgvector |
+| **Tri thức** | Kho theo đơn vị → văn bản (PDF/DOCX/TXT/XLSX) có loại, phiên bản, ngày hiệu lực → cắt đoạn **theo Chương/Mục/Điều** (bảng tính: theo dòng, mỗi đoạn ghi sheet và khoảng dòng) → vector trong pgvector |
 | **Trả lời** | RAG có guardrail tiếng Việt, hoặc luồng xử lý tự thiết kế trên canvas, hoặc agent gọi công cụ |
 | **Hành động** | Công cụ gọi API lõi, MCP server, tính toán nghiệp vụ; lập báo cáo, điền biểu mẫu, xuất Excel; thao tác ghi dừng chờ cán bộ duyệt |
 | **Kiểm soát** | Che PII trước khi tới mô hình, bộ lọc rò rỉ prompt, nhật ký truy vấn, đo token theo từng thành phần |
@@ -55,7 +55,7 @@ Cổng cán bộ /staff · Trang khách hàng /kh · Bong bóng nhúng website �
 
 | Nhóm | Chi tiết | Ở đâu |
 |---|---|---|
-| **Kho tri thức** | Nhiều kho theo đơn vị; tải PDF/DOCX/TXT kèm loại văn bản, phiên bản, ngày hiệu lực; bật/tắt từng văn bản cho AI | Quản trị → Kho tri thức |
+| **Kho tri thức** | Nhiều kho theo đơn vị; tải PDF/DOCX/TXT/XLSX kèm loại văn bản, phiên bản, ngày hiệu lực; bật/tắt từng văn bản cho AI | Quản trị → Kho tri thức |
 | **Trích dẫn theo Điều** | Cắt đoạn nhận biết `Chương / Mục / Điều`, mỗi đoạn mang breadcrumb; câu trả lời gắn `[#n]` tới đúng Điều và ngày hiệu lực | `worker/pipeline/chunker.py` |
 | **Trợ lý** | Cho cán bộ (JWT) hoặc khách hàng (khoá công khai); gắn nhiều kho hoặc một luồng xử lý; logo riêng; phạm vi theo đơn vị hoặc toàn ngân hàng | Quản trị → Trợ lý |
 | **Luồng xử lý** | Canvas React Flow, runtime tự viết: phân loại ý định → chọn kho → soạn prompt → trả lời; có node gọi công cụ và xuất tài liệu | Quản trị → Luồng xử lý |

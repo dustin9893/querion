@@ -75,13 +75,13 @@ Tệp gốc nằm trong kho lưu trữ đối tượng. Tiến trình tải về
 
 3.3 Bước ba, bóc chữ
 
-Tuỳ định dạng mà hệ thống dùng cách bóc khác nhau. PDF, DOCX và TXT đều được hỗ trợ.
+Tuỳ định dạng mà hệ thống dùng cách bóc khác nhau. PDF, DOCX, TXT và XLSX đều được hỗ trợ. Với XLSX, bước này đọc từng sheet thành các dòng bảng thay vì bóc chữ liền mạch.
 
 Đây là bước hay hỏng nhất với PDF, vì một tệp PDF có thể chỉ là ảnh chụp trang giấy.
 
 3.4 Bước bốn, cắt đoạn
 
-Chữ vừa bóc được cắt thành các đoạn. Cách cắt mô tả ở mục 4.
+Chữ vừa bóc được cắt thành các đoạn. Cách cắt mô tả ở mục 4. Bảng tính XLSX được cắt theo dòng, không theo điều khoản, xem mục 4.5.
 
 3.5 Bước năm, sinh vector
 
@@ -129,9 +129,15 @@ Hệ thống phân biệt bằng hình dạng câu. Một dòng đánh số quá
 
 Đây cũng là lý do khi anh chị soạn tài liệu để nạp vào hệ thống, nên đặt tiêu đề mục ngắn và không kết thúc bằng dấu câu.
 
+4.5 Bảng tính được cắt theo dòng
+
+Tệp XLSX không đi qua cách cắt theo Chương, Mục, Điều ở trên. Mỗi dòng của bảng trở thành một dòng chữ dạng "Tên cột: giá trị | Tên cột: giá trị", và các dòng được xếp trọn vào từng đoạn, không dòng nào bị cắt đôi.
+
+Dấu vết ở đầu đoạn lúc này là tên sheet và khoảng dòng, dạng "Sheet <tên sheet> › dòng a–b", và trích dẫn hiển thị đúng nhãn đó. Sheet ẩn, dòng ẩn, cột ẩn và các dòng đang bị bộ lọc giấu đi không được lập chỉ mục. Cách chuẩn bị bảng tính trước khi tải lên nằm ở tài liệu về kho tri thức và tải văn bản.
+
 5. Các lỗi thường gặp và cách xử lý
 
-Thông báo lỗi được lưu nguyên văn vào bản ghi văn bản và hiển thị trên giao diện. Dưới đây là các thông báo hay gặp nhất.
+Thông báo lỗi được lưu nguyên văn vào bản ghi văn bản và hiển thị trên trang chi tiết kho, ngay dưới nhãn Lỗi màu đỏ. Dưới đây là các thông báo hay gặp nhất.
 
 5.1 Không có nhà cung cấp embedding đang bật
 
@@ -176,6 +182,16 @@ Cách xử lý: kiểm tra khoá và hạn mức ở phía nhà cung cấp, rồ
 Nguyên nhân: tiến trình worker không chạy, hoặc đang bận một công việc rất dài, hoặc đã chết giữa chừng mà không kịp cập nhật.
 
 Cách xử lý: kiểm tra tiến trình worker có đang chạy không. Sau khi worker chạy lại, bấm lập chỉ mục cho văn bản đó. Thao tác này đặt lại trạng thái và xếp một công việc mới.
+
+5.6 Bảng tính không đọc được
+
+Có hai lý do riêng cho tệp XLSX, đều hiện nguyên văn dưới nhãn Lỗi.
+
+Lý do thứ nhất là tệp không phải một tệp xlsx hợp lệ. Thường gặp khi tệp xls đời cũ hoặc tệp định dạng khác bị đổi đuôi thành xlsx, hoặc tệp bị hỏng khi sao chép. Cách xử lý: mở tệp bằng Excel, lưu lại thành Excel Workbook đuôi xlsx, rồi tải lên bản mới.
+
+Lý do thứ hai là tệp không có dữ liệu đọc được. Thường gặp khi mọi sheet đều trống, đều bị ẩn, hoặc dữ liệu đang bị bộ lọc giấu hết, hoặc các ô công thức chưa có giá trị tính vì tệp do phần mềm khác sinh ra và chưa từng mở bằng Excel. Cách xử lý: bỏ ẩn sheet, dòng, cột cần dùng, xoá bộ lọc, mở tệp bằng Excel và lưu lại, rồi tải lên lần nữa.
+
+Ngoài ra, một bảng tính vượt quá khoảng 16MB dữ liệu sheet khi giải nén hoặc sinh ra quá 2000 đoạn cũng báo lỗi, kèm lý do đề nghị tách tệp. Cách xử lý: tách bảng tính thành nhiều tệp nhỏ hơn, ví dụ mỗi tệp một nhóm sheet.
 
 6. Lập chỉ mục lại
 
@@ -333,6 +349,7 @@ Làm theo đúng thứ tự này, đừng nhảy cóc. Thứ tự được sắp
 - Nếu là Đang lập chỉ mục quá lâu, kiểm tra tiến trình worker.
 - Nếu thông báo nói không có nhà cung cấp embedding, sang màn hình cài đặt AI.
 - Nếu thông báo nói không bóc được chữ, kiểm tra tệp có phải bản quét không.
+- Nếu tệp là bảng tính XLSX, đối chiếu thông báo với mục 5.6.
 
 11.2 Khi trợ lý trả lời mà không có trích dẫn nào
 

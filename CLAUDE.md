@@ -39,6 +39,7 @@ python -m app.seed_ops                         # idempotent ops assistant: hidde
 python -m app.seed_skills                      # idempotent business skills (seed_demo is marker-gated, this is not)
 ruff check app/
 pytest tests/ -q                               # unit tests (tests/test_pii.py: Presidio masker, 30 cases, ~1 s)
+apps/api/.venv/bin/python -m pytest apps/worker/tests -q   # worker unit tests (chunker golden, parser, spreadsheet); run from the repo root, separately from apps/api/tests
 
 # Synthetic back-ends for assistant tools (both hosts must be in TOOL_INTERNAL_ALLOWLIST)
 ./scripts/mock-core.sh                         # demo-mock/core_api.py on :8095 (token demo-core-token)
@@ -52,6 +53,7 @@ apps/api/.venv/bin/python scratch/smoke_usage.py        # 18 checks: token meter
 apps/api/.venv/bin/python scratch/smoke_reports.py      # 25 checks: report workflow end to end (needs the jobs worker)
 apps/api/.venv/bin/python scratch/smoke_schedules.py    # 28 checks: cron, ticker, run-now, staff delivery (needs the scheduler)
 apps/api/.venv/bin/python scratch/smoke_forms.py        # 32 checks: form prefill, AI draft without PII, .docx export
+apps/api/.venv/bin/python scratch/smoke_xlsx_kb.py      # 24 checks: .xlsx knowledge-base documents end to end — row chunks, sheet/row citations, hidden content skipped, failure reasons (needs the worker image rebuilt with openpyxl; SKIP_CHAT=1 drops the one slow chat round)
 apps/api/.venv/bin/python scratch/smoke_xlsx_report.py  # 20 checks: MCP warehouse → multi-sheet .xlsx (needs ./scripts/mock-dwh.sh)
 apps/api/.venv/bin/python scratch/smoke_chat_reports.py  # 14 checks: asking the assistant for a report, the file chip, staff inbox scoping
 apps/api/.venv/bin/python scratch/smoke_export.py       # 36 checks: generic Excel export from chat context, number coercion, sheet-name and formula guards
@@ -248,11 +250,13 @@ Workspace-scoped endpoints depend on `require_ws_role(WsRole.x)` from `app/auth/
 
 ### Indexing pipeline (API → Redis → worker)
 
-Upload (`POST /v1/datasets/{id}/documents/upload`, `.pdf/.docx/.txt`) stores the file in MinIO, creates a `documents` row and **auto-enqueues** `worker.tasks.index_document.index_document` on RQ queue `querion-indexing`; `POST /v1/documents/{id}/index` re-triggers. Status: `uploaded → indexing → ready | failed`. `seed_demo.py` uses the same path.
+Upload (`POST /v1/datasets/{id}/documents/upload`, `.pdf/.docx/.txt/.xlsx`; legacy `.xls` is rejected) stores the file in MinIO, creates a `documents` row and **auto-enqueues** `worker.tasks.index_document.index_document` on RQ queue `querion-indexing`; `POST /v1/documents/{id}/index` re-triggers. Status: `uploaded → indexing → ready | failed`. `seed_demo.py` uses the same path.
 
 Worker steps: download → parse (pdfplumber / python-docx / plain) → **clause-aware chunk** → embed → replace chunks + embeddings → mark ready. `worker/pipeline/chunker.py` first splits on `Chương / Mục / Điều / 1. / 1.1` headings, then windows each section (1000 chars, 200 overlap) and prefixes every chunk with `[breadcrumb]`, e.g. `[CHƯƠNG II … › Điều 5. Phê duyệt tín dụng]`. `retrieval.py:_section_of` parses that prefix back into `section` for citations; the web helper `lib/citations.ts:sourceLabel` renders "văn bản · hiệu lực … · Điều …".
 
-Worker logging: `WORKER_LOG_LEVEL` (default `INFO`); `pdfminer`/`pdfplumber`/`httpx`/`httpcore`/`urllib3`/`openai` are pinned to WARNING in `worker/main.py` because pdfminer at DEBUG writes hundreds of thousands of lines per PDF (a 1.3 MB, 8-page PDF took 36 s to parse instead of 0.7 s). The dataset page polls `GET /v1/documents/{id}` every 3 s while a document is `indexing`.
+Spreadsheets: `worker/pipeline/route.py` routes `.xlsx` (by file extension) to `worker/pipeline/spreadsheet.py`; prose (`.pdf/.docx/.txt`) still goes through parse → `chunk_text` unchanged. Each row becomes one `Tên cột: giá trị | …` line, whole rows are packed per chunk (a row is never split) and every chunk is prefixed `[Sheet <name> › dòng a–b]`, which `_section_of` turns into the citation. The header is the first row with ≥3 distinct values (title rows above it become the chunk heading; a two-row merged header is supported); merged cells are filled down; hidden sheets/rows/columns and rows hidden by a filter are skipped; formulas are read by their cached value. A zip-directory guard caps sheet XML at 16 MB uncompressed, and output is capped at 2000 chunks; both fail the document with a "split the file" reason. Chunk text is not PII-masked.
+
+Worker logging: `WORKER_LOG_LEVEL` (default `INFO`); `pdfminer`/`pdfplumber`/`httpx`/`httpcore`/`urllib3`/`openai` are pinned to WARNING in `worker/main.py` because pdfminer at DEBUG writes hundreds of thousands of lines per PDF (a 1.3 MB, 8-page PDF took 36 s to parse instead of 0.7 s). The dataset page polls `GET /v1/documents/{id}` every 3 s while a document is `indexing`, and shows `documents.error_message` under the red failed badge.
 
 **Embedding dimension is fixed at 1536** (`vector(1536)`); Google 768-d vectors are zero-padded on both index and query side. Changing the embedding model does not re-index existing chunks.
 

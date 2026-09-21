@@ -82,13 +82,15 @@ Trên giao diện chọn kho, các kho nội bộ bị khoá sẵn khi trợ lý
 
 4.1 Định dạng và dung lượng được chấp nhận
 
-Hệ thống nhận ba định dạng: PDF, DOCX và TXT. Dung lượng tối đa mỗi tệp là 50MB.
+Hệ thống nhận bốn định dạng: PDF, DOCX, TXT và XLSX, tức bảng tính Excel. Dung lượng tối đa mỗi tệp là 50MB. Tệp Excel đời cũ đuôi xls không được nhận, hãy mở bằng Excel rồi lưu lại thành xlsx.
 
-Tệp sai định dạng bị từ chối với thông báo liệt kê ba đuôi được phép. Tệp quá lớn bị từ chối với thông báo nêu giới hạn. Hai thông báo này hiện bằng tiếng Anh.
+Tệp sai định dạng bị từ chối với thông báo liệt kê bốn đuôi được phép. Tệp quá lớn bị từ chối với thông báo nêu giới hạn. Hai thông báo này hiện bằng tiếng Anh.
 
 Một lưu ý về PDF. Hệ thống bóc chữ từ PDF chứ không nhận dạng ảnh. Một bản PDF là ảnh chụp hoặc bản scan không bóc được chữ nào, và văn bản sẽ chuyển sang trạng thái lỗi với thông báo không trích xuất được nội dung. Với tài liệu scan, hãy nhận dạng chữ trước bằng công cụ bên ngoài rồi mới tải lên.
 
-Định dạng TXT cho kết quả cắt đoạn tốt nhất, vì cấu trúc chương, mục, điều được giữ nguyên theo dòng. Nếu bạn có thể chọn, hãy chọn TXT.
+Với văn bản viết thành câu, định dạng TXT cho kết quả cắt đoạn tốt nhất, vì cấu trúc chương, mục, điều được giữ nguyên theo dòng. Nếu bạn có thể chọn, hãy chọn TXT.
+
+Nội dung dạng bảng như biểu phí, biểu lãi suất hay danh mục thì khác. Hãy tải chính bảng tính đó lên dưới dạng XLSX thay vì dán bảng vào một văn bản Word hay TXT. Cách hệ thống đọc bảng tính mô tả ở mục 4.4.
 
 4.2 Tải nhiều tệp một lúc
 
@@ -105,6 +107,22 @@ Tệp được cất vào kho lưu trữ đối tượng, một bản ghi văn b
 Nếu không đẩy được vào hàng đợi, ví dụ Redis không chạy, trạng thái được đặt lại thành đã tải để bạn bấm lập chỉ mục thủ công sau. Việc tải lên không thất bại vì lý do đó.
 
 Danh sách văn bản tự làm mới trong lúc một văn bản đang lập chỉ mục, nên bạn thấy trạng thái chuyển sang sẵn sàng mà không cần tải lại trang.
+
+4.4 Tải bảng tính Excel
+
+Bảng tính không được cắt theo điều, khoản. Mỗi dòng của bảng trở thành một dòng chữ dạng tên cột, dấu hai chấm, giá trị, các cột ngăn nhau bằng dấu gạch đứng, ví dụ "Tên cột: giá trị | Tên cột: giá trị". Các dòng được xếp trọn vào từng đoạn, một dòng không bao giờ bị cắt đôi. Mỗi đoạn mang nhãn "Sheet <tên sheet> › dòng a–b", và trích dẫn hiển thị đúng nhãn đó.
+
+Hệ thống lấy dòng đầu tiên có ít nhất ba giá trị khác nhau làm dòng tên cột. Các dòng tiêu đề nằm phía trên dòng đó trở thành dòng tiêu đề của đoạn. Ô gộp được điền xuống cho mọi dòng mà nó phủ, ví dụ một cột Nhóm phí gộp qua nhiều dòng thì dòng nào cũng mang tên nhóm. Dòng tên cột hai tầng dựng bằng ô gộp cũng đọc được.
+
+Sheet ẩn, dòng ẩn và cột ẩn không được lập chỉ mục. Các dòng đang bị bộ lọc giấu đi cũng không được lập chỉ mục. Trước khi tải lên, hãy xoá bộ lọc và bỏ ẩn mọi thứ mà trợ lý cần biết.
+
+Ô có công thức được đọc theo giá trị tính gần nhất đã lưu trong tệp. Một tệp do phần mềm khác sinh ra mà chưa từng mở bằng Excel có thể chưa có giá trị tính nào. Khi đó hãy mở tệp bằng Excel, lưu lại rồi tải lên lần nữa.
+
+Ngày được ghi theo dạng ngày, tháng, năm như 01/03/2026. Tỷ lệ phần trăm được ghi như 0,02%. Số có phân nhóm hàng nghìn được ghi như 1.234.567. Đơn vị tiền tệ chỉ nằm trong định dạng số của ô mà không gõ vào ô thì không được lập chỉ mục, vì vậy hãy ghi đơn vị vào tên cột, ví dụ đặt tên cột là Mức phí (VND).
+
+Mỗi tệp có giới hạn khoảng 16MB dữ liệu sheet khi đã giải nén và tối đa 2000 đoạn. Bảng tính lớn hơn sẽ chuyển sang trạng thái lỗi, lý do hiện ngay dưới nhãn Lỗi màu đỏ và đề nghị bạn tách tệp.
+
+Nội dung đoạn không được che thông tin cá nhân. Đừng tải lên bảng tính có dữ liệu cá nhân của khách hàng, chẳng hạn danh sách khách hàng kèm số giấy tờ hay số điện thoại.
 
 5. Ba trường thông tin đi kèm văn bản
 
@@ -268,7 +286,7 @@ Cột thứ sáu là công tắc dùng cho AI. Cột thứ bảy là các thao t
 
 Tải xong không có nghĩa là dùng được. Nên chạy bốn bước kiểm tra sau mỗi đợt cập nhật nội dung.
 
-Bước một là nhìn cột trạng thái. Mọi văn bản phải ở trạng thái sẵn sàng. Văn bản ở trạng thái lỗi cần đọc thông báo lỗi và xử lý theo tài liệu về lập chỉ mục.
+Bước một là nhìn cột trạng thái. Mọi văn bản phải ở trạng thái sẵn sàng. Văn bản ở trạng thái lỗi cần đọc thông báo lỗi, hiện ngay dưới nhãn Lỗi màu đỏ, và xử lý theo tài liệu về lập chỉ mục.
 
 Bước hai là nhìn cột số đoạn. Một văn bản vài chục trang mà chỉ sinh ra vài đoạn là dấu hiệu bóc chữ hỏng. Một văn bản hai trang mà sinh ra hàng trăm đoạn cũng bất thường.
 

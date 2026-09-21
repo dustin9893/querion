@@ -71,7 +71,7 @@
   },
   "upload": {
     "title": "Kéo thả tệp hoặc nhấp để tải lên",
-    "subtitle": "Hỗ trợ PDF, DOCX, TXT (tối đa 50MB). Sau khi tải lên, hệ thống tự động tách theo Điều/Khoản và lập chỉ mục.",
+    "subtitle": "Hỗ trợ PDF, DOCX, TXT, XLSX (tối đa 50MB). Văn bản được tách theo Điều/Khoản, bảng tính theo từng dòng kèm tên cột, rồi lập chỉ mục tự động.",
     "uploading": "Đang tải lên...",
     "docTypeLabel": "Loại văn bản",
     "versionLabel": "Phiên bản",

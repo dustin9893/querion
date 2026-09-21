@@ -16,6 +16,7 @@ python ../../scratch/smoke_reports.py      # report workflow: tool_call + render
 python ../../scratch/smoke_schedules.py    # cron schedules, ticker, staff delivery: 28
 python ../../scratch/smoke_forms.py        # business forms: prefill, AI draft without PII, .docx: 32
 python ../../scratch/smoke_xlsx_report.py  # MCP warehouse → multi-sheet Excel report: 20
+python ../../scratch/smoke_xlsx_kb.py      # .xlsx knowledge-base documents: row chunks, sheet/row citations, hidden rows skipped, failure reasons (needs the worker image rebuilt with openpyxl): 24
 python ../../scratch/smoke_export.py       # generic Excel export from chat context: 36
 python ../../scratch/smoke_chat_reports.py # asking the assistant for a report, staff inbox scoping: 14
 python ../../scratch/smoke_extension.py    # browser-extension channel, assistant filtering, audit: 25
@@ -35,7 +36,7 @@ API=https://<domain> ADMIN_PASSWORD=<super admin password> python ../../scratch/
 
 Two suites also call the mock core API **directly** to compare state before and after a write, so
 they only run where port 8095 is reachable: `smoke_tools.py` (its `MOCK_CORE` env var moves the URL
-the API is told to call) and `redteam.py`. The other 16 run unchanged against a deployment.
+the API is told to call) and `redteam.py`. The other 18 run unchanged against a deployment.
 
 `e2e.py` takes the embed origin from the assistant's own allow-list, so it works both with the local
 demo site on :8090 and with a deployed `demo.<domain>`; `EMBED_ORIGIN` overrides it.
